@@ -85,7 +85,7 @@ class ProyectoDos_Personas_Nuevo_Domicilio_Po {
         // Asegúrate de que solo haya un iframe con el que trabajas
         cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
         cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-            cy.get('#DMCCP').invoke('show').type(cp);
+            cy.get('#DMCCP').invoke('show').type(cp, { force: true });
             cy.wait(tiempo)
             cy.get('#vSEARCHCALLES').should('be.visible').click({ force: true });
         });
@@ -110,12 +110,13 @@ SeccionCinco(calle,t) {
 }
  SeccionSeis(numerocalle, barrio, t) {
     let tiempo = t;
-
+    cy.wait(2000)
     // Seleccionar el iframe padre 'EMBPAGEM' primero
     cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
         // Asegúrate de que solo haya un iframe con el que trabajas
         cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
         cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+          cy.wait(2000)
           cy.get('#DMCNRO').invoke('show').clear().type(numerocalle, { force: true });
           cy.wait(2000)
           cy.get('#BARRIOID').invoke('show').select(barrio, { force: true });
@@ -131,7 +132,8 @@ SeccionCinco(calle,t) {
   cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
     // Seleccionar el iframe hijo 'gxp1_ifrm'
     cy.get('iframe[id="gxp1_ifrm"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-              cy.get('#TEXTBLOCK').should('be.visible').and('contain.text', 'El Domicilio fue Agregado con Exito');
+        cy.wait(2000)      
+        cy.get('#TEXTBLOCK').should('be.visible').and('contain.text', 'El Domicilio fue Agregado con Exito');
               cy.get('#BUTTON1').should('be.visible').click({force: true})
               cy.wait(tiempo)
 }); 
