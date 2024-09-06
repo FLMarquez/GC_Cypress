@@ -68,10 +68,11 @@ class ProyectoDos_Personas_Nuevo_Domicilio_Po {
       cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
           // Seleccionar el iframe hijo 'gxp1_ifrm'
           cy.get('iframe[id="gxp1_ifrm"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-              cy.xpath("//input[contains(@id,'vCLCLDESCRIPCION')]").invoke('show', { timeout: 2000 }).type(localidad, { force: true });
+              cy.xpath("//input[contains(@id,'vCLCLDESCRIPCION')]").invoke('show').type(localidad, { force: true });
               cy.wait(tiempo)
-              cy.xpath("//img[@id='vSELECCIONAR_ACTION_0001']").invoke('show', { timeout: 2000 }).click({ force: true });
-          });
+              cy.xpath("//img[@id='vSELECCIONAR_ACTION_0001']").invoke('show').click({ force: true });
+              cy.wait(tiempo)
+            });
       });
   }
   
@@ -87,7 +88,9 @@ class ProyectoDos_Personas_Nuevo_Domicilio_Po {
         cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
             cy.get('#DMCCP').invoke('show', { timeout: 2000 }).type(cp);
             cy.wait(tiempo)
-            cy.get('#vSEARCHCALLES').should('be.visible', { timeout: 2000 }).click({ force: true });
+            cy.get('#DMCCP').invoke('show').type(cp);
+            cy.wait(tiempo)
+            cy.get('#vSEARCHCALLES').should('be.visible').click({ force: true });
         });
     });
 }
@@ -100,10 +103,10 @@ SeccionCinco(calle,t) {
    cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
     // Seleccionar el iframe hijo 'gxp1_ifrm'
     cy.get('iframe[id="gxp1_ifrm"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-          cy.get('#vGENERICFILTER_GRID').invoke('show', { timeout: 2000 }).type(calle, { force: true });
+          cy.get('#vGENERICFILTER_GRID').type(calle, { force: true });
           cy.wait(tiempo)
-          cy.get('#vSELECCIONAR_ACTION_0001').invoke('show', { timeout: 2000 }).click({ force: true });
-          cy.wait(5000)
+          cy.get('#vSELECCIONAR_ACTION_0001').invoke('show').click({ force: true });
+          cy.wait(tiempo)
           });
   });
 }
@@ -115,11 +118,17 @@ SeccionCinco(calle,t) {
         // Asegúrate de que solo haya un iframe con el que trabajas
         cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
         cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-          cy.get('#DMCNRO').should('be.visible', { timeout: 10000 }).clear().type(numerocalle, { force: true });
+        
+        cy.xpath("//input[@id='DMCNRO']").should('be.visible').clear({ force: true });
+        cy.wait(1000)
+        cy.xpath("//input[@id='DMCNRO']").should('be.visible').type(numerocalle);
+        
+          
+          cy.get('#BARRIOID').should('be.visible').select(barrio, { force: true });
           cy.wait(tiempo)
-          cy.get('#BARRIOID').should('be.visible', { timeout: 10000 }).select(barrio, { force: true });
+          cy.get('#CONFIRMARCARGA').click({ force: true });
           cy.wait(tiempo)
-          cy.get('#CONFIRMARCARGA').should('be.visible', { timeout: 2000 }).click({ force: true });
+          
         });
     });
 
@@ -129,8 +138,8 @@ SeccionCinco(calle,t) {
   cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
     // Seleccionar el iframe hijo 'gxp1_ifrm'
     cy.get('iframe[id="gxp1_ifrm"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-              cy.get('#TEXTBLOCK').should('be.visible', { timeout: 2000 }).and('contain.text', 'El Domicilio fue Agregado con Exito');
-              cy.get('#BUTTON1').should('be.visible', { timeout: 2000 }).click({force: true})
+              cy.get('#TEXTBLOCK').should('be.visible').and('contain.text', 'El Domicilio fue Agregado con Exito');
+              cy.get('#BUTTON1').should('be.visible').click({force: true})
               cy.wait(tiempo)
 }); 
 

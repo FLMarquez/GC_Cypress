@@ -21,14 +21,14 @@ describe('Personas_Crear_Nuevo_Domicilio', () => {
 })
 
 it('Personas_Crear_Nuevo_Domicilio', () => {        
-    master.SeccionUno("dsimoncini","dsimoncini",1500) 
-    master.SeccionDos("20263428340","FISCAL","ARGENTINA","MENDOZA","GODOY CRUZ",1500)
-    master.SeccionTres("CENTRO",1500)
-    master.SeccionCuatro("5008",1500)
-    master.SeccionCinco("25 DE MAYO",1500)
-    master.SeccionSeis("5555","AATRA",1500)
-    master.SeccionSiete(1500)
-    master.SeccionOcho(1000)
+    master.SeccionUno("dsimoncini","dsimoncini",3000) 
+    master.SeccionDos("20263428340","FISCAL","ARGENTINA","MENDOZA","GODOY CRUZ",3000)
+    master.SeccionTres("CENTRO",3000)
+    master.SeccionCuatro("5010",3000)
+    master.SeccionCinco("25 DE MAYO",3000)
+    master.SeccionSeis("5555","AATRA",3000)
+    master.SeccionSiete(3000)
+    master.SeccionOcho(1500)
        
 });
 
