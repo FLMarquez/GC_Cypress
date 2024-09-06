@@ -115,9 +115,9 @@ SeccionCinco(calle,t) {
         // Asegúrate de que solo haya un iframe con el que trabajas
         cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
         cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-          cy.get('#DMCNRO').should('be.visible').clear().type(numerocalle, { force: true });
+          cy.get('#DMCNRO').invoke('show').clear().type(numerocalle, { force: true });
           cy.wait(2000)
-          cy.get('#BARRIOID').should('be.visible').select(barrio, { force: true });
+          cy.get('#BARRIOID').invoke('show').select(barrio, { force: true });
           cy.wait(2000)
           cy.get('#CONFIRMARCARGA').click({ force: true });
           cy.wait(2000)
