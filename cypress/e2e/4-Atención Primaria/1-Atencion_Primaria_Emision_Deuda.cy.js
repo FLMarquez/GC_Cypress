@@ -22,7 +22,7 @@ describe('Objetos_Valida_Pantalla', () => {
     
 })
 
-it('Validar pantalla Objetos', () => {        
+it('Atencion Primaria Emision de Deuda', () => {        
     master.SeccionUno("dsimoncini","dsimoncini",1000) 
     master.SeccionDos("46860",1000) 
     master.SeccionTres(1000)  
