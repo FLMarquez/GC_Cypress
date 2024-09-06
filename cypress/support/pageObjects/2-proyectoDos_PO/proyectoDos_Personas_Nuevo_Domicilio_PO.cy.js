@@ -103,6 +103,7 @@ SeccionCinco(calle,t) {
           cy.get('#vGENERICFILTER_GRID').type(calle, { force: true });
           cy.wait(tiempo)
           cy.get('#vSELECCIONAR_ACTION_0001').invoke('show').click({ force: true });
+          cy.wait(2000)
 
           });
   });
