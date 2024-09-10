@@ -88,6 +88,7 @@ class ProyectoDos_Personas_Nuevo_Domicilio_Po {
         cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
             cy.get('#DMCCP').invoke('show', { timeout: 2000 }).type(cp);
             cy.wait(tiempo)
+            cy.get('#DMCCP').invoke('show').clear();
             cy.get('#DMCCP').invoke('show').type(cp);
             cy.wait(tiempo)
             cy.get('#vSEARCHCALLES').should('be.visible').click({ force: true });
