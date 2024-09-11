@@ -75,7 +75,7 @@ module.exports = defineConfig({
     },
     baseUrl: 'https://test.elinpar.com',
     env: {
-      downloadDirectory: '',
+      downloadDirectory: 'C:\\Users\\Lmarquez\\Downloads',
     }
   }
 });
