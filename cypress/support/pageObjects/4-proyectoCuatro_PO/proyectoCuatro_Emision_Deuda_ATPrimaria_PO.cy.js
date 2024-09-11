@@ -46,14 +46,14 @@ class ProyectoCuatro_Emision_Deuda_ATPrimaria_Po{
    
     cy.iframe().xpath("(//label[contains(@for,'GRIDOBLIGACIONES')])[1]").should('be.visible').click({force: true})
     cy.wait(5000)
-    
+
     cy.iframe().xpath("//input[@id='IMPRIMIRCONTADO']").invoke('click')
     cy.wait(4000)
       }
            
       SeccionTres(t){
         let tiempo=t
-       
+       cy.wait(4000)
         cy.get('#USERNAMEINITIALS_MPAGE').should('be.visible').click({force: true})
         cy.get('#SIGNOUT_MPAGE').should('be.visible').click({force: true})
 
