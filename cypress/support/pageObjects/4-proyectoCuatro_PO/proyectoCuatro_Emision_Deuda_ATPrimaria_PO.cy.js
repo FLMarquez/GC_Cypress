@@ -39,13 +39,14 @@ class ProyectoCuatro_Emision_Deuda_ATPrimaria_Po{
     
          
     cy.iframe().xpath("(//a[contains(.,'Consultar')])[1]").invoke('show').click({force: true})
-    cy.wait(1000)
+    cy.wait(5000)
 
     cy.iframe().find('#Tab_TABS_TABSCONTROLContainerpanel1').invoke('show').click({force: true})
-    cy.wait(1000)
+    cy.wait(5000)
    
     cy.iframe().xpath("(//label[contains(@for,'GRIDOBLIGACIONES')])[1]").should('be.visible').click({force: true})
-   
+    cy.wait(5000)
+    
     cy.iframe().xpath("//input[@id='IMPRIMIRCONTADO']").invoke('click')
     cy.wait(4000)
       }
