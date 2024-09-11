@@ -49,6 +49,7 @@ class ProyectoCuatro_Emision_Deuda_ATPrimaria_Po{
 
     cy.iframe().xpath("//input[@id='IMPRIMIRCONTADO']").invoke('click')
     cy.wait(4000)
+    
       }
            
       SeccionTres(t){
