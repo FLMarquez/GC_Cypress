@@ -1,5 +1,4 @@
 const { defineConfig } = require('cypress');
-const { downloadFile } = require('cypress-downloadfile/lib/addPlugin');
 const pdfParse = require('pdf-parse');
 const fs = require('fs');
 const path = require('path');
@@ -18,9 +17,8 @@ module.exports = defineConfig({
   projectId: "e7vrap",
   e2e: {
     setupNodeEvents(on, config) {
-      // Registrar las tareas
+      // Registrar tareas
       on('task', {
-        downloadFile,
         parsePdf({ filePath }) {
           const dataBuffer = fs.readFileSync(filePath);
           return pdfParse(dataBuffer).then(data => {
@@ -30,15 +28,14 @@ module.exports = defineConfig({
       });
 
       on('before:browser:launch', (browser = {}, launchOptions) => {
-        const downloadDir = path.resolve(config.env.downloadDirectory);
+        const downloadDir = path.resolve('C:\\ProgramData\\Jenkins\\workspace\\GC_Cypress\\downloads');
 
         if (browser.name === 'chrome') {
           launchOptions.args.push('--disable-gpu');
           launchOptions.args.push('--disable-software-rasterizer');
           launchOptions.args.push('--disable-dev-shm-usage');
           launchOptions.args.push('--no-sandbox');
-          //launchOptions.args.push('--headless'); // Asegúrate de estar en modo headless
-
+          
           launchOptions.preferences = {
             'download.default_directory': downloadDir,
             'download.prompt_for_download': false,
@@ -64,7 +61,7 @@ module.exports = defineConfig({
 
       // Asegúrate de que la carpeta de descargas exista
       on('before:run', () => {
-        const downloadDirectory = path.resolve(config.env.downloadDirectory);
+        const downloadDirectory = path.resolve('C:\\ProgramData\\Jenkins\\workspace\\GC_Cypress\\downloads');
         console.log('Download directory:', downloadDirectory); // Verificar la ruta
         if (!fs.existsSync(downloadDirectory)) {
           fs.mkdirSync(downloadDirectory, { recursive: true });
@@ -75,7 +72,7 @@ module.exports = defineConfig({
     },
     baseUrl: 'https://test.elinpar.com',
     env: {
-      downloadDirectory: 'C:\\Users\\Lmarquez\\Downloads',
+      downloadDirectory: 'C:\\ProgramData\\Jenkins\\workspace\\GC_Cypress\\downloads',
     }
   }
 });
