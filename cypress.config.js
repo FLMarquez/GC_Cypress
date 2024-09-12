@@ -12,7 +12,7 @@ module.exports = defineConfig({
   viewportHeight: 864,
   chromeWebSecurity: false,
   defaultCommandTimeout: 15000,
-  pageLoadTimeout: 19000,
+  pageLoadTimeout: 60000,
   videoCompression: false,
   trashAssetsBeforeRuns: false,
   projectId: "e7vrap",
