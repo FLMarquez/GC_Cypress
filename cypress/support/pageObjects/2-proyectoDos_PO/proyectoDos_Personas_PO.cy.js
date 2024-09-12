@@ -56,9 +56,10 @@ class ProyectoDos_Po{
           cy.get('span').should('be.visible').contains('Fecha de Fin');                
           
           cy.get('#vK2BTOOLSGENERICSEARCHFIELD').should("be.visible").type(`${cuit}{enter}`);
+
           cy.get('#vVER_0001', { timeout: 10000 }).should('exist').click({ force: true });
-          cy.wait(2500)
-          cy.get('#Tab_TABS_TABSCONTROLContainerpanel1').should("be.visible").click({ force: true });
+          cy.wait(5000)
+          cy.get('#Tab_TABS_TABSCONTROLContainerpanel1').invoke('show').click({ force: true });
           cy.get('#GRIDTITLE_GRID').should("be.visible"),
           cy.get('#Tab_TABS_TABSCONTROLContainerpanel2').should("be.visible").click({ force: true });
           cy.get('#GRIDTITLE_GRID1').should("be.visible"),
