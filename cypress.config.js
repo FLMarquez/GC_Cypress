@@ -39,6 +39,7 @@ module.exports = defineConfig({
           launchOptions.args.push('--no-sandbox');
           launchOptions.args.push('--headless'); // Asegúrate de estar en modo headless
 
+          // Configuraciones específicas para Chrome
           launchOptions.preferences = {
             'download.default_directory': downloadDir,
             'download.prompt_for_download': false,
@@ -46,6 +47,7 @@ module.exports = defineConfig({
             'plugins.plugins_disabled': ['Chrome PDF Viewer']
           };
         } else if (browser.name === 'firefox') {
+          // Configuraciones específicas para Firefox
           launchOptions.preferences = {
             'browser.download.folderList': 2,
             'browser.download.dir': downloadDir,
@@ -53,6 +55,7 @@ module.exports = defineConfig({
             'pdfjs.disabled': true
           };
         } else if (browser.name === 'electron') {
+          // Configuraciones específicas para Electron
           launchOptions.preferences = {
             'download.default_directory': downloadDir,
             'download.prompt_for_download': false,
@@ -79,3 +82,4 @@ module.exports = defineConfig({
     }
   }
 });
+
