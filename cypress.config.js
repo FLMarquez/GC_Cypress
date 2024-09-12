@@ -12,7 +12,7 @@ module.exports = defineConfig({
   viewportHeight: 864,
   chromeWebSecurity: false,
   defaultCommandTimeout: 15000,
-  pageLoadTimeout: 60000,
+  pageLoadTimeout: 19000,
   videoCompression: false,
   trashAssetsBeforeRuns: false,
   projectId: "e7vrap",
@@ -39,7 +39,6 @@ module.exports = defineConfig({
           launchOptions.args.push('--no-sandbox');
           //launchOptions.args.push('--headless'); // Asegúrate de estar en modo headless
 
-          // Configuraciones específicas para Chrome
           launchOptions.preferences = {
             'download.default_directory': downloadDir,
             'download.prompt_for_download': false,
@@ -47,7 +46,6 @@ module.exports = defineConfig({
             'plugins.plugins_disabled': ['Chrome PDF Viewer']
           };
         } else if (browser.name === 'firefox') {
-          // Configuraciones específicas para Firefox
           launchOptions.preferences = {
             'browser.download.folderList': 2,
             'browser.download.dir': downloadDir,
@@ -55,7 +53,6 @@ module.exports = defineConfig({
             'pdfjs.disabled': true
           };
         } else if (browser.name === 'electron') {
-          // Configuraciones específicas para Electron
           launchOptions.preferences = {
             'download.default_directory': downloadDir,
             'download.prompt_for_download': false,
@@ -78,10 +75,7 @@ module.exports = defineConfig({
     },
     baseUrl: 'https://test.elinpar.com',
     env: {
-      downloadDirectory: 'C:\\Users\\Lmarquez\\Downloads\\GC',
-
-      //C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress\downloads
+      downloadDirectory: 'C:\\Users\\Lmarquez\\Downloads',
     }
   }
 });
-
