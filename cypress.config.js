@@ -39,7 +39,7 @@ module.exports = defineConfig({
           launchOptions.args.push('--no-sandbox');
           launchOptions.preferences['plugins.plugins_disabled'] = ['Chrome PDF Viewer'];
 
-          //launchOptions.args.push('--headless'); // Asegúrate de estar en modo headless
+          launchOptions.args.push('--headless'); // Asegúrate de estar en modo headless
 
           launchOptions.preferences = {
             'download.default_directory': downloadDir,
