@@ -23,9 +23,9 @@ describe('Objetos_Valida_Pantalla', () => {
 })
 
 it('Atencion Primaria Emision de Deuda', () => {        
-    master.SeccionUno("dsimoncini","dsimoncini",1000) 
-    master.SeccionDos("46860",1000) 
-    master.SeccionTres(1000)  
+    master.SeccionUno("dsimoncini","dsimoncini",5000) 
+    master.SeccionDos("46860",5000) 
+    master.SeccionTres(4000)  
        
 });
 
