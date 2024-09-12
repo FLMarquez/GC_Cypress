@@ -37,7 +37,7 @@ module.exports = defineConfig({
           launchOptions.args.push('--disable-software-rasterizer');
           launchOptions.args.push('--disable-dev-shm-usage');
           launchOptions.args.push('--no-sandbox');
-          launchOptions.args.push('--headless'); // Asegúrate de estar en modo headless
+          //launchOptions.args.push('--headless'); // Asegúrate de estar en modo headless
 
           // Configuraciones específicas para Chrome
           launchOptions.preferences = {
