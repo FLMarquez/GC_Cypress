@@ -14,6 +14,7 @@ pipeline {
                         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
                         bat 'npm install'
                         bat 'npm update'
+                        bat 'mkdir C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads || echo "Directory already exists"'
                         // bat '''
                         // if not exist "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress\\cypress\\downloads" (
                         //     mkdir "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress\\cypress\\downloads"
@@ -33,6 +34,7 @@ pipeline {
                         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
                         bat 'npm install'
                         bat 'npm update'
+                        bat 'mkdir C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads || echo "Directory already exists"'
                         // bat '''
                         // if not exist "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress\\cypress\\downloads" (
                         //     mkdir "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress\\cypress\\downloads"
@@ -52,6 +54,7 @@ pipeline {
                         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
                         bat 'npm install'
                         bat 'npm update'
+                        bat 'mkdir C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads || echo "Directory already exists"'
                         // bat '''
                         // if not exist "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress\\cypress\\downloads" (
                         //     mkdir "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress\\cypress\\downloads"
@@ -71,6 +74,7 @@ pipeline {
                         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
                         bat 'npm install'
                         bat 'npm update'
+                        bat 'mkdir C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads || echo "Directory already exists"'
                         // bat '''
                         // if not exist "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress\\cypress\\downloads" (
                         //     mkdir "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress\\cypress\\downloads"
@@ -90,6 +94,7 @@ pipeline {
                         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
                         bat 'npm install'
                         bat 'npm update'
+                        bat 'mkdir C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads || echo "Directory already exists"'
                         // bat '''
                         // if not exist "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress\\cypress\\downloads" (
                         //     mkdir "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress\\cypress\\downloads"
