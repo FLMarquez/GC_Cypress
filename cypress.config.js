@@ -78,7 +78,7 @@ module.exports = defineConfig({
     },
     baseUrl: 'https://test.elinpar.com',
     env: {
-      downloadDirectory: 'C:\\Users\\Lmarquez\\Desktop\\downloads',
+      downloadDirectory: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads',
     }
   }
 });
