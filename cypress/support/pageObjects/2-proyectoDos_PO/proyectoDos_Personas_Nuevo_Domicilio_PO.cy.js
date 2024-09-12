@@ -36,14 +36,17 @@ class ProyectoDos_Personas_Nuevo_Domicilio_Po {
         cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
             // Escribir el CUIT y presionar Enter en el campo de búsqueda
             cy.get('#vK2BTOOLSGENERICSEARCHFIELD').should("be.visible").type(`${cuit}{enter}`);
+            cy.wait(5000)
 
             // Esperar y hacer clic en el botón de verificación (vVER_0001)
             cy.get('#vVER_0001', { timeout: 10000 }).should('exist').click({ force: true });
 
             // Clic en la primera pestaña (Tab_TABS_TABSCONTROLContainerpanel1)
+            cy.wait(5000)
             cy.get('#Tab_TABS_TABSCONTROLContainerpanel1').should("be.visible").click({ force: true });
 
             // Verificar que la tabla con ID GRIDTITLE_GRID sea visible
+            cy.wait(5000)
             cy.get('#GRIDTITLE_GRID').should("be.visible");
 
             // Esperar un segundo y luego hacer clic en el botón de inserción
