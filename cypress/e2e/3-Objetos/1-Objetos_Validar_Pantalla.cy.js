@@ -23,9 +23,9 @@ describe('Objetos_Valida_Pantalla', () => {
 })
 
 it('Validar pantalla Objetos', () => {        
-    master.SeccionUno("dsimoncini","dsimoncini",3000) 
-    master.SeccionDos("20263428340",3000)  
-    master.SeccionTres(3000) 
+    master.SeccionUno("dsimoncini","dsimoncini",1000) 
+    master.SeccionDos("20263428340",1000)  
+    master.SeccionTres(1000) 
        
 });
 

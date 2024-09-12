@@ -33,12 +33,12 @@ module.exports = defineConfig({
         const downloadDir = path.resolve(config.env.downloadDirectory);
 
         if (browser.name === 'chrome') {
-          //launchOptions.args.push('--disable-cache');
-          //launchOptions.args.push('--disable-application-cache');
           launchOptions.args.push('--disable-gpu');
           launchOptions.args.push('--disable-software-rasterizer');
           launchOptions.args.push('--disable-dev-shm-usage');
           launchOptions.args.push('--no-sandbox');
+          //launchOptions.args.push('--disable-cache');
+          //launchOptions.args.push('--disable-application-cache');
           launchOptions.preferences['plugins.plugins_disabled'] = ['Chrome PDF Viewer'];
 
           //launchOptions.args.push('--headless'); // Asegúrate de estar en modo headless
