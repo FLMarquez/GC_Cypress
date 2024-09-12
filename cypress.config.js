@@ -39,7 +39,7 @@ module.exports = defineConfig({
           launchOptions.args.push('--no-sandbox');
           launchOptions.preferences['plugins.plugins_disabled'] = ['Chrome PDF Viewer'];
 
-          launchOptions.args.push('--headless'); // Asegúrate de estar en modo headless
+          //launchOptions.args.push('--headless'); // Asegúrate de estar en modo headless
 
           launchOptions.preferences = {
             'download.default_directory': downloadDir,
@@ -69,9 +69,13 @@ module.exports = defineConfig({
         const downloadDirectory = path.resolve(config.env.downloadDirectory);
         console.log('Download directory:', downloadDirectory); // Verificar la ruta
         if (!fs.existsSync(downloadDirectory)) {
-          fs.mkdirSync(downloadDirectory, { recursive: true });
+            fs.mkdirSync(downloadDirectory, { recursive: true });
+            console.log('Download directory created:', downloadDirectory);
+        } else {
+            console.log('Download directory already exists:', downloadDirectory);
         }
-      });
+    });
+    
 
       return config;
     },
