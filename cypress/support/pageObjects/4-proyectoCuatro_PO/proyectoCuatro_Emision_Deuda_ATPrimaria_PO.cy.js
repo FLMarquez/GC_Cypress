@@ -48,13 +48,13 @@ class ProyectoCuatro_Emision_Deuda_ATPrimaria_Po{
     cy.wait(5000)
 
     cy.iframe().xpath("//input[@id='IMPRIMIRCONTADO']").invoke('click')
-    cy.wait(60000)
+    cy.wait(1000)
     
       }
            
       SeccionTres(t){
         let tiempo=t
-       cy.wait(6000)
+       cy.wait(1000)
         cy.get('#USERNAMEINITIALS_MPAGE').should('be.visible').click({force: true})
         cy.get('#SIGNOUT_MPAGE').should('be.visible').click({force: true})
 
