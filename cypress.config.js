@@ -16,7 +16,7 @@ module.exports = defineConfig({
   videoCompression: false,
   trashAssetsBeforeRuns: false,
   projectId: "e7vrap",
-  downloadsFolder: 'C:/ProgramData/Jenkins/.jenkins/workspace/GC_Cypress_Pipeline/cypress/downloads',
+  downloadsFolder: 'C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads',
   e2e: {
     setupNodeEvents(on, config) {
       // Registrar las tareas
