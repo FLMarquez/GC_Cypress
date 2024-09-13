@@ -16,8 +16,8 @@ pipeline {
                         bat 'npm update'
                         bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel'
                         
-                        // Paso adicional para mover los archivos PDF
-                        bat 'move "C:\\path\\to\\pdfs\\*.pdf" "%WORKSPACE%\\downloads\\"'
+                        // Mover los archivos PDF descargados al workspace de Jenkins
+                        bat 'move "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"'
                     }
                 }
 
@@ -31,8 +31,8 @@ pipeline {
                         bat 'npm update'
                         bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel'
                         
-                        // Paso adicional para mover los archivos PDF
-                        bat 'move "C:\\path\\to\\pdfs\\*.pdf" "%WORKSPACE%\\downloads\\"'
+                        // Mover los archivos PDF descargados al workspace de Jenkins
+                        bat 'move "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"'
                     }
                 }
 
@@ -46,8 +46,8 @@ pipeline {
                         bat 'npm update'
                         bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel'
                         
-                        // Paso adicional para mover los archivos PDF
-                        bat 'move "C:\\path\\to\\pdfs\\*.pdf" "%WORKSPACE%\\downloads\\"'
+                        // Mover los archivos PDF descargados al workspace de Jenkins
+                        bat 'move "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"'
                     }
                 }
 
@@ -61,8 +61,8 @@ pipeline {
                         bat 'npm update'
                         bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel'
                         
-                        // Paso adicional para mover los archivos PDF
-                        bat 'move "C:\\path\\to\\pdfs\\*.pdf" "%WORKSPACE%\\downloads\\"'
+                        // Mover los archivos PDF descargados al workspace de Jenkins
+                        bat 'move "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"'
                     }
                 }
 
@@ -76,8 +76,8 @@ pipeline {
                         bat 'npm update'
                         bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel'
                         
-                        // Paso adicional para mover los archivos PDF
-                        bat 'move "C:\\path\\to\\pdfs\\*.pdf" "%WORKSPACE%\\downloads\\"'
+                        // Mover los archivos PDF descargados al workspace de Jenkins
+                        bat 'move "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"'
                     }
                 }
             }
