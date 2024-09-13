@@ -3,6 +3,7 @@ const { downloadFile } = require('cypress-downloadfile/lib/addPlugin');
 const pdfParse = require('pdf-parse');
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process'); // Importa execSync para ejecutar comandos del sistema
 
 module.exports = defineConfig({
   video: true,
@@ -27,6 +28,14 @@ module.exports = defineConfig({
           return pdfParse(dataBuffer).then(data => {
             return data.text;
           });
+        },
+        convertHtmlToPdf({ input, output }) {
+          try {
+            execSync(`pandoc "${input}" -o "${output}"`);
+            return null;
+          } catch (error) {
+            return error.message;
+          }
         }
       });
 
@@ -64,6 +73,6 @@ module.exports = defineConfig({
     env: {
       downloadsFolder: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads',
     }
-    
   }
 });
+
