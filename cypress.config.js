@@ -30,13 +30,16 @@ module.exports = defineConfig({
           });
         },
         convertHtmlToPdf({ input, output }) {
-          try {
-            execSync(`pandoc "${input}" -o "${output}"`);
-            return null;
-          } catch (error) {
-            return error.message;
+      return new Promise((resolve, reject) => {
+        const cmd = `${pandoc} ${input} -o ${output}`;
+        exec(cmd, (error, stdout, stderr) => {
+          if (error) {
+            return reject(error);
           }
-        }
+          resolve();
+        });
+      });
+    }
       });
 
       on('before:browser:launch', (browser = {}, launchOptions) => {
