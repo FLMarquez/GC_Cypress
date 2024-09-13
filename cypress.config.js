@@ -61,7 +61,7 @@ module.exports = defineConfig({
     },
     baseUrl: 'https://test.elinpar.com',
     env: {
-      downloadsFolder: 'cypress/downloads',
+      downloadsFolder: 'C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads',
     }
     
   }
