@@ -20,7 +20,7 @@ describe('Personas_Actualización_Datos', () => {
     
 })
 
-it('Usuario y Contraseña Válido', () => {        
+it('Personas_Actualización_Datos', () => {        
     master.SeccionUno("dsimoncini","dsimoncini",1000) 
     master.SeccionDos("20263428340","4799999","prueba@elinpar.com",1000)
     master.SeccionTres(1000)
