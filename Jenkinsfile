@@ -14,15 +14,10 @@ pipeline {
                         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
                         bat 'npm install'
                         bat 'npm update'
-                        bat 'mkdir C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads || echo "Directory already exists"'
-                        // bat '''
-                        // if not exist "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress\\cypress\\downloads" (
-                        //     mkdir "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress\\cypress\\downloads"
-                        // ) else (
-                        //     echo "Directory already exists"
-                        // )
-                        // '''
                         bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel'
+                        
+                        // Paso adicional para mover los archivos PDF
+                        bat 'move "C:\\path\\to\\pdfs\\*.pdf" "%WORKSPACE%\\downloads\\"'
                     }
                 }
 
@@ -34,15 +29,10 @@ pipeline {
                         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
                         bat 'npm install'
                         bat 'npm update'
-                        bat 'mkdir C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads || echo "Directory already exists"'
-                        // bat '''
-                        // if not exist "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress\\cypress\\downloads" (
-                        //     mkdir "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress\\cypress\\downloads"
-                        // ) else (
-                        //     echo "Directory already exists"
-                        // )
-                        // '''
                         bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel'
+                        
+                        // Paso adicional para mover los archivos PDF
+                        bat 'move "C:\\path\\to\\pdfs\\*.pdf" "%WORKSPACE%\\downloads\\"'
                     }
                 }
 
@@ -54,15 +44,10 @@ pipeline {
                         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
                         bat 'npm install'
                         bat 'npm update'
-                        bat 'mkdir C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads || echo "Directory already exists"'
-                        // bat '''
-                        // if not exist "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress\\cypress\\downloads" (
-                        //     mkdir "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress\\cypress\\downloads"
-                        // ) else (
-                        //     echo "Directory already exists"
-                        // )
-                        // '''
                         bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel'
+                        
+                        // Paso adicional para mover los archivos PDF
+                        bat 'move "C:\\path\\to\\pdfs\\*.pdf" "%WORKSPACE%\\downloads\\"'
                     }
                 }
 
@@ -74,15 +59,10 @@ pipeline {
                         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
                         bat 'npm install'
                         bat 'npm update'
-                        bat 'mkdir C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads || echo "Directory already exists"'
-                        // bat '''
-                        // if not exist "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress\\cypress\\downloads" (
-                        //     mkdir "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress\\cypress\\downloads"
-                        // ) else (
-                        //     echo "Directory already exists"
-                        // )
-                        // '''
                         bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel'
+                        
+                        // Paso adicional para mover los archivos PDF
+                        bat 'move "C:\\path\\to\\pdfs\\*.pdf" "%WORKSPACE%\\downloads\\"'
                     }
                 }
 
@@ -94,15 +74,10 @@ pipeline {
                         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
                         bat 'npm install'
                         bat 'npm update'
-                        bat 'mkdir C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads || echo "Directory already exists"'
-                        // bat '''
-                        // if not exist "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress\\cypress\\downloads" (
-                        //     mkdir "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress\\cypress\\downloads"
-                        // ) else (
-                        //     echo "Directory already exists"
-                        // )
-                        // '''
                         bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel'
+                        
+                        // Paso adicional para mover los archivos PDF
+                        bat 'move "C:\\path\\to\\pdfs\\*.pdf" "%WORKSPACE%\\downloads\\"'
                     }
                 }
             }
