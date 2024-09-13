@@ -43,7 +43,7 @@ class ProyectoDos_Personas_Nuevo_Domicilio_Po {
 
             // Clic en la primera pestaña (Tab_TABS_TABSCONTROLContainerpanel1)
             cy.wait(5000)
-            cy.get('#Tab_TABS_TABSCONTROLContainerpanel1').should("be.visible").click({ force: true });
+            cy.get('#Tab_TABS_TABSCONTROLContainerpanel1').invoke('show').click({ force: true });
 
             // Verificar que la tabla con ID GRIDTITLE_GRID sea visible
             cy.wait(5000)

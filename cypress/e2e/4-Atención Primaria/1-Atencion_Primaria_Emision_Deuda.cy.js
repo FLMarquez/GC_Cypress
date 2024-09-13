@@ -6,7 +6,7 @@ import ProyectoCuatro_Emision_Deuda_ATPrimaria_Po from '../../support/pageObject
 require('cypress-xpath')
 
 
-describe('Objetos_Valida_Pantalla', () => {
+describe('Atencion_Primaria_Emision_Deuda', () => {
 
     const master=new ProyectoCuatro_Emision_Deuda_ATPrimaria_Po()
     
