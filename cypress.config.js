@@ -60,6 +60,9 @@ module.exports = defineConfig({
       return config;
     },
     baseUrl: 'https://test.elinpar.com',
-    env: {}
+    env: {
+      downloadsFolder: 'cypress/downloads',
+    }
+    
   }
 });
