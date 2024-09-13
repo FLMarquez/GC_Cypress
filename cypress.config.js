@@ -30,8 +30,6 @@ module.exports = defineConfig({
       });
 
       on('before:browser:launch', (browser = {}, launchOptions) => {
-        const downloadDir = path.resolve(config.env.downloadDirectory);
-
         if (browser.name === 'chrome') {
           launchOptions.args.push('--disable-gpu');
           launchOptions.args.push('--disable-software-rasterizer');
@@ -40,21 +38,18 @@ module.exports = defineConfig({
           //launchOptions.args.push('--headless'); // Asegúrate de estar en modo headless
 
           launchOptions.preferences = {
-            'download.default_directory': downloadDir,
             'download.prompt_for_download': false,
             'plugins.always_open_pdf_externally': true,
             'plugins.plugins_disabled': ['Chrome PDF Viewer']
           };
         } else if (browser.name === 'firefox') {
           launchOptions.preferences = {
-            'browser.download.folderList': 2,
-            'browser.download.dir': downloadDir,
+            'browser.download.folderList': 1, // Usa la carpeta de descargas por defecto
             'browser.helperApps.neverAsk.saveToDisk': 'application/pdf',
             'pdfjs.disabled': true
           };
         } else if (browser.name === 'electron') {
           launchOptions.preferences = {
-            'download.default_directory': downloadDir,
             'download.prompt_for_download': false,
           };
         }
@@ -62,20 +57,9 @@ module.exports = defineConfig({
         return launchOptions;
       });
 
-      // Asegúrate de que la carpeta de descargas exista
-      on('before:run', () => {
-        const downloadDirectory = path.resolve(config.env.downloadDirectory);
-        console.log('Download directory:', downloadDirectory); // Verificar la ruta
-        if (!fs.existsSync(downloadDirectory)) {
-          fs.mkdirSync(downloadDirectory, { recursive: true });
-        }
-      });
-
       return config;
     },
     baseUrl: 'https://test.elinpar.com',
-    env: {
-      downloadDirectory: 'C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads',
-    }
+    env: {}
   }
 });
