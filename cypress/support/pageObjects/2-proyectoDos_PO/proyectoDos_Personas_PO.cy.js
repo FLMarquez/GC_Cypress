@@ -56,17 +56,17 @@ class ProyectoDos_Po{
           cy.get('span').should('be.visible').contains('Fecha de Fin');                
           
           cy.get('#vK2BTOOLSGENERICSEARCHFIELD').should("be.visible").type(`${cuit}{enter}`);
-
-          cy.get('#vVER_0001', { timeout: 10000 }).should('exist').click({ force: true });
-          cy.wait(5000)
-          cy.get('#Tab_TABS_TABSCONTROLContainerpanel1').invoke('show').click({ force: true });
-          cy.wait(tiempo)
+          //cy.wait(5000)
+          
+          cy.get('#vVER_0001').should('exist').invoke('show').click({ force: true });
+          cy.get('#Tab_TABS_TABSCONTROLContainerpanel1', { timeout: 30000 }).should('exist').invoke('show').click({ force: true });
+          
           cy.get('#GRIDTITLE_GRID').should("be.visible"),
-          cy.get('#Tab_TABS_TABSCONTROLContainerpanel2').should("be.visible").click({ force: true });
+          cy.get('#Tab_TABS_TABSCONTROLContainerpanel2').invoke('show').click({ force: true });
           cy.get('#GRIDTITLE_GRID1').should("be.visible"),
-          cy.get('#Tab_TABS_TABSCONTROLContainerpanel3').should("be.visible").click({ force: true });
+          cy.get('#Tab_TABS_TABSCONTROLContainerpanel3').invoke('show').click({ force: true });
           cy.get('#GRIDTITLE_GRID2').should("be.visible"),
-          cy.get('#Tab_TABS_TABSCONTROLContainerpanel4').should("be.visible").click({ force: true });
+          cy.get('#Tab_TABS_TABSCONTROLContainerpanel4').invoke('show').click({ force: true });
           cy.get('#GRIDTITLE_GRID3').should("be.visible")
 
         });
