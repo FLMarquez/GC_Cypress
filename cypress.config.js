@@ -16,7 +16,7 @@ module.exports = defineConfig({
   videoCompression: false,
   trashAssetsBeforeRuns: false,
   projectId: "e7vrap",
-  downloadsFolder: 'C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads',
+  downloadsFolder: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads',
   e2e: {
     setupNodeEvents(on, config) {
       // Registrar las tareas
@@ -62,7 +62,7 @@ module.exports = defineConfig({
     },
     baseUrl: 'https://test.elinpar.com',
     env: {
-      downloadsFolder: 'C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads',
+      downloadsFolder: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads',
     }
     
   }
