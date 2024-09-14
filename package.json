@@ -23,6 +23,7 @@
     "axios": "^1.7.7",
     "files-from-path": "^1.0.4",
     "pdf-parse": "^1.1.1",
+    "pdf2json": "^3.1.4",
     "readfile": "^1.0.1"
   }
 }
