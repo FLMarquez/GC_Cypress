@@ -3,7 +3,6 @@ const { downloadFile } = require('cypress-downloadfile/lib/addPlugin');
 const pdfParse = require('pdf-parse');
 const fs = require('fs');
 const path = require('path');
-//const { execSync } = require('child_process'); // Importa execSync para ejecutar comandos del sistema
 
 module.exports = defineConfig({
   video: true,
@@ -25,39 +24,21 @@ module.exports = defineConfig({
       on('task', {
         downloadFile,
         parsePdf({ filePath }) {
-          const dataBuffer = fs.readFileSync(filePath);
-          return pdfParse(dataBuffer).then(data => {
-            return data.text;
-          });
+          return pdfParse(fs.readFileSync(filePath)).then(data => data.text);
         },
-        
       });
 
       on('before:browser:launch', (browser = {}, launchOptions) => {
         if (browser.name === 'chrome') {
-          launchOptions.args.push('--disable-gpu');
-          launchOptions.args.push('--disable-extensions');
-          launchOptions.args.push('--disable-software-rasterizer');
-          launchOptions.args.push('--disable-dev-shm-usage');
-          launchOptions.args.push('--no-sandbox');
-          
-          //launchOptions.args.push('--headless'); // Asegúrate de estar en modo headless
-
+          launchOptions.args.push('--disable-gpu', '--disable-extensions', '--disable-software-rasterizer', '--disable-dev-shm-usage', '--no-sandbox');
           launchOptions.preferences.default.download = {
             prompt_for_download: false,
             'plugins.always_open_pdf_externally': true,
-            default_directory: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads'
-          };
-
-
-          launchOptions.preferences = {
-            'download.prompt_for_download': false,
-            'plugins.always_open_pdf_externally': true,
-            'plugins.plugins_disabled': ['Chrome PDF Viewer']
+            default_directory: config.downloadsFolder,
           };
         } else if (browser.name === 'firefox') {
           launchOptions.preferences = {
-            'browser.download.folderList': 1, // Usa la carpeta de descargas por defecto
+            'browser.download.folderList': 1,
             'browser.helperApps.neverAsk.saveToDisk': 'application/pdf',
             'pdfjs.disabled': true
           };
