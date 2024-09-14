@@ -3,14 +3,7 @@ const { downloadFile } = require('cypress-downloadfile/lib/addPlugin');
 const pdfParse = require('pdf-parse');
 const fs = require('fs');
 const path = require('path');
-const { execSync } = require('child_process'); // Importa execSync para ejecutar comandos del sistema
-const downloadDir = 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads';
-
-if (!fs.existsSync(downloadDir)) {
-  fs.mkdirSync(downloadDir, { recursive: true });
-}
-
-
+//const { execSync } = require('child_process'); // Importa execSync para ejecutar comandos del sistema
 
 module.exports = defineConfig({
   video: true,
@@ -36,17 +29,7 @@ module.exports = defineConfig({
             return data.text;
           });
         },
-        convertHtmlToPdf({ input, output }) {
-      return new Promise((resolve, reject) => {
-        const cmd = `${pandoc} ${input} -o ${output}`;
-        exec(cmd, (error, stdout, stderr) => {
-          if (error) {
-            return reject(error);
-          }
-          resolve();
-        });
-      });
-    }
+        
       });
 
       on('before:browser:launch', (browser = {}, launchOptions) => {
@@ -56,24 +39,35 @@ module.exports = defineConfig({
           launchOptions.args.push('--disable-software-rasterizer');
           launchOptions.args.push('--disable-dev-shm-usage');
           launchOptions.args.push('--no-sandbox');
+          
           launchOptions.args.push('--headless'); // Asegúrate de estar en modo headless
-          
-          // Configuración para manejar PDF
-          launchOptions.preferences.default['download'] = {
+
+          launchOptions.preferences.default.download = {
             prompt_for_download: false,
-            directory_upgrade: true,
-            default_directory: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads',
             'plugins.always_open_pdf_externally': true,
+            default_directory: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads'
           };
-          
-          launchOptions.preferences['plugins.plugins_disabled'] = ['Chrome PDF Viewer'];
+
+
+          launchOptions.preferences = {
+            'download.prompt_for_download': false,
+            'plugins.always_open_pdf_externally': true,
+            'plugins.plugins_disabled': ['Chrome PDF Viewer']
+          };
+        } else if (browser.name === 'firefox') {
+          launchOptions.preferences = {
+            'browser.download.folderList': 1, // Usa la carpeta de descargas por defecto
+            'browser.helperApps.neverAsk.saveToDisk': 'application/pdf',
+            'pdfjs.disabled': true
+          };
+        } else if (browser.name === 'electron') {
+          launchOptions.preferences = {
+            'download.prompt_for_download': false,
+          };
         }
-      
-        // Configuración para Firefox y Electron...
+
         return launchOptions;
       });
-      
-      
 
       return config;
     },
