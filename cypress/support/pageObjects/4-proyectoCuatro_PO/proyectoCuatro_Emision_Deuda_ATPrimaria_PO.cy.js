@@ -44,7 +44,7 @@ class ProyectoCuatro_Emision_Deuda_ATPrimaria_Po {
     cy.wait(5000);
 
     cy.iframe().xpath("(//label[contains(@for,'GRIDOBLIGACIONES')])[1]").should('be.visible').click({ force: true });
-    cy.wait(5000);
+    cy.wait(50000);
 
     cy.iframe().xpath("//input[@id='IMPRIMIRCONTADO']").invoke('click');
     cy.wait(30000); // Espera 10 segundos para asegurar que el PDF se descargue
