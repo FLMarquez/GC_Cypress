@@ -57,20 +57,22 @@ module.exports = defineConfig({
           launchOptions.args.push('--disable-dev-shm-usage');
           launchOptions.args.push('--no-sandbox');
           launchOptions.args.push('--headless'); // Asegúrate de estar en modo headless
-      
+          
+          // Configuración para manejar PDF
           launchOptions.preferences.default['download'] = {
             prompt_for_download: false,
             directory_upgrade: true,
             default_directory: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads',
             'plugins.always_open_pdf_externally': true,
           };
-      
+          
           launchOptions.preferences['plugins.plugins_disabled'] = ['Chrome PDF Viewer'];
         }
       
         // Configuración para Firefox y Electron...
         return launchOptions;
       });
+      
       
 
       return config;
