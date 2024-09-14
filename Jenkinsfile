@@ -4,6 +4,16 @@ pipeline {
     tools { nodejs "node" }
 
     stages {
+        // Conectar a la VPN antes de ejecutar las pruebas
+        stage('Connect to VPN') {
+            steps {
+                script {
+                    // Ejecutar connect_vpn.bat
+                    bat 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\connect_vpn.bat'
+                }
+            }
+        }
+
         stage('Cypress Parallel Test Suite') {
             parallel {
                 stage('Slave 1') {
@@ -109,6 +119,16 @@ pipeline {
                         )
                         '''
                     }
+                }
+            }
+        }
+
+        // Desconectar de la VPN después de ejecutar las pruebas
+        stage('Disconnect from VPN') {
+            steps {
+                script {
+                    // Ejecutar disconnect_vpn.bat
+                    bat 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\disconnect_vpn.bat'
                 }
             }
         }
