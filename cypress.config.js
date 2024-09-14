@@ -17,7 +17,8 @@ module.exports = defineConfig({
   videoCompression: false,
   trashAssetsBeforeRuns: false,
   projectId: "e7vrap",
-  downloadsFolder: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads',
+  downloadsFolder: 'C:\\Users\\Lmarquez\\Downloads',
+
   e2e: {
     setupNodeEvents(on, config) {
       // Registrar las tareas
@@ -40,7 +41,7 @@ module.exports = defineConfig({
           launchOptions.args.push('--disable-dev-shm-usage');
           launchOptions.args.push('--no-sandbox');
           
-          launchOptions.args.push('--headless'); // Asegúrate de estar en modo headless
+          //launchOptions.args.push('--headless'); // Asegúrate de estar en modo headless
 
           launchOptions.preferences.default.download = {
             prompt_for_download: false,
@@ -73,7 +74,7 @@ module.exports = defineConfig({
     },
     baseUrl: 'https://test.elinpar.com',
     env: {
-      downloadsFolder: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads',
+      downloadsFolder: 'C:\\Users\\Lmarquez\\Downloads',
     }
   }
 });
