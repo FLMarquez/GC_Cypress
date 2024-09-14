@@ -45,10 +45,19 @@ module.exports = defineConfig({
       on('before:browser:launch', (browser = {}, launchOptions) => {
         if (browser.name === 'chrome') {
           launchOptions.args.push('--disable-gpu');
+          launchOptions.args.push('--disable-extensions');
           launchOptions.args.push('--disable-software-rasterizer');
           launchOptions.args.push('--disable-dev-shm-usage');
           launchOptions.args.push('--no-sandbox');
+          
           //launchOptions.args.push('--headless'); // Asegúrate de estar en modo headless
+
+          launchOptions.preferences.default.download = {
+            prompt_for_download: false,
+            'plugins.always_open_pdf_externally': true,
+            default_directory: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads'
+          };
+
 
           launchOptions.preferences = {
             'download.prompt_for_download': false,
