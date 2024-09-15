@@ -14,9 +14,17 @@ pipeline {
                         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
                         bat 'npm install'
                         bat 'npm update'
-                        bat 'mkdir C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\SMA_Cypress\\cypress\\downloads || echo "Directory already exists"'
                         bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel'
                         
+                        // Mover los archivos PDF descargados al workspace de Jenkins si existen
+                        bat '''
+                        if exist "C:\\Users\\Lmarquez\\Downloads\\*.pdf" (
+                        move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
+                    ) else (
+                        echo No PDF files found to move.
+                    )
+
+                        '''
                     }
                 }
 
@@ -28,9 +36,16 @@ pipeline {
                         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
                         bat 'npm install'
                         bat 'npm update'
-                        bat 'mkdir C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\SMA_Cypress\\cypress\\downloads || echo "Directory already exists"'
                         bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel'
                         
+                        // Mover los archivos PDF descargados al workspace de Jenkins si existen
+                        bat '''
+                        if exist "C:\\Users\\Lmarquez\\Downloads\\*.pdf" (
+                        move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
+                    ) else (
+                        echo No PDF files found to move.
+                    )
+                        '''
                     }
                 }
 
@@ -42,9 +57,16 @@ pipeline {
                         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
                         bat 'npm install'
                         bat 'npm update'
-                        bat 'mkdir C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\SMA_Cypress\\cypress\\downloads || echo "Directory already exists"'
                         bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel'
                         
+                        // Mover los archivos PDF descargados al workspace de Jenkins si existen
+                        bat '''
+                        if exist "C:\\Users\\Lmarquez\\Downloads\\*.pdf" (
+                        move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
+                    ) else (
+                        echo No PDF files found to move.
+                    )
+                        '''
                     }
                 }
 
@@ -56,9 +78,16 @@ pipeline {
                         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
                         bat 'npm install'
                         bat 'npm update'
-                        bat 'mkdir C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\SMA_Cypress\\cypress\\downloads || echo "Directory already exists"'
                         bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel'
                         
+                        // Mover los archivos PDF descargados al workspace de Jenkins si existen
+                        bat '''
+                        if exist "C:\\Users\\Lmarquez\\Downloads\\*.pdf" (
+                        move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
+                    ) else (
+                        echo No PDF files found to move.
+                    )
+                        '''
                     }
                 }
 
@@ -66,13 +95,20 @@ pipeline {
                     agent {
                         label "Agent2_5"
                     }
-                     steps {
+                    steps {
                         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
                         bat 'npm install'
                         bat 'npm update'
-                        bat 'mkdir C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\SMA_Cypress\\cypress\\downloads || echo "Directory already exists"'
                         bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel'
                         
+                        // Mover los archivos PDF descargados al workspace de Jenkins si existen
+                        bat '''
+                        if exist "C:\\Users\\Lmarquez\\Downloads\\*.pdf" (
+                        move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
+                    ) else (
+                        echo No PDF files found to move.
+                    )
+                        '''
                     }
                 }
             }

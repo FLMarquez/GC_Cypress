@@ -2,7 +2,8 @@ const path = require('path');
 
 describe('Test de extracción de texto de PDF', () => {
     it('Extrae texto de un archivo PDF y valida', () => {
-        const pdfFilePath = path.join(Cypress.config('downloadsFolder'), 'aadeudacontadosellados2_impl.pdf');
+        // Usa la ruta absoluta directamente o asegúrate de que downloadDirectory esté configurado
+        const pdfFilePath = 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\aadeudacontadosellados2_impl.pdf';
 
         cy.task('parsePdf', { filePath: pdfFilePath })
         .then((extractedText) => {
