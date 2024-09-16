@@ -2,8 +2,6 @@ const { defineConfig } = require('cypress');
 const { downloadFile } = require('cypress-downloadfile/lib/addPlugin');
 const pdfParse = require('pdf-parse');
 const fs = require('fs');
-const path = require('path');
-//const { execSync } = require('child_process'); // Importa execSync para ejecutar comandos del sistema
 
 module.exports = defineConfig({
   video: true,
@@ -29,7 +27,6 @@ module.exports = defineConfig({
             return data.text;
           });
         },
-        
       });
 
       on('before:browser:launch', (browser = {}, launchOptions) => {
@@ -39,30 +36,31 @@ module.exports = defineConfig({
           launchOptions.args.push('--disable-software-rasterizer');
           launchOptions.args.push('--disable-dev-shm-usage');
           launchOptions.args.push('--no-sandbox');
-          
           launchOptions.args.push('--headless'); // Asegúrate de estar en modo headless
 
-          launchOptions.preferences.default.download = {
-            prompt_for_download: false,
-            'plugins.always_open_pdf_externally': true,
-            default_directory: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads'
+          // Configurar la carpeta de descargas en Chrome
+          launchOptions.preferences.default = {
+            'download': {
+              'default_directory': 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads',
+              'prompt_for_download': false,
+              'directory_upgrade': true,
+              'extensions_to_open': 'applications/pdf'
+            },
+            'plugins.plugins_disabled': ['Chrome PDF Viewer'],
+            'plugins.always_open_pdf_externally': true
           };
 
-
-          launchOptions.preferences = {
-            'download.prompt_for_download': false,
-            'plugins.always_open_pdf_externally': true,
-            'plugins.plugins_disabled': ['Chrome PDF Viewer']
-          };
         } else if (browser.name === 'firefox') {
           launchOptions.preferences = {
-            'browser.download.folderList': 1, // Usa la carpeta de descargas por defecto
+            'browser.download.dir': 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads',
+            'browser.download.folderList': 2, // Usa la carpeta de descargas especificada en 'browser.download.dir'
             'browser.helperApps.neverAsk.saveToDisk': 'application/pdf',
             'pdfjs.disabled': true
           };
         } else if (browser.name === 'electron') {
           launchOptions.preferences = {
             'download.prompt_for_download': false,
+            'download.default_directory': 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads'
           };
         }
 
@@ -77,4 +75,5 @@ module.exports = defineConfig({
     }
   }
 });
+
 
