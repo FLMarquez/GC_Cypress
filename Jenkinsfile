@@ -20,12 +20,13 @@ pipeline {
                     agent {
                         label "Agent2_1"
                     }
-                    steps {
+                     steps {
                         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
                         bat 'npm install'
                         bat 'npm update'
-                        bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser firefox --parallel'
-                        
+                        // Modificar aquí para ejecutar solo una prueba específica
+                        bat 'npx cypress run --spec "cypress/e2e/1-Atencion_Primaria_Emision_Deuda.cy.js" --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser firefox'
+
                         // Mover los archivos PDF descargados al workspace de Jenkins si existen
                         bat '''
                         if exist "C:\\Users\\Lmarquez\\Downloads\\*.pdf" (
@@ -41,12 +42,13 @@ pipeline {
                     agent {
                         label "Agent2_2"
                     }
-                    steps {
+                     steps {
                         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
                         bat 'npm install'
                         bat 'npm update'
-                        bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser firefox --parallel'
-                        
+                        // Modificar aquí para ejecutar solo una prueba específica
+                        bat 'npx cypress run --spec "cypress/e2e/1-Atencion_Primaria_Emision_Deuda.cy.js" --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser firefox'
+
                         // Mover los archivos PDF descargados al workspace de Jenkins si existen
                         bat '''
                         if exist "C:\\Users\\Lmarquez\\Downloads\\*.pdf" (
@@ -66,8 +68,9 @@ pipeline {
                         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
                         bat 'npm install'
                         bat 'npm update'
-                        bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser firefox --parallel'
-                        
+                        // Modificar aquí para ejecutar solo una prueba específica
+                        bat 'npx cypress run --spec "cypress/e2e/1-Atencion_Primaria_Emision_Deuda.cy.js" --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser firefox'
+
                         // Mover los archivos PDF descargados al workspace de Jenkins si existen
                         bat '''
                         if exist "C:\\Users\\Lmarquez\\Downloads\\*.pdf" (
@@ -83,12 +86,13 @@ pipeline {
                     agent {
                         label "Agent2_4"
                     }
-                    steps {
+                     steps {
                         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
                         bat 'npm install'
                         bat 'npm update'
-                        bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser firefox --parallel'
-                        
+                        // Modificar aquí para ejecutar solo una prueba específica
+                        bat 'npx cypress run --spec "cypress/e2e/1-Atencion_Primaria_Emision_Deuda.cy.js" --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser firefox'
+
                         // Mover los archivos PDF descargados al workspace de Jenkins si existen
                         bat '''
                         if exist "C:\\Users\\Lmarquez\\Downloads\\*.pdf" (
@@ -104,12 +108,13 @@ pipeline {
                     agent {
                         label "Agent2_5"
                     }
-                    steps {
+                     steps {
                         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
                         bat 'npm install'
                         bat 'npm update'
-                        bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser firefox --parallel'
-                        
+                        // Modificar aquí para ejecutar solo una prueba específica
+                        bat 'npx cypress run --spec "cypress/e2e/1-Atencion_Primaria_Emision_Deuda.cy.js" --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser firefox'
+
                         // Mover los archivos PDF descargados al workspace de Jenkins si existen
                         bat '''
                         if exist "C:\\Users\\Lmarquez\\Downloads\\*.pdf" (
