@@ -44,33 +44,11 @@ class ProyectoCuatro_Emision_Deuda_ATPrimaria_Po {
     cy.wait(5000);
 
     cy.iframe().xpath("(//label[contains(@for,'GRIDOBLIGACIONES')])[1]").should('be.visible').click({ force: true });
-    cy.wait(50000);
+    cy.wait(2500);
 
     cy.iframe().xpath("//input[@id='IMPRIMIRCONTADO']").invoke('click');
-    cy.wait(30000); // Espera 10 segundos para asegurar que el PDF se descargue
+    cy.wait(2500); // Espera 10 segundos para asegurar que el PDF se descargue
 
-
-    cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-    cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-    cy.xpath("//a[contains(.,'Emisión de Deuda')]").invoke('show').click({ force: true });
-    cy.xpath("//a[contains(.,'Atención Primaria')]").invoke('show').click({ force: true });
-    cy.wait(6000);
-
-    cy.frameLoaded({ index: 0 });
-    cy.iframe().find('#vFILTROGENERAL').type(objeto);
-    cy.iframe().find('#BUSCAR').should("be.visible").click({ force: true });
-
-    cy.iframe().xpath("(//a[contains(.,'Consultar')])[1]").invoke('show').click({ force: true });
-    cy.wait(5000);
-
-    cy.iframe().find('#Tab_TABS_TABSCONTROLContainerpanel1').invoke('show').click({ force: true });
-    cy.wait(5000);
-
-    cy.iframe().xpath("(//label[contains(@for,'GRIDOBLIGACIONES')])[1]").should('be.visible').click({ force: true });
-    cy.wait(50000);
-
-    cy.iframe().xpath("//input[@id='IMPRIMIRCONTADO']").invoke('click');
-    cy.wait(50000); // Espera 10 segundos para asegurar que el PDF se descargue
   }
 
   SeccionTres(t) {

@@ -6,7 +6,7 @@ import ProyectoSiete_Emisione_Tasas_PO from '../../support/pageObjects/7-proyect
 require('cypress-xpath')
 
 
-//describe('Emision de Tasa', () => {
+describe('Emision de Tasa', () => {
 
     const master=new ProyectoSiete_Emisione_Tasas_PO()
     
