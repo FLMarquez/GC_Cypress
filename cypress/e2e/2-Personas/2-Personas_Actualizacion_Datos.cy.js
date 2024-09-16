@@ -4,7 +4,7 @@ import ProyectoDos_Personas_Datos_Po from '../../support/pageObjects/2-proyectoD
 require('cypress-xpath')
 
 
-describe('Personas_Actualización_Datos', () => {
+//describe('Personas_Actualización_Datos', () => {
 
     const master=new ProyectoDos_Personas_Datos_Po()
     

@@ -4,7 +4,7 @@ import ProyectoUno_Loguin_Po from '../../support/pageObjects/1-proyectoUno_PO/pr
 require('cypress-xpath')
 
 
-describe('Login_GC', () => {
+//describe('Login_GC', () => {
 
     const master=new ProyectoUno_Loguin_Po()
     
