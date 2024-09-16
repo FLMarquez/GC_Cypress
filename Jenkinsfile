@@ -3,16 +3,16 @@ pipeline {
 
     tools { nodejs "node" }
 
-    stages {
-        stage('Cleanup') {
-            steps {
-                script {
-                    // Eliminar archivos de video antiguos antes de ejecutar las pruebas
-                    bat 'del /Q "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\videos\\*"'
-                    bat 'del /Q "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline@2\\cypress\\videos\\*"'
-                }
-            }
-        }
+    // stages {
+    //     stage('Cleanup') {
+    //         steps {
+    //             script {
+    //                 // Eliminar archivos de video antiguos antes de ejecutar las pruebas
+    //                 bat 'del /Q "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\videos\\*"'
+    //                 bat 'del /Q "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\videos\\*"'
+    //             }
+    //         }
+    //     }
 
         stage('Cypress Parallel Test Suite') {
             parallel {
@@ -123,4 +123,4 @@ pipeline {
             }
         }
     }
-}
+// }
