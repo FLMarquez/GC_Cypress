@@ -4,6 +4,16 @@ pipeline {
     tools { nodejs "node" }
 
     stages {
+        stage('Cleanup') {
+            steps {
+                script {
+                    // Eliminar archivos de video antiguos antes de ejecutar las pruebas
+                    bat 'del /Q "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\videos\\*"'
+                    bat 'del /Q "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline@2\\cypress\\videos\\*"'
+                }
+            }
+        }
+
         stage('Cypress Parallel Test Suite') {
             parallel {
                 stage('Slave 1') {
@@ -19,11 +29,10 @@ pipeline {
                         // Mover los archivos PDF descargados al workspace de Jenkins si existen
                         bat '''
                         if exist "C:\\Users\\Lmarquez\\Downloads\\*.pdf" (
-                        move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
-                    ) else (
-                        echo No PDF files found to move.
-                    )
-
+                            move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
+                        ) else (
+                            echo No PDF files found to move.
+                        )
                         '''
                     }
                 }
@@ -41,10 +50,10 @@ pipeline {
                         // Mover los archivos PDF descargados al workspace de Jenkins si existen
                         bat '''
                         if exist "C:\\Users\\Lmarquez\\Downloads\\*.pdf" (
-                        move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
-                    ) else (
-                        echo No PDF files found to move.
-                    )
+                            move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
+                        ) else (
+                            echo No PDF files found to move.
+                        )
                         '''
                     }
                 }
@@ -62,10 +71,10 @@ pipeline {
                         // Mover los archivos PDF descargados al workspace de Jenkins si existen
                         bat '''
                         if exist "C:\\Users\\Lmarquez\\Downloads\\*.pdf" (
-                        move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
-                    ) else (
-                        echo No PDF files found to move.
-                    )
+                            move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
+                        ) else (
+                            echo No PDF files found to move.
+                        )
                         '''
                     }
                 }
@@ -83,10 +92,10 @@ pipeline {
                         // Mover los archivos PDF descargados al workspace de Jenkins si existen
                         bat '''
                         if exist "C:\\Users\\Lmarquez\\Downloads\\*.pdf" (
-                        move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
-                    ) else (
-                        echo No PDF files found to move.
-                    )
+                            move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
+                        ) else (
+                            echo No PDF files found to move.
+                        )
                         '''
                     }
                 }
@@ -104,10 +113,10 @@ pipeline {
                         // Mover los archivos PDF descargados al workspace de Jenkins si existen
                         bat '''
                         if exist "C:\\Users\\Lmarquez\\Downloads\\*.pdf" (
-                        move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
-                    ) else (
-                        echo No PDF files found to move.
-                    )
+                            move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
+                        ) else (
+                            echo No PDF files found to move.
+                        )
                         '''
                     }
                 }
