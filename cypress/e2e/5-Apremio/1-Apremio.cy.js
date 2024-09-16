@@ -23,9 +23,9 @@ describe('Apremio', () => {
 })
 
 it('Apremio', () => {        
-    master.SeccionUno("dsimoncini","dsimoncini",1000) 
-    master.SeccionDos("COMERCIO",1000) 
-    master.SeccionTres(1000)  
+    master.SeccionUno("dsimoncini","dsimoncini",100) 
+    master.SeccionDos("COMERCIO",100) 
+    master.SeccionTres(100)  
        
 });
 

@@ -23,10 +23,10 @@ describe('Juzgado de Faltas', () => {
 })
 
 it('Juzgado de Falta', () => {        
-    master.SeccionUno("dsimoncini","dsimoncini",1000) 
-    master.SeccionDos("MULTAS DE TRANSITO","T99993-2005",1000) 
-    master.SeccionTres(1000)  
-    master.SeccionCuatro(1000) 
+    master.SeccionUno("dsimoncini","dsimoncini",100) 
+    master.SeccionDos("MULTAS DE TRANSITO","T99993-2005",100) 
+    master.SeccionTres(100)  
+    master.SeccionCuatro(100) 
        
 });
 

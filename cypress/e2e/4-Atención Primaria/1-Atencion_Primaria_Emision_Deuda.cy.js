@@ -23,9 +23,9 @@ describe('Atencion_Primaria_Emision_Deuda', () => {
 })
 
 it('Atencion Primaria Emision de Deuda', () => {        
-    master.SeccionUno("dsimoncini","dsimoncini",1000) 
-    master.SeccionDos("46860",1000) 
-    master.SeccionTres(1000)  
+    master.SeccionUno("dsimoncini","dsimoncini",100) 
+    master.SeccionDos("46860",100) 
+    master.SeccionTres(100)  
        
 });
 
