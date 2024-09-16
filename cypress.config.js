@@ -15,7 +15,7 @@ module.exports = defineConfig({
   videoCompression: false,
   trashAssetsBeforeRuns: false,
   projectId: "e7vrap",
-  downloadsFolder: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline@2\\cypress\\downloads',
+  downloadsFolder: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads',
   e2e: {
     setupNodeEvents(on, config) {
       // Registrar las tareas
@@ -36,18 +36,18 @@ module.exports = defineConfig({
             launchOptions.args.push('--disable-software-rasterizer');
             launchOptions.args.push('--disable-dev-shm-usage');
             launchOptions.args.push('--no-sandbox');
-            launchOptions.args.push('--headless');
+            //launchOptions.args.push('--headless');
             
             launchOptions.preferences = {
                 'download': {
                     'prompt_for_download': false,
-                    'default_directory': 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline@2\\cypress\\downloads'
+                    'default_directory': 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads'
                 },
                 'plugins.always_open_pdf_externally': true
             };
         } else if (browser.name === 'firefox') {
             launchOptions.preferences = {
-                'browser.download.dir': 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline@2\\cypress\\downloads',
+                'browser.download.dir': 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads',
                 'browser.download.folderList': 2,
                 'browser.helperApps.neverAsk.saveToDisk': 'application/pdf',
                 'pdfjs.disabled': true
