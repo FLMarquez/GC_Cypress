@@ -13,6 +13,7 @@ module.exports = defineConfig({
   defaultCommandTimeout: 15000,
   pageLoadTimeout: 19000,
   videoCompression: false,
+  videoUploadOnPasses: true,
   trashAssetsBeforeRuns: false,
   projectId: "e7vrap",
   downloadsFolder: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads',
