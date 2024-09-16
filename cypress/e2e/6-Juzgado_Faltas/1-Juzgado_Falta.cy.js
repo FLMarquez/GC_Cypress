@@ -6,7 +6,7 @@ import ProyectoSeis_Juzgado_Faltas_PO from '../../support/pageObjects/6-proyecto
 require('cypress-xpath')
 
 
-//describe('Juzgado de Faltas', () => {
+describe('Juzgado de Faltas', () => {
 
     const master=new ProyectoSeis_Juzgado_Faltas_PO()
     

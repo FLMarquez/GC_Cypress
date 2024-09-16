@@ -4,7 +4,7 @@ import ProyectoDos_Personas_Nuevo_Domicilio_Po from '../../support/pageObjects/2
 require('cypress-xpath')
 
 
-//describe('Personas_Crear_Nuevo_Domicilio', () => {
+describe('Personas_Crear_Nuevo_Domicilio', () => {
 
     const master=new ProyectoDos_Personas_Nuevo_Domicilio_Po()
     

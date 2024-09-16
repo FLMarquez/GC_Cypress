@@ -6,7 +6,7 @@ import ProyectoCinco_Apremio_PO from '../../support/pageObjects/5-proyectoCinco_
 require('cypress-xpath')
 
 
-//describe('Apremio', () => {
+describe('Apremio', () => {
 
     const master=new ProyectoCinco_Apremio_PO()
     

@@ -6,7 +6,7 @@ import ProyectoTres_Objetos_Po from '../../support/pageObjects/3-proyectoTres_PO
 require('cypress-xpath')
 
 
-//describe('Objetos_Valida_Pantalla', () => {
+describe('Objetos_Valida_Pantalla', () => {
 
     const master=new ProyectoTres_Objetos_Po()
     

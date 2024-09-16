@@ -4,7 +4,7 @@ import ProyectoDos_Personas_Po from '../../support/pageObjects/2-proyectoDos_PO/
 require('cypress-xpath')
 
 
-//describe('Personas_Valida_Pantalla', () => {
+describe('Personas_Valida_Pantalla', () => {
 
     const master=new ProyectoDos_Personas_Po()
     
