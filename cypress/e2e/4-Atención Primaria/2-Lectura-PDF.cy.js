@@ -20,19 +20,19 @@ describe('Test de extracción de texto de PDF', () => {
             const formattedDate = `${day}/${month}/${year}`;
 
             // Validaciones con texto normalizado
-            expect(normalizedText).to.include('Usuario: admin');
+            expect(normalizedText).to.include('Usuario: dsimoncini');
             expect(normalizedText).to.include(`${formattedDate}`);
-            expect(normalizedText).to.include('Infractor S/D');
-            expect(normalizedText).to.include('99900000014');
+            expect(normalizedText).to.include('CARRION MICAELA DANIELA');
+            expect(normalizedText).to.include('MUNICIPALIDAD DE GODOY CRUZ');
             expect(normalizedText).to.include(`${formattedDate}`);
-            expect(normalizedText).to.include('TOTALES');
-            expect(normalizedText).to.include('ACTA DE DEUDA');
-            expect(normalizedText).to.include('CONCEPTOS');
-            expect(normalizedText).to.include('NRO. ACTA');
-            expect(normalizedText).to.include('PERIODO/CUOTA');
-            expect(normalizedText).to.include('IMPORTE');
-            expect(normalizedText).to.include('INTERÉS');
-            expect(normalizedText).to.include('ACTA');
+            expect(normalizedText).to.include('Comprobante');
+            expect(normalizedText).to.include('COMERCIO');
+            expect(normalizedText).to.include('TOTAL');
+            expect(normalizedText).to.include('CIUDAD');
+            expect(normalizedText).to.include('Rentas');
+            expect(normalizedText).to.include('Credicoop');
+            expect(normalizedText).to.include('CONTRIBUYENTE');
+            expect(normalizedText).to.include('Entidades');
         });
     });
 });
