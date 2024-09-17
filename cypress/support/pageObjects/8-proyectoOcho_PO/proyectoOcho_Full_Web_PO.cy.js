@@ -54,6 +54,7 @@ class proyectoOcho_Full_Web_PO{
         cy.xpath("//a[contains(.,'Consultar Operaciones Catastro')]").invoke('show').click({ force: true });
         cy.xpath("//a[contains(.,'Consultar Objetos por Domicilio')]").invoke('show').click({ force: true });
         cy.xpath("//a[contains(.,'Objetos con más de 30 Vínculos')]").invoke('show').click({ force: true });    
+        cy.wait(tiempo)
       }
 
 
@@ -66,7 +67,7 @@ class proyectoOcho_Full_Web_PO{
       cy.xpath("//a[contains(.,'Atención Primaria')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Emisión Deuda Apremios Múltiples')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Consulta de Comprobantes')]").invoke('show').click({ force: true });
-      
+      cy.wait(tiempo)
 
 
     }
@@ -81,7 +82,51 @@ class proyectoOcho_Full_Web_PO{
       cy.wait(tiempo)
 
     }
+
+    SeccionSeis(t){
+      let tiempo=t
+      //OBLIGACIONES
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("(//a[contains(.,'Obligaciones')])[1]").invoke('show').click({ force: true });
+      cy.xpath("(//a[contains(.,'Simular y Generar Obligaciones')])[1]").invoke('show').click({ force: true });
+      cy.wait(tiempo)
+      cy.xpath("//a[contains(.,'Simular y Generar Obligaciones Correlativas')]").invoke('show').click({ force: true });
+      cy.wait(tiempo)
+
+ }
+
+ SeccionSiete(t){
+  let tiempo=t
+  //RECAUDACIÓN
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("(//a[contains(.,'Recaudación')])[1]").invoke('show').click({ force: true });
+      cy.xpath("//a[contains(text(), 'Importar Archivo de Pago')]").invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'Administración de Rendiciones')]").invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'Rendición Manual de Pagos')]").invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'Generación Archivos SUGIT')]").invoke('show').click({ force: true });
+      cy.wait(tiempo)
+      cy.xpath("//a[contains(text(),'Reporte Estacionamiento Medido')]").invoke('show').click({ force: true });
+      cy.wait(tiempo)
+
+}
   
+
+SeccionOcho(t){
+  let tiempo=t
+  //INFORMES DE RECAUDACIÓN
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("//a[contains(.,'Informes Recaudación')]").invoke('show').click({ force: true });
+      cy.wait(tiempo)
+      cy.xpath("//a[contains(.,'Informe de Recaudación por Fecha')]").invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'Informe de Recaudación por Imputación Contable')]").invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'Informe de Recaudación de Tasas Varias')]").invoke('show').click({ force: true });
+      cy.wait(tiempo)
+
+}
+ 
       // SeccionSeis(t){
       //   let tiempo=t
       //  cy.wait(1000)

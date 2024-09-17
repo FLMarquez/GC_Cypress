@@ -24,11 +24,13 @@ describe('Ingreso Full Web', () => {
 
 it('Ingreso Full Web', () => {
     master.SeccionUno("dsimoncini","dsimoncini",100)
-    master.SeccionDos(100)
-    master.SeccionTres(100)
-    master.SeccionCuatro(100)   
-    master.SeccionCinco(100)  
-     //master.SeccionSeis(100) 
+    master.SeccionDos(2000)
+    master.SeccionTres(2000)
+    master.SeccionCuatro(2000)   
+    master.SeccionCinco(2000)  
+    master.SeccionSeis(2000) 
+    master.SeccionSiete(2000) 
+    master.SeccionOcho(2000) 
 
 });
 
