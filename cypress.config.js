@@ -1,3 +1,4 @@
+const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 const { defineConfig } = require('cypress');
 const { downloadFile } = require('cypress-downloadfile/lib/addPlugin');
 const pdfParse = require('pdf-parse');
@@ -20,6 +21,7 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       // Registrar las tareas
+      allureWriter(on, config);
       on('task', {
         downloadFile,
         parsePdf({ filePath }) {

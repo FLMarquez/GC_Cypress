@@ -15,7 +15,8 @@
     "cypress-downloadfile": "^1.2.4",
     "cypress-iframe": "^1.0.1",
     "cypress-markdown-preprocessor": "^1.10.13",
-    "cypress-xpath": "^2.0.1"
+    "cypress-xpath": "^2.0.1",
+    "mocha": "^10.7.3"
   },
   "dependencies": {
     "axios": "^1.7.7",
