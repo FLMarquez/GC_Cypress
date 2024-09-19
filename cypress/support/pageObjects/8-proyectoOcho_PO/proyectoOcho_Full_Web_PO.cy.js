@@ -37,24 +37,35 @@ class proyectoOcho_Full_Web_PO {
     
       SeccionDos(t) {
         let tiempo = t;
-       //PERSONAS
+        // PERSONAS
         cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible").click({ force: true });
-        cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });          
+        cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
         cy.xpath("(//a[contains(.,'Personas')])[1]").should("be.visible").click({ force: true });
-        cy.xpath("//a[contains(.,'Administración de Personas')]").invoke('show').click({ force: true }); 
-        cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => { 
-
-          cy.xpath("//span[contains(.,'Administración de Personas')]").should('be.visible').contains('Administración de Personas')
-          cy.wait(tiempo)
-       
-        }),
-
-        cy.xpath("//a[contains(.,'Gestión del Ciudadano')]").invoke('show').click({ force: true });           
-        cy.xpath("//a[contains(.,'Unificación de CUIT')]").invoke('show').click({ force: true }); 
+        cy.xpath("//a[contains(.,'Administración de Personas')]").invoke('show').click({ force: true });
+    
+        cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+            cy.xpath("//span[contains(.,'Administración de Personas')]").should('be.visible').contains('Administración de Personas');
+            cy.wait(tiempo);
+        });
+    
+        cy.xpath("//a[contains(.,'Gestión del Ciudadano')]").invoke('show').click({ force: true });
         cy.wait(tiempo);
-        
-        
-      } 
+    
+        cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
+        cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+            cy.xpath("//span[contains(.,'Gestión del Ciudadano')]").should('be.visible').contains('Gestión del Ciudadano');
+            cy.wait(tiempo);
+        });
+    
+        cy.xpath("//a[contains(.,'Unificación de CUIT')]").invoke('show').click({ force: true });
+        cy.wait(tiempo);
+        cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
+        cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+            cy.xpath("//span[contains(.,'Unificación de Domicilio por Cuit')]").should('be.visible').contains('Unificación de Domicilio por Cuit');
+            cy.wait(tiempo);
+        });
+    }
+     
 
 
       SeccionTres(t){
@@ -64,6 +75,11 @@ class proyectoOcho_Full_Web_PO {
         cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });          
         cy.xpath("(//a[contains(.,'Objetos')])[1]").invoke('show').click({ force: true });
         cy.xpath("(//a[contains(.,'Consultar Objetos')])[1]").invoke('show').click({ force: true }); 
+        cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
+        cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+            cy.xpath("//span[contains(.,'Consultar Objetos')]").should('be.visible').contains('Consultar Objetos');
+            cy.wait(tiempo);
+        });
         cy.xpath("//a[contains(.,'Actividades Comercio')]").invoke('show').click({ force: true });
         cy.xpath("//a[contains(.,'Reactivar Comercio')]").invoke('show').click({ force: true });
         cy.xpath("//a[contains(.,'Generar Fraccionamiento')]").invoke('show').click({ force: true });
