@@ -73,6 +73,7 @@ class proyectoOcho_Full_Web_PO{
       cy.xpath("//a[contains(.,'Emisión de Deuda')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Atención Primaria')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Emisión Deuda Apremios Múltiples')]").invoke('show').click({ force: true });
+      cy.wait(tiempo)
       cy.xpath("//a[contains(.,'Consulta de Comprobantes')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
 
@@ -85,6 +86,7 @@ class proyectoOcho_Full_Web_PO{
       cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Cuenta Corriente')]").invoke('show').click({ force: true });
+      cy.wait(tiempo)
       cy.xpath("//a[contains(.,'Consulta Cta. Cte.')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
 
@@ -479,7 +481,7 @@ SeccionVeintinueve(t){
       cy.xpath("//a[contains(.,'ABM Nacionalidad')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Tipo Vínculos')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Tipo Adjuntos')]").invoke('show').click({ force: true });
-
+      cy.wait(tiempo);
       cy.xpath("(//a[contains(.,'Paramétricas')])[2]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.xpath("//a[contains(.,'Config. Domicilios')]").invoke('show').click({ force: true });
@@ -492,7 +494,7 @@ SeccionVeintinueve(t){
       cy.xpath("//a[contains(.,'ABM Tipos Domicilio')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.xpath("//a[contains(.,'ABM Circuitos Disribución')]").invoke('show').click({ force: true });
-
+      cy.wait(tiempo);
       cy.xpath("(//a[contains(.,'Paramétricas')])[2]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.xpath("//a[contains(.,'Config. Comportamientos')]").invoke('show').click({ force: true });
@@ -506,7 +508,7 @@ SeccionVeintinueve(t){
       cy.xpath("//a[contains(.,'ABM Conceptos Cta. Cte.')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Replicar Comportamientos')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Generar Excluyentes')]").invoke('show').click({ force: true });
-
+      cy.wait(tiempo);
       cy.xpath("(//a[contains(.,'Paramétricas')])[2]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.xpath("//a[contains(.,'Config. Comportamientos')]").invoke('show').click({ force: true });
@@ -514,22 +516,20 @@ SeccionVeintinueve(t){
       cy.xpath("//a[contains(.,'ABM Sectores')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Delegacion/Sector')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Usuario Sector')]").invoke('show').click({ force: true });
-      
+      cy.wait(tiempo);
       cy.xpath("(//a[contains(.,'Paramétricas')])[2]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.xpath("//a[contains(.,'Config. Recaudación')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Tipos de Entes Recaudadores')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Entes Recaudadores')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Comisiones Entes Recaudadores')]").invoke('show').click({ force: true });
-      
+      cy.wait(tiempo);
       
       cy.xpath("(//a[contains(.,'Paramétricas')])[2]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.xpath("//a[contains(.,'Config. Situaciones Especiales')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Tipos de Situaciones Especiales')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Situaciones Especiales')]").invoke('show').click({ force: true });
-      
-
       cy.wait(tiempo)
 
 }
