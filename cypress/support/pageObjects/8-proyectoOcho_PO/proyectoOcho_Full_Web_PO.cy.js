@@ -1,15 +1,26 @@
 import 'cypress-iframe';
 require('cypress-downloadfile/lib/downloadFileCommand');
 
-class proyectoOcho_Full_Web_PO{
+class proyectoOcho_Full_Web_PO {
 
-    visitHome() {
-        let tiempo = 1000;
-        beforeEach(() => {
-          cy.visit('https://gcdigital.godoycruz.gob.ar/K2BGAM/servlet/com.k2bgam.k2blogin');
-          cy.wait(tiempo);
-        });
-      }
+  visitHome() {
+    let tiempo = 1000;
+    beforeEach(() => {
+      cy.visit('https://gcdigital.godoycruz.gob.ar/K2BGAM/servlet/com.k2bgam.k2blogin', {
+        timeout: 60000, // Tiempo máximo de espera en milisegundos
+        onBeforeLoad: (win) => {
+          // Acciones antes de que se cargue la página
+          console.log('La página está a punto de cargarse');
+        },
+        onLoad: (win) => {
+          // Acciones para cuando la página se carga completamente
+          console.log('La página se ha cargado completamente');
+        },
+      });
+      cy.wait(tiempo);
+    });
+  }
+
     
       SeccionUno(usuario, contrasena, t) {
         let tiempo = t;
