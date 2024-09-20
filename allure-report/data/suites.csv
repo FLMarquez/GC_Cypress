@@ -1,7 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","13236","Usuario y Contraseña Válido","","Fri Sep 20 10:56:41 ART 2024","passed","Fri Sep 20 10:56:54 ART 2024","","Login_GC","Login_GC","Usuario y Contraseña Válido"
-"","1906","Usuario no válido y contraseña válida","","Fri Sep 20 10:56:56 ART 2024","passed","Fri Sep 20 10:56:58 ART 2024","","Login_GC","Login_GC","Usuario no válido y contraseña válida"
-"","1762","Usuario válido y contraseña vacía","","Fri Sep 20 10:57:02 ART 2024","passed","Fri Sep 20 10:57:04 ART 2024","","Login_GC","Login_GC","Usuario válido y contraseña vacía"
-"","1917","Usuario válido y contraseña no válida","","Fri Sep 20 10:56:54 ART 2024","passed","Fri Sep 20 10:56:56 ART 2024","","Login_GC","Login_GC","Usuario válido y contraseña no válida"
-"","1943","Usuario no válido y contraseña no válida","","Fri Sep 20 10:56:58 ART 2024","passed","Fri Sep 20 10:57:00 ART 2024","","Login_GC","Login_GC","Usuario no válido y contraseña no válida"
-"","2138","Usuario vacio y contraseña válida","","Fri Sep 20 10:57:00 ART 2024","passed","Fri Sep 20 10:57:02 ART 2024","","Login_GC","Login_GC","Usuario vacio y contraseña válida"
