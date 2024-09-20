@@ -5,6 +5,16 @@ const pdfParse = require('pdf-parse');
 const fs = require('fs');
 
 module.exports = defineConfig({
+  reporter: 'cypress-multi-reporters',
+  reporterOptions: {
+    reporterEnabled: 'mochawesome, @shelex/allure-mocha',
+    mochawesomeReporterOptions: {
+      reportDir: 'cypress/reports',
+      overwrite: false,
+      html: false,
+      json: true
+    },
+  },
   video: true,
   videosFolder: "cypress/videos",
   screenshotsFolder: "cypress/screenshots",
