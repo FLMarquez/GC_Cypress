@@ -30,7 +30,7 @@ pipeline {
                         bat 'npm update'
                         script {
                             try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel'
+                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                             } catch (e) {
                                 echo "Cypress test failed in Slave 1, continuing"
                             }
@@ -53,7 +53,7 @@ pipeline {
                         bat 'npm update'
                         script {
                             try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel'
+                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                             } catch (e) {
                                 echo "Cypress test failed in Slave 2, continuing"
                             }
@@ -76,7 +76,7 @@ pipeline {
                         bat 'npm update'
                         script {
                             try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel'
+                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                             } catch (e) {
                                 echo "Cypress test failed in Slave 3, continuing"
                             }
@@ -99,7 +99,7 @@ pipeline {
                         bat 'npm update'
                         script {
                             try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel'
+                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                             } catch (e) {
                                 echo "Cypress test failed in Slave 4, continuing"
                             }
@@ -122,7 +122,7 @@ pipeline {
                         bat 'npm update'
                         script {
                             try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel'
+                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                             } catch (e) {
                                 echo "Cypress test failed in Slave 5, continuing"
                             }
@@ -139,6 +139,18 @@ pipeline {
             }
         }
 
+        stage('Check Allure Results') {
+            steps {
+                script {
+                    if (fileExists('allure-results')) {
+                        echo 'Allure results found!'
+                    } else {
+                        error 'Allure results not found! Stopping pipeline.'
+                    }
+                }
+            }
+        }
+
         stage('Generate Allure Report') {
             steps {
                 script {
@@ -150,6 +162,13 @@ pipeline {
                 }
             }
         }
+
+        stage('Archive Allure Report') {
+            steps {
+                archiveArtifacts artifacts: 'allure-report/**', allowEmptyArchive: true
+            }
+        }
     }
 }
+
 
