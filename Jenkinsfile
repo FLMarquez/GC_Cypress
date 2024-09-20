@@ -4,6 +4,17 @@ pipeline {
     tools { nodejs "node" }
 
     stages {
+        stage('Install Allure') {
+            steps {
+                bat '''
+                curl -o allure.zip -L "https://repo.maven.apache.org/content/repositories/releases/io/qameta/allure/allure-commandline/2.13.9/allure-commandline-2.13.9.zip"
+                mkdir allure
+                tar -xvf allure.zip -C allure --strip-components=1
+                set PATH=%PATH%;%WORKSPACE%\\allure\\bin
+                '''
+            }
+        }
+
         stage('Cypress Parallel Test Suite') {
             parallel {
                 stage('Slave 1') {
@@ -42,26 +53,11 @@ pipeline {
         stage('Generate Allure Report') {
             steps {
                 script {
-                    bat '"C:\\Program Files\\allure-2.30.0\\bin\\allure" generate allure-results --clean -o allure-report'
+                    // Generar el informe de Allure
+                    bat 'allure generate allure-results --clean -o allure-report'
+                    // bat 'allure open allure-report' // Comentado para evitar problemas en CI
                 }
             }
-        }
-    }
-
-    post {
-        always {
-            echo 'Generando informe de Allure...'
-            allure([
-                path: 'allure-results', // Cambia esta ruta si es necesario
-                includeProperties: false,
-                jdk: '' // Puedes especificar una versión de JDK si es necesario
-            ])
-        }
-        success {
-            echo '¡La construcción fue exitosa!'
-        }
-        failure {
-            echo '¡La construcción falló!'
         }
     }
 }
@@ -72,21 +68,16 @@ def runCypressTests() {
         bat 'npm install'
         bat 'npm update'
         bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --reporter mocha-allure-reporter'
-        
+
         // Mover los archivos PDF descargados al workspace de Jenkins si existen
-        movePdfFiles("C:\\Users\\Lmarquez\\Downloads\\*.pdf")
+        bat '''
+        if exist "C:\\Users\\Lmarquez\\Downloads\\*.pdf" (
+            move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
+        ) else (
+            echo No PDF files found to move.
+        )
+        '''
     }
 }
-
-def movePdfFiles(String path) {
-    bat """
-    if exist "${path}" (
-        move "${path}" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
-    ) else (
-        echo No PDF files found to move.
-    )
-    """
-}
-
 
 
