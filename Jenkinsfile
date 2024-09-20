@@ -63,6 +63,7 @@ pipeline {
 
 def runCypressTests() {
     return {
+        // Clonar el repositorio y ejecutar las pruebas
         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
         bat 'npm install'
         bat 'npm update'
