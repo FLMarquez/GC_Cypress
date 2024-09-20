@@ -16,10 +16,12 @@ class proyectoOcho_Full_Web_PO {
           // Acciones para cuando la página se carga completamente
           console.log('La página se ha cargado completamente');
         },
+        waitForLoad: false, // No esperar a que se cargue completamente
       });
       cy.wait(tiempo);
     });
   }
+  
 
     
       SeccionUno(usuario, contrasena, t) {

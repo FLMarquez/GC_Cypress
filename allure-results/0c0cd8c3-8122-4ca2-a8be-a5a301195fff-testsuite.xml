@@ -1,0 +1,15 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1726870923341' stop='1726870940545'>
+    <name>Apremio</name>
+    <title>Apremio</title>
+    <test-cases>
+        <test-case start='1726870923341' status='passed' stop='1726870940545'>
+            <name>Apremio</name>
+            <title>Apremio</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
