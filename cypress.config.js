@@ -4,6 +4,11 @@ const pdfParse = require('pdf-parse');
 const fs = require('fs');
 
 module.exports = defineConfig({
+  reporter: 'mocha-allure-reporter',
+  reporterOptions: {
+    allureResultsPath: 'allure-results',
+  },
+
   video: true,
   videosFolder: "cypress/videos",
   screenshotsFolder: "cypress/screenshots",

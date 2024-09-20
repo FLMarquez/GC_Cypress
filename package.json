@@ -19,7 +19,8 @@
     "cypress-markdown-preprocessor": "^1.10.13",
     "cypress-multi-reporters": "^1.6.4",
     "cypress-xpath": "^2.0.1",
-    "mocha": "^10.7.3"
+    "mocha": "^10.7.3",
+    "mocha-allure-reporter": "^1.4.0"
   },
   "dependencies": {
     "axios": "^1.7.7",
