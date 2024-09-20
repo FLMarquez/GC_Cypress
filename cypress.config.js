@@ -1,20 +1,9 @@
-const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 const { defineConfig } = require('cypress');
 const { downloadFile } = require('cypress-downloadfile/lib/addPlugin');
 const pdfParse = require('pdf-parse');
 const fs = require('fs');
 
 module.exports = defineConfig({
-  reporter: 'cypress-multi-reporters',
-  reporterOptions: {
-    reporterEnabled: 'mochawesome, @shelex/allure-mocha',
-    mochawesomeReporterOptions: {
-      reportDir: 'cypress/reports',
-      overwrite: false,
-      html: false,
-      json: true
-    },
-  },
   video: true,
   videosFolder: "cypress/videos",
   screenshotsFolder: "cypress/screenshots",
@@ -31,7 +20,6 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       // Registrar las tareas
-      allureWriter(on, config);
       on('task', {
         downloadFile,
         parsePdf({ filePath }) {
