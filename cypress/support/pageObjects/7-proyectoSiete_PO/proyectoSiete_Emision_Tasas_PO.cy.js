@@ -64,8 +64,11 @@ class proyectoSiete_Emision_Tasas_PO{
       SeccionTres(t){
         let tiempo=t
       cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+        cy.wait(1500)
         // Seleccionar el iframe hijo 'gxp1_ifrm'
+        cy.wait(1500)
         cy.get('iframe[id="gxp0_ifrm"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+          cy.wait(1500)
                   cy.get('#TEXTBLOCK').invoke('show').and('contain.text', 'Tasas Generadas Correctamente');
                   cy.get('#BUTTON1').should('be.visible').click({force: true})
                   cy.wait(tiempo)
