@@ -4,6 +4,17 @@ pipeline {
     tools { nodejs "node" }
 
     stages {
+        stage('Install Allure') {
+            steps {
+                bat '''
+                curl -o allure.zip -L "https://repo.maven.apache.org/content/repositories/releases/io/qameta/allure/allure-commandline/2.13.9/allure-commandline-2.13.9.zip"
+                mkdir allure
+                tar -xvf allure.zip -C allure --strip-components=1
+                set PATH=%PATH%;%WORKSPACE%\\allure\\bin
+                '''
+            }
+        }
+
         stage('Cypress Parallel Test Suite') {
             parallel {
                 stage('Slave 1') {
@@ -68,4 +79,5 @@ def runCypressTests() {
         '''
     }
 }
+
 
