@@ -14,36 +14,107 @@ pipeline {
             }
         }
 
+         stages {
         stage('Cypress Parallel Test Suite') {
             parallel {
                 stage('Slave 1') {
-                    agent { label "Agent2_1" }
+                    agent {
+                        label "Agent2_1"
+                    }
                     steps {
-                        runCypressTests()
+                        git url: 'https://github.com/FLMarquez/GC_Cypress.git'
+                        bat 'npm install'
+                        bat 'npm update'
+                        bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --reporter allure-cypress --reporter-options allureResultsPath=${ALLURE_RESULTS_DIRECTORY}'
+                        
+                        // Mover los archivos PDF descargados al workspace de Jenkins si existen
+                        bat '''
+                        if exist "C:\\Users\\Lmarquez\\Downloads\\*.pdf" (
+                            move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\" 
+                        ) else (
+                            echo No PDF files found to move.
+                        )
+                        '''
                     }
                 }
+
                 stage('Slave 2') {
-                    agent { label "Agent2_2" }
+                    agent {
+                        label "Agent2_2"
+                    }
                     steps {
-                        runCypressTests()
+                        git url: 'https://github.com/FLMarquez/GC_Cypress.git'
+                        bat 'npm install'
+                        bat 'npm update'
+                        bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --reporter allure-cypress --reporter-options allureResultsPath=${ALLURE_RESULTS_DIRECTORY}'
+                        
+                        bat '''
+                        if exist "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" (
+                            move "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\" 
+                        ) else (
+                            echo No PDF files found to move.
+                        )
+                        '''
                     }
                 }
+
                 stage('Slave 3') {
-                    agent { label "Agent2_3" }
+                    agent {
+                        label "Agent2_3"
+                    }
                     steps {
-                        runCypressTests()
+                        git url: 'https://github.com/FLMarquez/GC_Cypress.git'
+                        bat 'npm install'
+                        bat 'npm update'
+                        bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --reporter allure-cypress --reporter-options allureResultsPath=${ALLURE_RESULTS_DIRECTORY}'
+                        
+                        bat '''
+                        if exist "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" (
+                            move "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\" 
+                        ) else (
+                            echo No PDF files found to move.
+                        )
+                        '''
                     }
                 }
+
                 stage('Slave 4') {
-                    agent { label "Agent2_4" }
+                    agent {
+                        label "Agent2_4"
+                    }
                     steps {
-                        runCypressTests()
+                        git url: 'https://github.com/FLMarquez/GC_Cypress.git'
+                        bat 'npm install'
+                        bat 'npm update'
+                        bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --reporter allure-cypress --reporter-options allureResultsPath=${ALLURE_RESULTS_DIRECTORY}'
+                        
+                        bat '''
+                        if exist "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" (
+                            move "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\" 
+                        ) else (
+                            echo No PDF files found to move.
+                        )
+                        '''
                     }
                 }
+
                 stage('Slave 5') {
-                    agent { label "Agent2_5" }
+                    agent {
+                        label "Agent2_5"
+                    }
                     steps {
-                        runCypressTests()
+                        git url: 'https://github.com/FLMarquez/GC_Cypress.git'
+                        bat 'npm install'
+                        bat 'npm update'
+                        bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --reporter allure-cypress --reporter-options allureResultsPath=${ALLURE_RESULTS_DIRECTORY}'
+                        
+                        bat '''
+                        if exist "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" (
+                            move "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\" 
+                        ) else (
+                            echo No PDF files found to move.
+                        )
+                        '''
                     }
                 }
             }
@@ -61,24 +132,6 @@ pipeline {
     }
 }
 
-def runCypressTests() {
-    return {
-        // Clonar el repositorio y ejecutar las pruebas
-        git url: 'https://github.com/FLMarquez/GC_Cypress.git'
-        bat 'npm install'
-        bat 'npm update'
-        bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --reporter mocha-allure-reporter'
-
-        // Mover los archivos PDF descargados al workspace de Jenkins si existen
-        bat '''
-        if exist "C:\\Users\\Lmarquez\\Downloads\\*.pdf" (
-            move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
-        ) else (
-            echo No PDF files found to move.
-        )
-        '''
-    }
-}
 
 
 
