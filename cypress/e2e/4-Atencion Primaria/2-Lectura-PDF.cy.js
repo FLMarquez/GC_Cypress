@@ -20,7 +20,7 @@ describe('Test de extracción de texto de PDF', () => {
             const formattedDate = `${day}/${month}/${year}`;
 
             // Validaciones con texto normalizado
-            expect(normalizedText).to.include('Usuario: cucacho');
+            expect(normalizedText).to.include('Usuario: dsimoncini');
             expect(normalizedText).to.include(`${formattedDate}`);
             expect(normalizedText).to.include('CARRION MICAELA DANIELA');
             expect(normalizedText).to.include('MUNICIPALIDAD DE GODOY CRUZ');
