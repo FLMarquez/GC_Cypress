@@ -62,7 +62,7 @@ pipeline {
 }
 
 def runCypressTests() {
-    return {
+    steps {
         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
         bat 'npm install'
         bat 'npm update'
@@ -71,7 +71,7 @@ def runCypressTests() {
         // Mover los archivos PDF descargados al workspace de Jenkins si existen
         bat '''
         if exist "C:\\Users\\Lmarquez\\Downloads\\*.pdf" (
-            move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
+            move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\" 
         ) else (
             echo No PDF files found to move.
         )
