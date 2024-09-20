@@ -40,7 +40,7 @@ class proyectoSiete_Emision_Tasas_PO{
     cy.get('#vDOCUMENTO').invoke('show').clear();
     cy.wait(tiempo)
     cy.get('#vDOCUMENTO').invoke('show').type(identificacion_tributaria);
-    cy.wait(tiempo)
+    cy.wait(2500)
     cy.xpath("//label[contains(.,'Razón Social / Apellido')]").should('be.visible').click({force: true})
     cy.wait(tiempo)
     cy.get('#vCMCCODIGO').should("be.visible").click().type(tasa);
