@@ -10,7 +10,6 @@ pipeline {
                 curl -o allure.zip -L "https://repo.maven.apache.org/content/repositories/releases/io/qameta/allure/allure-commandline/2.13.9/allure-commandline-2.13.9.zip"
                 mkdir allure
                 tar -xvf allure.zip -C allure --strip-components=1
-                set PATH=%PATH%;%WORKSPACE%\\allure\\bin
                 '''
             }
         }
@@ -53,8 +52,8 @@ pipeline {
         stage('Generate Allure Report') {
             steps {
                 script {
-                    // Generar el informe de Allure
-                    bat 'allure generate allure-results --clean -o allure-report'
+                    // Generar el informe de Allure usando la ruta absoluta
+                    bat '"C:\\Program Files\\allure-2.30.0\\bin\\allure" generate allure-results --clean -o allure-report'
                     // bat 'allure open allure-report' // Comentado para evitar problemas en CI
                 }
             }
@@ -79,5 +78,6 @@ def runCypressTests() {
         '''
     }
 }
+
 
 
