@@ -2,13 +2,14 @@ const { defineConfig } = require('cypress');
 const { downloadFile } = require('cypress-downloadfile/lib/addPlugin');
 const pdfParse = require('pdf-parse');
 const fs = require('fs');
+const allureWriter = require('@shelex/cypress-allure-plugin/writer');
+
 
 module.exports = defineConfig({
   reporter: 'mocha-allure-reporter',
   reporterOptions: {
     allureResultsPath: 'allure-results',
   },
-
   video: true,
   videosFolder: "cypress/videos",
   screenshotsFolder: "cypress/screenshots",
