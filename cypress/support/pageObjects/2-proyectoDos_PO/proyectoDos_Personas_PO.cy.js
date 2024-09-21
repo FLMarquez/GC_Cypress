@@ -1,13 +1,26 @@
 import 'cypress-iframe'
 class ProyectoDos_Po{
 
-    visitHome() {
-        let tiempo = 1000;
-        beforeEach(() => {
-          cy.visit('https://gcdigital.godoycruz.gob.ar/K2BGAM/servlet/com.k2bgam.k2blogin');
-          cy.wait(tiempo);
-        });
-      }
+  visitHome() {
+    let tiempo = 1000;
+    beforeEach(() => {
+      cy.visit('https://gcdigital.godoycruz.gob.ar/K2BGAM/servlet/com.k2bgam.k2blogin', {
+        timeout: 300000, // Tiempo máximo de espera en milisegundos
+        onBeforeLoad: (win) => {
+          win.fetch = null;
+          // Acciones antes de que se cargue la página
+          console.log('La página está a punto de cargarse');
+        },
+        onLoad: (win) => {
+          // Acciones para cuando la página se carga completamente
+          console.log('La página se ha cargado completamente');
+        },
+        waitForLoad: false, // No esperar a que se cargue completamente
+      });
+      cy.wait(tiempo);
+    });
+  }
+ 
     
       SeccionUno(usuario,contrasena,t){
         let tiempo=t
@@ -59,8 +72,9 @@ class ProyectoDos_Po{
           //cy.wait(5000)
           
           cy.get('#vVER_0001').should('exist').invoke('show').click({ force: true });
-          cy.get('#Tab_TABS_TABSCONTROLContainerpanel1', { timeout: 30000 }).should('exist').invoke('show').click({ force: true });
-          
+          cy.wait(1000)
+          cy.get('#Tab_TABS_TABSCONTROLContainerpanel1', { timeout: 60000 }).should('be.visible').invoke('show').click({ force: true });
+          cy.wait(1000)
           cy.get('#GRIDTITLE_GRID').should("be.visible"),
           cy.get('#Tab_TABS_TABSCONTROLContainerpanel2').invoke('show').click({ force: true });
           cy.get('#GRIDTITLE_GRID1').should("be.visible"),

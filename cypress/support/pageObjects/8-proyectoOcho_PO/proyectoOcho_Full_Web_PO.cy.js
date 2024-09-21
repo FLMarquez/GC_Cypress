@@ -9,6 +9,7 @@ class proyectoOcho_Full_Web_PO {
       cy.visit('https://gcdigital.godoycruz.gob.ar/K2BGAM/servlet/com.k2bgam.k2blogin', {
         timeout: 300000, // Tiempo máximo de espera en milisegundos
         onBeforeLoad: (win) => {
+          win.fetch = null;
           // Acciones antes de que se cargue la página
           console.log('La página está a punto de cargarse');
         },

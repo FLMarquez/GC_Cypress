@@ -1,0 +1,15 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1726917994355' stop='1726918035238'>
+    <name>Atencion_Primaria_Emision_Deuda</name>
+    <title>Atencion_Primaria_Emision_Deuda</title>
+    <test-cases>
+        <test-case start='1726917994355' status='passed' stop='1726918035238'>
+            <name>Atencion Primaria Emision de Deuda</name>
+            <title>Atencion Primaria Emision de Deuda</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

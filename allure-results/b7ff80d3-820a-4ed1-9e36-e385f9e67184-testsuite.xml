@@ -1,0 +1,15 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1726918037723' stop='1726918038426'>
+    <name>Test de extracción de texto de PDF</name>
+    <title>Test de extracción de texto de PDF</title>
+    <test-cases>
+        <test-case start='1726918037724' status='passed' stop='1726918038426'>
+            <name>Extrae texto de un archivo PDF y valida</name>
+            <title>Extrae texto de un archivo PDF y valida</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

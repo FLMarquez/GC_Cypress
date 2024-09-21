@@ -1,0 +1,51 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1726921671452' stop='1726922216561'>
+    <name>Ingreso Full Web</name>
+    <title>Ingreso Full Web</title>
+    <test-cases>
+        <test-case start='1726921671452' status='broken' stop='1726922216324'>
+            <name>Ingreso Full Web</name>
+            <title>Ingreso Full Web</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>Timed out after waiting `180000ms` for your remote page to load.
+                
+                Your page did not fire its `load` event within `180000ms`.
+                
+                You can try increasing the `pageLoadTimeout` value in `Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress.config.js` to wait longer.
+                
+                Browsers will not fire the `load` event until all stylesheets and scripts are done downloading.
+                
+                When this `load` event occurs, Cypress will continue running commands.</message>
+                <stack-trace>CypressError: Timed out after waiting `180000ms` for your remote page to load.
+                
+                Your page did not fire its `load` event within `180000ms`.
+                
+                You can try increasing the `pageLoadTimeout` value in `Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress.config.js` to wait longer.
+                
+                Browsers will not fire the `load` event until all stylesheets and scripts are done downloading.
+                
+                When this `load` event occurs, Cypress will continue running commands.
+                    at timedOutWaitingForPageLoad (https://gcdigital.godoycruz.gob.ar/__cypress/runner/cypress_runner.js:130987:64)
+                    at &lt;unknown> (https://gcdigital.godoycruz.gob.ar/__cypress/runner/cypress_runner.js:131303:16)
+                    at tryCatcher (https://gcdigital.godoycruz.gob.ar/__cypress/runner/cypress_runner.js:1807:23)
+                    at &lt;unknown> (https://gcdigital.godoycruz.gob.ar/__cypress/runner/cypress_runner.js:4186:41)
+                    at tryCatcher (https://gcdigital.godoycruz.gob.ar/__cypress/runner/cypress_runner.js:1807:23)
+                    at Promise._settlePromiseFromHandler (https://gcdigital.godoycruz.gob.ar/__cypress/runner/cypress_runner.js:1519:31)
+                    at Promise._settlePromise (https://gcdigital.godoycruz.gob.ar/__cypress/runner/cypress_runner.js:1576:18)
+                    at Promise._settlePromise0 (https://gcdigital.godoycruz.gob.ar/__cypress/runner/cypress_runner.js:1621:10)
+                    at Promise._settlePromises (https://gcdigital.godoycruz.gob.ar/__cypress/runner/cypress_runner.js:1697:18)
+                    at _drainQueueStep (https://gcdigital.godoycruz.gob.ar/__cypress/runner/cypress_runner.js:2407:12)
+                    at _drainQueue (https://gcdigital.godoycruz.gob.ar/__cypress/runner/cypress_runner.js:2400:9)
+                    at Async._drainQueues (https://gcdigital.godoycruz.gob.ar/__cypress/runner/cypress_runner.js:2416:5)
+                    at Async.drainQueues (https://gcdigital.godoycruz.gob.ar/__cypress/runner/cypress_runner.js:2286:14)
+                From Your Spec Code:
+                    at proyectoOcho_Full_Web_PO.SeccionVeinticinco (webpack://godoycruz_cypress/./cypress/support/pageObjects/8-proyectoOcho_PO/proyectoOcho_Full_Web_PO.cy.js:547:9)
+                    at Context.eval (webpack://godoycruz_cypress/./cypress/e2e/8-Ingreso Full Web/1-Ingreso_Full_Web.cy.js:50:11)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

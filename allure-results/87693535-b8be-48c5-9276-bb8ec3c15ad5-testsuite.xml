@@ -1,0 +1,15 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1726921454851' stop='1726921535825'>
+    <name>Personas_Crear_Nuevo_Domicilio</name>
+    <title>Personas_Crear_Nuevo_Domicilio</title>
+    <test-cases>
+        <test-case start='1726921454851' status='passed' stop='1726921535825'>
+            <name>Personas_Crear_Nuevo_Domicilio</name>
+            <title>Personas_Crear_Nuevo_Domicilio</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

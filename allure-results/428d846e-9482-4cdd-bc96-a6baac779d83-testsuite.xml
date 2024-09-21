@@ -1,0 +1,55 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1726917479791' stop='1726917507623'>
+    <name>Login_GC</name>
+    <title>Login_GC</title>
+    <test-cases>
+        <test-case start='1726917479791' status='passed' stop='1726917492847'>
+            <name>Usuario y Contraseña Válido</name>
+            <title>Usuario y Contraseña Válido</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1726917492865' status='passed' stop='1726917495418'>
+            <name>Usuario válido y contraseña no válida</name>
+            <title>Usuario válido y contraseña no válida</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1726917495432' status='passed' stop='1726917498253'>
+            <name>Usuario no válido y contraseña válida</name>
+            <title>Usuario no válido y contraseña válida</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1726917498265' status='passed' stop='1726917502924'>
+            <name>Usuario no válido y contraseña no válida</name>
+            <title>Usuario no válido y contraseña no válida</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1726917502935' status='passed' stop='1726917505482'>
+            <name>Usuario vacio y contraseña válida</name>
+            <title>Usuario vacio y contraseña válida</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1726917505493' status='passed' stop='1726917507623'>
+            <name>Usuario válido y contraseña vacía</name>
+            <title>Usuario válido y contraseña vacía</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
