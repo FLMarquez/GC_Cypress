@@ -36,11 +36,11 @@ pipeline {
                             }
                         }
                         bat '''
-                        if exist "C:\\Users\\Lmarquez\\Downloads\\*.pdf" (
-                            move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
-                        ) else (
-                            echo No PDF files found to move.
-                        )
+                        if exist "C:\\home\\workspace\\downloads\\*.pdf" (
+                        move "C:\\home\\workspace\\downloads\\*.pdf" "C:\\home\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
+                    ) else (
+                        echo No PDF files found to move.
+                    )
                         '''
                     }
                 }
@@ -59,11 +59,11 @@ pipeline {
                             }
                         }
                         bat '''
-                        if exist "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" (
-                            move "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
-                        ) else (
-                            echo No PDF files found to move.
-                        )
+                        if exist "C:\\home\\workspace\\downloads\\*.pdf" (
+                        move "C:\\home\\workspace\\downloads\\*.pdf" "C:\\home\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
+                    ) else (
+                        echo No PDF files found to move.
+                    )
                         '''
                     }
                 }
@@ -82,11 +82,11 @@ pipeline {
                             }
                         }
                         bat '''
-                        if exist "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" (
-                            move "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
-                        ) else (
-                            echo No PDF files found to move.
-                        )
+                        if exist "C:\\home\\workspace\\downloads\\*.pdf" (
+                        move "C:\\home\\workspace\\downloads\\*.pdf" "C:\\home\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
+                    ) else (
+                        echo No PDF files found to move.
+                    )
                         '''
                     }
                 }
@@ -105,11 +105,11 @@ pipeline {
                             }
                         }
                         bat '''
-                        if exist "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" (
-                            move "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
-                        ) else (
-                            echo No PDF files found to move.
-                        )
+                        if exist "C:\\home\\workspace\\downloads\\*.pdf" (
+                        move "C:\\home\\workspace\\downloads\\*.pdf" "C:\\home\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
+                    ) else (
+                        echo No PDF files found to move.
+                    )
                         '''
                     }
                 }
@@ -128,11 +128,11 @@ pipeline {
                             }
                         }
                         bat '''
-                        if exist "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" (
-                            move "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
-                        ) else (
-                            echo No PDF files found to move.
-                        )
+                        if exist "C:\\home\\workspace\\downloads\\*.pdf" (
+                        move "C:\\home\\workspace\\downloads\\*.pdf" "C:\\home\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
+                    ) else (
+                        echo No PDF files found to move.
+                    )
                         '''
                     }
                 }

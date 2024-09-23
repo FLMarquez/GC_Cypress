@@ -22,7 +22,7 @@ module.exports = defineConfig({
   videoUploadOnPasses: true,
   trashAssetsBeforeRuns: false,
   projectId: "e7vrap",
-  downloadsFolder: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads',
+  downloadsFolder: 'C:\\home\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads',
   e2e: {
     setupNodeEvents(on, config) {
       // Registrar las tareas
@@ -48,7 +48,7 @@ module.exports = defineConfig({
           // Configurar la carpeta de descargas en Chrome
           launchOptions.preferences.default = {
             'download': {
-              'default_directory': 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads',
+              'default_directory': 'C:\\home\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads',
               'prompt_for_download': false,
               'directory_upgrade': true,
               'extensions_to_open': 'applications/pdf'
@@ -59,7 +59,7 @@ module.exports = defineConfig({
 
         } else if (browser.name === 'firefox') {
           launchOptions.preferences = {
-            'browser.download.dir': 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads',
+            'browser.download.dir': 'C:\\home\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads',
             'browser.download.folderList': 2, // Usa la carpeta de descargas especificada en 'browser.download.dir'
             'browser.helperApps.neverAsk.saveToDisk': 'application/pdf',
             'pdfjs.disabled': true
@@ -67,7 +67,7 @@ module.exports = defineConfig({
         } else if (browser.name === 'electron') {
           launchOptions.preferences = {
             'download.prompt_for_download': false,
-            'download.default_directory': 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads'
+            'download.default_directory': 'C:\\home\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads'
           };
         }
 
@@ -78,7 +78,7 @@ module.exports = defineConfig({
     },
     baseUrl: 'https://test.elinpar.com',
     env: {
-      downloadsFolder: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads',
+      downloadsFolder: 'C:\\home\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads',
     }
   }
 });
