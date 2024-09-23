@@ -24,7 +24,7 @@ describe('Emision de Tasa', () => {
 
 it('Emision de Tasa', () => {        
     master.SeccionUno("dsimoncini","dsimoncini",100) 
-    master.SeccionDos("20276701429","502104",1500) 
+    master.SeccionDos("20276701429","502104",2500) 
     master.SeccionTres(100)  
     master.SeccionCuatro(100) 
        

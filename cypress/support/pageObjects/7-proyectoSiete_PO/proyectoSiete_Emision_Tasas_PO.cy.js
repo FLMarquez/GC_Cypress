@@ -3,21 +3,10 @@ require('cypress-downloadfile/lib/downloadFileCommand');
 
 class proyectoSiete_Emision_Tasas_PO{
 
-     visitHome() {
+    visitHome() {
         let tiempo = 1000;
         beforeEach(() => {
-          cy.visit('https://gcdigital.godoycruz.gob.ar/K2BGAM/servlet/com.k2bgam.k2blogin', {
-            timeout: 300000, // Tiempo máximo de espera en milisegundos
-            onBeforeLoad: (win) => {
-              // Acciones antes de que se cargue la página
-              console.log('La página está a punto de cargarse');
-            },
-            onLoad: (win) => {
-              // Acciones para cuando la página se carga completamente
-              console.log('La página se ha cargado completamente');
-            },
-            waitForLoad: false, // No esperar a que se cargue completamente
-          });
+          cy.visit('https://gcdigital.godoycruz.gob.ar/K2BGAM/servlet/com.k2bgam.k2blogin');
           cy.wait(tiempo);
         });
       }
@@ -35,7 +24,7 @@ class proyectoSiete_Emision_Tasas_PO{
         cy.wait(tiempo);
       }
     
-      SeccionDos(identificacion_tributaria,tasa, t) {
+      SeccionDos(idtrib,tasa, t) {
         let tiempo = t;
        
     cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click()
@@ -50,12 +39,10 @@ class proyectoSiete_Emision_Tasas_PO{
     //cy.frameLoaded({ index: 0 })
     cy.get('#vDOCUMENTO').invoke('show').clear();
     cy.wait(tiempo)
-    cy.get('#vDOCUMENTO').invoke('show').click();
+   
+    cy.get('#vDOCUMENTO').invoke('show').type(idtrib, { timeout: 5000 });
     cy.wait(tiempo)
-    cy.get('#vDOCUMENTO').invoke('show').type(identificacion_tributaria);
-    cy.wait(tiempo)
-    cy.xpath("//label[contains(.,'Razón Social / Apellido')]").should('be.visible').click({force: true})
-    cy.wait(tiempo)
+    
     cy.get('#vCMCCODIGO').should("be.visible").click().type(tasa);
     cy.wait(tiempo);
     cy.get('#vDETALLEINSTRUMENTO').should("be.visible").click();
