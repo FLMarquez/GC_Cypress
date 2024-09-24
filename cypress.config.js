@@ -22,7 +22,7 @@ module.exports = defineConfig({
   videoUploadOnPasses: true,
   trashAssetsBeforeRuns: false,
   projectId: "e7vrap",
-  downloadsFolder: 'C:\\Users\\Lmarquez\\Downloads',
+  downloadsFolder: 'C:/Users/Lmarquez/Downloads',
   e2e: {
     setupNodeEvents(on, config) {
       // Registrar las tareas
@@ -78,7 +78,7 @@ module.exports = defineConfig({
     },
     baseUrl: 'https://test.elinpar.com',
     env: {
-      downloadsFolder: 'C:\\Users\\Lmarquez\\Downloads',
+      downloadsFolder: 'C:/Users/Lmarquez/Downloads',
     }
   }
 });
