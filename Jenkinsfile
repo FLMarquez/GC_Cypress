@@ -30,14 +30,14 @@ pipeline {
                         bat 'npm update'
                         script {
                             try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser firefox --parallel --env allure=true'
+                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                             } catch (e) {
                                 echo "Cypress test failed in Slave 1, continuing"
                             }
                         }
                         bat '''
                         if exist "C:\\Users\\Lmarquez\\Downloads\\*.pdf" (
-                            move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
+                            move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\Users\\Lmarquez\\Downloads\\"
                         ) else (
                             echo No PDF files found to move.
                         )
@@ -53,14 +53,14 @@ pipeline {
                         bat 'npm update'
                         script {
                             try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser firefox --parallel --env allure=true'
+                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                             } catch (e) {
                                 echo "Cypress test failed in Slave 2, continuing"
                             }
                         }
-                        bat '''
-                        if exist "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" (
-                            move "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
+                         bat '''
+                        if exist "C:\\Users\\Lmarquez\\Downloads\\*.pdf" (
+                            move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\Users\\Lmarquez\\Downloads\\"
                         ) else (
                             echo No PDF files found to move.
                         )
@@ -76,14 +76,14 @@ pipeline {
                         bat 'npm update'
                         script {
                             try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser firefox --parallel --env allure=true'
+                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                             } catch (e) {
                                 echo "Cypress test failed in Slave 3, continuing"
                             }
                         }
-                        bat '''
-                        if exist "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" (
-                            move "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
+                         bat '''
+                        if exist "C:\\Users\\Lmarquez\\Downloads\\*.pdf" (
+                            move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\Users\\Lmarquez\\Downloads\\"
                         ) else (
                             echo No PDF files found to move.
                         )
@@ -99,14 +99,14 @@ pipeline {
                         bat 'npm update'
                         script {
                             try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser firefox --parallel --env allure=true'
+                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                             } catch (e) {
                                 echo "Cypress test failed in Slave 4, continuing"
                             }
                         }
-                        bat '''
-                        if exist "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" (
-                            move "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
+                         bat '''
+                        if exist "C:\\Users\\Lmarquez\\Downloads\\*.pdf" (
+                            move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\Users\\Lmarquez\\Downloads\\"
                         ) else (
                             echo No PDF files found to move.
                         )
@@ -122,14 +122,14 @@ pipeline {
                         bat 'npm update'
                         script {
                             try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser firefox --parallel --env allure=true'
+                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                             } catch (e) {
                                 echo "Cypress test failed in Slave 5, continuing"
                             }
                         }
-                        bat '''
-                        if exist "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" (
-                            move "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
+                         bat '''
+                        if exist "C:\\Users\\Lmarquez\\Downloads\\*.pdf" (
+                            move "C:\\Users\\Lmarquez\\Downloads\\*.pdf" "C:\\Users\\Lmarquez\\Downloads\\"
                         ) else (
                             echo No PDF files found to move.
                         )
