@@ -136,6 +136,76 @@ pipeline {
                         '''
                     }
                 }
+
+                stage('Slave 6') {
+                    agent { label "Agent2_6" }
+                    steps {
+                        git url: 'https://github.com/FLMarquez/GC_Cypress.git'
+                        bat 'npm install'
+                        bat 'npm update'
+                        script {
+                            try {
+                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                            } catch (e) {
+                                echo "Cypress test failed in Slave 4, continuing"
+                            }
+                        }
+                        bat '''
+                        if exist "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" (
+                            move "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
+                        ) else (
+                            echo No PDF files found to move.
+                        )
+                        '''
+                    }
+                }
+
+                 stage('Slave 7') {
+                    agent { label "Agent2_7" }
+                    steps {
+                        git url: 'https://github.com/FLMarquez/GC_Cypress.git'
+                        bat 'npm install'
+                        bat 'npm update'
+                        script {
+                            try {
+                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                            } catch (e) {
+                                echo "Cypress test failed in Slave 4, continuing"
+                            }
+                        }
+                        bat '''
+                        if exist "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" (
+                            move "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
+                        ) else (
+                            echo No PDF files found to move.
+                        )
+                        '''
+                    }
+                }
+
+                 stage('Slave 8') {
+                    agent { label "Agent2_8" }
+                    steps {
+                        git url: 'https://github.com/FLMarquez/GC_Cypress.git'
+                        bat 'npm install'
+                        bat 'npm update'
+                        script {
+                            try {
+                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                            } catch (e) {
+                                echo "Cypress test failed in Slave 4, continuing"
+                            }
+                        }
+                        bat '''
+                        if exist "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" (
+                            move "C:\\Users\\Lmarquez\\Desktop\\GodoyCuz_Cypress\\cypress\\downloads\\*.pdf" "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads\\"
+                        ) else (
+                            echo No PDF files found to move.
+                        )
+                        '''
+                    }
+                }
+
             }
         }
 
