@@ -21,7 +21,7 @@ describe('Ingreso Full Web', () => {
         return false;
     
 })
-
+//Segunda parte de Web Full
 it('Ingreso Full Web', () => {
     master.SeccionUno("dsimoncini","dsimoncini",100)
     master.SeccionQuince(2000)
