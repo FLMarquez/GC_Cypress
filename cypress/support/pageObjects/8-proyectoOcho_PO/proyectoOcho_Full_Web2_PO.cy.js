@@ -46,9 +46,8 @@ SeccionQuince(t){
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Informe Cajas')]").invoke('show').click({ force: true });
       cy.xpath("(//a[contains(.,'Resumen Cobranzas')])[1]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
-      cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      
+      cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
       cy.xpath("//span[contains(.,'Resumen Cobranza')]").should('be.visible').contains('Resumen Cobranza')
       cy.wait(tiempo)
     });
