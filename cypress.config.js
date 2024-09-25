@@ -4,7 +4,6 @@ const pdfParse = require('pdf-parse');
 const fs = require('fs');
 const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 
-
 module.exports = defineConfig({
   reporter: 'mocha-allure-reporter',
   reporterOptions: {
@@ -16,8 +15,8 @@ module.exports = defineConfig({
   viewportWidth: 1500,
   viewportHeight: 864,
   chromeWebSecurity: false,
-  defaultCommandTimeout: 800000,
-  pageLoadTimeout: 800000 ,
+  defaultCommandTimeout: 120000,  
+  pageLoadTimeout: 120000, 
   videoCompression: false,
   videoUploadOnPasses: true,
   trashAssetsBeforeRuns: false,
@@ -25,6 +24,9 @@ module.exports = defineConfig({
   downloadsFolder: 'C:\\home\\workspace\\GODOYCRUZ',
   e2e: {
     setupNodeEvents(on, config) {
+      const downloadsPath = config.env.downloadsFolder || 'C:\\home\\workspace\\GODOYCRUZ';
+      allureWriter(on, config);
+
       // Registrar las tareas
       on('task', {
         downloadFile,
@@ -43,12 +45,14 @@ module.exports = defineConfig({
           launchOptions.args.push('--disable-software-rasterizer');
           launchOptions.args.push('--disable-dev-shm-usage');
           launchOptions.args.push('--no-sandbox');
-          launchOptions.args.push('--headless'); // Asegúrate de estar en modo headless
+          if (config.isHeadless) {
+            launchOptions.args.push('--headless'); // Asegúrate de estar en modo headless
+          }
 
           // Configurar la carpeta de descargas en Chrome
           launchOptions.preferences.default = {
             'download': {
-              'default_directory': 'C:\\home\\workspace\\GODOYCRUZ',
+              'default_directory': downloadsPath,
               'prompt_for_download': false,
               'directory_upgrade': true,
               'extensions_to_open': 'applications/pdf'
@@ -59,15 +63,15 @@ module.exports = defineConfig({
 
         } else if (browser.name === 'firefox') {
           launchOptions.preferences = {
-            'browser.download.dir': 'C:\\home\\workspace\\GODOYCRUZ',
-            'browser.download.folderList': 2, // Usa la carpeta de descargas especificada en 'browser.download.dir'
+            'browser.download.dir': downloadsPath,
+            'browser.download.folderList': 2, 
             'browser.helperApps.neverAsk.saveToDisk': 'application/pdf',
             'pdfjs.disabled': true
           };
         } else if (browser.name === 'electron') {
           launchOptions.preferences = {
             'download.prompt_for_download': false,
-            'download.default_directory': 'C:\\home\\workspace\\GODOYCRUZ'
+            'download.default_directory': downloadsPath
           };
         }
 
@@ -82,5 +86,6 @@ module.exports = defineConfig({
     }
   }
 });
+
 
 
