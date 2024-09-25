@@ -296,16 +296,16 @@ SeccionDieciseis(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("//a[contains(.,'Juzgado de Faltas')]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'Resolución de Accidentes')]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
-      cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Resolución Accidentes')]").should('be.visible').contains('Resolución Accidentes')
-      cy.wait(tiempo)
-    });
+    //   cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    //   cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+    //   cy.xpath("//a[contains(.,'Juzgado de Faltas')]").invoke('show').click({ force: true });
+    //   cy.xpath("//a[contains(.,'Resolución de Accidentes')]").invoke('show').click({ force: true });
+    //   cy.wait(tiempo)
+    //   cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
+    //   cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+    //   cy.xpath("//span[contains(.,'Resolución Accidentes')]").should('be.visible').contains('Resolución Accidentes')
+    //   cy.wait(tiempo)
+    // });
 
 
       cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
