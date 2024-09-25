@@ -6,7 +6,7 @@ import proyectoOcho_Full_Web2_PO from '../../support/pageObjects/8-proyectoOcho_
 require('cypress-xpath')
 
 
-describe('Ingreso Full Web', () => {
+describe('Ingreso Full Web2', () => {
 
     const master=new proyectoOcho_Full_Web2_PO()
     
@@ -22,7 +22,7 @@ describe('Ingreso Full Web', () => {
     
 })
 //Segunda parte de Web Full
-it('Ingreso Full Web', () => {
+it('Ingreso Full Web2', () => {
     master.SeccionUno("dsimoncini","dsimoncini",100)
     master.SeccionQuince(2000)
     master.SeccionDieciseis(2000)

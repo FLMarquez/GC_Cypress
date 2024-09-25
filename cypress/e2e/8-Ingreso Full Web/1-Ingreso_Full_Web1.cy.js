@@ -6,7 +6,7 @@ import proyectoOcho_Full_Web1_PO from '../../support/pageObjects/8-proyectoOcho_
 require('cypress-xpath')
 
 
-describe('Ingreso Full Web', () => {
+describe('Ingreso Full Web1', () => {
 
     const master=new proyectoOcho_Full_Web1_PO()
     
@@ -22,7 +22,7 @@ describe('Ingreso Full Web', () => {
     
 })
 
-it('Ingreso Full Web', () => {
+it('Ingreso Full Web1', () => {
     master.SeccionUno("dsimoncini","dsimoncini",100)
     master.SeccionDos(2000)
     master.SeccionTres(2000)
