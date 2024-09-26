@@ -3,11 +3,6 @@ pipeline {
 
     tools { nodejs "node" }
 
-    environment {
-        // Ruta donde Cypress descargará los archivos PDF
-        CYPRESS_DOWNLOADS_FOLDER = 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads'
-    }
-
     stages {
         stage('Install Allure') {
             steps {
@@ -35,7 +30,7 @@ pipeline {
                         bat 'npm update'
                         script {
                             try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true --env downloadsFolder=$CYPRESS_DOWNLOADS_FOLDER'
+                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                             } catch (e) {
                                 echo "Cypress test failed in Slave 1, continuing"
                             }
@@ -51,7 +46,7 @@ pipeline {
                         bat 'npm update'
                         script {
                             try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true --env downloadsFolder=$CYPRESS_DOWNLOADS_FOLDER'
+                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                             } catch (e) {
                                 echo "Cypress test failed in Slave 2, continuing"
                             }
@@ -67,7 +62,7 @@ pipeline {
                         bat 'npm update'
                         script {
                             try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true --env downloadsFolder=$CYPRESS_DOWNLOADS_FOLDER'
+                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                             } catch (e) {
                                 echo "Cypress test failed in Slave 3, continuing"
                             }
@@ -75,6 +70,7 @@ pipeline {
                     }
                 }
 
+                
                 stage('Slave 4') {
                     agent { label "Agent2_4" }
                     steps {
@@ -83,9 +79,9 @@ pipeline {
                         bat 'npm update'
                         script {
                             try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true --env downloadsFolder=$CYPRESS_DOWNLOADS_FOLDER'
+                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                             } catch (e) {
-                                echo "Cypress test failed in Slave 4, continuing"
+                                echo "Cypress test failed in Slave 3, continuing"
                             }
                         }
                     }
@@ -99,9 +95,9 @@ pipeline {
                         bat 'npm update'
                         script {
                             try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true --env downloadsFolder=$CYPRESS_DOWNLOADS_FOLDER'
+                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                             } catch (e) {
-                                echo "Cypress test failed in Slave 5, continuing"
+                                echo "Cypress test failed in Slave 3, continuing"
                             }
                         }
                     }
@@ -115,15 +111,15 @@ pipeline {
                         bat 'npm update'
                         script {
                             try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true --env downloadsFolder=$CYPRESS_DOWNLOADS_FOLDER'
+                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                             } catch (e) {
-                                echo "Cypress test failed in Slave 6, continuing"
+                                echo "Cypress test failed in Slave 3, continuing"
                             }
                         }
                     }
                 }
 
-                stage('Slave 7') {
+                 stage('Slave 7') {
                     agent { label "Agent2_7" }
                     steps {
                         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
@@ -131,15 +127,15 @@ pipeline {
                         bat 'npm update'
                         script {
                             try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true --env downloadsFolder=$CYPRESS_DOWNLOADS_FOLDER'
+                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                             } catch (e) {
-                                echo "Cypress test failed in Slave 7, continuing"
+                                echo "Cypress test failed in Slave 3, continuing"
                             }
                         }
                     }
                 }
 
-                stage('Slave 8') {
+                 stage('Slave 8') {
                     agent { label "Agent2_8" }
                     steps {
                         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
@@ -147,13 +143,15 @@ pipeline {
                         bat 'npm update'
                         script {
                             try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true --env downloadsFolder=$CYPRESS_DOWNLOADS_FOLDER'
+                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                             } catch (e) {
-                                echo "Cypress test failed in Slave 8, continuing"
+                                echo "Cypress test failed in Slave 3, continuing"
                             }
                         }
                     }
                 }
+
+               
             }
         }
 
@@ -188,3 +186,7 @@ pipeline {
         }
     }
 }
+
+
+
+
