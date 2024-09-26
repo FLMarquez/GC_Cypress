@@ -1112,8 +1112,7 @@ SeccionVeintinueve(t){
       cy.xpath("//a[contains(.,'Config. Personas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Tipo Documento')]").invoke('show').click({ force: true }); 
       cy.wait(tiempo)
-      cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
       cy.xpath("//span[contains(.,'ABM Tipos de Documento')]").should('be.visible').contains('ABM Tipos de Documento')
       cy.wait(tiempo)
     });
@@ -1125,8 +1124,7 @@ SeccionVeintinueve(t){
       cy.xpath("//a[contains(.,'Config. Personas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Estado Civil')]").invoke('show').click({ force: true }); 
       cy.wait(tiempo)
-      cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
       cy.xpath("//span[contains(.,'ABM Estado Civil')]").should('be.visible').contains('ABM Estado Civil')
       cy.wait(tiempo)
     });
@@ -1139,8 +1137,7 @@ SeccionVeintinueve(t){
       cy.xpath("//a[contains(.,'Config. Personas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Naturaleza Jurídica')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
-      cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
       cy.xpath("//span[contains(.,'ABM Naturaleza Jurídica')]").should('be.visible').contains('ABM Naturaleza Jurídica')
       cy.wait(tiempo)
     });
@@ -1153,8 +1150,7 @@ SeccionVeintinueve(t){
       cy.xpath("//a[contains(.,'Config. Personas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Nacionalidad')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
-      cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
       cy.xpath("//span[contains(.,'ABM Nacionalidades')]").should('be.visible').contains('ABM Nacionalidades')
       cy.wait(tiempo)
     });
@@ -1167,8 +1163,7 @@ SeccionVeintinueve(t){
       cy.xpath("//a[contains(.,'Config. Personas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Tipo Vínculos')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
-      cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
       cy.xpath("//span[contains(.,'ABM Tipo de Vínculos')]").should('be.visible').contains('ABM Tipo de Vínculos')
       cy.wait(tiempo)
     });
@@ -1181,8 +1176,7 @@ SeccionVeintinueve(t){
       cy.xpath("//a[contains(.,'Config. Personas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Tipo Adjuntos')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
-      cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
       cy.xpath("//span[contains(.,'Tipo Adjuntos')]").should('be.visible').contains('Tipo Adjuntos')
       cy.wait(tiempo)
     });
