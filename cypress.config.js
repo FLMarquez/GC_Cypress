@@ -21,10 +21,10 @@ module.exports = defineConfig({
   videoUploadOnPasses: true,
   trashAssetsBeforeRuns: false,
   projectId: "e7vrap",
-  downloadsFolder: 'C:\\home\\workspace\\GODOYCRUZ',
+  downloadsFolder: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads',
   e2e: {
     setupNodeEvents(on, config) {
-      const downloadsPath = config.env.downloadsFolder || 'C:\\home\\workspace\\GODOYCRUZ';
+      const downloadsPath = config.env.downloadsFolder || 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads';
       allureWriter(on, config);
 
       // Registrar las tareas
@@ -82,7 +82,7 @@ module.exports = defineConfig({
     },
     baseUrl: 'https://test.elinpar.com',
     env: {
-      downloadsFolder: 'C:\\home\\workspace\\GODOYCRUZ',
+      downloadsFolder: 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\GC_Cypress_Pipeline\\cypress\\downloads',
     }
   }
 });
