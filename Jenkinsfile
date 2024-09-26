@@ -11,6 +11,7 @@ pipeline {
                         bat '''
                         curl -o allure.zip -L "https://repo.maven.apache.org/content/repositories/releases/io/qameta/allure/allure-commandline/2.13.9/allure-commandline-2.13.9.zip"
                         mkdir allure
+                        powershell -Command "Remove-Item 'C:\\home\\workspace\\GC_Cypress_Pipeline\\allure\\allure-2.13.9\\plugins\\jira-plugin\\lib\\*' -Force"
                         powershell -Command "Expand-Archive -Path allure.zip -DestinationPath allure"
                         '''
                     } catch (e) {
@@ -70,7 +71,6 @@ pipeline {
                     }
                 }
 
-                
                 stage('Slave 4') {
                     agent { label "Agent2_4" }
                     steps {
@@ -81,7 +81,7 @@ pipeline {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                             } catch (e) {
-                                echo "Cypress test failed in Slave 3, continuing"
+                                echo "Cypress test failed in Slave 4, continuing"
                             }
                         }
                     }
@@ -97,7 +97,7 @@ pipeline {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                             } catch (e) {
-                                echo "Cypress test failed in Slave 3, continuing"
+                                echo "Cypress test failed in Slave 5, continuing"
                             }
                         }
                     }
@@ -113,13 +113,13 @@ pipeline {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                             } catch (e) {
-                                echo "Cypress test failed in Slave 3, continuing"
+                                echo "Cypress test failed in Slave 6, continuing"
                             }
                         }
                     }
                 }
 
-                 stage('Slave 7') {
+                stage('Slave 7') {
                     agent { label "Agent2_7" }
                     steps {
                         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
@@ -129,13 +129,13 @@ pipeline {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                             } catch (e) {
-                                echo "Cypress test failed in Slave 3, continuing"
+                                echo "Cypress test failed in Slave 7, continuing"
                             }
                         }
                     }
                 }
 
-                 stage('Slave 8') {
+                stage('Slave 8') {
                     agent { label "Agent2_8" }
                     steps {
                         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
@@ -145,13 +145,11 @@ pipeline {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                             } catch (e) {
-                                echo "Cypress test failed in Slave 3, continuing"
+                                echo "Cypress test failed in Slave 8, continuing"
                             }
                         }
                     }
                 }
-
-               
             }
         }
 
@@ -186,7 +184,6 @@ pipeline {
         }
     }
 }
-
 
 
 

@@ -48,9 +48,10 @@ class ProyectoSeis_Juzgado_Faltas_PO{
 
     cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
     //cy.frameLoaded({ index: 0 })
+    cy.wait(tiempo)
     cy.get('#vOTPID').select(tipo_objeto);
     cy.wait(tiempo)
-    cy.get('#vOJTIDENTIFICADOR1').type(objeto);
+    cy.get('#vOJTIDENTIFICADOR1').should("be.visible").type(objeto, { timeout: 5000 });
     cy.wait(tiempo);
     cy.get('#BUTTON1').should("be.visible").click();
     cy.wait(2500);
