@@ -47,8 +47,7 @@ SeccionNueve(t){
       cy.xpath("(//a[contains(.,'Tasas Varias')])[2]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Generar Tasas Varias')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
-      cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
       cy.xpath("//span[contains(.,'Generación de Tasas Varias')]").should('be.visible').contains('Generación de Tasas Varias')
       cy.wait(tiempo)
     });

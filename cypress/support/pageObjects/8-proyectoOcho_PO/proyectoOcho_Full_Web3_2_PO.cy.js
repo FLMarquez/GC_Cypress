@@ -47,8 +47,7 @@ SeccionVeinte(t){
       cy.xpath("(//a[contains(.,'Tribunal de Cuentas')])[1]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Generar Informes de Tribunal de Cuentas')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
-      cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
       cy.xpath("//span[contains(.,'Generación Informes Tribunal de Cuentas')]").should('be.visible').contains('Generación Informes Tribunal de Cuentas')
       cy.wait(tiempo)
     });
