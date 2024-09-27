@@ -4,6 +4,19 @@ pipeline {
     tools { nodejs "node" }
 
     stages {
+        stage('Conectar a VPN') {
+            steps {
+                script {
+                    try {
+                        // Ejecutar el script de conexión VPN
+                        bat 'C:\\scripts\\connect_vpn.bat'
+                    } catch (e) {
+                        error 'Error al conectar a la VPN. Deteniendo el pipeline.'
+                    }
+                }
+            }
+        }
+
         stage('Install Allure') {
             steps {
                 script {
@@ -184,6 +197,7 @@ pipeline {
         }
     }
 }
+
 
 
 
