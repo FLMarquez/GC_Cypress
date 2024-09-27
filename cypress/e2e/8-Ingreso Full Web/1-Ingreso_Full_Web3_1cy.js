@@ -1,14 +1,14 @@
 //NumeroObjeto: Dato Prueba ----- 46860
 
-import proyectoOcho_Full_Web1_PO from '../../support/pageObjects/8-proyectoOcho_PO/proyectoOcho_Full_Web1_PO.cy'
+import proyectoOcho_Full_Web3_1_PO from '../../support/pageObjects/8-proyectoOcho_PO/proyectoOcho_Full_Web3_1_PO.cy'
 
 /// <reference types='cypress' />
 require('cypress-xpath')
 
 
-describe('Ingreso Full Web1', () => {
+describe('Ingreso Full Web3_1', () => {
 
-    const master=new proyectoOcho_Full_Web1_PO()
+    const master=new proyectoOcho_Full_Web3_1_PO()
     
     master.visitHome()
 
@@ -21,16 +21,12 @@ describe('Ingreso Full Web1', () => {
         return false;
     
 })
-
-it('Ingreso Full Web1', () => {
+//Segunda parte de Web Full
+it('Ingreso Full Web3_1', () => {
     master.SeccionUno("dsimoncini","dsimoncini",100)
-    master.SeccionDos(2000)
-    master.SeccionTres(2000)
-    master.SeccionCuatro(2000)   
-    master.SeccionCinco(2000)  
-    master.SeccionSeis(2000) 
-    master.SeccionSiete(2000) 
-    master.SeccionOcho(2000) 
+    master.SeccionDiecisiete(2000)
+    master.SeccionDieciocho(2000)
+    master.SeccionDiecinueve(2000)
     master.SeccionTreinta(2000)
 
 });

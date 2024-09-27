@@ -1,7 +1,7 @@
 import 'cypress-iframe';
 require('cypress-downloadfile/lib/downloadFileCommand');
 
-class proyectoOcho_Full_Web2_1_PO {
+class proyectoOcho_Full_Web1_2_PO {
 
   visitHome() {
     let tiempo = 1000;
@@ -302,4 +302,4 @@ SeccionCatorce(t){
       
     }//final
 
-export default proyectoOcho_Full_Web2_1_PO
+export default proyectoOcho_Full_Web1_2_PO
