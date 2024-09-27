@@ -31,12 +31,6 @@ it('Ingreso Full Web1', () => {
     master.SeccionSeis(2000) 
     master.SeccionSiete(2000) 
     master.SeccionOcho(2000) 
-    master.SeccionNueve(2000) 
-    master.SeccionDiez(2000) 
-    master.SeccionOnce(2000) 
-    master.SeccionDoce(2000)
-    master.SeccionTrece(2000)
-    master.SeccionCatorce(2000)
     master.SeccionTreinta(2000)
 
 });
