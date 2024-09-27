@@ -3,13 +3,25 @@ require('cypress-downloadfile/lib/downloadFileCommand');
 
 class proyectoSiete_Emision_Tasas_PO{
 
-    visitHome() {
-        let tiempo = 1000;
-        beforeEach(() => {
-          cy.visit('https://gcdigital.godoycruz.gob.ar/K2BGAM/servlet/com.k2bgam.k2blogin');
-          cy.wait(tiempo);
-        });
-      }
+  visitHome() {
+    let tiempo = 1000;
+    beforeEach(() => {
+      cy.visit('https://gcdigital.godoycruz.gob.ar/K2BGAM/servlet/com.k2bgam.k2blogin', {
+        timeout: 30000, // Tiempo máximo de espera en milisegundos
+        onBeforeLoad: (win) => {
+          win.fetch = null;
+          // Acciones antes de que se cargue la página
+          console.log('La página está a punto de cargarse');
+        },
+        onLoad: (win) => {
+          // Acciones para cuando la página se carga completamente
+          console.log('La página se ha cargado completamente');
+        },
+        waitForLoad: false, // No esperar a que se cargue completamente
+      });
+      cy.wait(tiempo);
+    });
+  }
     
       SeccionUno(usuario, contrasena, t) {
         let tiempo = t;
@@ -37,12 +49,14 @@ class proyectoSiete_Emision_Tasas_PO{
     
     cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
     //cy.frameLoaded({ index: 0 })
-    
-    cy.get('#vDOCUMENTO').should('be.visible', { timeout: 5000 }).clear().type(idtrib, { delay: 100 });
     cy.wait(tiempo)
+    cy.get('#vDOCUMENTO').invoke('val', idtrib, { delay: 500 });
+    cy.wait(4000)
     
-    cy.get('#vCMCCODIGO').should("be.visible").click().type(tasa);
-    cy.wait(tiempo);
+    
+    cy.get('#vCMCCODIGO').invoke('val', tasa, { delay: 500 });
+
+    cy.wait(4000);
     cy.get('#vDETALLEINSTRUMENTO').should("be.visible").click();
     cy.wait(tiempo);
     cy.get('#AGREGAR').should("be.visible").click();
