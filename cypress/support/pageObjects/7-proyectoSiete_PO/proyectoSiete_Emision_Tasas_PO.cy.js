@@ -37,14 +37,12 @@ class proyectoSiete_Emision_Tasas_PO{
     
     cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
     //cy.frameLoaded({ index: 0 })
-    cy.get('#vDOCUMENTO').invoke('show').clear();
-    cy.wait(tiempo)
-   
-    cy.get('#vDOCUMENTO').invoke('show').type(idtrib, { timeout: 5000 });
-    cy.wait(3000)
     
-    cy.get('#vCMCCODIGO').invoke('show').click().type(tasa, { timeout: 5000 });
-    cy.wait(3000);
+    cy.get('#vDOCUMENTO').should('be.visible', { timeout: 5000 }).clear().type(idtrib, { delay: 100 });
+    cy.wait(tiempo)
+    
+    cy.get('#vCMCCODIGO').should("be.visible").click().type(tasa);
+    cy.wait(tiempo);
     cy.get('#vDETALLEINSTRUMENTO').should("be.visible").click();
     cy.wait(tiempo);
     cy.get('#AGREGAR').should("be.visible").click();
@@ -64,11 +62,11 @@ class proyectoSiete_Emision_Tasas_PO{
       SeccionTres(t){
         let tiempo=t
       cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-        cy.wait(2500)
+        cy.wait(1500)
         // Seleccionar el iframe hijo 'gxp1_ifrm'
         cy.wait(1500)
         cy.get('iframe[id="gxp0_ifrm"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-          cy.wait(2500)
+          cy.wait(1500)
                   cy.get('#TEXTBLOCK').invoke('show').and('contain.text', 'Tasas Generadas Correctamente');
                   cy.get('#BUTTON1').should('be.visible').click({force: true})
                   cy.wait(tiempo)
