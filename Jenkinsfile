@@ -1,7 +1,9 @@
 pipeline {
     agent any
 
-    tools { nodejs "node" }
+    tools { 
+        nodejs "node" 
+    }
 
     stages {
         stage('Install Allure') {
@@ -32,6 +34,8 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                                bat 'mkdir C:\\home\\workspace\\GC_Cypress_Pipeline@2\\allure_results\\Slave1_results || exit 0'
+                                bat 'move allure-results C:\\home\\workspace\\GC_Cypress_Pipeline@2\\allure_results\\Slave1_results /Y'
                             } catch (e) {
                                 echo "Cypress test failed in Slave 1, continuing"
                             }
@@ -48,6 +52,8 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                                bat 'mkdir C:\\home\\workspace\\GC_Cypress_Pipeline@2\\allure_results\\Slave2_results || exit 0'
+                                bat 'move allure-results C:\\home\\workspace\\GC_Cypress_Pipeline@2\\allure_results\\Slave2_results /Y'
                             } catch (e) {
                                 echo "Cypress test failed in Slave 2, continuing"
                             }
@@ -64,6 +70,8 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                                bat 'mkdir C:\\home\\workspace\\GC_Cypress_Pipeline@2\\allure_results\\Slave3_results || exit 0'
+                                bat 'move allure-results C:\\home\\workspace\\GC_Cypress_Pipeline@2\\allure_results\\Slave3_results /Y'
                             } catch (e) {
                                 echo "Cypress test failed in Slave 3, continuing"
                             }
@@ -80,6 +88,8 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                                bat 'mkdir C:\\home\\workspace\\GC_Cypress_Pipeline@2\\allure_results\\Slave4_results || exit 0'
+                                bat 'move allure-results C:\\home\\workspace\\GC_Cypress_Pipeline@2\\allure_results\\Slave4_results /Y'
                             } catch (e) {
                                 echo "Cypress test failed in Slave 4, continuing"
                             }
@@ -96,6 +106,8 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                                bat 'mkdir C:\\home\\workspace\\GC_Cypress_Pipeline@2\\allure_results\\Slave5_results || exit 0'
+                                bat 'move allure-results C:\\home\\workspace\\GC_Cypress_Pipeline@2\\allure_results\\Slave5_results /Y'
                             } catch (e) {
                                 echo "Cypress test failed in Slave 5, continuing"
                             }
@@ -112,6 +124,8 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                                bat 'mkdir C:\\home\\workspace\\GC_Cypress_Pipeline@2\\allure_results\\Slave6_results || exit 0'
+                                bat 'move allure-results C:\\home\\workspace\\GC_Cypress_Pipeline@2\\allure_results\\Slave6_results /Y'
                             } catch (e) {
                                 echo "Cypress test failed in Slave 6, continuing"
                             }
@@ -128,6 +142,8 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                                bat 'mkdir C:\\home\\workspace\\GC_Cypress_Pipeline@2\\allure_results\\Slave7_results || exit 0'
+                                bat 'move allure-results C:\\home\\workspace\\GC_Cypress_Pipeline@2\\allure_results\\Slave7_results /Y'
                             } catch (e) {
                                 echo "Cypress test failed in Slave 7, continuing"
                             }
@@ -144,6 +160,8 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                                bat 'mkdir C:\\home\\workspace\\GC_Cypress_Pipeline@2\\allure_results\\Slave8_results || exit 0'
+                                bat 'move allure-results C:\\home\\workspace\\GC_Cypress_Pipeline@2\\allure_results\\Slave8_results /Y'
                             } catch (e) {
                                 echo "Cypress test failed in Slave 8, continuing"
                             }
@@ -156,7 +174,7 @@ pipeline {
         stage('Check Allure Results') {
             steps {
                 script {
-                    if (fileExists('allure-results')) {
+                    if (fileExists('C:\\home\\workspace\\GC_Cypress_Pipeline@2\\allure_results')) {
                         echo 'Allure results found!'
                     } else {
                         error 'Allure results not found! Stopping pipeline.'
@@ -169,21 +187,22 @@ pipeline {
             steps {
                 script {
                     try {
-                        bat '"C:\\Program Files\\allure-2.30.0\\bin\\allure" generate allure-results --clean -o allure-report'
+                        bat '"C:\\Program Files\\allure-2.30.0\\bin\\allure" generate C:\\home\\workspace\\GC_Cypress_Pipeline@2\\allure_results --clean -o C:\\home\\workspace\\GC_Cypress_Pipeline@2\\allure_report'
                     } catch (e) {
-                        echo "Error generating Allure report, but continuing pipeline"
+                        echo "Allure report generation failed, but continuing"
                     }
                 }
             }
         }
+    }
 
-        stage('Archive Allure Report') {
-            steps {
-                archiveArtifacts artifacts: 'allure-report/**', allowEmptyArchive: true
-            }
+    post {
+        always {
+            echo 'Pipeline complete!'
         }
     }
 }
+
 
 
 
