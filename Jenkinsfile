@@ -13,8 +13,8 @@ pipeline {
                         bat '''
                         curl -o allure.zip -L "https://repo.maven.apache.org/content/repositories/releases/io/qameta/allure/allure-commandline/2.13.9/allure-commandline-2.13.9.zip"
                         mkdir allure
-                        powershell -Command "Remove-Item 'C:\\home\\workspace\\GC_Cypress_Pipeline\\allure\\allure-2.13.9\\plugins\\jira-plugin\\lib\\*' -Force"
-                        powershell -Command "Expand-Archive -Path allure.zip -DestinationPath allure"
+                        powershell -Command "Remove-Item 'C:\\home\\workspace\\GC_Cypress_Pipeline\\allure\\allure-2.30.0\\plugins\\jira-plugin\\lib\\*' -Force"
+                        powershell -Command "Expand-Archive -Path allure-2.30.0.zip -DestinationPath allure"
                         '''
                     } catch (e) {
                         echo "Error instalando Allure, pero continuando con el pipeline."

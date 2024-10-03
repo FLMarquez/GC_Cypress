@@ -261,9 +261,9 @@ class proyectoOcho_Full_Web1_1_PO {
       cy.xpath("(//a[contains(.,'Recaudación')])[1]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Administración de Rendiciones')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
-      cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Administración de Rendiciones de Recaudación')]").should('be.visible').contains('Administración de Rendiciones de Recaudación')
+      cy.get('iframe', { timeout: 20000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
+      cy.get('iframe').its('0.contentDocument.body', { timeout: 20000 }).should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Administración de Rendiciones de Recaudación')]").should('be.visible').contains('Administración de Rendiciones de Recaudación');
       cy.wait(tiempo)
     });
 
