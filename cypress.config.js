@@ -18,7 +18,7 @@ module.exports = defineConfig({
   defaultCommandTimeout: 800000,  
   pageLoadTimeout: 800000, 
   videoCompression: false,
-  videoUploadOnPasses: true,
+ //videoUploadOnPasses: true,
   trashAssetsBeforeRuns: false,
   projectId: "e7vrap",
   downloadsFolder: 'C:\\home\\workspace\\GODOYCRUZ',

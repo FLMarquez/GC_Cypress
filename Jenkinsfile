@@ -13,8 +13,11 @@ pipeline {
                         bat '''
                         curl -o allure.zip -L "https://repo.maven.apache.org/content/repositories/releases/io/qameta/allure/allure-commandline/2.13.9/allure-commandline-2.13.9.zip"
                         mkdir allure
-                        powershell -Command "Remove-Item 'C:\\home\\workspace\\GC_Cypress_Pipeline\\allure\\allure-2.30.0\\plugins\\jira-plugin\\lib\\*' -Force"
-                        powershell -Command "Expand-Archive -Path allure-2.30.0.zip -DestinationPath allure"
+                        powershell -Command "Remove-Item -Recurse -Force C:\home\workspace\GC_Cypress_Pipeline\allure"
+                        powershell -Command "Expand-Archive -Path allure-2.30.0.zip -DestinationPath allure -Force"
+
+
+"
 
                         '''
                     } catch (e) {
@@ -167,6 +170,17 @@ pipeline {
                 }
             }
         }
+
+
+ // Nueva etapa para listar los resultados de Allure
+        stage('List Allure Results') {
+            steps {
+                script {
+                    bat 'dir allure-results'
+                }
+            }
+        }
+
 
         stage('Generate Allure Report') {
             steps {
