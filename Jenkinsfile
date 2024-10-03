@@ -15,6 +15,7 @@ pipeline {
                         mkdir allure
                         powershell -Command "Remove-Item 'C:\\home\\workspace\\GC_Cypress_Pipeline\\allure\\allure-2.30.0\\plugins\\jira-plugin\\lib\\*' -Force"
                         powershell -Command "Expand-Archive -Path allure-2.30.0.zip -DestinationPath allure"
+
                         '''
                     } catch (e) {
                         echo "Error instalando Allure, pero continuando con el pipeline."
