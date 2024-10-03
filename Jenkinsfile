@@ -6,23 +6,6 @@ pipeline {
     }
 
     stages {
-        stage('Install Allure') {
-            steps {
-                script {
-                    try {
-                        bat '''
-                    curl -o allure-commandline-2.30.0.zip -L "https://repo.maven.apache.org/content/repositories/releases/io/qameta/allure/allure-commandline/2.30.0/allure-commandline-2.30.0.zip"
-                    mkdir allure
-                    powershell -Command "Remove-Item -Recurse -Force C:\\home\\workspace\\GC_Cypress_Pipeline\\allure"
-                    powershell -Command "Expand-Archive -Path allure-commandline-2.30.0.zip -DestinationPath allure -Force"
-                    '''
-                } catch (e) {
-                    echo "Error instalando Allure, pero continuando con el pipeline."
-                }
-                }
-            }
-        }
-
         stage('Cypress Parallel Test Suite') {
             parallel {
                 stage('Slave 1') {
@@ -34,6 +17,7 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                                stash includes: 'allure-results/**', name: 'allure-results-1'
                             } catch (e) {
                                 echo "Cypress test falló en Slave 1, pero continuando."
                             }
@@ -50,6 +34,7 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                                stash includes: 'allure-results/**', name: 'allure-results-2'
                             } catch (e) {
                                 echo "Cypress test falló en Slave 2, pero continuando."
                             }
@@ -66,6 +51,7 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                                stash includes: 'allure-results/**', name: 'allure-results-3'
                             } catch (e) {
                                 echo "Cypress test falló en Slave 3, pero continuando."
                             }
@@ -82,6 +68,7 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                                stash includes: 'allure-results/**', name: 'allure-results-4'
                             } catch (e) {
                                 echo "Cypress test falló en Slave 4, pero continuando."
                             }
@@ -98,6 +85,7 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                                stash includes: 'allure-results/**', name: 'allure-results-5'
                             } catch (e) {
                                 echo "Cypress test falló en Slave 5, pero continuando."
                             }
@@ -114,6 +102,7 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                                stash includes: 'allure-results/**', name: 'allure-results-6'
                             } catch (e) {
                                 echo "Cypress test falló en Slave 6, pero continuando."
                             }
@@ -130,6 +119,7 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                                stash includes: 'allure-results/**', name: 'allure-results-7'
                             } catch (e) {
                                 echo "Cypress test falló en Slave 7, pero continuando."
                             }
@@ -146,12 +136,27 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                                stash includes: 'allure-results/**', name: 'allure-results-8'
                             } catch (e) {
                                 echo "Cypress test falló en Slave 8, pero continuando."
                             }
                         }
                     }
                 }
+            }
+        }
+
+        // Combinar los resultados de Allure
+        stage('Unstash Allure Results') {
+            steps {
+                unstash 'allure-results-1'
+                unstash 'allure-results-2'
+                unstash 'allure-results-3'
+                unstash 'allure-results-4'
+                unstash 'allure-results-5'
+                unstash 'allure-results-6'
+                unstash 'allure-results-7'
+                unstash 'allure-results-8'
             }
         }
 
@@ -167,8 +172,6 @@ pipeline {
             }
         }
 
-
- // Nueva etapa para listar los resultados de Allure
         stage('List Allure Results') {
             steps {
                 script {
@@ -177,12 +180,11 @@ pipeline {
             }
         }
 
-
         stage('Generate Allure Report') {
             steps {
                 script {
                     try {
-                        bat '"C:\\Program Files\\allure-2.30.0\\bin\\allure" generate allure-results --clean -o allure-report'
+                        bat '"%ALLURE_HOME%\\bin\\allure" generate allure-results --clean -o allure-report'
                     } catch (e) {
                         echo "Error generando el reporte de Allure, pero continuando con el pipeline."
                     }
