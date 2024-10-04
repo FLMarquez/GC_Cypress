@@ -62,14 +62,11 @@ pipeline {
         // Combinar los resultados de Allure
         stage('Unstash Allure Results') {
             steps {
-                unstash 'allure-results-1'
-                unstash 'allure-results-2'
-                unstash 'allure-results-3'
-                unstash 'allure-results-4'
-                unstash 'allure-results-5'
-                unstash 'allure-results-6'
-                unstash 'allure-results-7'
-                unstash 'allure-results-8'
+                script {
+                    (1..8).each { index ->
+                        unstash "allure-results-Agent2_${index}"
+                    }
+                }
             }
         }
 
@@ -117,17 +114,26 @@ pipeline {
 }
 
 // Función para correr las pruebas de Cypress
-def runCypressTests() {
-    script {
-        git url: 'https://github.com/FLMarquez/GC_Cypress.git'
-        bat 'npm install'
-        bat 'npm update'
-        try {
-            bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-        } catch (e) {
-            echo "Cypress test falló, pero continuando."
+def runCypressTests(String agentLabel) {
+    stage("Run Cypress Tests on ${agentLabel}") {
+        agent { label agentLabel }
+        steps {
+            script {
+                git url: 'https://github.com/FLMarquez/GC_Cypress.git'
+                bat 'npm install'
+                bat 'npm update'
+                try {
+                    bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                    
+                    // Stash the allure results after tests
+                    stash includes: 'allure-results/**', name: "allure-results-${agentLabel}"
+                } catch (e) {
+                    echo "Cypress test falló, pero continuando."
+                }
+            }
         }
     }
 }
+
 
 
