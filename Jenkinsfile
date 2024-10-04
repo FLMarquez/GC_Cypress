@@ -18,7 +18,7 @@ pipeline {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                                 if (fileExists('allure-results')) {
-                                    stash includes: 'allure-results/**', name: 'allure-results-1'
+                                    stash includes: 'allure-results/**', name: 'allure-results'
                                 } else {
                                     echo "No se encontraron resultados de Allure en Slave 1"
                                 }
@@ -39,7 +39,7 @@ pipeline {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                                 if (fileExists('allure-results')) {
-                                    stash includes: 'allure-results/**', name: 'allure-results-2'
+                                    stash includes: 'allure-results/**', name: 'allure-results'
                                 } else {
                                     echo "No se encontraron resultados de Allure en Slave 2"
                                 }
@@ -60,7 +60,7 @@ pipeline {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                                 if (fileExists('allure-results')) {
-                                    stash includes: 'allure-results/**', name: 'allure-results-3'
+                                    stash includes: 'allure-results/**', name: 'allure-results'
                                 } else {
                                     echo "No se encontraron resultados de Allure en Slave 3"
                                 }
@@ -81,7 +81,7 @@ pipeline {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                                 if (fileExists('allure-results')) {
-                                    stash includes: 'allure-results/**', name: 'allure-results-4'
+                                    stash includes: 'allure-results/**', name: 'allure-results'
                                 } else {
                                     echo "No se encontraron resultados de Allure en Slave 4"
                                 }
@@ -102,7 +102,7 @@ pipeline {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                                 if (fileExists('allure-results')) {
-                                    stash includes: 'allure-results/**', name: 'allure-results-5'
+                                    stash includes: 'allure-results/**', name: 'allure-results'
                                 } else {
                                     echo "No se encontraron resultados de Allure en Slave 5"
                                 }
@@ -123,7 +123,7 @@ pipeline {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                                 if (fileExists('allure-results')) {
-                                    stash includes: 'allure-results/**', name: 'allure-results-6'
+                                    stash includes: 'allure-results/**', name: 'allure-results'
                                 } else {
                                     echo "No se encontraron resultados de Allure en Slave 6"
                                 }
@@ -144,7 +144,7 @@ pipeline {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                                 if (fileExists('allure-results')) {
-                                    stash includes: 'allure-results/**', name: 'allure-results-7'
+                                    stash includes: 'allure-results/**', name: 'allure-results'
                                 } else {
                                     echo "No se encontraron resultados de Allure en Slave 7"
                                 }
@@ -165,7 +165,7 @@ pipeline {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
                                 if (fileExists('allure-results')) {
-                                    stash includes: 'allure-results/**', name: 'allure-results-8'
+                                    stash includes: 'allure-results/**', name: 'allure-results'
                                 } else {
                                     echo "No se encontraron resultados de Allure en Slave 8"
                                 }
@@ -181,14 +181,14 @@ pipeline {
         // Combinar los resultados de Allure
         stage('Unstash Allure Results') {
             steps {
-                unstash 'allure-results-1'
-                unstash 'allure-results-2'
-                unstash 'allure-results-3'
-                unstash 'allure-results-4'
-                unstash 'allure-results-5'
-                unstash 'allure-results-6'
-                unstash 'allure-results-7'
-                unstash 'allure-results-8'
+                unstash 'allure-results'
+                unstash 'allure-results'
+                unstash 'allure-results'
+                unstash 'allure-results'
+                unstash 'allure-results'
+                unstash 'allure-results'
+                unstash 'allure-results'
+                unstash 'allure-results'
             }
         }
 
