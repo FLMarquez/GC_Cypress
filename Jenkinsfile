@@ -146,26 +146,28 @@ pipeline {
             }
         }
 
-        stage('Collect Allure Results') {
-            steps {
-                script {
-                    def stashes = ['allure-results-1', 'allure-results-2', 'allure-results-3', 
-                                   'allure-results-4', 'allure-results-5', 
-                                   'allure-results-6', 'allure-results-7', 
-                                   'allure-results-8']
-                    
-                    for (stashName in stashes) {
-    if (fileExists("ruta_donde_está_guardado/${stashName}")) {
-        echo "Archivo ${stashName} encontrado"
-        // Aquí puedes realizar otras acciones como copiar o mover el archivo si es necesario
-    } else {
-        echo "Archivo ${stashName} no encontrado"
-    }
-}
-
+       stage('Collect Allure Results') {
+    steps {
+        script {
+            def workspace = currentBuild.workspace
+            def stashes = ['allure-results-1', 'allure-results-2', 'allure-results-3', 
+                           'allure-results-4', 'allure-results-5', 
+                           'allure-results-6', 'allure-results-7', 
+                           'allure-results-8']
+            
+            for (stashName in stashes) {
+                def filePath = "${workspace}/${stashName}"
+                if (fileExists(filePath)) {
+                    echo "Archivo ${stashName} encontrado"
+                    // Aquí puedes realizar otras acciones como copiar o mover el archivo si es necesario
+                } else {
+                    echo "Archivo ${stashName} no encontrado"
                 }
             }
         }
+    }
+}
+
 
         stage('Check Allure Results') {
             steps {
