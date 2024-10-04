@@ -178,17 +178,23 @@ pipeline {
             }
         }
 
-        // Combinar los resultados de Allure
+        // Unstash los resultados de Allure
         stage('Unstash Allure Results') {
             steps {
-                unstash 'allure-results-1'
-                unstash 'allure-results-2'
-                unstash 'allure-results-3'
-                unstash 'allure-results-4'
-                unstash 'allure-results-5'
-                unstash 'allure-results-6'
-                unstash 'allure-results-7'
-                unstash 'allure-results-8'
+                script {
+                    def stashes = ['allure-results-1', 'allure-results-2', 'allure-results-3', 
+                                   'allure-results-4', 'allure-results-5', 
+                                   'allure-results-6', 'allure-results-7', 
+                                   'allure-results-8']
+                    
+                    for (stashName in stashes) {
+                        if (stashExists(stashName)) {
+                            unstash stashName
+                        } else {
+                            echo "Stash ${stashName} no encontrado"
+                        }
+                    }
+                }
             }
         }
 
@@ -198,6 +204,7 @@ pipeline {
                     if (fileExists('allure-results')) {
                         echo '¡Resultados de Allure encontrados!'
                     } else {
+                        echo "No se encontraron resultados de Allure en Slave X, revisa los logs de Cypress."
                         error '¡Resultados de Allure no encontrados! Deteniendo el pipeline.'
                     }
                 }
