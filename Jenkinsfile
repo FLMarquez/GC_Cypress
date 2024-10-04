@@ -17,7 +17,7 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-                               
+                                stash name: 'allure-results-1', includes: 'allure-results/**'
                             } catch (e) {
                                 echo "Cypress test falló en Slave 1, pero continuando."
                             }
@@ -34,7 +34,7 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-                                
+                                stash name: 'allure-results-2', includes: 'allure-results/**'
                             } catch (e) {
                                 echo "Cypress test falló en Slave 2, pero continuando."
                             }
@@ -51,7 +51,7 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-                                
+                                stash name: 'allure-results-3', includes: 'allure-results/**'
                             } catch (e) {
                                 echo "Cypress test falló en Slave 3, pero continuando."
                             }
@@ -68,7 +68,7 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-                                
+                                stash name: 'allure-results-4', includes: 'allure-results/**'
                             } catch (e) {
                                 echo "Cypress test falló en Slave 4, pero continuando."
                             }
@@ -85,7 +85,7 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-                                
+                                stash name: 'allure-results-5', includes: 'allure-results/**'
                             } catch (e) {
                                 echo "Cypress test falló en Slave 5, pero continuando."
                             }
@@ -102,7 +102,7 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-                                
+                                stash name: 'allure-results-6', includes: 'allure-results/**'
                             } catch (e) {
                                 echo "Cypress test falló en Slave 6, pero continuando."
                             }
@@ -119,7 +119,7 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-                                
+                                stash name: 'allure-results-7', includes: 'allure-results/**'
                             } catch (e) {
                                 echo "Cypress test falló en Slave 7, pero continuando."
                             }
@@ -136,7 +136,7 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-                                
+                                stash name: 'allure-results-8', includes: 'allure-results/**'
                             } catch (e) {
                                 echo "Cypress test falló en Slave 8, pero continuando."
                             }
