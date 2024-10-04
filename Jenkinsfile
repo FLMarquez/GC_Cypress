@@ -155,12 +155,14 @@ pipeline {
                                    'allure-results-8']
                     
                     for (stashName in stashes) {
-                        if (stashExists(stashName)) {
-                            unstash stashName
-                        } else {
-                            echo "Stash ${stashName} no encontrado"
-                        }
-                    }
+    if (fileExists("ruta_donde_está_guardado/${stashName}")) {
+        echo "Archivo ${stashName} encontrado"
+        // Aquí puedes realizar otras acciones como copiar o mover el archivo si es necesario
+    } else {
+        echo "Archivo ${stashName} no encontrado"
+    }
+}
+
                 }
             }
         }
