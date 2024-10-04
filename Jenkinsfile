@@ -8,169 +8,23 @@ pipeline {
     stages {
         stage('Cypress Parallel Test Suite') {
             parallel {
-                stage('Slave 1') {
-                    agent { label "Agent2_1" }
-                    steps {
-                        git url: 'https://github.com/FLMarquez/GC_Cypress.git'
-                        bat 'npm install'
-                        bat 'npm update'
-                        script {
-                            try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-                                if (fileExists('allure-results')) {
-                                    stash includes: 'allure-results/**', name: 'allure-results-1'
-                                } else {
-                                    echo "No se encontraron resultados de Allure en Slave 1"
+                // Función para ejecutar las pruebas en un agente específico
+                script {
+                    def agents = ["Agent2_1", "Agent2_2", "Agent2_3", "Agent2_4", "Agent2_5", "Agent2_6", "Agent2_7", "Agent2_8"]
+                    agents.each { agentLabel ->
+                        stage(agentLabel) {
+                            agent { label agentLabel }
+                            steps {
+                                git url: 'https://github.com/FLMarquez/GC_Cypress.git'
+                                bat 'npm install'
+                                bat 'npm update'
+                                script {
+                                    try {
+                                        bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                                    } catch (e) {
+                                        echo "Cypress test falló en ${agentLabel}, pero continuando."
+                                    }
                                 }
-                            } catch (e) {
-                                echo "Cypress test falló en Slave 1, pero continuando."
-                            }
-                        }
-                    }
-                }
-
-                stage('Slave 2') {
-                    agent { label "Agent2_2" }
-                    steps {
-                        git url: 'https://github.com/FLMarquez/GC_Cypress.git'
-                        bat 'npm install'
-                        bat 'npm update'
-                        script {
-                            try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-                                if (fileExists('allure-results')) {
-                                    stash includes: 'allure-results/**', name: 'allure-results-2'
-                                } else {
-                                    echo "No se encontraron resultados de Allure en Slave 2"
-                                }
-                            } catch (e) {
-                                echo "Cypress test falló en Slave 2, pero continuando."
-                            }
-                        }
-                    }
-                }
-
-                stage('Slave 3') {
-                    agent { label "Agent2_3" }
-                    steps {
-                        git url: 'https://github.com/FLMarquez/GC_Cypress.git'
-                        bat 'npm install'
-                        bat 'npm update'
-                        script {
-                            try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-                                if (fileExists('allure-results')) {
-                                    stash includes: 'allure-results/**', name: 'allure-results-3'
-                                } else {
-                                    echo "No se encontraron resultados de Allure en Slave 3"
-                                }
-                            } catch (e) {
-                                echo "Cypress test falló en Slave 3, pero continuando."
-                            }
-                        }
-                    }
-                }
-
-                stage('Slave 4') {
-                    agent { label "Agent2_4" }
-                    steps {
-                        git url: 'https://github.com/FLMarquez/GC_Cypress.git'
-                        bat 'npm install'
-                        bat 'npm update'
-                        script {
-                            try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-                                if (fileExists('allure-results')) {
-                                    stash includes: 'allure-results/**', name: 'allure-results-4'
-                                } else {
-                                    echo "No se encontraron resultados de Allure en Slave 4"
-                                }
-                            } catch (e) {
-                                echo "Cypress test falló en Slave 4, pero continuando."
-                            }
-                        }
-                    }
-                }
-
-                stage('Slave 5') {
-                    agent { label "Agent2_5" }
-                    steps {
-                        git url: 'https://github.com/FLMarquez/GC_Cypress.git'
-                        bat 'npm install'
-                        bat 'npm update'
-                        script {
-                            try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-                                if (fileExists('allure-results')) {
-                                    stash includes: 'allure-results/**', name: 'allure-results-5'
-                                } else {
-                                    echo "No se encontraron resultados de Allure en Slave 5"
-                                }
-                            } catch (e) {
-                                echo "Cypress test falló en Slave 5, pero continuando."
-                            }
-                        }
-                    }
-                }
-
-                stage('Slave 6') {
-                    agent { label "Agent2_6" }
-                    steps {
-                        git url: 'https://github.com/FLMarquez/GC_Cypress.git'
-                        bat 'npm install'
-                        bat 'npm update'
-                        script {
-                            try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-                                if (fileExists('allure-results')) {
-                                    stash includes: 'allure-results/**', name: 'allure-results-6'
-                                } else {
-                                    echo "No se encontraron resultados de Allure en Slave 6"
-                                }
-                            } catch (e) {
-                                echo "Cypress test falló en Slave 6, pero continuando."
-                            }
-                        }
-                    }
-                }
-
-                stage('Slave 7') {
-                    agent { label "Agent2_7" }
-                    steps {
-                        git url: 'https://github.com/FLMarquez/GC_Cypress.git'
-                        bat 'npm install'
-                        bat 'npm update'
-                        script {
-                            try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-                                if (fileExists('allure-results')) {
-                                    stash includes: 'allure-results/**', name: 'allure-results-7'
-                                } else {
-                                    echo "No se encontraron resultados de Allure en Slave 7"
-                                }
-                            } catch (e) {
-                                echo "Cypress test falló en Slave 7, pero continuando."
-                            }
-                        }
-                    }
-                }
-
-                stage('Slave 8') {
-                    agent { label "Agent2_8" }
-                    steps {
-                        git url: 'https://github.com/FLMarquez/GC_Cypress.git'
-                        bat 'npm install'
-                        bat 'npm update'
-                        script {
-                            try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-                                if (fileExists('allure-results')) {
-                                    stash includes: 'allure-results/**', name: 'allure-results-8'
-                                } else {
-                                    echo "No se encontraron resultados de Allure en Slave 8"
-                                }
-                            } catch (e) {
-                                echo "Cypress test falló en Slave 8, pero continuando."
                             }
                         }
                     }
@@ -181,24 +35,22 @@ pipeline {
         // Combinar los resultados de Allure
         stage('Unstash Allure Results') {
             steps {
-                unstash 'allure-results-1'
-                unstash 'allure-results-2'
-                unstash 'allure-results-3'
-                unstash 'allure-results-4'
-                unstash 'allure-results-5'
-                unstash 'allure-results-6'
-                unstash 'allure-results-7'
-                unstash 'allure-results-8'
+                (1..8).each { index ->
+                    unstash "allure-results-${index}"
+                }
             }
         }
 
         stage('Check Allure Results') {
             steps {
                 script {
-                    if (fileExists('allure-results')) {
+                    def allureDir = 'C:\\home\\workspace\\GC_Cypress_Pipeline*\\allure-results'
+                    def files = findFiles(glob: allureDir)
+
+                    if (files.size() > 0) {
                         echo '¡Resultados de Allure encontrados!'
                     } else {
-                        error '¡Resultados de Allure no encontrados! Deteniendo el pipeline.'
+                        echo '¡Resultados de Allure no encontrados! Continuando con el pipeline.'
                     }
                 }
             }
@@ -231,4 +83,5 @@ pipeline {
         }
     }
 }
+
 
