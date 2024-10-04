@@ -8,25 +8,52 @@ pipeline {
     stages {
         stage('Cypress Parallel Test Suite') {
             parallel {
-                // Función para ejecutar las pruebas en un agente específico
-                script {
-                    def agents = ["Agent2_1", "Agent2_2", "Agent2_3", "Agent2_4", "Agent2_5", "Agent2_6", "Agent2_7", "Agent2_8"]
-                    agents.each { agentLabel ->
-                        stage(agentLabel) {
-                            agent { label agentLabel }
-                            steps {
-                                git url: 'https://github.com/FLMarquez/GC_Cypress.git'
-                                bat 'npm install'
-                                bat 'npm update'
-                                script {
-                                    try {
-                                        bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-                                    } catch (e) {
-                                        echo "Cypress test falló en ${agentLabel}, pero continuando."
-                                    }
-                                }
-                            }
-                        }
+                stage('Slave 1') {
+                    agent { label "Agent2_1" }
+                    steps {
+                        runCypressTests()
+                    }
+                }
+                stage('Slave 2') {
+                    agent { label "Agent2_2" }
+                    steps {
+                        runCypressTests()
+                    }
+                }
+                stage('Slave 3') {
+                    agent { label "Agent2_3" }
+                    steps {
+                        runCypressTests()
+                    }
+                }
+                stage('Slave 4') {
+                    agent { label "Agent2_4" }
+                    steps {
+                        runCypressTests()
+                    }
+                }
+                stage('Slave 5') {
+                    agent { label "Agent2_5" }
+                    steps {
+                        runCypressTests()
+                    }
+                }
+                stage('Slave 6') {
+                    agent { label "Agent2_6" }
+                    steps {
+                        runCypressTests()
+                    }
+                }
+                stage('Slave 7') {
+                    agent { label "Agent2_7" }
+                    steps {
+                        runCypressTests()
+                    }
+                }
+                stage('Slave 8') {
+                    agent { label "Agent2_8" }
+                    steps {
+                        runCypressTests()
                     }
                 }
             }
@@ -35,9 +62,14 @@ pipeline {
         // Combinar los resultados de Allure
         stage('Unstash Allure Results') {
             steps {
-                (1..8).each { index ->
-                    unstash "allure-results-${index}"
-                }
+                unstash 'allure-results-1'
+                unstash 'allure-results-2'
+                unstash 'allure-results-3'
+                unstash 'allure-results-4'
+                unstash 'allure-results-5'
+                unstash 'allure-results-6'
+                unstash 'allure-results-7'
+                unstash 'allure-results-8'
             }
         }
 
@@ -80,6 +112,20 @@ pipeline {
             steps {
                 archiveArtifacts artifacts: 'allure-report/**', allowEmptyArchive: true
             }
+        }
+    }
+}
+
+// Función para correr las pruebas de Cypress
+def runCypressTests() {
+    script {
+        git url: 'https://github.com/FLMarquez/GC_Cypress.git'
+        bat 'npm install'
+        bat 'npm update'
+        try {
+            bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+        } catch (e) {
+            echo "Cypress test falló, pero continuando."
         }
     }
 }
