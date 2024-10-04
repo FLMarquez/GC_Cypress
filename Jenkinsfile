@@ -16,9 +16,9 @@ pipeline {
                         bat 'npm update'
                         script {
                             try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                                bat 'npx cypress run --browser chrome --parallel --env allure=true'
                                 bat 'dir allure-results'  // Verificar si se generaron resultados
-                                stash includes: '**/allure-results/**', name: 'allure-results-1'
+                                stash includes: 'C:/ProgramData/Jenkins/.jenkins/workspace/GC_Cypress_Pipeline/**/allure-results/**', name: 'allure-results-1'
                             } catch (e) {
                                 echo "Cypress test falló en Slave 1, pero continuando."
                             }
@@ -34,9 +34,9 @@ pipeline {
                         bat 'npm update'
                         script {
                             try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                                bat 'npx cypress run --browser chrome --parallel --env allure=true'
                                 bat 'dir allure-results'  // Verificar si se generaron resultados
-                                stash includes: '**/allure-results/**', name: 'allure-results-2'
+                                stash includes: 'C:/ProgramData/Jenkins/.jenkins/workspace/GC_Cypress_Pipeline/**/allure-results/**', name: 'allure-results-2'
                             } catch (e) {
                                 echo "Cypress test falló en Slave 2, pero continuando."
                             }
@@ -52,9 +52,9 @@ pipeline {
                         bat 'npm update'
                         script {
                             try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-                               bat 'dir allure-results'  // Verificar si se generaron resultados
-                                stash includes: '**/allure-results/**', name: 'allure-results-3'
+                                bat 'npx cypress run --browser chrome --parallel --env allure=true'
+                                bat 'dir allure-results'  // Verificar si se generaron resultados
+                                stash includes: 'C:/ProgramData/Jenkins/.jenkins/workspace/GC_Cypress_Pipeline/**/allure-results/**', name: 'allure-results-3'
                             } catch (e) {
                                 echo "Cypress test falló en Slave 3, pero continuando."
                             }
@@ -69,10 +69,10 @@ pipeline {
                         bat 'npm install'
                         bat 'npm update'
                         script {
-                            try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                           try {
+                                bat 'npx cypress run --browser chrome --parallel --env allure=true'
                                 bat 'dir allure-results'  // Verificar si se generaron resultados
-                                stash includes: '**/allure-results/**', name: 'allure-results-4'
+                                stash includes: 'C:/ProgramData/Jenkins/.jenkins/workspace/GC_Cypress_Pipeline/**/allure-results/**', name: 'allure-results-4'
                             } catch (e) {
                                 echo "Cypress test falló en Slave 4, pero continuando."
                             }
@@ -88,9 +88,9 @@ pipeline {
                         bat 'npm update'
                         script {
                             try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                                bat 'npx cypress run --browser chrome --parallel --env allure=true'
                                 bat 'dir allure-results'  // Verificar si se generaron resultados
-                                stash includes: '**/allure-results/**', name: 'allure-results-5'
+                                stash includes: 'C:/ProgramData/Jenkins/.jenkins/workspace/GC_Cypress_Pipeline/**/allure-results/**', name: 'allure-results-5'
                             } catch (e) {
                                 echo "Cypress test falló en Slave 5, pero continuando."
                             }
@@ -105,10 +105,10 @@ pipeline {
                         bat 'npm install'
                         bat 'npm update'
                         script {
-                            try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                           try {
+                                bat 'npx cypress run --browser chrome --parallel --env allure=true'
                                 bat 'dir allure-results'  // Verificar si se generaron resultados
-                                stash includes: '**/allure-results/**', name: 'allure-results-6'
+                                stash includes: 'C:/ProgramData/Jenkins/.jenkins/workspace/GC_Cypress_Pipeline/**/allure-results/**', name: 'allure-results-6'
                             } catch (e) {
                                 echo "Cypress test falló en Slave 6, pero continuando."
                             }
@@ -124,9 +124,9 @@ pipeline {
                         bat 'npm update'
                         script {
                             try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                                bat 'npx cypress run --browser chrome --parallel --env allure=true'
                                 bat 'dir allure-results'  // Verificar si se generaron resultados
-                                stash includes: '**/allure-results/**', name: 'allure-results-7'
+                                stash includes: 'C:/ProgramData/Jenkins/.jenkins/workspace/GC_Cypress_Pipeline/**/allure-results/**', name: 'allure-results-7'
                             } catch (e) {
                                 echo "Cypress test falló en Slave 7, pero continuando."
                             }
@@ -141,10 +141,10 @@ pipeline {
                         bat 'npm install'
                         bat 'npm update'
                         script {
-                            try {
-                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                           try {
+                                bat 'npx cypress run --browser chrome --parallel --env allure=true'
                                 bat 'dir allure-results'  // Verificar si se generaron resultados
-                                stash includes: '**/allure-results/**', name: 'allure-results-8'
+                                stash includes: 'C:/ProgramData/Jenkins/.jenkins/workspace/GC_Cypress_Pipeline/**/allure-results/**', name: 'allure-results-8'
                             } catch (e) {
                                 echo "Cypress test falló en Slave 8, pero continuando."
                             }
@@ -180,13 +180,6 @@ pipeline {
             }
         }
 
-        stage('List Allure Results') {
-            steps {
-                script {
-                    bat 'dir allure-results'
-                }
-            }
-        }
 
         stage('Generate Allure Report') {
             steps {
@@ -207,3 +200,4 @@ pipeline {
         }
     }
 }
+
