@@ -16,9 +16,12 @@ pipeline {
                         bat 'npm update'
                         script {
                             try {
-                               bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-                                bat 'dir allure-results'  // Verificar si se generaron resultados
-                                stash includes: '**/allure-results/**', name: 'allure-results'
+                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                                if (fileExists('allure-results')) {
+                                    stash includes: 'allure-results/**', name: 'allure-results-1'
+                                } else {
+                                    echo "No se encontraron resultados de Allure en Slave 1"
+                                }
                             } catch (e) {
                                 echo "Cypress test falló en Slave 1, pero continuando."
                             }
@@ -35,8 +38,11 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-                                bat 'dir allure-results'  // Verificar si se generaron resultados
-                                stash includes: '**/allure-results/**', name: 'allure-results'
+                                if (fileExists('allure-results')) {
+                                    stash includes: 'allure-results/**', name: 'allure-results-2'
+                                } else {
+                                    echo "No se encontraron resultados de Allure en Slave 2"
+                                }
                             } catch (e) {
                                 echo "Cypress test falló en Slave 2, pero continuando."
                             }
@@ -52,9 +58,12 @@ pipeline {
                         bat 'npm update'
                         script {
                             try {
-                               bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-                                bat 'dir allure-results'  // Verificar si se generaron resultados
-                                stash includes: '**/allure-results/**', name: 'allure-results'
+                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                                if (fileExists('allure-results')) {
+                                    stash includes: 'allure-results/**', name: 'allure-results-3'
+                                } else {
+                                    echo "No se encontraron resultados de Allure en Slave 3"
+                                }
                             } catch (e) {
                                 echo "Cypress test falló en Slave 3, pero continuando."
                             }
@@ -69,10 +78,13 @@ pipeline {
                         bat 'npm install'
                         bat 'npm update'
                         script {
-                           try {
+                            try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-                                bat 'dir allure-results'  // Verificar si se generaron resultados
-                                stash includes: '**/allure-results/**', name: 'allure-results'
+                                if (fileExists('allure-results')) {
+                                    stash includes: 'allure-results/**', name: 'allure-results-4'
+                                } else {
+                                    echo "No se encontraron resultados de Allure en Slave 4"
+                                }
                             } catch (e) {
                                 echo "Cypress test falló en Slave 4, pero continuando."
                             }
@@ -89,8 +101,11 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-                                bat 'dir allure-results'  // Verificar si se generaron resultados
-                                stash includes: '**/allure-results/**', name: 'allure-results'
+                                if (fileExists('allure-results')) {
+                                    stash includes: 'allure-results/**', name: 'allure-results-5'
+                                } else {
+                                    echo "No se encontraron resultados de Allure en Slave 5"
+                                }
                             } catch (e) {
                                 echo "Cypress test falló en Slave 5, pero continuando."
                             }
@@ -105,10 +120,13 @@ pipeline {
                         bat 'npm install'
                         bat 'npm update'
                         script {
-                           try {
-                               bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-                                bat 'dir allure-results'  // Verificar si se generaron resultados
-                                stash includes: '**/allure-results/**', name: 'allure-results'
+                            try {
+                                bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+                                if (fileExists('allure-results')) {
+                                    stash includes: 'allure-results/**', name: 'allure-results-6'
+                                } else {
+                                    echo "No se encontraron resultados de Allure en Slave 6"
+                                }
                             } catch (e) {
                                 echo "Cypress test falló en Slave 6, pero continuando."
                             }
@@ -125,8 +143,11 @@ pipeline {
                         script {
                             try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-                                bat 'dir allure-results'  // Verificar si se generaron resultados
-                                stash includes: '**/allure-results/**', name: 'allure-results'
+                                if (fileExists('allure-results')) {
+                                    stash includes: 'allure-results/**', name: 'allure-results-7'
+                                } else {
+                                    echo "No se encontraron resultados de Allure en Slave 7"
+                                }
                             } catch (e) {
                                 echo "Cypress test falló en Slave 7, pero continuando."
                             }
@@ -141,10 +162,13 @@ pipeline {
                         bat 'npm install'
                         bat 'npm update'
                         script {
-                           try {
+                            try {
                                 bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-                                bat 'dir allure-results'  // Verificar si se generaron resultados
-                                stash includes: '**/allure-results/**', name: 'allure-results'
+                                if (fileExists('allure-results')) {
+                                    stash includes: 'allure-results/**', name: 'allure-results-8'
+                                } else {
+                                    echo "No se encontraron resultados de Allure en Slave 8"
+                                }
                             } catch (e) {
                                 echo "Cypress test falló en Slave 8, pero continuando."
                             }
@@ -157,14 +181,14 @@ pipeline {
         // Combinar los resultados de Allure
         stage('Unstash Allure Results') {
             steps {
-                unstash 'allure-results'
-                unstash 'allure-results'
-                unstash 'allure-results'
-                unstash 'allure-results'
-                unstash 'allure-results'
-                unstash 'allure-results'
-                unstash 'allure-results'
-                unstash 'allure-results'
+                unstash 'allure-results-1'
+                unstash 'allure-results-2'
+                unstash 'allure-results-3'
+                unstash 'allure-results-4'
+                unstash 'allure-results-5'
+                unstash 'allure-results-6'
+                unstash 'allure-results-7'
+                unstash 'allure-results-8'
             }
         }
 
@@ -180,6 +204,13 @@ pipeline {
             }
         }
 
+        stage('List Allure Results') {
+            steps {
+                script {
+                    bat 'dir allure-results'
+                }
+            }
+        }
 
         stage('Generate Allure Report') {
             steps {
