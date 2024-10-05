@@ -62,7 +62,7 @@ pipeline {
         // Combinar los resultados de Allure
         stage('Unstash Allure Results') {
             steps {
-                unstash 'allure-results'
+                unstash 'allure-results-1'
                 unstash 'allure-results-2'
                 unstash 'allure-results-3'
                 unstash 'allure-results-4'
@@ -124,11 +124,26 @@ def runCypressTests() {
         bat 'npm update'
         try {
             bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+            
+            // Buscar recursivamente la carpeta allure-results en C:\home\workspace
+            def allureResultsFound = bat(script: '''
+                PowerShell -Command "if (Get-ChildItem -Path C:\\home\\workspace -Recurse -Directory -Filter allure-results) { exit 0 } else { exit 1 }"
+            ''', returnStatus: true) == 0
+
+            if (allureResultsFound) {
+                stash includes: '**/allure-results/**', name: "allure-results"
+            } else {
+                echo 'No se encontraron resultados de Allure en C:\\home\\workspace.'
+                currentBuild.result = 'UNSTABLE'
+            }
+
         } catch (e) {
             echo "Cypress test falló, pero continuando."
+            currentBuild.result = 'UNSTABLE'
         }
     }
 }
+
 
 
 
