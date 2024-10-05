@@ -11,49 +11,49 @@ pipeline {
                 stage('Slave 1') {
                     agent { label "Agent2_1" }
                     steps {
-                        runCypressTests()
+                        runCypressTests(1)
                     }
                 }
                 stage('Slave 2') {
                     agent { label "Agent2_2" }
                     steps {
-                        runCypressTests()
+                        runCypressTests(2)
                     }
                 }
                 stage('Slave 3') {
                     agent { label "Agent2_3" }
                     steps {
-                        runCypressTests()
+                        runCypressTests(3)
                     }
                 }
                 stage('Slave 4') {
                     agent { label "Agent2_4" }
                     steps {
-                        runCypressTests()
+                        runCypressTests(4)
                     }
                 }
                 stage('Slave 5') {
                     agent { label "Agent2_5" }
                     steps {
-                        runCypressTests()
+                        runCypressTests(5)
                     }
                 }
                 stage('Slave 6') {
                     agent { label "Agent2_6" }
                     steps {
-                        runCypressTests()
+                        runCypressTests(6)
                     }
                 }
                 stage('Slave 7') {
                     agent { label "Agent2_7" }
                     steps {
-                        runCypressTests()
+                        runCypressTests(7)
                     }
                 }
                 stage('Slave 8') {
                     agent { label "Agent2_8" }
                     steps {
-                        runCypressTests()
+                        runCypressTests(8)
                     }
                 }
             }
@@ -116,8 +116,8 @@ pipeline {
     }
 }
 
-// Función para correr las pruebas de Cypress
-def runCypressTests() {
+// Función para correr las pruebas de Cypress y almacenar los resultados de Allure
+def runCypressTests(int nodeIndex) {
     script {
         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
         bat 'npm install'
@@ -125,24 +125,26 @@ def runCypressTests() {
         try {
             bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
             
-            // Buscar recursivamente la carpeta allure-results en C:\home\workspace
+            // Buscar la carpeta allure-results después de que las pruebas se hayan completado
             def allureResultsFound = bat(script: '''
                 PowerShell -Command "if (Get-ChildItem -Path C:\\home\\workspace -Recurse -Directory -Filter allure-results) { exit 0 } else { exit 1 }"
             ''', returnStatus: true) == 0
 
             if (allureResultsFound) {
-                stash includes: '**/allure-results/**', name: "allure-results"
+                // Guardar los resultados de este nodo específico con su índice
+                stash includes: '**/allure-results/**', name: "allure-results-${nodeIndex}"
             } else {
-                echo 'No se encontraron resultados de Allure en C:\\home\\workspace.'
+                echo "No se encontraron resultados de Allure en C:\\home\\workspace en el nodo ${nodeIndex}."
                 currentBuild.result = 'UNSTABLE'
             }
 
         } catch (e) {
-            echo "Cypress test falló, pero continuando."
+            echo "Cypress test en el nodo ${nodeIndex} falló, pero continuando."
             currentBuild.result = 'UNSTABLE'
         }
     }
 }
+
 
 
 
