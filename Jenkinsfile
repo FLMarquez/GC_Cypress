@@ -127,8 +127,12 @@ def runCypressTests(int nodeIndex) {
             
             // Buscar la carpeta allure-results después de que las pruebas se hayan completado
             def allureResultsFound = bat(script: '''
-                PowerShell -Command "if (Get-ChildItem -Path C:\\home\\workspace -Recurse -Directory -Filter allure-results) { exit 0 } else { exit 1 }"
-            ''', returnStatus: true) == 0
+    PowerShell -Command "
+        Get-ChildItem -Path C:\\home\\workspace -Recurse -Directory | ForEach-Object { $_.FullName }
+        if (Get-ChildItem -Path C:\\home\\workspace -Recurse -Directory -Filter allure-results) { exit 0 } else { exit 1 }
+    "
+''', returnStatus: true) == 0
+
 
             if (allureResultsFound) {
                 // Guardar los resultados de este nodo específico con su índice
