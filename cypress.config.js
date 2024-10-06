@@ -5,9 +5,9 @@ const fs = require('fs');
 const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 
 module.exports = defineConfig({
-  reporter: 'mocha-allure-reporter',
+  reporter: 'cypress-allure-plugin',
   reporterOptions: {
-    allureResultsPath: 'allure-results',
+    resultsDir: 'allure-results',
   },
   video: true,
   videosFolder: "cypress/videos",
