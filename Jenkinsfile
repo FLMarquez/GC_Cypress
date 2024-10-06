@@ -11,49 +11,49 @@ pipeline {
                 stage('Slave 1') {
                     agent { label "Agent2_1" }
                     steps {
-                        runCypressTests()
+                        runCypressTests('allure-results-1')
                     }
                 }
                 stage('Slave 2') {
                     agent { label "Agent2_2" }
                     steps {
-                        runCypressTests()
+                        runCypressTests('allure-results-2')
                     }
                 }
                 stage('Slave 3') {
                     agent { label "Agent2_3" }
                     steps {
-                        runCypressTests()
+                        runCypressTests('allure-results-3')
                     }
                 }
                 stage('Slave 4') {
                     agent { label "Agent2_4" }
                     steps {
-                        runCypressTests()
+                        runCypressTests('allure-results-4')
                     }
                 }
                 stage('Slave 5') {
                     agent { label "Agent2_5" }
                     steps {
-                        runCypressTests()
+                        runCypressTests('allure-results-5')
                     }
                 }
                 stage('Slave 6') {
                     agent { label "Agent2_6" }
                     steps {
-                        runCypressTests()
+                        runCypressTests('allure-results-6')
                     }
                 }
                 stage('Slave 7') {
                     agent { label "Agent2_7" }
                     steps {
-                        runCypressTests()
+                        runCypressTests('allure-results-7')
                     }
                 }
                 stage('Slave 8') {
                     agent { label "Agent2_8" }
                     steps {
-                        runCypressTests()
+                        runCypressTests('allure-results-8')
                     }
                 }
             }
@@ -73,6 +73,7 @@ pipeline {
             }
         }
 
+        // Validar la existencia de los resultados de Allure
         stage('Check Allure Results') {
             steps {
                 script {
@@ -83,6 +84,7 @@ pipeline {
                         echo '¡Resultados de Allure encontrados!'
                     } else {
                         echo '¡Resultados de Allure no encontrados! Continuando con el pipeline.'
+                        currentBuild.result = 'UNSTABLE'
                     }
                 }
             }
@@ -116,26 +118,17 @@ pipeline {
     }
 }
 
-// Función para correr las pruebas de Cypress
-def runCypressTests() {
+// Función para correr las pruebas de Cypress y stashear los resultados de Allure
+def runCypressTests(allureStashName) {
     script {
         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
         bat 'npm install'
         bat 'npm update'
         try {
             bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-            
-            // Buscar recursivamente la carpeta allure-results en C:\home\workspace
-            def allureResultsFound = bat(script: '''
-                PowerShell -Command "if (Get-ChildItem -Path C:\\home\\workspace -Recurse -Directory -Filter allure-results) { exit 0 } else { exit 1 }"
-            ''', returnStatus: true) == 0
 
-            if (allureResultsFound) {
-                stash includes: '**/allure-results/**', name: "allure-results"
-            } else {
-                echo 'No se encontraron resultados de Allure en C:\\home\\workspace.'
-                currentBuild.result = 'UNSTABLE'
-            }
+            // Stashear los resultados de Allure si existen
+            stash includes: '**/allure-results/**', name: allureStashName
 
         } catch (e) {
             echo "Cypress test falló, pero continuando."
