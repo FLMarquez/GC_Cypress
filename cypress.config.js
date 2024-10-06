@@ -2,7 +2,7 @@ const { defineConfig } = require('cypress');
 const { downloadFile } = require('cypress-downloadfile/lib/addPlugin');
 const pdfParse = require('pdf-parse');
 const fs = require('fs');
-const allureWriter = require('@shelex/cypress-allure-plugin/writer');
+const allureWriter = require('cypress-allure-plugin/writer');
 
 module.exports = defineConfig({
   reporter: 'cypress-allure-plugin',
