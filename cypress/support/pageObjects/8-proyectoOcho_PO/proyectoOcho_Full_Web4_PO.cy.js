@@ -261,7 +261,8 @@ SeccionVeintinueve(t){
       cy.xpath("//a[contains(.,'Config. Personas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Tipo Documento')]").invoke('show').click({ force: true }); 
       cy.wait(tiempo)
-      cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
+      cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
       cy.xpath("//span[contains(.,'ABM Tipos de Documento')]").should('be.visible').contains('ABM Tipos de Documento')
       cy.wait(tiempo)
     });
@@ -273,7 +274,8 @@ SeccionVeintinueve(t){
       cy.xpath("//a[contains(.,'Config. Personas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Estado Civil')]").invoke('show').click({ force: true }); 
       cy.wait(tiempo)
-      cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
+      cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
       cy.xpath("//span[contains(.,'ABM Estado Civil')]").should('be.visible').contains('ABM Estado Civil')
       cy.wait(tiempo)
     });
@@ -286,7 +288,8 @@ SeccionVeintinueve(t){
       cy.xpath("//a[contains(.,'Config. Personas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Naturaleza Jurídica')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
-      cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
+      cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
       cy.xpath("//span[contains(.,'ABM Naturaleza Jurídica')]").should('be.visible').contains('ABM Naturaleza Jurídica')
       cy.wait(tiempo)
     });
@@ -299,7 +302,8 @@ SeccionVeintinueve(t){
       cy.xpath("//a[contains(.,'Config. Personas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Nacionalidad')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
-      cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
+      cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
       cy.xpath("//span[contains(.,'ABM Nacionalidades')]").should('be.visible').contains('ABM Nacionalidades')
       cy.wait(tiempo)
     });
@@ -312,7 +316,8 @@ SeccionVeintinueve(t){
       cy.xpath("//a[contains(.,'Config. Personas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Tipo Vínculos')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
-      cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
+      cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
       cy.xpath("//span[contains(.,'ABM Tipo de Vínculos')]").should('be.visible').contains('ABM Tipo de Vínculos')
       cy.wait(tiempo)
     });
@@ -325,60 +330,120 @@ SeccionVeintinueve(t){
       cy.xpath("//a[contains(.,'Config. Personas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Tipo Adjuntos')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
-      cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
+      cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
       cy.xpath("//span[contains(.,'Tipo Adjuntos')]").should('be.visible').contains('Tipo Adjuntos')
       cy.wait(tiempo)
     });
 
 
 
+    cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+    cy.xpath("(//a[contains(.,'Paramétricas')])[2]").invoke('show').click({ force: true });
+    cy.xpath("//a[contains(.,'Config. Domicilios')]").invoke('show').click({ force: true });
+    cy.xpath("//a[contains(.,'ABM Países')]").invoke('show').click({ force: true });
+    cy.wait(tiempo)
+    cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
+    cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
+    cy.xpath("//span[contains(.,'ABM Paises')]").should('be.visible').contains('ABM Paises')
+    cy.wait(tiempo)
+  });
+
+
+  cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+  cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+  cy.xpath("(//a[contains(.,'Paramétricas')])[2]").invoke('show').click({ force: true });
+  cy.xpath("//a[contains(.,'Config. Domicilios')]").invoke('show').click({ force: true });
+  cy.xpath("//a[contains(.,'ABM Provincias')]").invoke('show').click({ force: true });
+  cy.wait(tiempo)
+  cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
+  cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
+  cy.xpath("//span[contains(.,'ABM Provincias')]").should('be.visible').contains('ABM Provincias')
+  cy.wait(tiempo)
+});
+
       
-      cy.xpath("//a[contains(.,'Config. Domicilios')]").invoke('show').click({ force: true });
+cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+cy.xpath("(//a[contains(.,'Paramétricas')])[2]").invoke('show').click({ force: true });
+cy.xpath("//a[contains(.,'Config. Domicilios')]").invoke('show').click({ force: true });
+cy.xpath("//a[contains(.,'ABM Departamentos')]").invoke('show').click({ force: true });
+cy.wait(tiempo)
+cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
+cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
+cy.xpath("//span[contains(.,'ABM Departamentos')]").should('be.visible').contains('ABM Departamentos')
+cy.wait(tiempo)
+});
 
 
+cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+cy.xpath("(//a[contains(.,'Paramétricas')])[2]").invoke('show').click({ force: true });
+cy.xpath("//a[contains(.,'Config. Domicilios')]").invoke('show').click({ force: true });
+cy.xpath("//a[contains(.,'ABM Localidades/Distritos')]").invoke('show').click({ force: true });
+cy.wait(tiempo)
+cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
+cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
+cy.xpath("//span[contains(.,'ABM Localidades/Distritos')]").should('be.visible').contains('ABM Localidades/Distritos')
+cy.wait(tiempo)
+});
+      
 
 
-      cy.xpath("//a[contains(.,'ABM Países')]").invoke('show').click({ force: true });
+cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+cy.xpath("(//a[contains(.,'Paramétricas')])[2]").invoke('show').click({ force: true });
+cy.xpath("//a[contains(.,'Config. Domicilios')]").invoke('show').click({ force: true });
+cy.xpath("//a[contains(.,'ABM Calles')]").invoke('show').click({ force: true });
+cy.wait(tiempo)
+cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
+cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
+cy.xpath("//span[contains(.,'ABM Calles')]").should('be.visible').contains('ABM Calles')
+cy.wait(tiempo)
+});
+
+     
+
+cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+cy.xpath("(//a[contains(.,'Paramétricas')])[2]").invoke('show').click({ force: true });
+cy.xpath("//a[contains(.,'Config. Domicilios')]").invoke('show').click({ force: true });
+cy.xpath("//a[contains(.,'ABM Barrios')]").invoke('show').click({ force: true });
+cy.wait(tiempo)
+cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
+cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
+cy.xpath("//span[contains(.,'ABM Barrios')]").should('be.visible').contains('ABM Barrios')
+cy.wait(tiempo)
+});
 
 
+    
+cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+cy.xpath("(//a[contains(.,'Paramétricas')])[2]").invoke('show').click({ force: true });
+cy.xpath("//a[contains(.,'Config. Domicilios')]").invoke('show').click({ force: true });
+cy.xpath("//span[contains(.,'ABM Tipo de Domicilio')]").invoke('show').click({ force: true });
+cy.wait(tiempo)
+cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
+cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
+cy.xpath("//span[contains(.,'ABM Tipo de Domicilio')]").should('be.visible').contains('ABM Tipo de Domicilio')
+cy.wait(tiempo)
+});
 
 
-      cy.xpath("//a[contains(.,'ABM Provincias')]").invoke('show').click({ force: true });
-
-
-
-
-      cy.xpath("//a[contains(.,'ABM Departamentos')]").invoke('show').click({ force: true });
-
-
-
-
-      cy.xpath("//a[contains(.,'ABM Localidades/Distritos')]").invoke('show').click({ force: true });
-
-
-
-
-      cy.xpath("//a[contains(.,'ABM Calles')]").invoke('show').click({ force: true });
-
-
-
-
-      cy.xpath("//a[contains(.,'ABM Barrios')]").invoke('show').click({ force: true });
-
-
-
-
-      cy.xpath("//a[contains(.,'ABM Tipos Domicilio')]").invoke('show').click({ force: true });
-
-
-
-
-      cy.wait(tiempo)
-      cy.xpath("//a[contains(.,'ABM Circuitos Disribución')]").invoke('show').click({ force: true });
-
-
-
-
+cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+cy.xpath("(//a[contains(.,'Paramétricas')])[2]").invoke('show').click({ force: true });
+cy.xpath("//a[contains(.,'Config. Domicilios')]").invoke('show').click({ force: true });
+cy.xpath("//a[contains(.,'ABM Circuitos Disribución')]").invoke('show').click({ force: true });
+cy.wait(tiempo)
+cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
+cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
+cy.xpath("//span[contains(.,'ABM Circuitos de Distribución')]").should('be.visible').contains('ABM Circuitos de Distribución')
+cy.wait(tiempo)
+});
+     
 
       cy.wait(tiempo);
       cy.xpath("(//a[contains(.,'Paramétricas')])[2]").invoke('show').click({ force: true });
