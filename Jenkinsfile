@@ -9,8 +9,8 @@ pipeline {
         stage('Conectar a la VPN') {
             steps {
                 script {
-                    // Ejecutar el script de PowerShell para conectarse a la VPN
-                    bat 'powershell -Command "Start-Process FortiClient.exe -ArgumentList \'-s vpn -h https://vpn-cba.elinpar.com:10443 -u Lmarquez -p Lm4rqu3zzz\' -Wait"'
+                    // Especifica la ruta completa al ejecutable de FortiClient
+                    bat 'powershell -Command "Start-Process \'C:\\Program Files\\Fortinet\\FortiClient\\FortiClient.exe\' -ArgumentList \'-s vpn -h https://vpn-cba.elinpar.com:10443 -u Lmarquez -p Lm4rqu3zzz\' -Wait"'
                 }
             }
         }
@@ -84,11 +84,12 @@ pipeline {
             }
         }
 
+        // Desconectar la VPN
         stage('Desconectar la VPN') {
             steps {
                 script {
                     // Desconectar la VPN
-                    bat 'powershell -Command "Start-Process FortiClient.exe -ArgumentList \'-s vpndisconnect\' -Wait"'
+                    bat 'powershell -Command "Start-Process \'C:\\Program Files\\Fortinet\\FortiClient\\FortiClient.exe\' -ArgumentList \'-s vpndisconnect\' -Wait"'
                 }
             }
         }
@@ -114,4 +115,5 @@ def runCypressTests(allureStashName) {
         }
     }
 }
+
 
