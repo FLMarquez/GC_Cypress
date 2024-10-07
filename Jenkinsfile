@@ -5,15 +5,30 @@ pipeline {
         nodejs "node" 
     }
 
-    stages {
-        stage('Conectar a la VPN') {
-            steps {
-                script {
-                    // Especifica la ruta completa al ejecutable de FortiClient
-                    bat 'powershell -Command "Start-Process \'C:\\Program Files\\Fortinet\\FortiClient\\FortiClient.exe\' -ArgumentList \'-s vpn -h https://vpn-cba.elinpar.com:10443 -u Lmarquez -p Lm4rqu3zzz\' -Wait"'
-                }
+    stage('Conectar a la VPN') {
+    steps {
+        script {
+            bat 'powershell -Command "Start-Process \'C:\\Program Files\\Fortinet\\FortiClient\\FortiClient.exe\' -ArgumentList \'-s vpn -h https://vpn-cba.elinpar.com:10443 -u Lmarquez -p Lm4rqu3zzz\' -Wait"'
+            echo "Esperando que la VPN se conecte..."
+            sleep(time: 30, unit: "SECONDS") // Esperar 30 segundos o ajusta según sea necesario
+        }
+    }
+}
+
+stage('Verificar conexión VPN') {
+    steps {
+        script {
+            def vpnCheck = bat(script: 'ping -n 1 10.200.130.12', returnStatus: true) // Ajusta la IP
+            if (vpnCheck != 0) {
+                error("La VPN no está conectada o la IP no es accesible.")
+            } else {
+                echo "Conexión VPN establecida."
             }
         }
+    }
+}
+
+
 
         stage('Cypress Parallel Test Suite') {
             parallel {
@@ -85,14 +100,14 @@ pipeline {
         }
 
         // Desconectar la VPN
-        stage('Desconectar la VPN') {
-            steps {
-                script {
-                    // Desconectar la VPN
-                    bat 'powershell -Command "Start-Process \'C:\\Program Files\\Fortinet\\FortiClient\\FortiClient.exe\' -ArgumentList \'-s vpndisconnect\' -Wait"'
-                }
-            }
-        }
+        // stage('Desconectar la VPN') {
+        //     steps {
+        //         script {
+        //             // Desconectar la VPN
+        //             bat 'powershell -Command "Start-Process \'C:\\Program Files\\Fortinet\\FortiClient\\FortiClient.exe\' -ArgumentList \'-s vpndisconnect\' -Wait"'
+        //         }
+        //     }
+        // }
     }
 }
 
