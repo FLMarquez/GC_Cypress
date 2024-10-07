@@ -15,14 +15,6 @@ pipeline {
             }
         }
 
-        stage('Verificar Accesibilidad del Servidor') {
-            steps {
-                script {
-                    bat 'curl -I https://gcdigital.godoycruz.gob.ar/K2BGAM/servlet/com.k2bgam.k2blogin || echo "El servidor no está accesible"'
-                }
-            }
-        }
-
         stage('Cypress Parallel Test Suite') {
             parallel {
                 stage('Slave 1') {
@@ -93,14 +85,14 @@ pipeline {
         }
 
         // Desconectar la VPN
-        // stage('Desconectar la VPN') {
-        //     steps {
-        //         script {
-        //             // Desconectar la VPN
-        //             bat 'powershell -Command "Start-Process \'C:\\Program Files\\Fortinet\\FortiClient\\FortiClient.exe\' -ArgumentList \'-s vpndisconnect\' -Wait"'
-        //         }
-        //     }
-        // }
+        stage('Desconectar la VPN') {
+            steps {
+                script {
+                    // Desconectar la VPN
+                    bat 'powershell -Command "Start-Process \'C:\\Program Files\\Fortinet\\FortiClient\\FortiClient.exe\' -ArgumentList \'-s vpndisconnect\' -Wait"'
+                }
+            }
+        }
     }
 }
 
@@ -123,8 +115,3 @@ def runCypressTests(allureStashName) {
         }
     }
 }
-
-
-
-
-
