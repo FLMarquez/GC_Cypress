@@ -60,33 +60,33 @@ pipeline {
         }
 
         // Combinar los resultados de Allure
-        stage('Unstash Allure Results') {
-            steps {
-                script {
-                    // Desestachar los resultados de cada slave
-                    (1..8).each { i ->
-                        unstash "allure-results-${i}"
-                    }
-                }
-            }
-        }
+        // stage('Unstash Allure Results') {
+        //     steps {
+        //         script {
+        //             // Desestachar los resultados de cada slave
+        //             (1..8).each { i ->
+        //                 unstash "allure-results-${i}"
+        //             }
+        //         }
+        //     }
+        // }
 
         // Validar la existencia de los resultados de Allure
-        stage('Check Allure Results') {
-            steps {
-                script {
-                    def allureDir = 'C:\\home\\workspace\\GC_Cypress_Pipeline*\\allure-results\\**\\*.xml'
-                    def files = findFiles(glob: allureDir)
+        // stage('Check Allure Results') {
+        //     steps {
+        //         script {
+        //             def allureDir = 'C:\\home\\workspace\\GC_Cypress_Pipeline*\\allure-results\\**\\*.xml'
+        //             def files = findFiles(glob: allureDir)
 
-                    if (files.size() > 0) {
-                        echo '¡Resultados de Allure encontrados!'
-                    } else {
-                        echo '¡Resultados de Allure no encontrados! Continuando con el pipeline.'
-                        currentBuild.result = 'UNSTABLE'
-                    }
-                }
-            }
-        }
+        //             if (files.size() > 0) {
+        //                 echo '¡Resultados de Allure encontrados!'
+        //             } else {
+        //                 echo '¡Resultados de Allure no encontrados! Continuando con el pipeline.'
+        //                 currentBuild.result = 'UNSTABLE'
+        //             }
+        //         }
+        //     }
+        // }
 
         stage('List Allure Results') {
             steps {
@@ -96,17 +96,17 @@ pipeline {
             }
         }
 
-        stage('Generate Allure Report') {
-            steps {
-                script {
-                    try {
-                        bat '"%ALLURE_HOME%\\bin\\allure" generate allure-results --clean -o allure-report'
-                    } catch (e) {
-                        echo "Error generando el reporte de Allure, pero continuando con el pipeline."
-                    }
-                }
-            }
-        }
+        // stage('Generate Allure Report') {
+        //     steps {
+        //         script {
+        //             try {
+        //                 bat '"%ALLURE_HOME%\\bin\\allure" generate allure-results --clean -o allure-report'
+        //             } catch (e) {
+        //                 echo "Error generando el reporte de Allure, pero continuando con el pipeline."
+        //             }
+        //         }
+        //     }
+        // }
 
         stage('Archive Allure Report') {
             steps {
@@ -135,7 +135,7 @@ def runCypressTests(allureStashName) {
             }
 
             // Stashear los resultados de Allure si existen
-            stash includes: '**/allure-results/**', name: allureStashName
+           // stash includes: '**/allure-results/**', name: allureStashName
 
         } catch (e) {
             echo "Error durante la ejecución de Cypress: ${e.message}"
