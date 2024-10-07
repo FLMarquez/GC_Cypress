@@ -62,35 +62,31 @@ pipeline {
         // Combinar los resultados de Allure
         stage('Unstash Allure Results') {
             steps {
-                unstash 'allure-results-1'
-                unstash 'allure-results-2'
-                unstash 'allure-results-3'
-                unstash 'allure-results-4'
-                unstash 'allure-results-5'
-                unstash 'allure-results-6'
-                unstash 'allure-results-7'
-                unstash 'allure-results-8'
+                script {
+                    // Desestachar los resultados de cada slave
+                    (1..8).each { i ->
+                        unstash "allure-results-${i}"
+                    }
+                }
             }
         }
 
         // Validar la existencia de los resultados de Allure
-       stage('Check Allure Results') {
-    steps {
-        script {
-            // Cambiar la definición de allureDir para buscar en cualquier carpeta
-            def allureDir = 'C:\\home\\workspace\\GC_Cypress_Pipeline*\\allure-results\\**\\*.xml'
-            def files = findFiles(glob: allureDir)
+        stage('Check Allure Results') {
+            steps {
+                script {
+                    def allureDir = 'C:\\home\\workspace\\GC_Cypress_Pipeline*\\allure-results\\**\\*.xml'
+                    def files = findFiles(glob: allureDir)
 
-            if (files.size() > 0) {
-                echo '¡Resultados de Allure encontrados!'
-            } else {
-                echo '¡Resultados de Allure no encontrados! Continuando con el pipeline.'
-                currentBuild.result = 'UNSTABLE'
+                    if (files.size() > 0) {
+                        echo '¡Resultados de Allure encontrados!'
+                    } else {
+                        echo '¡Resultados de Allure no encontrados! Continuando con el pipeline.'
+                        currentBuild.result = 'UNSTABLE'
+                    }
+                }
             }
         }
-    }
-}
-
 
         stage('List Allure Results') {
             steps {
@@ -127,13 +123,22 @@ def runCypressTests(allureStashName) {
         bat 'npm install'
         bat 'npm update'
         try {
-            bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+            // Ejecutar las pruebas de Cypress
+            def exitCode = bat(script: 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true', returnStatus: true)
+
+            // Comprobar el código de salida
+            if (exitCode != 0) {
+                currentBuild.result = 'UNSTABLE'
+                echo "Cypress test falló con código de salida: ${exitCode}"
+            } else {
+                echo "Cypress test completado exitosamente."
+            }
 
             // Stashear los resultados de Allure si existen
             stash includes: '**/allure-results/**', name: allureStashName
 
         } catch (e) {
-            echo "Cypress test falló, pero continuando."
+            echo "Error durante la ejecución de Cypress: ${e.message}"
             currentBuild.result = 'UNSTABLE'
         }
     }
