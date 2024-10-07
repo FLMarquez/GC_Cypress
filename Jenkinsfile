@@ -125,7 +125,7 @@ def runCypressTests(allureStashName) {
         //bat 'npm update'
         try {
             // Ejecutar las pruebas de Cypress
-            def exitCode = bat(script: 'npx cypress run --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true', returnStatus: true)
+            def exitCode = bat(script: 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true', returnStatus: true)
 
             // Comprobar el código de salida
             if (exitCode != 0) {
