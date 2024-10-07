@@ -147,4 +147,4 @@ def runCypressTests(allureStashName) {
             currentBuild.result = 'UNSTABLE'
         }
     }
-}
+
