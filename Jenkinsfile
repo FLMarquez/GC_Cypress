@@ -11,9 +11,27 @@ pipeline {
                 script {
                     // Especifica la ruta completa al ejecutable de FortiClient
                     bat 'powershell -Command "Start-Process \'C:\\Program Files\\Fortinet\\FortiClient\\FortiClient.exe\' -ArgumentList \'-s vpn -h https://vpn-cba.elinpar.com:10443 -u Lmarquez -p Lm4rqu3zzz\' -Wait"'
+                    sleep(10) // Esperar 10 segundos
                 }
             }
         }
+
+      
+
+
+         stage('Verificar Conexión a la VPN') {
+        steps {
+            script {
+                // Verificar la conexión al servidor después de conectarse a la VPN
+                 def exitCode = bat(script: 'ping -n 4 10.3.2.89', returnStatus: true)
+                    if (exitCode != 0) {
+                    error "No se puede acceder al servidor después de conectarse a la VPN. Abortando la ejecución de pruebas."
+                } else {
+                    echo "Conexión a la VPN verificada. El servidor es accesible."
+                }
+            }
+        }
+    }
 
         stage('Cypress Parallel Test Suite') {
             parallel {
