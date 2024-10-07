@@ -88,13 +88,13 @@ pipeline {
         //     }
         // }
 
-        stage('List Allure Results') {
-            steps {
-                script {
-                    bat 'dir allure-results'
-                }
-            }
-        }
+        // stage('List Allure Results') {
+        //     steps {
+        //         script {
+        //             bat 'dir allure-results'
+        //         }
+        //     }
+        // }
 
         // stage('Generate Allure Report') {
         //     steps {
@@ -108,11 +108,11 @@ pipeline {
         //     }
         // }
 
-        stage('Archive Allure Report') {
-            steps {
-                archiveArtifacts artifacts: 'allure-report/**', allowEmptyArchive: true
-            }
-        }
+        // stage('Archive Allure Report') {
+        //     steps {
+        //         archiveArtifacts artifacts: 'allure-report/**', allowEmptyArchive: true
+        //     }
+        // }
     }
 }
 
