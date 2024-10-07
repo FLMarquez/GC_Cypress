@@ -59,7 +59,28 @@ pipeline {
             }
         }
 
-        // Combinar los resultados de Allure
+
+// Función para correr las pruebas de Cypress y stashear los resultados de Allure
+def runCypressTests(allureStashName) {
+    script {
+        git url: 'https://github.com/FLMarquez/GC_Cypress.git'
+        bat 'npm install'
+        bat 'npm update'
+        try {
+            bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
+
+            // Stashear los resultados de Allure si existen
+            stash includes: '**/allure-results/**', name: allureStashName
+
+        } catch (e) {
+            echo "Cypress test falló, pero continuando."
+            currentBuild.result = 'UNSTABLE'
+        }
+    }
+}
+
+
+  // Combinar los resultados de Allure
         stage('Unstash Allure Results') {
             steps {
                 unstash 'allure-results-1'
@@ -118,21 +139,3 @@ pipeline {
     }
 }
 
-// Función para correr las pruebas de Cypress y stashear los resultados de Allure
-def runCypressTests(allureStashName) {
-    script {
-        git url: 'https://github.com/FLMarquez/GC_Cypress.git'
-        bat 'npm install'
-        bat 'npm update'
-        try {
-            bat 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true'
-
-            // Stashear los resultados de Allure si existen
-            stash includes: '**/allure-results/**', name: allureStashName
-
-        } catch (e) {
-            echo "Cypress test falló, pero continuando."
-            currentBuild.result = 'UNSTABLE'
-        }
-    }
-}
