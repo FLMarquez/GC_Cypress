@@ -10,33 +10,18 @@ pipeline {
             steps {
                 script {
                     // Especifica la ruta completa al ejecutable de FortiClient
-                    bat 'powershell -Command "Start-Process \'C:\\Program Files\\Fortinet\\FortiClient\\FortiClient.exe\' -ArgumentList \'-s vpn -u Lmarquez -p Lm4rqu3zzz\' -Wait"'
-                    sleep(10) // Esperar 10 segundos
+                    bat 'powershell -Command "Start-Process \'C:\\Program Files\\Fortinet\\FortiClient\\FortiClient.exe\' -ArgumentList \'-s vpn -h https://vpn-cba.elinpar.com:10443 -u Lmarquez -p Lm4rqu3zzz\' -Wait"'
                 }
             }
         }
 
-      
-
-
-         stage('Verificar Conexión a la VPN') {
-    steps {
-        script {
-            // Verificar la conexión al servidor después de conectarse a la VPN
-            def vpnStatus = bat(script: 'powershell -Command "Get-VpnConnection"', returnStatus: true)
-            echo "Estado de la conexión VPN: ${vpnStatus}"
-            
-            sleep(180) // Aumentar el tiempo de espera
-
-            def exitCode = bat(script: 'ping -n 1 10.200.130.12', returnStatus: true)
-            if (exitCode != 0) {
-                error "No se puede acceder al servidor después de conectarse a la VPN. Abortando la ejecución de pruebas."
-            } else {
-                echo "Conexión a la VPN verificada. El servidor es accesible."
+        stage('Verificar Accesibilidad del Servidor') {
+            steps {
+                script {
+                    bat 'curl -I https://gcdigital.godoycruz.gob.ar/K2BGAM/servlet/com.k2bgam.k2blogin || echo "El servidor no está accesible"'
+                }
             }
         }
-    }
-}
 
         stage('Cypress Parallel Test Suite') {
             parallel {
@@ -138,5 +123,8 @@ def runCypressTests(allureStashName) {
         }
     }
 }
+
+
+
 
 
