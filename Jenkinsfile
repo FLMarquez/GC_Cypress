@@ -109,7 +109,7 @@ stage('Verificar conexión VPN') {
         //     }
         // }
     }
-}
+
 
 // Función para correr las pruebas de Cypress y stashear los resultados de Allure
 def runCypressTests(allureStashName) {
