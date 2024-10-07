@@ -10,7 +10,7 @@ pipeline {
             steps {
                 script {
                     // Especifica la ruta completa al ejecutable de FortiClient
-                    bat 'powershell -Command "Start-Process \'C:\\Program Files\\Fortinet\\FortiClient\\FortiClient.exe\' -ArgumentList \'-s vpn -h https://vpn-cba.elinpar.com:10443 -u Lmarquez -p Lm4rqu3zzz\' -Wait"'
+                    bat 'powershell -Command "Start-Process \'C:\\Program Files\\Fortinet\\FortiClient\\FortiClient.exe\' -ArgumentList \'-s vpn -u Lmarquez -p Lm4rqu3zzz\' -Wait"'
                     sleep(10) // Esperar 10 segundos
                 }
             }
