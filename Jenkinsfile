@@ -5,6 +5,17 @@ pipeline {
         nodejs "node" 
     }
 
+
+stages {
+        stage('Conectar a la VPN') {
+            steps {
+                script {
+                    // Ejecutar el script de PowerShell para conectarse a la VPN
+                    bat 'powershell -Command "Start-Process FortiClient.exe -ArgumentList \'-s vpn -h https://vpn-cba.elinpar.com:10443 -u Lmarquez -p Lm4rqu3zzz\' -Wait"'
+                }
+            }
+        }
+
     stages {
         stage('Cypress Parallel Test Suite') {
             parallel {
