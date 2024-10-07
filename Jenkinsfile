@@ -85,14 +85,14 @@ pipeline {
         }
 
         // Desconectar la VPN
-        stage('Desconectar la VPN') {
-            steps {
-                script {
-                    // Desconectar la VPN
-                    bat 'powershell -Command "Start-Process \'C:\\Program Files\\Fortinet\\FortiClient\\FortiClient.exe\' -ArgumentList \'-s vpndisconnect\' -Wait"'
-                }
-            }
-        }
+        // stage('Desconectar la VPN') {
+        //     steps {
+        //         script {
+        //             // Desconectar la VPN
+        //             bat 'powershell -Command "Start-Process \'C:\\Program Files\\Fortinet\\FortiClient\\FortiClient.exe\' -ArgumentList \'-s vpndisconnect\' -Wait"'
+        //         }
+        //     }
+        // }
     }
 }
 
