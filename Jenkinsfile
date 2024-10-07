@@ -28,7 +28,7 @@ pipeline {
             
             sleep(30) // Aumentar el tiempo de espera
 
-            def exitCode = bat(script: 'ping -n 4 10.200.130.13', returnStatus: true)
+            def exitCode = bat(script: 'ping -n 1 10.200.130.10', returnStatus: true)
             if (exitCode != 0) {
                 error "No se puede acceder al servidor después de conectarse a la VPN. Abortando la ejecución de pruebas."
             } else {
