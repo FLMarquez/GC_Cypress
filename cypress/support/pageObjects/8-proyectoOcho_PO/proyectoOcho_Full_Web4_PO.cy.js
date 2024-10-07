@@ -385,7 +385,7 @@ cy.xpath("//a[contains(.,'ABM Localidades/Distritos')]").invoke('show').click({ 
 cy.wait(tiempo)
 cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
 cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
-cy.xpath("//span[contains(.,'ABM Localidades/Distritos')]").should('be.visible').contains('ABM Localidades/Distritos')
+cy.xpath("//span[contains(.,'ABM Localidades /Distritos')]").should('be.visible').contains('ABM Localidades /Distritos')
 cy.wait(tiempo)
 });
       
@@ -423,7 +423,7 @@ cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).c
 cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
 cy.xpath("(//a[contains(.,'Paramétricas')])[2]").invoke('show').click({ force: true });
 cy.xpath("//a[contains(.,'Config. Domicilios')]").invoke('show').click({ force: true });
-cy.xpath("//span[contains(.,'ABM Tipo de Domicilio')]").invoke('show').click({ force: true });
+cy.xpath("//a[contains(.,'ABM Tipos Domicilio')]").invoke('show').click({ force: true });
 cy.wait(tiempo)
 cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
 cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
