@@ -24,38 +24,38 @@ pipeline {
                     agent { label "Agent2_3" }
                     steps {
                         runCypressTests('allure-results-3')
-                    }
-                }
-                stage('Slave 4') {
-                    agent { label "Agent2_4" }
-                    steps {
-                        runCypressTests('allure-results-4')
-                    }
-                }
-                stage('Slave 5') {
-                    agent { label "Agent2_5" }
-                    steps {
-                        runCypressTests('allure-results-5')
-                    }
-                }
-                stage('Slave 6') {
-                    agent { label "Agent2_6" }
-                    steps {
-                        runCypressTests('allure-results-6')
-                    }
-                }
-                stage('Slave 7') {
-                    agent { label "Agent2_7" }
-                    steps {
-                        runCypressTests('allure-results-7')
-                    }
-                }
-                stage('Slave 8') {
-                    agent { label "Agent2_8" }
-                    steps {
-                        runCypressTests('allure-results-8')
-                    }
-                }
+                     }
+                 }
+                // stage('Slave 4') {
+                //     agent { label "Agent2_4" }
+                //     steps {
+                //         runCypressTests('allure-results-4')
+                //     }
+                // }
+                // stage('Slave 5') {
+                //     agent { label "Agent2_5" }
+                //     steps {
+                //         runCypressTests('allure-results-5')
+                //     }
+                // }
+                // stage('Slave 6') {
+                //     agent { label "Agent2_6" }
+                //     steps {
+                //         runCypressTests('allure-results-6')
+                //     }
+                // }
+                // stage('Slave 7') {
+                //     agent { label "Agent2_7" }
+                //     steps {
+                //         runCypressTests('allure-results-7')
+                //     }
+                // }
+                // stage('Slave 8') {
+                //     agent { label "Agent2_8" }
+                //     steps {
+                //         runCypressTests('allure-results-8')
+                //     }
+                // }
             }
         }
 
@@ -120,8 +120,13 @@ pipeline {
 def runCypressTests(allureStashName) {
     script {
         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
-        bat 'npm install'
-        bat 'npm update'
+        
+        // Agregar la cache para node_modules
+        steps {
+            cache(path: 'node_modules', key: 'npm-cache') {
+                sh 'npm ci' // Usa 'npm ci' para instalaciones más rápidas
+            }
+        }
         try {
             // Ejecutar las pruebas de Cypress
             def exitCode = bat(script: 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true', returnStatus: true)
