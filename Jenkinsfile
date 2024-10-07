@@ -122,7 +122,7 @@ def runCypressTests(allureStashName) {
         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
         
         // Agregar la cache para node_modules
-        steps {
+        
             cache(path: 'node_modules', key: 'npm-cache') {
                 sh 'npm ci' // Usa 'npm ci' para instalaciones más rápidas
             }
