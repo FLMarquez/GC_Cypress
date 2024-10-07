@@ -74,21 +74,23 @@ pipeline {
         }
 
         // Validar la existencia de los resultados de Allure
-        stage('Check Allure Results') {
-            steps {
-                script {
-                    def allureDir = 'C:\\home\\workspace\\GC_Cypress_Pipeline*\\allure-results'
-                    def files = findFiles(glob: allureDir)
+       stage('Check Allure Results') {
+    steps {
+        script {
+            // Cambiar la definición de allureDir para buscar en cualquier carpeta
+            def allureDir = 'C:\\home\\workspace\\GC_Cypress_Pipeline*\\allure-results\\**\\*.xml'
+            def files = findFiles(glob: allureDir)
 
-                    if (files.size() > 0) {
-                        echo '¡Resultados de Allure encontrados!'
-                    } else {
-                        echo '¡Resultados de Allure no encontrados! Continuando con el pipeline.'
-                        currentBuild.result = 'UNSTABLE'
-                    }
-                }
+            if (files.size() > 0) {
+                echo '¡Resultados de Allure encontrados!'
+            } else {
+                echo '¡Resultados de Allure no encontrados! Continuando con el pipeline.'
+                currentBuild.result = 'UNSTABLE'
             }
         }
+    }
+}
+
 
         stage('List Allure Results') {
             steps {
