@@ -1,33 +1,32 @@
 pipeline {
     agent any
-
-    tools { 
-        nodejs "node" 
+    tools {
+        nodejs "node"
     }
-
-    stage('Conectar a la VPN') {
-    steps {
-        script {
-            bat 'powershell -Command "Start-Process \'C:\\Program Files\\Fortinet\\FortiClient\\FortiClient.exe\' -ArgumentList \'-s vpn -h https://vpn-cba.elinpar.com:10443 -u Lmarquez -p Lm4rqu3zzz\' -Wait"'
-            echo "Esperando que la VPN se conecte..."
-            sleep(time: 30, unit: "SECONDS") // Esperar 30 segundos o ajusta según sea necesario
-        }
-    }
-}
-
-stage('Verificar conexión VPN') {
-    steps {
-        script {
-            def vpnCheck = bat(script: 'ping -n 1 10.200.130.12', returnStatus: true) // Ajusta la IP
-            if (vpnCheck != 0) {
-                error("La VPN no está conectada o la IP no es accesible.")
-            } else {
-                echo "Conexión VPN establecida."
+    stages {
+        stage('Conectar a la VPN') {
+            steps {
+                script {
+                    // Conectar a la VPN
+                    bat 'powershell -Command "Start-Process \'C:\\Program Files\\Fortinet\\FortiClient\\FortiClient.exe\' -ArgumentList \'-s vpn -h https://vpn-cba.elinpar.com:10443 -u Lmarquez -p Lm4rqu3zzz\' -Wait"'
+                }
             }
         }
-    }
-}
 
+        stage('Verificar conexión VPN') {
+            steps {
+                script {
+                    def vpnCheck = bat(script: 'ping -n 1 10.3.2.89', returnStatus: true) // Cambia esta IP por una interna accesible solo desde la VPN
+                    if (vpnCheck != 0) {
+                        error("La VPN no está conectada o la IP no es accesible.")
+                    } else {
+                        echo "Conexión VPN establecida."
+                    }
+                }
+            }
+        }
+        }
+        }
 
 
         stage('Cypress Parallel Test Suite') {
@@ -108,7 +107,7 @@ stage('Verificar conexión VPN') {
         //         }
         //     }
         // }
-    }
+   
 
 
 // Función para correr las pruebas de Cypress y stashear los resultados de Allure
