@@ -7,17 +7,12 @@ pipeline {
         stage('Conectar a la VPN') {
             steps {
                 script {
-                    // Conectar a la VPN
+                    // Conectar a la VPN con FortiClient usando PowerShell
                     bat '''
                     powershell -Command "
-                    $process = Start-Process 'C:\\Program Files\\Fortinet\\FortiClient\\FortiClient.exe' -ArgumentList '-s vpn -h https://vpn-cba.elinpar.com:10443 -u Lmarquez -p Lm4rqu3zzz' -PassThru;
-                    $process.WaitForExit();
-                    if ($process.ExitCode -ne 0) { 
-                    exit $process.ExitCode;
-                    }
+                    Start-Process 'C:\\Program Files\\Fortinet\\FortiClient\\FortiClient.exe' -ArgumentList '-s vpn -h https://vpn-cba.elinpar.com:10443 -u Lmarquez -p Lm4rqu3zzz' -Wait;
                     "
                     '''
-
                 }
             }
         }
