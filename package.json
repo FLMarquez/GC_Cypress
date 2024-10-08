@@ -21,16 +21,19 @@
     "cypress-markdown-preprocessor": "^1.10.13",
     "cypress-mochawesome-reporter": "^3.8.2",
     "cypress-multi-reporters": "^1.6.4",
-    "cypress-xpath": "^2.0.1",
     "mocha": "^10.7.3",
-    "mocha-allure-reporter": "^1.4.0",
     "mochawesome": "^7.1.3"
   },
   "dependencies": {
+    "@babel/plugin-transform-class-properties": "^7.25.7",
+    "@babel/plugin-transform-object-rest-spread": "^7.25.7",
+    "allure-mocha": "^3.0.4",
     "axios": "^1.7.7",
     "files-from-path": "^1.0.4",
+    "glob": "^9.0.0",
     "pdf-parse": "^1.1.1",
     "pdf2json": "^3.1.4",
-    "readfile": "^1.0.1"
+    "readfile": "^1.0.1",
+    "uuid": "^7.0.0"
   }
 }
