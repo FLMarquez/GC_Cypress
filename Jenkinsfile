@@ -1,3 +1,23 @@
+// Función para correr las pruebas de Cypress y stash los resultados de Allure
+def runCypressTests(allureStashName) {
+    script {
+        git url: 'https://github.com/FLMarquez/GC_Cypress.git'
+        bat 'npm ci'
+        try {
+            def exitCode = bat(script: 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true', returnStatus: true)
+            if (exitCode != 0) {
+                currentBuild.result = 'UNSTABLE'
+                echo "Cypress test falló con código de salida: ${exitCode}"
+            } else {
+                echo "Cypress test completado exitosamente."
+            }
+        } catch (e) {
+            echo "Error durante la ejecución de Cypress: ${e.message}"
+            currentBuild.result = 'UNSTABLE'
+        }
+    }
+}
+
 pipeline {
     agent any
 
@@ -110,25 +130,6 @@ pipeline {
         }
         */
     }
-
-    // Función para correr las pruebas de Cypress y stash los resultados de Allure
-    def runCypressTests(allureStashName) {
-        script {
-            git url: 'https://github.com/FLMarquez/GC_Cypress.git'
-            bat 'npm ci'
-            try {
-                def exitCode = bat(script: 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true', returnStatus: true)
-                if (exitCode != 0) {
-                    currentBuild.result = 'UNSTABLE'
-                    echo "Cypress test falló con código de salida: ${exitCode}"
-                } else {
-                    echo "Cypress test completado exitosamente."
-                }
-            } catch (e) {
-                echo "Error durante la ejecución de Cypress: ${e.message}"
-                currentBuild.result = 'UNSTABLE'
-            }
-        }
-    }
 }
+
 
