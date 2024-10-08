@@ -1,17 +1,20 @@
 pipeline {
     agent any
 
-    stages {
-        stage('Conectar a la VPN') {
-            steps {
-                script {
-                    def vpnName = "Elinpar CBA"
-                    def username = "Lmarquez"
-                    def password = "Lm4rqu3zzz"
-                    bat "rasdial \"${vpnName}\" \"${username}\" \"${password}\""
-                }
-            }
+    stage('Conectar a la VPN') {
+    steps {
+        script {
+            bat '''
+            powershell -Command "
+            $username = 'Lmarquez'
+            $password = ConvertTo-SecureString 'Lm4rqu3zzz' -AsPlainText -Force
+            $credential = New-Object System.Management.Automation.PSCredential($username, $password)
+            Add-VpnConnection -Name 'VPN Name' -ServerAddress 'vpn-cba.elinpar.com' -Credential $credential -AllUserConnection -PassThru -ErrorAction Stop
+            "
+            '''
         }
+    }
+}
 
         stage('Verificar conexión VPN') {
             steps {
@@ -27,7 +30,7 @@ pipeline {
         }
         }
         }
-        
+
         
 
 
