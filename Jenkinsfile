@@ -29,7 +29,7 @@ pipeline {
             }
         }
         }
-        }
+        
 
 
         stage('Cypress Parallel Test Suite') {
