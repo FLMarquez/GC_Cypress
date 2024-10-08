@@ -8,7 +8,16 @@ pipeline {
             steps {
                 script {
                     // Conectar a la VPN
-                    bat 'powershell -Command "Start-Process \'C:\\Program Files\\Fortinet\\FortiClient\\FortiClient.exe\' -ArgumentList \'-s vpn -h https://vpn-cba.elinpar.com:10443 -u Lmarquez -p Lm4rqu3zzz\' -Wait"'
+                    bat '''
+                    powershell -Command "
+                    $process = Start-Process 'C:\\Program Files\\Fortinet\\FortiClient\\FortiClient.exe' -ArgumentList '-s vpn -h https://vpn-cba.elinpar.com:10443 -u Lmarquez -p Lm4rqu3zzz' -PassThru;
+                    $process.WaitForExit();
+                    if ($process.ExitCode -ne 0) { 
+                    exit $process.ExitCode;
+                    }
+                    "
+                    '''
+
                 }
             }
         }
