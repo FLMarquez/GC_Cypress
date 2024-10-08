@@ -3,29 +3,23 @@ pipeline {
     tools {
         nodejs "node"
     }
-    stages {
-        stage('Conectar a la VPN') {
-            steps {
-                script {
-                    // Conectar a la VPN
-                    bat '''
-                    powershell -Command "
-                    $process = Start-Process 'C:\\Program Files\\Fortinet\\FortiClient\\FortiClient.exe' -ArgumentList '-s vpn -h https://vpn-cba.elinpar.com:10443 -u Lmarquez -p Lm4rqu3zzz' -PassThru;
-                    $process.WaitForExit();
-                    if ($process.ExitCode -ne 0) { 
-                    exit $process.ExitCode;
-                    }
-                    "
-                    '''
-
-                }
-            }
+    stage('Conectar a la VPN') {
+    steps {
+        script {
+            // Conectar a la VPN usando rasdial
+            def vpnName = "Elinpar CBA"
+            def username = "Lmarquez"
+            def password = "Lm4rqu3zzz"
+            bat "rasdial \"${vpnName}\" \"${username}\" \"${password}\""
         }
+    }
+}
+
 
         stage('Verificar conexión VPN') {
             steps {
                 script {
-                    def vpnCheck = bat(script: 'ping -n 1 10.200.130.12', returnStatus: true) 
+                    def vpnCheck = bat(script: 'ping -n 1 10.200.130.12', returnStatus: true) // Cambia esta IP por una interna accesible solo desde la VPN
                     if (vpnCheck != 0) {
                         error("La VPN no está conectada o la IP no es accesible.")
                     } else {
@@ -34,6 +28,9 @@ pipeline {
                 }
             }
         }
+        }
+        }
+
 
         stage('Cypress Parallel Test Suite') {
             parallel {
@@ -103,8 +100,18 @@ pipeline {
                 }
             }
         }
-    }
-}
+
+        // Desconectar la VPN
+        // stage('Desconectar la VPN') {
+        //     steps {
+        //         script {
+        //             // Desconectar la VPN
+        //             bat 'powershell -Command "Start-Process \'C:\\Program Files\\Fortinet\\FortiClient\\FortiClient.exe\' -ArgumentList \'-s vpndisconnect\' -Wait"'
+        //         }
+        //     }
+        // }
+   
+
 
 // Función para correr las pruebas de Cypress y stashear los resultados de Allure
 def runCypressTests(allureStashName) {
