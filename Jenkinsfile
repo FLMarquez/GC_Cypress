@@ -10,7 +10,7 @@ pipeline {
             steps {
                 script {
                     // Ejecutar el script AHK para conectar a la VPN desde el escritorio
-                    def vpnConnectStatus = bat(script: 'start /wait "" "C:\\Users\\Lmarquez\\Desktop\\conectarVPN.ahk"', returnStatus: true)
+                    def vpnConnectStatus = bat(script: 'start /wait "" "C:\\home\\workspace\\conectarVPN.ahk"', returnStatus: true)
                     if (vpnConnectStatus != 0) {
                         error "Error al intentar conectar a la VPN. Código de salida: ${vpnConnectStatus}"
                     } else {
