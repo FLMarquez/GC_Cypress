@@ -16,7 +16,7 @@ pipeline {
         stage('Verificar conexión VPN') {
             steps {
                 script {
-                    def vpnCheck = bat(script: 'ping -n 1 10.200.130.12', returnStatus: true) // Cambia esta IP por una interna accesible solo desde la VPN
+                    def vpnCheck = bat(script: 'ping -n 1 10.200.130.12', returnStatus: true) 
                     if (vpnCheck != 0) {
                         error("La VPN no está conectada o la IP no es accesible.")
                     } else {
@@ -25,9 +25,6 @@ pipeline {
                 }
             }
         }
-        }
-        }
-
 
         stage('Cypress Parallel Test Suite') {
             parallel {
@@ -97,18 +94,8 @@ pipeline {
                 }
             }
         }
-
-        // Desconectar la VPN
-        // stage('Desconectar la VPN') {
-        //     steps {
-        //         script {
-        //             // Desconectar la VPN
-        //             bat 'powershell -Command "Start-Process \'C:\\Program Files\\Fortinet\\FortiClient\\FortiClient.exe\' -ArgumentList \'-s vpndisconnect\' -Wait"'
-        //         }
-        //     }
-        // }
-   
-
+    }
+}
 
 // Función para correr las pruebas de Cypress y stashear los resultados de Allure
 def runCypressTests(allureStashName) {
