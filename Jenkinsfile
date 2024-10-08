@@ -16,7 +16,7 @@ pipeline {
         stage('Verificar conexión VPN') {
             steps {
                 script {
-                    def vpnCheck = bat(script: 'ping -n 1 10.3.2.89', returnStatus: true) // Cambia esta IP por una interna accesible solo desde la VPN
+                    def vpnCheck = bat(script: 'ping -n 1 10.200.130.12', returnStatus: true) // Cambia esta IP por una interna accesible solo desde la VPN
                     if (vpnCheck != 0) {
                         error("La VPN no está conectada o la IP no es accesible.")
                     } else {
