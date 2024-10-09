@@ -9,12 +9,23 @@ pipeline {
         stage('Conectar a la VPN') {
             steps {
                 script {
-                    // Ejecutar el script AHK a través de un archivo .bat
-                    def vpnConnectStatus = bat(script: 'C:\\home\\workspace\\GODOYCRUZ\\conectarVPN.bat', returnStatus: true)
+                    def maxRetries = 4
+                    def retryCount = 0
+                    def vpnConnectStatus = -1
+                    
+                    while (retryCount < maxRetries && vpnConnectStatus != 0) {
+                        vpnConnectStatus = bat(script: 'C:\\home\\workspace\\GODOYCRUZ\\VPN.bat', returnStatus: true)
+                        if (vpnConnectStatus != 0) {
+                            retryCount++
+                            echo "Intento ${retryCount} fallido. Código de salida: ${vpnConnectStatus}. Volviendo a intentar..."
+                            sleep(5000) // Esperar 5 segundos antes del siguiente intento
+                        } else {
+                            echo "Conexión a la VPN realizada exitosamente."
+                        }
+                    }
+
                     if (vpnConnectStatus != 0) {
-                        error "Error al intentar conectar a la VPN. Código de salida: ${vpnConnectStatus}"
-                    } else {
-                        echo "Conexión a la VPN realizada exitosamente."
+                        error "Error al intentar conectar a la VPN después de ${maxRetries} intentos. Código de salida: ${vpnConnectStatus}"
                     }
                 }
             }
@@ -105,7 +116,7 @@ pipeline {
 def runCypressTests(allureStashName) {
     script {
         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
-          bat 'npm install'
+        bat 'npm install'
         bat 'npm update'
         try {
             def exitCode = bat(script: 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true', returnStatus: true)
