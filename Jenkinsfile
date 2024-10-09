@@ -119,7 +119,7 @@ def runCypressTests(allureStashName) {
         bat 'npm install'
         bat 'npm update'
         try {
-            def exitCode = bat(script: 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true', returnStatus: true)
+            def exitCode = bat(script: 'npx cypress run --headed --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true', returnStatus: true)
             if (exitCode != 0) {
                 currentBuild.result = 'UNSTABLE'
                 echo "Cypress test falló con código de salida: ${exitCode}"
