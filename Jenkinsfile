@@ -9,8 +9,8 @@ pipeline {
         stage('Conectar a la VPN') {
             steps {
                 script {
-                    // Ejecutar el archivo exe generado desde el script AHK
-                    def vpnConnectStatus = bat(script: 'start /wait "" "C:\\home\\workspace\\GODOYCRUZ\\conectarVPN.exe"', returnStatus: true)
+                    // Ejecutar el script AHK a través de un archivo .bat
+                    def vpnConnectStatus = bat(script: 'C:\\home\\workspace\\GODOYCRUZ\\conectarVPN.bat', returnStatus: true)
                     if (vpnConnectStatus != 0) {
                         error "Error al intentar conectar a la VPN. Código de salida: ${vpnConnectStatus}"
                     } else {
