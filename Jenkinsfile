@@ -119,7 +119,7 @@ def runCypressHeadedTest() {
         bat 'npm install'
         bat 'npm update'
         try {
-            def exitCode = bat(script: 'npx cypress run --headed --browser chrome --spec "cypress/e2e/4-Atencion Primaria/1-Atencion_Primaria_Emision_Deuda.cy.js" --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16', returnStatus: true)
+            def exitCode = bat(script: 'npx cypress run --headed --browser chrome --spec "cypress/e2e/4-Atencion Primaria/1-Atencion_Primaria_Emision_Deuda.cy.js" --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --parallel --env allure=true', returnStatus: true)
             if (exitCode != 0) {
                 currentBuild.result = 'UNSTABLE'
                 echo "Cypress test falló con código de salida: ${exitCode}"
@@ -140,7 +140,7 @@ def runCypressTests(allureStashName) {
         bat 'npm install'
         bat 'npm update'
         try {
-            def exitCode = bat(script: 'npx cypress run --parallel --env allure=true --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16', returnStatus: true)
+            def exitCode = bat(script: 'npx cypress run --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --parallel --env allure=true', returnStatus: true)
             if (exitCode != 0) {
                 currentBuild.result = 'UNSTABLE'
                 echo "Cypress test falló con código de salida: ${exitCode}"
