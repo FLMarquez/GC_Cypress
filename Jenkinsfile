@@ -6,30 +6,30 @@ pipeline {
     }
 
     stages {
-        stage('Conectar a la VPN') {
-            steps {
-                script {
-                    def maxRetries = 4
-                    def retryCount = 0
-                    def vpnConnectStatus = -1
+        // stage('Conectar a la VPN') {
+        //     steps {
+        //         script {
+        //             def maxRetries = 4
+        //             def retryCount = 0
+        //             def vpnConnectStatus = -1
                     
-                    while (retryCount < maxRetries && vpnConnectStatus != 0) {
-                        vpnConnectStatus = bat(script: 'C:\\home\\workspace\\GODOYCRUZ\\VPN.bat', returnStatus: true)
-                        if (vpnConnectStatus != 0) {
-                            retryCount++
-                            echo "Intento ${retryCount} fallido. Código de salida: ${vpnConnectStatus}. Volviendo a intentar..."
-                            sleep(5000) // Esperar 5 segundos antes del siguiente intento
-                        } else {
-                            echo "Conexión a la VPN realizada exitosamente."
-                        }
-                    }
+        //             while (retryCount < maxRetries && vpnConnectStatus != 0) {
+        //                 vpnConnectStatus = bat(script: 'C:\\home\\workspace\\GODOYCRUZ\\VPN.bat', returnStatus: true)
+        //                 if (vpnConnectStatus != 0) {
+        //                     retryCount++
+        //                     echo "Intento ${retryCount} fallido. Código de salida: ${vpnConnectStatus}. Volviendo a intentar..."
+        //                     sleep(5000) // Esperar 5 segundos antes del siguiente intento
+        //                 } else {
+        //                     echo "Conexión a la VPN realizada exitosamente."
+        //                 }
+        //             }
 
-                    if (vpnConnectStatus != 0) {
-                        error "Error al intentar conectar a la VPN después de ${maxRetries} intentos. Código de salida: ${vpnConnectStatus}"
-                    }
-                }
-            }
-        }
+        //             if (vpnConnectStatus != 0) {
+        //                 error "Error al intentar conectar a la VPN después de ${maxRetries} intentos. Código de salida: ${vpnConnectStatus}"
+        //             }
+        //         }
+        //     }
+        // }
 
         stage('Cypress Parallel Test Suite') {
             parallel {
