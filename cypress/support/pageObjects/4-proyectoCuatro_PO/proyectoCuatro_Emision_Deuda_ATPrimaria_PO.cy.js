@@ -47,7 +47,7 @@ class ProyectoCuatro_Emision_Deuda_ATPrimaria_Po {
     cy.wait(2500);
 
     cy.iframe().xpath("//input[@id='IMPRIMIRCONTADO']").invoke('click');
-    cy.wait(2500); // Espera 10 segundos para asegurar que el PDF se descargue
+    cy.wait(9000); // Espera 10 segundos para asegurar que el PDF se descargue
 
   }
 

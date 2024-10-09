@@ -112,14 +112,14 @@ pipeline {
     }
 }
 
-// Función para correr las pruebas de Cypress y stashear los resultados de Allure
-def runCypressTests(allureStashName) {
+// // Función para correr la prueba específica en modo headed con la key
+def runCypressHeadedTest() {
     script {
         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
         bat 'npm install'
         bat 'npm update'
         try {
-            def exitCode = bat(script: 'npx cypress run --headed --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true', returnStatus: true)
+            def exitCode = bat(script: 'npx cypress run --headed --browser chrome --spec "cypress/e2e/4-Atencion Primaria/1-Atencion_Primaria_Emision_Deuda.cy.js" --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16', returnStatus: true)
             if (exitCode != 0) {
                 currentBuild.result = 'UNSTABLE'
                 echo "Cypress test falló con código de salida: ${exitCode}"
@@ -132,5 +132,28 @@ def runCypressTests(allureStashName) {
         }
     }
 }
+
+// Función para correr el resto de pruebas en modo normal (paralelismo con key)
+def runCypressTests(allureStashName) {
+    script {
+        git url: 'https://github.com/FLMarquez/GC_Cypress.git'
+        bat 'npm install'
+        bat 'npm update'
+        try {
+            def exitCode = bat(script: 'npx cypress run --parallel --env allure=true --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16', returnStatus: true)
+            if (exitCode != 0) {
+                currentBuild.result = 'UNSTABLE'
+                echo "Cypress test falló con código de salida: ${exitCode}"
+            } else {
+                echo "Cypress test completado exitosamente."
+            }
+        } catch (e) {
+            echo "Error durante la ejecución de Cypress: ${e.message}"
+            currentBuild.result = 'UNSTABLE'
+        }
+    }
+}
+
+
 
 
