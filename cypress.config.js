@@ -15,10 +15,11 @@ module.exports = defineConfig({
   viewportWidth: 1500,
   viewportHeight: 864,
   chromeWebSecurity: false,
-  experimentalRunAllSpecs: true,
+   experimentalRunAllSpecs: true,
   defaultCommandTimeout: 1200000,  
   pageLoadTimeout: 1200000, 
   videoCompression: false,
+ //videoUploadOnPasses: true,
   trashAssetsBeforeRuns: false,
   projectId: "e7vrap",
   downloadsFolder: 'C:\\home\\workspace\\GODOYCRUZ',
@@ -40,40 +41,39 @@ module.exports = defineConfig({
 
       on('before:browser:launch', (browser = {}, launchOptions) => {
         if (browser.name === 'chrome') {
-          // Opciones de Chrome
           launchOptions.args.push('--disable-gpu');
           launchOptions.args.push('--disable-extensions');
           launchOptions.args.push('--disable-software-rasterizer');
           launchOptions.args.push('--disable-dev-shm-usage');
           launchOptions.args.push('--no-sandbox');
-          launchOptions.args.push('--disable-popup-blocking');
-          launchOptions.args.push('--start-maximized');
-          launchOptions.args.push('--disable-infobars');
-          launchOptions.args.push('--disable-features=VizDisplayCompositor');
-
-          // Configuración de descargas
-          launchOptions.preferences = {
-            'download.default_directory': downloadsPath, // Ruta de descarga
-            'download.prompt_for_download': false, // No preguntar al descargar
-            'plugins.always_open_pdf_externally': true, // Abrir PDFs externamente
-            'profile.default_content_setting_values.automatic_downloads': 1, // Permitir descargas automáticas
-            'profile.default_content_setting_values.mixed_script': 1, // Permitir scripts mixtos
-            'profile.default_content_settings.popups': 0, // Sin popups
-            'plugins.plugins_disabled': ['Chrome PDF Viewer'], // Desactivar visor de PDF
-            'pdfjs.disabled': true, // Desactivar el visor de PDF por defecto
-          };
+          launchOptions.args.push('--disable-pdf-viewer');  // Desactiva completamente el visor de PDF
 
           if (config.isHeadless) {
-            launchOptions.args.push('--headless'); // Modo headless
+            launchOptions.args.push('--headless'); // Asegúrate de estar en modo headless
           }
 
+          // Configurar la carpeta de descargas en Chrome
+          launchOptions.preferences.default = {
+            'download': {
+              'default_directory': downloadsPath,
+              'prompt_for_download': false,
+              'directory_upgrade': true,
+              'extensions_to_open': ''
+            },
+            'plugins.plugins_disabled': ['Chrome PDF Viewer'], // Desactiva el visor de PDF
+            'plugins.always_open_pdf_externally': true,
+            'savefile.default_directory': downloadsPath, 
+            'download.extensions_to_open': 'false', // No abrir archivos automáticamente
+            'pdfjs.disabled': true, // Desactiva el visor de PDF por defecto
+            'profile.default_content_settings.popups': 0
+          };
+
         } else if (browser.name === 'firefox') {
-          // Opciones de Firefox
           launchOptions.preferences = {
             'browser.download.dir': downloadsPath,
-            'browser.download.folderList': 2,
+            'browser.download.folderList': 2, 
             'browser.helperApps.neverAsk.saveToDisk': 'application/pdf',
-            'pdfjs.disabled': true // Desactivar el visor de PDF por defecto
+            'pdfjs.disabled': true
           };
         } else if (browser.name === 'electron') {
           launchOptions.preferences = {
@@ -93,7 +93,6 @@ module.exports = defineConfig({
     }
   }
 });
-
 
 
 
