@@ -15,6 +15,7 @@ module.exports = defineConfig({
   viewportWidth: 1500,
   viewportHeight: 864,
   chromeWebSecurity: false,
+  experimentalRunAllSpecs: true,
   defaultCommandTimeout: 1200000,  
   pageLoadTimeout: 1200000, 
   videoCompression: false,
@@ -45,6 +46,10 @@ module.exports = defineConfig({
           launchOptions.args.push('--disable-software-rasterizer');
           launchOptions.args.push('--disable-dev-shm-usage');
           launchOptions.args.push('--no-sandbox');
+          launchOptions.args.push('--disable-popup-blocking');
+          launchOptions.args.push('--start-maximized');
+          launchOptions.args.push('--disable-infobars');
+          launchOptions.args.push('--disable-features=VizDisplayCompositor');
           launchOptions.args.push('--disable-pdf-viewer');  // Desactiva completamente el visor de PDF
 
           if (config.isHeadless) {
@@ -55,7 +60,10 @@ module.exports = defineConfig({
           launchOptions.preferences.default = {
             'download': {
               'default_directory': downloadsPath,
-              'prompt_for_download': false,
+              'download.prompt_for_download': false,
+              'plugins.always_open_pdf_externally': true, // Abrir PDFs externamente
+              'profile.default_content_setting_values.automatic_downloads': 1, // Permitir descargas automáticas
+              'profile.default_content_setting_values.mixed_script': 1, // Permitir scripts mixtos
               'directory_upgrade': true,
               'extensions_to_open': ''
             },
