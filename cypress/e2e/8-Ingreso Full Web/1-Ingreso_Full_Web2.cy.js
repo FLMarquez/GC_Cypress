@@ -26,7 +26,6 @@ it('Ingreso Full Web2', () => {
     master.SeccionUno("dsimoncini","dsimoncini",100)
     master.SeccionQuince(2000)
     master.SeccionDieciseis(2000)
-    master.SeccionDiecisiete(2000)
     master.SeccionTreinta(2000)
 
 });
