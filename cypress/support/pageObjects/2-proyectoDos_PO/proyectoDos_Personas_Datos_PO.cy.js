@@ -46,25 +46,37 @@ class ProyectoDos_Personas_Datos_Po{
         cy.xpath("(//a[contains(.,'Personas')])[1]").should("be.visible").click({ force: true });
         cy.xpath("//a[contains(.,'Administración de Personas')]").invoke('show').click({ force: true });
         
-        cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => { 
-        cy.get('#vK2BTOOLSGENERICSEARCHFIELD').should("be.visible").type(`${cuit}{enter}`);
-        cy.get('#vUPDATE_0001', { timeout: 10000 }).should('exist').click({ force: true }); 
+        cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+          // Escribir el CUIT y presionar Enter en el campo de búsqueda
+          cy.get('#vK2BTOOLSGENERICSEARCHFIELD').should("be.visible").type(`${cuit}{enter}`);
+          //cy.wait(5000)
+        cy.get('#vUPDATE_0001').should('exist').invoke('show').click({ force: true });
+        cy.wait(1000) 
 
         cy.iframe('#gxp0_ifrm').should('exist').then($iframe => {
           cy.wrap($iframe)
           .xpath("//a[@href='#'][contains(.,'Ver más')]").should('be.visible').click({ force: true })
           
                   
-          cy.wrap($iframe)
+          cy.wrap($iframe)        
           .xpath("//input[contains(@id,'PSNCARACTER01')]").should('be.visible').clear()
-          .xpath("//input[contains(@id,'PSNCARACTER01')]").should('be.visible').type(Telefono);
+          
+
+          cy.wrap($iframe)        
+          .xpath("//input[contains(@id,'PSNCARACTER01')]").should('be.visible').type(Telefono, { delay: 100 });
+          
                
           cy.wrap($iframe)
-          .xpath("//input[contains(@id,'PSNCARACTER03')]").should('be.visible').clear()
-          .xpath("//input[contains(@id,'PSNCARACTER03')]").should('be.visible').type(email);
+          .xpath("//input[contains(@id,'PSNCARACTER03')]").should('be.visible').clear()  
+         
+          
+
+          cy.wrap($iframe)
+          .xpath("//input[contains(@id,'PSNCARACTER03')]").should('be.visible').type(email, { delay: 100 });
             
           cy.wrap($iframe)
-          .xpath("//input[contains(@id,'ENTER')]").should('be.visible').click({ force: true });
+          .xpath("//input[contains(@id,'ENTER')]").should('be.visible').click({ force: true })
+          .wait(1000)
   
 
           cy.wait(5000)
