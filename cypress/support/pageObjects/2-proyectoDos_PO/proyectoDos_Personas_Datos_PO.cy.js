@@ -1,13 +1,24 @@
 import 'cypress-iframe'
 class ProyectoDos_Personas_Datos_Po{
 
-    visitHome() {
-        let tiempo = 1000;
-        beforeEach(() => {
-          cy.visit('https://gcdigital.godoycruz.gob.ar/K2BGAM/servlet/com.k2bgam.k2blogin');
-          cy.wait(tiempo);
-        });
-      }
+  visitHome() {
+    let tiempo = 1000;
+    beforeEach(() => {
+      cy.visit('https://gcdigital.godoycruz.gob.ar/K2BGAM/servlet/com.k2bgam.k2blogin', {
+        timeout: 300000, // Tiempo máximo de espera en milisegundos
+        onBeforeLoad: (win) => {
+          // Acciones antes de que se cargue la página
+          console.log('La página está a punto de cargarse');
+        },
+        onLoad: (win) => {
+          // Acciones para cuando la página se carga completamente
+          console.log('La página se ha cargado completamente');
+        },
+        waitForLoad: false, // No esperar a que se cargue completamente
+      });
+      cy.wait(tiempo);
+    });
+  }
     
       SeccionUno(usuario,contrasena,t){
         let tiempo=t
@@ -50,7 +61,9 @@ class ProyectoDos_Personas_Datos_Po{
                
           cy.wrap($iframe)
           .xpath("//input[contains(@id,'PSNCARACTER03')]").should('be.visible').clear()
-          .xpath("//input[contains(@id,'PSNCARACTER03')]").should('be.visible').type(email);
+          cy.wait(1000)
+          .xpath("//input[contains(@id,'PSNCARACTER03')]").should('be.visible').type(email, { delay: 300 });
+          cy.wait(1000)
             
           cy.wrap($iframe)
           .xpath("//input[contains(@id,'ENTER')]").should('be.visible').click({ force: true });
