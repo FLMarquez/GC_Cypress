@@ -61,9 +61,7 @@ class ProyectoDos_Personas_Datos_Po{
                
           cy.wrap($iframe)
           .xpath("//input[contains(@id,'PSNCARACTER03')]").should('be.visible').clear()
-          cy.wait(1000)
-          .xpath("//input[contains(@id,'PSNCARACTER03')]").should('be.visible').type(email, { delay: 300 });
-          cy.wait(1000)
+          .xpath("//input[contains(@id,'PSNCARACTER03')]").should('be.visible').type(email);
             
           cy.wrap($iframe)
           .xpath("//input[contains(@id,'ENTER')]").should('be.visible').click({ force: true });
