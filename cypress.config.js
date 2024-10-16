@@ -18,6 +18,7 @@ module.exports = defineConfig({
   defaultCommandTimeout: 1200000,  
   pageLoadTimeout: 1200000, 
   videoCompression: false,
+  disableCypressDashboard: true,
  //videoUploadOnPasses: true,
   trashAssetsBeforeRuns: false,
   projectId: "e7vrap",
