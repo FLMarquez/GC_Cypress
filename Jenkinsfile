@@ -7,7 +7,7 @@ pipeline {
 
     stages {
         
-         stage('Cache Node Modules') {
+        stage('Cache Node Modules') {
             steps {
                 cache(path: './node_modules', key: 'node_modules', restore: true, lock: true) {
                     sh 'npm ci'
@@ -15,20 +15,76 @@ pipeline {
             }
         }
 
-         stage('Cypress Parallel Test Suite') {
+        stage('Cypress Parallel Test Suite') {
             parallel {
-                stage('Slave 1') { agent { label "Agent2_1" } steps { runCypressTests('allure-results-1') } }
-                stage('Slave 2') { agent { label "Agent2_2" } steps { runCypressTests('allure-results-2') } }
-                stage('Slave 3') { agent { label "Agent2_3" } steps { runCypressTests('allure-results-3') } }
-                stage('Slave 4') { agent { label "Agent2_4" } steps { runCypressTests('allure-results-4') } }
-                stage('Slave 5') { agent { label "Agent2_5" } steps { runCypressTests('allure-results-5') } }
-                stage('Slave 6') { agent { label "Agent2_6" } steps { runCypressTests('allure-results-6') } }
-                stage('Slave 7') { agent { label "Agent2_7" } steps { runCypressTests('allure-results-7') } }
-                stage('Slave 8') { agent { label "Agent2_8" } steps { runCypressTests('allure-results-8') } }
+                stage('Slave 1') { 
+                    agent { label "Agent2_1" } 
+                    steps { 
+                        script {
+                            runCypressTests('allure-results-1') 
+                        }
+                    } 
+                }
+                stage('Slave 2') { 
+                    agent { label "Agent2_2" } 
+                    steps { 
+                        script {
+                            runCypressTests('allure-results-2') 
+                        }
+                    } 
+                }
+                stage('Slave 3') { 
+                    agent { label "Agent2_3" } 
+                    steps { 
+                        script {
+                            runCypressTests('allure-results-3') 
+                        }
+                    } 
+                }
+                stage('Slave 4') { 
+                    agent { label "Agent2_4" } 
+                    steps { 
+                        script {
+                            runCypressTests('allure-results-4') 
+                        }
+                    } 
+                }
+                stage('Slave 5') { 
+                    agent { label "Agent2_5" } 
+                    steps { 
+                        script {
+                            runCypressTests('allure-results-5') 
+                        }
+                    } 
+                }
+                stage('Slave 6') { 
+                    agent { label "Agent2_6" } 
+                    steps { 
+                        script {
+                            runCypressTests('allure-results-6') 
+                        }
+                    } 
+                }
+                stage('Slave 7') { 
+                    agent { label "Agent2_7" } 
+                    steps { 
+                        script {
+                            runCypressTests('allure-results-7') 
+                        }
+                    } 
+                }
+                stage('Slave 8') { 
+                    agent { label "Agent2_8" } 
+                    steps { 
+                        script {
+                            runCypressTests('allure-results-8') 
+                        }
+                    } 
+                }
             }
         }
     }
-
+}
 
 // Función para correr las pruebas de Cypress y stashear los resultados de Allure
 def runCypressTests(allureStashName) {
@@ -37,7 +93,7 @@ def runCypressTests(allureStashName) {
         bat 'npm install'
         bat 'npm ci' 
         try {
-           def exitCode = bat(script: 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true --config-file cypress.config.js --headless', returnStatus: true)
+            def exitCode = bat(script: 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true --config-file cypress.config.js --headless', returnStatus: true)
             if (exitCode != 0) {
                 currentBuild.result = 'UNSTABLE'
                 echo "Cypress test falló con código de salida: ${exitCode}"
@@ -50,6 +106,3 @@ def runCypressTests(allureStashName) {
         }
     }
 }
-}
-
-
