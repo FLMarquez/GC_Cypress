@@ -6,33 +6,10 @@ pipeline {
     }
 
     stages {
-        // stage('Conectar a la VPN') {
-        //     steps {
-        //         script {
-        //             def maxRetries = 4
-        //             def retryCount = 0
-        //             def vpnConnectStatus = -1
-                    
-        //             while (retryCount < maxRetries && vpnConnectStatus != 0) {
-        //                 vpnConnectStatus = bat(script: 'C:\\home\\workspace\\GODOYCRUZ\\VPN.bat', returnStatus: true)
-        //                 if (vpnConnectStatus != 0) {
-        //                     retryCount++
-        //                     echo "Intento ${retryCount} fallido. Código de salida: ${vpnConnectStatus}. Volviendo a intentar..."
-        //                     sleep(5000) // Esperar 5 segundos antes del siguiente intento
-        //                 } else {
-        //                     echo "Conexión a la VPN realizada exitosamente."
-        //                 }
-        //             }
-
-        //             if (vpnConnectStatus != 0) {
-        //                 error "Error al intentar conectar a la VPN después de ${maxRetries} intentos. Código de salida: ${vpnConnectStatus}"
-        //             }
-        //         }
-        //     }
-        // }
+       
 
         
-
+//Se detallan los stage con cada uno de los Slave y los Agentes
         stage('Cypress Parallel Test Suite') {
             parallel {
                 stage('Slave 1') {
@@ -102,15 +79,7 @@ pipeline {
             }
         }
 
-        // Desconectar la VPN
-        // stage('Desconectar la VPN') {
-        //     steps {
-        //         script {
-        //             // Desconectar la VPN
-        //             bat 'powershell -Command "Start-Process \'C:\\Program Files\\Fortinet\\FortiClient\\FortiClient.exe\' -ArgumentList \'-s vpndisconnect\' -Wait"'
-        //         }
-        //     }
-        // }
+        
     }
 }
 
