@@ -31,13 +31,7 @@ pipeline {
         //     }
         // }
 
-         stage('Cache Node Modules') {
-            steps {
-                cache(path: './node_modules', key: 'node_modules', restore: true, lock: true) {
-                    sh 'npm ci'
-                }
-            }
-        }
+        
 
         stage('Cypress Parallel Test Suite') {
             parallel {
