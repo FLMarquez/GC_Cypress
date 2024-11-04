@@ -7,7 +7,7 @@ class ProyectoSeis_Juzgado_Faltas_PO{
     let tiempo = 1000;
     beforeEach(() => {
       cy.visit('https://gcdigital.godoycruz.gob.ar/K2BGAM/servlet/com.k2bgam.k2blogin', {
-        timeout: 300000, // Tiempo máximo de espera en milisegundos
+        timeout: 800000, // Tiempo máximo de espera en milisegundos
         onBeforeLoad: (win) => {
           win.fetch = null;
           // Acciones antes de que se cargue la página

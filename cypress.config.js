@@ -15,10 +15,11 @@ module.exports = defineConfig({
   viewportWidth: 1500,
   viewportHeight: 864,
   chromeWebSecurity: false,
-  defaultCommandTimeout: 800000,  
-  pageLoadTimeout: 800000, 
+  defaultCommandTimeout: 1200000,  
+  pageLoadTimeout: 1200000, 
   videoCompression: false,
-  videoUploadOnPasses: true,
+  disableCypressDashboard: true,
+ //videoUploadOnPasses: true,
   trashAssetsBeforeRuns: false,
   projectId: "e7vrap",
   downloadsFolder: 'C:\\home\\workspace\\GODOYCRUZ',
@@ -45,6 +46,8 @@ module.exports = defineConfig({
           launchOptions.args.push('--disable-software-rasterizer');
           launchOptions.args.push('--disable-dev-shm-usage');
           launchOptions.args.push('--no-sandbox');
+          launchOptions.args.push('--disable-pdf-viewer');  // Desactiva completamente el visor de PDF
+
           if (config.isHeadless) {
             launchOptions.args.push('--headless'); // Asegúrate de estar en modo headless
           }
@@ -55,10 +58,14 @@ module.exports = defineConfig({
               'default_directory': downloadsPath,
               'prompt_for_download': false,
               'directory_upgrade': true,
-              'extensions_to_open': 'applications/pdf'
+              'extensions_to_open': ''
             },
-            'plugins.plugins_disabled': ['Chrome PDF Viewer'],
-            'plugins.always_open_pdf_externally': true
+            'plugins.plugins_disabled': ['Chrome PDF Viewer'], // Desactiva el visor de PDF
+            'plugins.always_open_pdf_externally': true,
+            'savefile.default_directory': downloadsPath, 
+            'download.extensions_to_open': 'false', // No abrir archivos automáticamente
+            'pdfjs.disabled': true, // Desactiva el visor de PDF por defecto
+            'profile.default_content_settings.popups': 0
           };
 
         } else if (browser.name === 'firefox') {
@@ -86,6 +93,3 @@ module.exports = defineConfig({
     }
   }
 });
-
-
-

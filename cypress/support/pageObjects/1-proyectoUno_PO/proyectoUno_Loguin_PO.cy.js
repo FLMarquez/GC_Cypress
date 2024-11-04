@@ -1,14 +1,24 @@
 class ProyectoUno_Loguin_Po{
 
-    visitHome(){
+    visitHome() {
         let tiempo = 1000;
         beforeEach(() => {
-            cy.visit('https://gcdigital.godoycruz.gob.ar/K2BGAM/servlet/com.k2bgam.k2blogin');
-            //cy.title().should('eq', 'titulo');
-            cy.wait(tiempo);
+          cy.visit('https://gcdigital.godoycruz.gob.ar/K2BGAM/servlet/com.k2bgam.k2blogin', {
+            timeout: 800000, // Tiempo máximo de espera en milisegundos
+            onBeforeLoad: (win) => {
+              win.fetch = null;
+              // Acciones antes de que se cargue la página
+              console.log('La página está a punto de cargarse');
+            },
+            onLoad: (win) => {
+              // Acciones para cuando la página se carga completamente
+              console.log('La página se ha cargado completamente');
+            },
+            waitForLoad: false, // No esperar a que se cargue completamente
+          });
+          cy.wait(tiempo);
         });
-
-    }
+      }
 
     SeccionUno(usuario,contrasena,t){
         let tiempo=t
