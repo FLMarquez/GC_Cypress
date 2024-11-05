@@ -58,15 +58,15 @@ class ProyectoDos_Personas_Datos_Po{
           
                   
           cy.wrap($iframe)
-          .xpath("//input[contains(@id,'PSNCARACTER01')]").should('be.visible').clear()
-          .xpath("//input[contains(@id,'PSNCARACTER01')]").should('be.visible').type(Telefono);
+          .xpath("//input[contains(@id,'PSNCARACTER01')]").should('be.visible', { timeout: 8000 }).clear()
+          .xpath("//input[contains(@id,'PSNCARACTER01')]").should('be.visible', { timeout: 8000 }).type(Telefono);
                
           cy.wrap($iframe)
-          .xpath("//input[contains(@id,'PSNCARACTER03')]").should('be.visible').clear()
-          .xpath("//input[contains(@id,'PSNCARACTER03')]").should('be.visible').type(email);
+          .xpath("//input[contains(@id,'PSNCARACTER03')]").should('be.visible', { timeout: 8000 }).clear()
+          .xpath("//input[contains(@id,'PSNCARACTER03')]").should('be.visible', { timeout: 8000 }).type(email);
             
           cy.wrap($iframe)
-          .xpath("//input[contains(@id,'ENTER')]").should('be.visible').click({ force: true });
+          .xpath("//input[contains(@id,'ENTER')]").should('be.visible', { timeout: 8000 }).click({ force: true });
   
 
           cy.wait(5000)
