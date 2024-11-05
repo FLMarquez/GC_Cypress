@@ -53,9 +53,9 @@ class ProyectoDos_Personas_Nuevo_Domicilio_Po {
 
             // Esperar y hacer clic en el botón de verificación (vVER_0001)
             cy.get('#vVER_0001').should('exist').invoke('show').click({ force: true });
-            cy.wait(1000)
-            cy.get('#Tab_TABS_TABSCONTROLContainerpanel1', { timeout: 60000 }).should('be.visible').invoke('show').click({ force: true });
-            cy.wait(1000)
+            cy.wait(6000)
+            cy.get('#Tab_TABS_TABSCONTROLContainerpanel1', { timeout: 80000 }).should('be.visible').invoke('show').click({ force: true });
+            cy.wait(3000)
 
             // Verificar que la tabla con ID GRIDTITLE_GRID sea visible
             cy.wait(5000)

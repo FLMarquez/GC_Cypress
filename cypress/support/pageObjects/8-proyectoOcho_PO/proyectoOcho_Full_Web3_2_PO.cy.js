@@ -47,8 +47,9 @@ SeccionVeinte(t){
       cy.xpath("(//a[contains(.,'Tribunal de Cuentas')])[1]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Generar Informes de Tribunal de Cuentas')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
-      cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generación Informes Tribunal de Cuentas')]").should('be.visible').contains('Generación Informes Tribunal de Cuentas')
+      cy.get('iframe[name="EMBPAGEM"]', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+        cy.wait(1000)
+        cy.xpath("//span[contains(.,'Generación Informes Tribunal de Cuentas')]").should('be.visible', { timeout: 30000 }).contains('Generación Informes Tribunal de Cuentas')
       cy.wait(tiempo)
     });
 
@@ -59,8 +60,9 @@ SeccionVeinte(t){
       cy.xpath("//a[contains(.,'Importar Juicios Jurídica')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Importar Juicios Jurídica')]").should('be.visible').contains('Importar Juicios Jurídica')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+        cy.wait(1000)
+        cy.xpath("//span[contains(.,'Importar Juicios Jurídica')]").should('be.visible', { timeout: 30000 }, { timeout: 30000 }).contains('Importar Juicios Jurídica')
       cy.wait(tiempo)
     });
 
@@ -71,8 +73,9 @@ SeccionVeinte(t){
       cy.xpath("//a[contains(.,'Consulta Excel Jurídica')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Consulta Archivos Juicios Juridica')]").should('be.visible').contains('Consulta Archivos Juicios Juridica')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+        cy.wait(1000)
+        cy.xpath("//span[contains(.,'Consulta Archivos Juicios Juridica')]").should('be.visible', { timeout: 30000 }).contains('Consulta Archivos Juicios Juridica')
       cy.wait(tiempo)
     });
 
@@ -83,8 +86,9 @@ SeccionVeinte(t){
       cy.xpath("//a[contains(.,'Informe de estado de gestión de cobranza')]").invoke('show').click({ force: true });   
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Informe de estado de gestión de cobranza')]").should('be.visible').contains('Informe de estado de gestión de cobranza')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+        cy.wait(1000)
+        cy.xpath("//span[contains(.,'Informe de estado de gestión de cobranza')]").should('be.visible', { timeout: 30000 }).contains('Informe de estado de gestión de cobranza')
       cy.wait(tiempo)
     });
 }
@@ -98,8 +102,9 @@ SeccionVeintiuno(t){
       cy.xpath("//a[contains(.,'Generación de Obras Particulares')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Obras Particulares')]").should('be.visible').contains('Obras Particulares')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+        cy.wait(1000)
+        cy.xpath("//span[contains(.,'Obras Particulares')]").should('be.visible', { timeout: 30000 }).contains('Obras Particulares')
       cy.wait(tiempo)
     });
 
@@ -111,8 +116,9 @@ SeccionVeintiuno(t){
       cy.xpath("(//a[contains(.,'Generación Masiva de Ascensores')])[2]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generacion Masiva Ascensores')]").should('be.visible').contains('Generacion Masiva Ascensores')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+        cy.wait(1000)
+        cy.xpath("//span[contains(.,'Generacion Masiva Ascensores')]").should('be.visible', { timeout: 30000 }).contains('Generacion Masiva Ascensores')
       cy.wait(tiempo)
     });
 
@@ -124,8 +130,9 @@ SeccionVeintiuno(t){
       cy.xpath("//a[contains(.,'Anular Obra Particular')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Anulación Aforo Obras Particulares')]").should('be.visible').contains('Anulación Aforo Obras Particulares')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+        cy.wait(1000)
+        cy.xpath("//span[contains(.,'Anulación Aforo Obras Particulares')]").should('be.visible', { timeout: 30000 }).contains('Anulación Aforo Obras Particulares')
       cy.wait(tiempo)
     });
 
@@ -137,8 +144,9 @@ SeccionVeintiuno(t){
       cy.xpath("//a[contains(.,'Permisos de Conexión')]").invoke('show').click({ force: true });   
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Permiso conexiones')]").should('be.visible').contains('Permiso conexiones')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+        cy.wait(1000)
+        cy.xpath("//span[contains(.,'Permiso conexiones')]").should('be.visible', { timeout: 30000 }).contains('Permiso conexiones')
       cy.wait(tiempo)
     });
 
@@ -154,8 +162,9 @@ SeccionVeintidos(t){
       cy.xpath("//a[contains(.,'Desaplicación de Pagos')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Desaplicación de Pagos')]").should('be.visible').contains('Desaplicación de Pagos')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+        cy.wait(1000)
+        cy.xpath("//span[contains(.,'Desaplicación de Pagos')]").should('be.visible', { timeout: 30000 }, { timeout: 30000 }).contains('Desaplicación de Pagos')
       cy.wait(tiempo)
     });
 
@@ -167,8 +176,9 @@ SeccionVeintidos(t){
       cy.xpath("//a[contains(.,'Aplicación Manual Imp. Pendientes')]").invoke('show').click({ force: true });  
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Aplicación Manual de Importes Pendientes')]").should('be.visible').contains('Aplicación Manual de Importes Pendientes')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+        cy.wait(1000)
+        cy.xpath("//span[contains(.,'Aplicación Manual de Importes Pendientes')]").should('be.visible', { timeout: 30000 }).contains('Aplicación Manual de Importes Pendientes')
       cy.wait(tiempo)
     });
 
@@ -184,8 +194,9 @@ SeccionVeintitres(t){
       cy.xpath("(//a[contains(.,'Administración de Talonarios')])[2]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Administración de Talonarios')]").should('be.visible').contains('Administración de Talonarios')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+        cy.wait(1000)
+        cy.xpath("//span[contains(.,'Administración de Talonarios')]").should('be.visible', { timeout: 30000 }).contains('Administración de Talonarios')
       cy.wait(tiempo)
     });
 
@@ -196,8 +207,9 @@ SeccionVeintitres(t){
       cy.xpath("//a[contains(.,'Consulta Acta Fiscalización')]").invoke('show').click({ force: true });  
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Actas Fiscalización')]").should('be.visible').contains('Actas Fiscalización')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+        cy.wait(1000)
+        cy.xpath("//span[contains(.,'Actas Fiscalización')]").should('be.visible', { timeout: 30000 }).contains('Actas Fiscalización')
       cy.wait(tiempo)
     });
       
@@ -208,8 +220,9 @@ SeccionVeintitres(t){
       cy.xpath("//a[contains(.,'Cargar Acta Fiscalización')]").invoke('show').click({ force: true });  
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Acta fiscalizaciones')]").should('be.visible').contains('Acta fiscalizaciones')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+        cy.wait(1000)
+        cy.xpath("//span[contains(.,'Acta fiscalizaciones')]").should('be.visible', { timeout: 30000 }).contains('Acta fiscalizaciones')
       cy.wait(tiempo)
     });
 

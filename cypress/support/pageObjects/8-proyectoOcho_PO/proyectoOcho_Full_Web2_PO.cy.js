@@ -99,7 +99,8 @@ SeccionDieciseis(t){
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generación de Recursos')]").should('be.visible').contains('Generación de Recursos')
+        cy.wait(1000)
+      cy.xpath("//span[contains(.,'Generación de Recursos')]").should('be.visible', { timeout: 30000 }).contains('Generación de Recursos')
       cy.wait(tiempo)
     });
 

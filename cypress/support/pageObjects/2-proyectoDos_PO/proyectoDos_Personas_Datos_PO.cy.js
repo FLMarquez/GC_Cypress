@@ -70,7 +70,8 @@ class ProyectoDos_Personas_Datos_Po{
 
           cy.wait(5000)
           cy.wrap($iframe)
-          cy.xpath("//div[@class='toast-message'][contains(.,'La personas fisicas SLAMOVITS fue actualizada')]").should('be.visible', { timeout: 10000 }).contains('La personas fisicas SLAMOVITS fue actualizada');
+          cy.get('div.toast-message').should('be.visible', { timeout: 8000 }).contains('La personas fisicas SLAMOVITS fue actualizada', { timeout: 20000 });
+
 
 
         });

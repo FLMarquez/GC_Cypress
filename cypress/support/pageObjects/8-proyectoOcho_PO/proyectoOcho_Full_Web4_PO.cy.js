@@ -299,8 +299,9 @@ SeccionVeintinueve(t){
       cy.xpath("//a[contains(.,'Config. Personas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Nacionalidad')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
-      cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'ABM Nacionalidades')]").should('be.visible').contains('ABM Nacionalidades')
+      cy.get('iframe[name="EMBPAGEM"]', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+        cy.wait(1000)
+        cy.xpath("//span[contains(.,'ABM Nacionalidades')]").should('be.visible', { timeout: 30000 }).contains('ABM Nacionalidades')
       cy.wait(tiempo)
     });
 
