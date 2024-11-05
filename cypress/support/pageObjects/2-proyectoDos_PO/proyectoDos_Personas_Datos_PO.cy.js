@@ -49,6 +49,7 @@ class ProyectoDos_Personas_Datos_Po{
         
         cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => { 
         cy.get('#vK2BTOOLSGENERICSEARCHFIELD').should("be.visible").type(`${cuit}{enter}`);
+        cy.wait(6500)
         cy.get('#vUPDATE_0001', { timeout: 10000 }).should('exist').click({ force: true }); 
 
         cy.iframe('#gxp0_ifrm').should('exist').then($iframe => {

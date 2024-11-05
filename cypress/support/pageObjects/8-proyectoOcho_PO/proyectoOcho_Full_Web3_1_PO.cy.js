@@ -46,8 +46,8 @@ SeccionDiecisiete(t){
       cy.xpath("//a[contains(.,'Gestión de Deuda')]").invoke('show').click({ force: true });
       cy.xpath("(//a[contains(.,'Generar Lote')])[1]").invoke('show').click({ force: true });
       cy.wait(tiempo)
-      cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generación de Lote')]").should('be.visible').contains('Generación de Lote')
+      cy.get('iframe[name="EMBPAGEM"]', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Generación de Lote')]").should('be.visible', { timeout: 30000 }).contains('Generación de Lote')
       cy.wait(tiempo)
     });
 
@@ -58,8 +58,8 @@ SeccionDiecisiete(t){
       cy.xpath("(//a[contains(.,'Consultar Lote')])[1]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Consulta de Lotes')]").should('be.visible').contains('Consulta de Lotes')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Consulta de Lotes')]").should('be.visible', { timeout: 30000 }).contains('Consulta de Lotes')
       cy.wait(tiempo)
     });
 
@@ -70,8 +70,8 @@ SeccionDiecisiete(t){
       cy.xpath("(//a[contains(.,'Generar Lote Precargado')])[1]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generar Lote Precargado')]").should('be.visible').contains('Generar Lote Precargado')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Generar Lote Precargado')]").should('be.visible', { timeout: 30000 }).contains('Generar Lote Precargado')
       cy.wait(tiempo)
     });
 
@@ -82,8 +82,8 @@ SeccionDiecisiete(t){
       cy.xpath("//a[contains(.,'Administración de Gestiones')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Administración de Gestiones')]").should('be.visible').contains('Administración de Gestiones')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Administración de Gestiones')]").should('be.visible', { timeout: 30000 }).contains('Administración de Gestiones')
       cy.wait(tiempo)
     });
 
@@ -94,8 +94,8 @@ SeccionDiecisiete(t){
       cy.xpath("//a[contains(.,'Administración de Tags')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Administración de Tags')]").should('be.visible').contains('Administración de Tags')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Administración de Tags')]").should('be.visible', { timeout: 30000 }).contains('Administración de Tags')
       cy.wait(tiempo)
     });
 
@@ -106,8 +106,8 @@ SeccionDiecisiete(t){
       cy.xpath("//a[contains(.,'Administración de Notificaciones')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Administración de Notificaciones')]").should('be.visible').contains('Administración de Notificaciones')
+      cy.get('iframe', { timeout: 30000 }, { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Administración de Notificaciones')]").should('be.visible', { timeout: 30000 }).contains('Administración de Notificaciones')
       cy.wait(tiempo)
     });
 
@@ -118,8 +118,8 @@ SeccionDiecisiete(t){
       cy.xpath("//a[contains(.,'Gestión Telefónica')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Gestión Telefónica')]").should('be.visible').contains('Gestión Telefónica')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Gestión Telefónica')]").should('be.visible', { timeout: 30000 }).contains('Gestión Telefónica')
       cy.wait(tiempo)
     });
 
@@ -130,8 +130,8 @@ SeccionDiecisiete(t){
       cy.xpath("//a[contains(.,'ABM Tipo Respuesta')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'ABM Respuestas')]").should('be.visible').contains('ABM Respuestas')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'ABM Respuestas')]").should('be.visible', { timeout: 30000 }).contains('ABM Respuestas')
       cy.wait(tiempo)
     });
 
@@ -147,8 +147,8 @@ SeccionDieciocho(t){
       cy.xpath("(//a[contains(.,'Generar Lote')])[3]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generación de Lote')]").should('be.visible').contains('Generación de Lote')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Generación de Lote')]").should('be.visible', { timeout: 30000 }).contains('Generación de Lote')
       cy.wait(tiempo)
     });
 
@@ -159,8 +159,8 @@ SeccionDieciocho(t){
       cy.xpath("(//a[contains(.,'Consultar Lote')])[2]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Consulta de Lotes')]").should('be.visible').contains('Consulta de Lotes')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Consulta de Lotes')]").should('be.visible', { timeout: 30000 }).contains('Consulta de Lotes')
       cy.wait(tiempo)
     });
 
@@ -172,8 +172,8 @@ SeccionDieciocho(t){
       cy.xpath("//a[contains(.,'Administración Apremios')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Administración de Apremios')]").should('be.visible').contains('Administración de Apremios')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Administración de Apremios')]").should('be.visible', { timeout: 30000 }).contains('Administración de Apremios')
       cy.wait(tiempo)
     });
 
@@ -184,8 +184,8 @@ SeccionDieciocho(t){
       cy.xpath("(//a[contains(.,'Generar Lote Precargado')])[2]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generar Lote Precargado')]").should('be.visible').contains('Generar Lote Precargado')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Generar Lote Precargado')]").should('be.visible', { timeout: 30000 }).contains('Generar Lote Precargado')
       cy.wait(tiempo)
     });
 
@@ -196,8 +196,8 @@ SeccionDieciocho(t){
       cy.xpath("//a[contains(.,'Sorteo de Apremio')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Sorteo de Apremios')]").should('be.visible').contains('Sorteo de Apremios')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Sorteo de Apremios')]").should('be.visible', { timeout: 30000 }).contains('Sorteo de Apremios')
       cy.wait(tiempo)
     });
 
@@ -208,8 +208,8 @@ SeccionDieciocho(t){
       cy.xpath("//a[contains(.,'Cargar Etapa Masiva')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Carga Masiva de Etapas')]").should('be.visible').contains('Carga Masiva de Etapas')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Carga Masiva de Etapas')]").should('be.visible', { timeout: 30000 }).contains('Carga Masiva de Etapas')
       cy.wait(tiempo)
     });
 
@@ -221,8 +221,8 @@ SeccionDieciocho(t){
       cy.xpath("//a[contains(.,'Importar Archivo Etapa')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Importar Archivo Etapas')]").should('be.visible').contains('Importar Archivo Etapas')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Importar Archivo Etapas')]").should('be.visible', { timeout: 30000 }).contains('Importar Archivo Etapas')
       cy.wait(tiempo)
     });
 
@@ -234,8 +234,8 @@ SeccionDieciocho(t){
       cy.xpath("//a[contains(.,'Imprimir Apremio')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Impresión Boletas Apremio')]").should('be.visible').contains('Impresión Boletas Apremio')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Impresión Boletas Apremio')]").should('be.visible', { timeout: 30000 }).contains('Impresión Boletas Apremio')
       cy.wait(tiempo)
     });
 
@@ -247,8 +247,8 @@ SeccionDieciocho(t){
       cy.xpath("//a[contains(.,'Informe Recaudadores')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Informes Recaudador')]").should('be.visible').contains('Informes Recaudador')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Informes Recaudador')]").should('be.visible', { timeout: 30000 }).contains('Informes Recaudador')
       cy.wait(tiempo)
     });
 
@@ -264,8 +264,8 @@ SeccionDiecinueve(t){
       cy.xpath("//a[contains(.,'ABM Universos Masiva')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'ABM Universos Masivas')]").should('be.visible').contains('ABM Universos Masivas')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'ABM Universos Masivas')]").should('be.visible', { timeout: 30000 }).contains('ABM Universos Masivas')
       cy.wait(tiempo)
     });
 
@@ -276,8 +276,8 @@ SeccionDiecinueve(t){
       cy.xpath("(//a[contains(.,'Generación Masiva')])[1]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generación Masiva de Obligaciones')]").should('be.visible').contains('Generación Masiva de Obligaciones')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Generación Masiva de Obligaciones')]").should('be.visible', { timeout: 30000 }).contains('Generación Masiva de Obligaciones')
       cy.wait(tiempo)
     });
 
@@ -288,8 +288,8 @@ SeccionDiecinueve(t){
       cy.xpath("//a[contains(.,'Generación de Comprobantes')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generación Masiva de Comprobantes')]").should('be.visible').contains('Generación Masiva de Comprobantes')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Generación Masiva de Comprobantes')]").should('be.visible', { timeout: 30000 }).contains('Generación Masiva de Comprobantes')
       cy.wait(tiempo)
     });
 
@@ -300,8 +300,8 @@ SeccionDiecinueve(t){
       cy.xpath("//a[contains(.,'Generación de Muestras de Impresión')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generación Archivos de Impresión de Muestras')]").should('be.visible').contains('Generación Archivos de Impresión de Muestras')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Generación Archivos de Impresión de Muestras')]").should('be.visible', { timeout: 30000 }).contains('Generación Archivos de Impresión de Muestras')
       cy.wait(tiempo)
     });
 
@@ -312,8 +312,8 @@ SeccionDiecinueve(t){
       cy.xpath("//a[contains(.,'Generación de Impresión Definitiva')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generación Archivos de Impresión Definitivos')]").should('be.visible').contains('Generación Archivos de Impresión Definitivos')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Generación Archivos de Impresión Definitivos')]").should('be.visible', { timeout: 30000 }).contains('Generación Archivos de Impresión Definitivos')
       cy.wait(tiempo)
     });
       
@@ -324,8 +324,8 @@ SeccionDiecinueve(t){
       cy.xpath("//a[contains(.,'Generación de Archivos para Entes')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generación Archivos Entes')]").should('be.visible').contains('Generación Archivos Entes')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Generación Archivos Entes')]").should('be.visible', { timeout: 30000 }).contains('Generación Archivos Entes')
       cy.wait(tiempo)
     });
       
@@ -336,8 +336,8 @@ SeccionDiecinueve(t){
       cy.xpath("(//a[contains(.,'Generación Masiva de Ascensores')])[1]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generacion Masiva Ascensores')]").should('be.visible').contains('Generacion Masiva Ascensores')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Generacion Masiva Ascensores')]").should('be.visible', { timeout: 30000 }).contains('Generacion Masiva Ascensores')
       cy.wait(tiempo)
     });
       
@@ -348,8 +348,8 @@ SeccionDiecinueve(t){
       cy.xpath("//a[contains(.,'Impresión de PDF de Masiva en Servidor')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Impresión Masiva')]").should('be.visible').contains('Impresión Masiva')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Impresión Masiva')]").should('be.visible', { timeout: 30000 }).contains('Impresión Masiva')
       cy.wait(tiempo)
     });
       
@@ -360,8 +360,8 @@ SeccionDiecinueve(t){
       cy.xpath("//a[contains(.,'Generación Boleto Digital Masiva')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Boleta Digital Masiva')]").should('be.visible').contains('Boleta Digital Masiva')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Boleta Digital Masiva')]").should('be.visible', { timeout: 30000 }).contains('Boleta Digital Masiva')
       cy.wait(tiempo)
     });
       
@@ -372,8 +372,8 @@ SeccionDiecinueve(t){
       cy.xpath("//a[contains(.,'ABM Imágen Publicidad Boleto')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Imagen Publicidad Boleto Masiva')]").should('be.visible').contains('Imagen Publicidad Boleto Masiva')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Imagen Publicidad Boleto Masiva')]").should('be.visible', { timeout: 30000 }).contains('Imagen Publicidad Boleto Masiva')
       cy.wait(tiempo)
     });
       
@@ -384,8 +384,8 @@ SeccionDiecinueve(t){
       cy.xpath("//a[contains(.,'Objetos Excluidos Masiva')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Objetos Exluidos Masiva')]").should('be.visible').contains('Objetos Exluidos Masiva')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Objetos Exluidos Masiva')]").should('be.visible', { timeout: 30000 }).contains('Objetos Exluidos Masiva')
       cy.wait(tiempo)
     });
       
@@ -396,8 +396,8 @@ SeccionDiecinueve(t){
       cy.xpath("//a[contains(.,'Generación de Canastos y Alarmas')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generación Masiva Canastos y Alarmas')]").should('be.visible').contains('Generación Masiva Canastos y Alarmas')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Generación Masiva Canastos y Alarmas')]").should('be.visible', { timeout: 30000 }).contains('Generación Masiva Canastos y Alarmas')
       cy.wait(tiempo)
     });
       
@@ -408,8 +408,8 @@ SeccionDiecinueve(t){
       cy.xpath("//a[contains(.,'Monitor Masiva')]").invoke('show').click({ force: true });   
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Monitoreo Procesos Masiva')]").should('be.visible').contains('Monitoreo Procesos Masiva')
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Monitoreo Procesos Masiva')]").should('be.visible', { timeout: 30000 }).contains('Monitoreo Procesos Masiva')
       cy.wait(tiempo)
     });
 

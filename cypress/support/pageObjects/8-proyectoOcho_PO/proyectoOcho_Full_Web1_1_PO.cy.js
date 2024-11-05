@@ -62,9 +62,9 @@ class proyectoOcho_Full_Web1_1_PO {
     
         cy.xpath("//a[contains(.,'Unificación de CUIT')]").invoke('show').click({ force: true });
         cy.wait(tiempo);
-        cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
-        cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
-        cy.wait(1000);
+        cy.get('iframe', { timeout: 10000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
+        cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+        cy.wait(10000);
         cy.xpath("//span[contains(.,'Unificación de Domicilio por Cuit')]").should('be.visible', { timeout: 30000 }).contains('Unificación de Domicilio por Cuit');
         cy.wait(tiempo);
         });

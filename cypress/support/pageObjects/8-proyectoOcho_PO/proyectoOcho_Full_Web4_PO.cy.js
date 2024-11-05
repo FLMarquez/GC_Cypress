@@ -101,8 +101,9 @@ SeccionVeinticinco(t){
       cy.xpath("//a[contains(.,'Reporte Mejoras Inmueble')]").invoke('show').click({ force: true });  
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Reporte Gral. Mejoras Inmuebles')]").should('be.visible').contains('Reporte Gral. Mejoras Inmuebles')
+      cy.get('iframe', { timeout: 2000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+        cy.wait(2500)
+        cy.xpath("//span[contains(.,'Reporte Gral. Mejoras Inmuebles')]").should('be.visible', { timeout: 2000 }).contains('Reporte Gral. Mejoras Inmuebles')
       cy.wait(tiempo)
     });
 
