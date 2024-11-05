@@ -73,7 +73,7 @@ class ProyectoDos_Po{
           
           cy.get('#vVER_0001').should('exist').invoke('show').click({ force: true });
           cy.wait(1000)
-          cy.get('#Tab_TABS_TABSCONTROLContainerpanel1', { timeout: 60000 }).should('be.visible').invoke('show').click({ force: true });
+          cy.get('#Tab_TABS_TABSCONTROLContainerpanel1', { timeout: 60000 }).should('be.visible', { timeout: 5000 }).invoke('show').click({ force: true });
           cy.wait(1000)
           cy.get('#GRIDTITLE_GRID').should("be.visible"),
           cy.get('#Tab_TABS_TABSCONTROLContainerpanel2').invoke('show').click({ force: true });

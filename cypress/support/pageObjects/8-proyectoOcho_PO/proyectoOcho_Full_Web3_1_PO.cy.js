@@ -4,7 +4,7 @@ require('cypress-downloadfile/lib/downloadFileCommand');
 class proyectoOcho_Full_Web3_1_PO {
 
   visitHome() {
-    let tiempo = 1000;
+    let tiempo = 5000;
     beforeEach(() => {
       cy.visit('https://gcdigital.godoycruz.gob.ar/K2BGAM/servlet/com.k2bgam.k2blogin', {
         timeout: 800000, // Tiempo máximo de espera en milisegundos
@@ -41,7 +41,8 @@ class proyectoOcho_Full_Web3_1_PO {
 SeccionDiecisiete(t){
   let tiempo=t
   //GESTIÓN DE DEUDA
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+  cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Gestión de Deuda')]").invoke('show').click({ force: true });
       cy.xpath("(//a[contains(.,'Generar Lote')])[1]").invoke('show').click({ force: true });
@@ -51,8 +52,8 @@ SeccionDiecisiete(t){
       cy.wait(tiempo)
     });
 
-
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Gestión de Deuda')]").invoke('show').click({ force: true });
       cy.xpath("(//a[contains(.,'Consultar Lote')])[1]").invoke('show').click({ force: true });
@@ -63,8 +64,8 @@ SeccionDiecisiete(t){
       cy.wait(tiempo)
     });
 
-
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Gestión de Deuda')]").invoke('show').click({ force: true });
       cy.xpath("(//a[contains(.,'Generar Lote Precargado')])[1]").invoke('show').click({ force: true });
@@ -75,8 +76,8 @@ SeccionDiecisiete(t){
       cy.wait(tiempo)
     });
 
-
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Gestión de Deuda')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Administración de Gestiones')]").invoke('show').click({ force: true });
@@ -87,8 +88,8 @@ SeccionDiecisiete(t){
       cy.wait(tiempo)
     });
 
-
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Gestión de Deuda')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Administración de Tags')]").invoke('show').click({ force: true });
@@ -99,8 +100,8 @@ SeccionDiecisiete(t){
       cy.wait(tiempo)
     });
 
-
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Gestión de Deuda')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Administración de Notificaciones')]").invoke('show').click({ force: true });
@@ -111,8 +112,8 @@ SeccionDiecisiete(t){
       cy.wait(tiempo)
     });
 
-
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Gestión de Deuda')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Gestión Telefónica')]").invoke('show').click({ force: true });
@@ -123,8 +124,8 @@ SeccionDiecisiete(t){
       cy.wait(tiempo)
     });
 
-
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Gestión de Deuda')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Tipo Respuesta')]").invoke('show').click({ force: true });
@@ -141,7 +142,8 @@ SeccionDiecisiete(t){
 SeccionDieciocho(t){
   let tiempo=t
   //APREMIO
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+  cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Apremio')])[2]").invoke('show').click({ force: true });
       cy.xpath("(//a[contains(.,'Generar Lote')])[3]").invoke('show').click({ force: true });
@@ -152,8 +154,8 @@ SeccionDieciocho(t){
       cy.wait(tiempo)
     });
 
-
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Apremio')])[2]").invoke('show').click({ force: true });
       cy.xpath("(//a[contains(.,'Consultar Lote')])[2]").invoke('show').click({ force: true });
@@ -165,8 +167,8 @@ SeccionDieciocho(t){
     });
 
 
-
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Apremio')])[2]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Administración Apremios')]").invoke('show').click({ force: true });
@@ -177,8 +179,8 @@ SeccionDieciocho(t){
       cy.wait(tiempo)
     });
 
-
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Apremio')])[2]").invoke('show').click({ force: true });
       cy.xpath("(//a[contains(.,'Generar Lote Precargado')])[2]").invoke('show').click({ force: true });
@@ -189,8 +191,8 @@ SeccionDieciocho(t){
       cy.wait(tiempo)
     });
 
-
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Apremio')])[2]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Sorteo de Apremio')]").invoke('show').click({ force: true });
@@ -201,8 +203,8 @@ SeccionDieciocho(t){
       cy.wait(tiempo)
     });
 
-
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Apremio')])[2]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Cargar Etapa Masiva')]").invoke('show').click({ force: true });
@@ -214,8 +216,8 @@ SeccionDieciocho(t){
     });
 
 
-
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Apremio')])[2]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Importar Archivo Etapa')]").invoke('show').click({ force: true });
@@ -227,8 +229,8 @@ SeccionDieciocho(t){
     });
 
 
-
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Apremio')])[2]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Imprimir Apremio')]").invoke('show').click({ force: true });
@@ -240,8 +242,8 @@ SeccionDieciocho(t){
     });
 
 
-
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Apremio')])[2]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Informe Recaudadores')]").invoke('show').click({ force: true });
@@ -258,7 +260,8 @@ SeccionDieciocho(t){
 SeccionDiecinueve(t){
   let tiempo=t
   //MASIVA
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+  cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Masiva')])[6]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Universos Masiva')]").invoke('show').click({ force: true });
@@ -269,8 +272,8 @@ SeccionDiecinueve(t){
       cy.wait(tiempo)
     });
 
-
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Masiva')])[6]").invoke('show').click({ force: true });
       cy.xpath("(//a[contains(.,'Generación Masiva')])[1]").invoke('show').click({ force: true });
@@ -281,8 +284,8 @@ SeccionDiecinueve(t){
       cy.wait(tiempo)
     });
 
-
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Masiva')])[6]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Generación de Comprobantes')]").invoke('show').click({ force: true });
@@ -293,8 +296,8 @@ SeccionDiecinueve(t){
       cy.wait(tiempo)
     });
 
-
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Masiva')])[6]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Generación de Muestras de Impresión')]").invoke('show').click({ force: true });
@@ -305,8 +308,8 @@ SeccionDiecinueve(t){
       cy.wait(tiempo)
     });
 
-
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Masiva')])[6]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Generación de Impresión Definitiva')]").invoke('show').click({ force: true });
@@ -317,8 +320,8 @@ SeccionDiecinueve(t){
       cy.wait(tiempo)
     });
       
-      
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Masiva')])[6]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Generación de Archivos para Entes')]").invoke('show').click({ force: true });
@@ -329,8 +332,8 @@ SeccionDiecinueve(t){
       cy.wait(tiempo)
     });
       
-      
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Masiva')])[6]").invoke('show').click({ force: true });
       cy.xpath("(//a[contains(.,'Generación Masiva de Ascensores')])[1]").invoke('show').click({ force: true });
@@ -341,8 +344,8 @@ SeccionDiecinueve(t){
       cy.wait(tiempo)
     });
       
-      
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Masiva')])[6]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Impresión de PDF de Masiva en Servidor')]").invoke('show').click({ force: true });
@@ -353,8 +356,8 @@ SeccionDiecinueve(t){
       cy.wait(tiempo)
     });
       
-      
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Masiva')])[6]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Generación Boleto Digital Masiva')]").invoke('show').click({ force: true });
@@ -365,8 +368,8 @@ SeccionDiecinueve(t){
       cy.wait(tiempo)
     });
       
-      
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Masiva')])[6]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Imágen Publicidad Boleto')]").invoke('show').click({ force: true });
@@ -377,8 +380,8 @@ SeccionDiecinueve(t){
       cy.wait(tiempo)
     });
       
-      
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Masiva')])[6]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Objetos Excluidos Masiva')]").invoke('show').click({ force: true });
@@ -389,8 +392,8 @@ SeccionDiecinueve(t){
       cy.wait(tiempo)
     });
       
-      
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Masiva')])[6]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Generación de Canastos y Alarmas')]").invoke('show').click({ force: true });
@@ -401,8 +404,8 @@ SeccionDiecinueve(t){
       cy.wait(tiempo)
     });
       
-      
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    cy.wait(5000);
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Masiva')])[6]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Monitor Masiva')]").invoke('show').click({ force: true });   
