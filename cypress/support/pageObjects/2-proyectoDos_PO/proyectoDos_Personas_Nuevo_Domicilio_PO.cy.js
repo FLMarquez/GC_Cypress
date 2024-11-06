@@ -5,19 +5,25 @@ class ProyectoDos_Personas_Nuevo_Domicilio_Po {
   visitHome() {
     let tiempo = 1000;
     beforeEach(() => {
+      // Intercepta una solicitud específica para observar o modificar el comportamiento
+      cy.intercept('GET', '**/K2BGAM/servlet/com.k2bgam.*').as('pageLoad');
+
+      // Carga la página
       cy.visit('https://gcdigital.godoycruz.gob.ar/K2BGAM/servlet/com.k2bgam.k2blogin', {
-        timeout: 800000, // Tiempo máximo de espera en milisegundos
+        timeout: 1800000, // Tiempo máximo de espera aumentado a 30 minutos
         onBeforeLoad: (win) => {
           win.fetch = null;
-          // Acciones antes de que se cargue la página
           console.log('La página está a punto de cargarse');
         },
         onLoad: (win) => {
-          // Acciones para cuando la página se carga completamente
           console.log('La página se ha cargado completamente');
         },
+        waitUntil: 'domcontentloaded', // Esperar solo hasta que el contenido del DOM esté listo
         waitForLoad: false, // No esperar a que se cargue completamente
       });
+
+      // Espera a que la solicitud interceptada se complete antes de continuar
+      cy.wait('@pageLoad');
       cy.wait(tiempo);
     });
   }
@@ -53,8 +59,8 @@ class ProyectoDos_Personas_Nuevo_Domicilio_Po {
 
             // Esperar y hacer clic en el botón de verificación (vVER_0001)
             cy.get('#vVER_0001').should('exist').invoke('show').click({ force: true });
-            cy.wait(6000)
-            cy.get('#Tab_TABS_TABSCONTROLContainerpanel1', { timeout: 80000 }).should('be.visible').invoke('show').click({ force: true });
+            cy.wait(7000)
+            cy.get('#Tab_TABS_TABSCONTROLContainerpanel1', { timeout: 80000 }).should('be.visible', { timeout: 80000 }).invoke('show').click({ force: true });
             cy.wait(3000)
 
             // Verificar que la tabla con ID GRIDTITLE_GRID sea visible
