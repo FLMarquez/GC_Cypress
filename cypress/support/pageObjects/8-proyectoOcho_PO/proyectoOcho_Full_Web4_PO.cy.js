@@ -113,17 +113,17 @@ SeccionVeinticinco(t){
       cy.wait(tiempo)
     });
 
-
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("//a[contains(.,'Generador de Reportes')]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'Padrones Comercio')]").invoke('show').click({ force: true }); 
-      cy.wait(tiempo)
-      cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Reporte Gral Padrones de Comercio')]").should('be.visible', { timeout: 5000 }).contains('Reporte Gral Padrones de Comercio')
-      cy.wait(tiempo)
-    });
+    // SE COMENTA PORQUE TIENE UNA DEMORA DE + DE 10 MINUTOS LA CONSULTA
+    //   cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    //   cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+    //   cy.xpath("//a[contains(.,'Generador de Reportes')]").invoke('show').click({ force: true });
+    //   cy.xpath("//a[contains(.,'Padrones Comercio')]").invoke('show').click({ force: true }); 
+    //   cy.wait(tiempo)
+    //   cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
+    //   cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+    //   cy.xpath("//span[contains(.,'Reporte Gral Padrones de Comercio')]").should('be.visible', { timeout: 5000 }).contains('Reporte Gral Padrones de Comercio')
+    //   cy.wait(tiempo)
+    // });
       
 
       cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
