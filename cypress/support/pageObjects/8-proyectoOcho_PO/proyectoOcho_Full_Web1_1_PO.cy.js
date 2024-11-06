@@ -56,7 +56,7 @@ class proyectoOcho_Full_Web1_1_PO {
     
         cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
         cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
-            cy.xpath("//span[contains(.,'Gestión del Ciudadano')]").should('be.visible').contains('Gestión del Ciudadano');
+            cy.xpath("//span[contains(.,'Gestión del Ciudadano')]").should('be.visible', { timeout: 5000 }).contains('Gestión del Ciudadano');
             cy.wait(tiempo);
         });
     
@@ -81,7 +81,7 @@ class proyectoOcho_Full_Web1_1_PO {
         cy.xpath("(//a[contains(.,'Consultar Objetos')])[1]").invoke('show').click({ force: true }); 
         cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
       cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
-            cy.xpath("//span[contains(.,'Consultar Objetos')]").should('be.visible').contains('Consultar Objetos');
+            cy.xpath("//span[contains(.,'Consultar Objetos')]").should('be.visible', { timeout: 5000 }).contains('Consultar Objetos');
             cy.wait(tiempo);
         });
         cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible").click({ force: true });
@@ -90,7 +90,7 @@ class proyectoOcho_Full_Web1_1_PO {
         cy.xpath("//a[contains(.,'Actividades Comercio')]").invoke('show').click({ force: true }); 
         cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
       cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
-        cy.xpath("//span[contains(.,'Administración de Comercios y Actividades')]").should('be.visible').contains('Administración de Comercios y Actividades')
+        cy.xpath("//span[contains(.,'Administración de Comercios y Actividades')]").should('be.visible', { timeout: 5000 }).contains('Administración de Comercios y Actividades')
         cy.wait(tiempo)
        
       });
@@ -100,7 +100,7 @@ class proyectoOcho_Full_Web1_1_PO {
         cy.xpath("//a[contains(.,'Reactivar Comercio')]").invoke('show').click({ force: true });
         cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
       cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
-        cy.xpath("//span[contains(.,'Reactivar Comercio')]").should('be.visible').contains('Reactivar Comercio')
+        cy.xpath("//span[contains(.,'Reactivar Comercio')]").should('be.visible', { timeout: 5000 }).contains('Reactivar Comercio')
         cy.wait(tiempo)
         cy.wait(tiempo);
       });
@@ -110,7 +110,7 @@ class proyectoOcho_Full_Web1_1_PO {
       cy.xpath("//a[contains(.,'Generar Fraccionamiento')]").invoke('show').click({ force: true });
       cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
       cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Fraccionamiento')]").should('be.visible').contains('Fraccionamiento')
+      cy.xpath("//span[contains(.,'Fraccionamiento')]").should('be.visible', { timeout: 5000 }).contains('Fraccionamiento')
       cy.wait(tiempo)
        
       });
@@ -120,7 +120,7 @@ class proyectoOcho_Full_Web1_1_PO {
       cy.xpath("//a[contains(.,'Generar Unificación')]").invoke('show').click({ force: true });
       cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
       cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Unificación')]").should('be.visible').contains('Unificación')
+      cy.xpath("//span[contains(.,'Unificación')]").should('be.visible', { timeout: 5000 }).contains('Unificación')
       cy.wait(tiempo)
 
       });
@@ -130,7 +130,7 @@ class proyectoOcho_Full_Web1_1_PO {
       cy.xpath("//a[contains(.,'Generar Multicuentas')]").invoke('show').click({ force: true });
       cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
       cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Multicuentas')]").should('be.visible').contains('Multicuentas')
+      cy.xpath("//span[contains(.,'Multicuentas')]").should('be.visible', { timeout: 5000 }).contains('Multicuentas')
       cy.wait(tiempo)
       });
 
@@ -140,7 +140,7 @@ class proyectoOcho_Full_Web1_1_PO {
       cy.xpath("//a[contains(.,'Consultar Operaciones Catastro')]").invoke('show').click({ force: true });
       cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
       cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Consultar Operación Catastro')]").should('be.visible').contains('Consultar Operación Catastro')
+      cy.xpath("//span[contains(.,'Consultar Operación Catastro')]").should('be.visible', { timeout: 5000 }).contains('Consultar Operación Catastro')
       cy.wait(tiempo)
       });
 
@@ -150,7 +150,7 @@ class proyectoOcho_Full_Web1_1_PO {
       cy.xpath("//a[contains(.,'Consultar Objetos por Domicilio')]").invoke('show').click({ force: true });
       cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
       cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Búsqueda de Objetos por domicilio')]").should('be.visible').contains('Búsqueda de Objetos por domicilio')
+      cy.xpath("//span[contains(.,'Búsqueda de Objetos por domicilio')]").should('be.visible', { timeout: 5000 }).contains('Búsqueda de Objetos por domicilio')
       cy.wait(tiempo)
       });
 
@@ -160,7 +160,7 @@ class proyectoOcho_Full_Web1_1_PO {
       cy.xpath("//a[contains(.,'Objetos con más de 30 Vínculos')]").invoke('show').click({ force: true });    
       cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
       cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Personas - Vínculos Activos > 30')]").should('be.visible').contains('Personas - Vínculos Activos > 30')
+      cy.xpath("//span[contains(.,'Personas - Vínculos Activos > 30')]").should('be.visible', { timeout: 5000 }).contains('Personas - Vínculos Activos > 30')
       cy.wait(tiempo)
       });
 
@@ -176,7 +176,7 @@ class proyectoOcho_Full_Web1_1_PO {
       cy.xpath("//a[contains(.,'Atención Primaria')]").invoke('show').click({ force: true });
       cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
       cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Atención Primaria')]").should('be.visible').contains('Atención Primaria')
+      cy.xpath("//span[contains(.,'Atención Primaria')]").should('be.visible', { timeout: 5000 }).contains('Atención Primaria')
       cy.wait(tiempo)
       });
       cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
@@ -185,7 +185,7 @@ class proyectoOcho_Full_Web1_1_PO {
       cy.xpath("//a[contains(.,'Emisión Deuda Apremios Múltiples')]").invoke('show').click({ force: true });
       cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
       cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Impresión Boletas Apremio')]").should('be.visible').contains('Impresión Boletas Apremio')
+      cy.xpath("//span[contains(.,'Impresión Boletas Apremio')]").should('be.visible', { timeout: 5000 }).contains('Impresión Boletas Apremio')
       cy.wait(tiempo)
       });
       cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
@@ -194,7 +194,7 @@ class proyectoOcho_Full_Web1_1_PO {
       cy.xpath("//a[contains(.,'Consulta de Comprobantes')]").invoke('show').click({ force: true });
       cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
       cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Consulta de Comprobantes')]").should('be.visible').contains('Consulta de Comprobantes')
+      cy.xpath("//span[contains(.,'Consulta de Comprobantes')]").should('be.visible', { timeout: 5000 }).contains('Consulta de Comprobantes')
       cy.wait(tiempo)
       });
 
@@ -211,7 +211,7 @@ class proyectoOcho_Full_Web1_1_PO {
       cy.wait(tiempo)
       cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
       cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Consulta Cuenta Corriente')]").should('be.visible').contains('Consulta Cuenta Corriente')
+      cy.xpath("//span[contains(.,'Consulta Cuenta Corriente')]").should('be.visible', { timeout: 5000 }).contains('Consulta Cuenta Corriente')
       cy.wait(tiempo)
       });
 
@@ -227,7 +227,7 @@ class proyectoOcho_Full_Web1_1_PO {
       cy.wait(tiempo)
       cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
       cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generación de Obligaciones')]").should('be.visible').contains('Generación de Obligaciones')
+      cy.xpath("//span[contains(.,'Generación de Obligaciones')]").should('be.visible', { timeout: 5000 }).contains('Generación de Obligaciones')
       cy.wait(tiempo)
       });
       cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
@@ -237,7 +237,7 @@ class proyectoOcho_Full_Web1_1_PO {
       cy.wait(tiempo)
       cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
       cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generación de Obligaciones de Inmuebles Correlativas')]").should('be.visible').contains('Generación de Obligaciones de Inmuebles Correlativas')
+      cy.xpath("//span[contains(.,'Generación de Obligaciones de Inmuebles Correlativas')]").should('be.visible', { timeout: 5000 }).contains('Generación de Obligaciones de Inmuebles Correlativas')
       cy.wait(tiempo)
     });
 
@@ -253,7 +253,7 @@ class proyectoOcho_Full_Web1_1_PO {
       cy.wait(tiempo)
       cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
       cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Importar Archivo Rendición')]").should('be.visible').contains('Importar Archivo Rendición')
+      cy.xpath("//span[contains(.,'Importar Archivo Rendición')]").should('be.visible', { timeout: 5000 }).contains('Importar Archivo Rendición')
       cy.wait(tiempo)
     });
 
@@ -264,7 +264,7 @@ class proyectoOcho_Full_Web1_1_PO {
       cy.wait(tiempo)
       cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
       cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Administración de Rendiciones de Recaudación')]").should('be.visible').contains('Administración de Rendiciones de Recaudación');
+      cy.xpath("//span[contains(.,'Administración de Rendiciones de Recaudación')]").should('be.visible', { timeout: 5000 }).contains('Administración de Rendiciones de Recaudación');
       cy.wait(tiempo)
     });
 
@@ -276,7 +276,7 @@ class proyectoOcho_Full_Web1_1_PO {
       cy.wait(tiempo)
       cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
       cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Rendición Manual de Pagos')]").should('be.visible').contains('Rendición Manual de Pagos')
+      cy.xpath("//span[contains(.,'Rendición Manual de Pagos')]").should('be.visible', { timeout: 5000 }).contains('Rendición Manual de Pagos')
       cy.wait(tiempo)
     });
 
@@ -287,7 +287,7 @@ class proyectoOcho_Full_Web1_1_PO {
       cy.wait(tiempo)
       cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
       cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generación Archivo SUGIT')]").should('be.visible').contains('Generación Archivo SUGIT')
+      cy.xpath("//span[contains(.,'Generación Archivo SUGIT')]").should('be.visible', { timeout: 5000 }).contains('Generación Archivo SUGIT')
       cy.wait(tiempo)
     });
 
@@ -298,7 +298,7 @@ class proyectoOcho_Full_Web1_1_PO {
       cy.wait(tiempo)
       cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
       cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Reporte Estacionamiento Medido')]").should('be.visible').contains('Reporte Estacionamiento Medido')
+      cy.xpath("//span[contains(.,'Reporte Estacionamiento Medido')]").should('be.visible', { timeout: 5000 }).contains('Reporte Estacionamiento Medido')
       cy.wait(tiempo)
     });
 
@@ -315,7 +315,7 @@ SeccionOcho(t){
       cy.wait(tiempo)
       cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
       cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Recaudación por Fecha de Imputación')]").should('be.visible').contains('Recaudación por Fecha de Imputación')
+      cy.xpath("//span[contains(.,'Recaudación por Fecha de Imputación')]").should('be.visible', { timeout: 5000 }).contains('Recaudación por Fecha de Imputación')
       cy.wait(tiempo)
     });
 
@@ -327,7 +327,7 @@ SeccionOcho(t){
       cy.wait(tiempo)
       cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
       cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Recaudación por Imputación Contable')]").should('be.visible').contains('Recaudación por Imputación Contable')
+      cy.xpath("//span[contains(.,'Recaudación por Imputación Contable')]").should('be.visible', { timeout: 5000 }).contains('Recaudación por Imputación Contable')
       cy.wait(tiempo)
     });
 
@@ -339,7 +339,7 @@ SeccionOcho(t){
       cy.wait(tiempo)
       cy.get('iframe', { timeout: 100000 }).its('length').should('eq', 1); // Espera hasta 20 segundos si es necesario
       cy.get('iframe').its('0.contentDocument.body', { timeout: 100000 }).should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Informe de recaudacion por tasa varia y cuenta contable')]").should('be.visible').contains('Informe de recaudacion por tasa varia y cuenta contable')
+      cy.xpath("//span[contains(.,'Informe de recaudacion por tasa varia y cuenta contable')]").should('be.visible', { timeout: 5000 }).contains('Informe de recaudacion por tasa varia y cuenta contable')
       cy.wait(tiempo)
     });
 

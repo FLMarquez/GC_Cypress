@@ -59,8 +59,8 @@ SeccionNueve(t){
       cy.xpath("//a[contains(.,'Generar Orden de Compra')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generación de Tasas Varias')]").should('be.visible').contains('Generación de Tasas Varias')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Generación de Tasas Varias')]").should('be.visible', { timeout: 5000 }).contains('Generación de Tasas Varias')
       cy.wait(tiempo)
     });
 
@@ -75,8 +75,8 @@ SeccionDiez(t){
       cy.xpath("//a[contains(.,'ABM Tasas Varias')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'ABM Tasas Varias')]").should('be.visible').contains('ABM Tasas Varias')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'ABM Tasas Varias')]").should('be.visible', { timeout: 5000 }).contains('ABM Tasas Varias')
       cy.wait(tiempo)
     });
 
@@ -87,8 +87,8 @@ SeccionDiez(t){
       cy.xpath("//a[contains(.,'ABM Valores Tasas Varias')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'ABM Valores Tasas Varia')]").should('be.visible').contains('ABM Valores Tasas Varia')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'ABM Valores Tasas Varia')]").should('be.visible', { timeout: 5000 }).contains('ABM Valores Tasas Varia')
       cy.wait(tiempo)
     });
 
@@ -98,8 +98,8 @@ SeccionDiez(t){
       cy.xpath("(//a[contains(.,'ABM Función de Cálculo')])[1]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'ABM Funcion de Cálculo')]").should('be.visible').contains('ABM Funcion de Cálculo')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'ABM Funcion de Cálculo')]").should('be.visible', { timeout: 5000 }).contains('ABM Funcion de Cálculo')
       cy.wait(tiempo)
     });
 
@@ -109,8 +109,8 @@ SeccionDiez(t){
       cy.xpath("//a[contains(.,'ABM Tasas Sector')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'ABM Tasa Sector')]").should('be.visible').contains('ABM Tasa Sector')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'ABM Tasa Sector')]").should('be.visible', { timeout: 5000 }).contains('ABM Tasa Sector')
       cy.wait(tiempo)
     });
 
@@ -125,8 +125,8 @@ SeccionOnce(t){
       cy.xpath("//a[contains(.,'Consultar Planes de Pago')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Consultar Planes de Pago')]").should('be.visible').contains('Consultar Planes de Pago')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Consultar Planes de Pago')]").should('be.visible', { timeout: 5000 }).contains('Consultar Planes de Pago')
       cy.wait(tiempo)
     });
 
@@ -136,8 +136,8 @@ SeccionOnce(t){
       cy.xpath("//a[contains(.,'Consultar Comprobantes Planes de Pago')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Consulta Comprobantes Plan de Pago')]").should('be.visible').contains('Consulta Comprobantes Plan de Pago')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Consulta Comprobantes Plan de Pago')]").should('be.visible', { timeout: 5000 }).contains('Consulta Comprobantes Plan de Pago')
       cy.wait(tiempo)
     });
 
@@ -148,8 +148,8 @@ SeccionOnce(t){
       cy.xpath("//a[contains(.,'Plan de Pago Especial')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Plan de Pago Especial')]").should('be.visible').contains('Plan de Pago Especial')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Plan de Pago Especial')]").should('be.visible', { timeout: 5000 }).contains('Plan de Pago Especial')
       cy.wait(tiempo)
     });
 
@@ -160,8 +160,8 @@ SeccionOnce(t){
       cy.xpath("//a[contains(.,'Reimprimir Chequera')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Reimprimir Chequera Plan')]").should('be.visible').contains('Reimprimir Chequera Plan')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Reimprimir Chequera Plan')]").should('be.visible', { timeout: 5000 }).contains('Reimprimir Chequera Plan')
       cy.wait(tiempo)
     });
 
@@ -177,8 +177,8 @@ SeccionDoce(t){
       cy.xpath("//a[contains(.,'Ajuste Masivo Cta. Cte.')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Ajuste Masivo Cta. Cte.')]").should('be.visible').contains('Ajuste Masivo Cta. Cte.')
+      cy.get('iframe', { timeout: 5000 }, { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Ajuste Masivo Cta. Cte.')]").should('be.visible', { timeout: 5000 }).contains('Ajuste Masivo Cta. Cte.')
       cy.wait(tiempo)
     });
       
@@ -189,8 +189,8 @@ SeccionDoce(t){
       cy.xpath("//a[contains(.,'Ajuste Manual Cta. Cte.')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Ajuste Manual de Cuenta Corriente')]").should('be.visible').contains('Ajuste Manual de Cuenta Corriente')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Ajuste Manual de Cuenta Corriente')]").should('be.visible', { timeout: 5000 }).contains('Ajuste Manual de Cuenta Corriente')
       cy.wait(tiempo)
     });
       
@@ -200,8 +200,8 @@ SeccionDoce(t){
       cy.xpath("//a[contains(.,'Cancelación Masiva de Obligaciones')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Cancelación Masiva de Obligaciones')]").should('be.visible').contains('Cancelación Masiva de Obligaciones')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Cancelación Masiva de Obligaciones')]").should('be.visible', { timeout: 5000 }).contains('Cancelación Masiva de Obligaciones')
       cy.wait(tiempo)
     });
 
@@ -217,8 +217,8 @@ SeccionTrece(t){
       cy.xpath("//a[contains(.,'Vínculos Situación Especial')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Vinculos Situación Especial')]").should('be.visible').contains('Vinculos Situación Especial')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Vinculos Situación Especial')]").should('be.visible', { timeout: 5000 }, { timeout: 5000 }).contains('Vinculos Situación Especial')
       cy.wait(tiempo)
     });
 
@@ -233,8 +233,8 @@ SeccionCatorce(t){
       cy.xpath("//a[contains(.,'Apertura de Caja')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Apertura de Caja')]").should('be.visible').contains('Apertura de Caja')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Apertura de Caja')]").should('be.visible', { timeout: 5000 }).contains('Apertura de Caja')
       cy.wait(tiempo)
     });
 
@@ -245,8 +245,8 @@ SeccionCatorce(t){
       cy.xpath("//a[contains(.,'Registrar Cobranza')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Registrar Cobranza')]").should('be.visible').contains('Registrar Cobranza')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Registrar Cobranza')]").should('be.visible', { timeout: 5000 }).contains('Registrar Cobranza')
       cy.wait(tiempo)
     });
 
@@ -257,8 +257,8 @@ SeccionCatorce(t){
       cy.xpath("//a[contains(.,'Cierre de Caja')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Cierre de Caja')]").should('be.visible').contains('Cierre de Caja')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Cierre de Caja')]").should('be.visible', { timeout: 5000 }).contains('Cierre de Caja')
       cy.wait(tiempo)
     });
 
@@ -270,8 +270,8 @@ SeccionCatorce(t){
       cy.xpath("//a[contains(.,'Anular Cupón')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Anular Cupón')]").should('be.visible').contains('Anular Cupón')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Anular Cupón')]").should('be.visible', { timeout: 5000 }).contains('Anular Cupón')
       cy.wait(tiempo)
     });
 
@@ -283,8 +283,8 @@ SeccionCatorce(t){
       cy.xpath("//a[contains(.,'Reimpresión Ticket')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Reimpresión Ticket')]").should('be.visible').contains('Reimpresión Ticket')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Reimpresión Ticket')]").should('be.visible', { timeout: 5000 }).contains('Reimpresión Ticket')
       cy.wait(tiempo)
     });
 }

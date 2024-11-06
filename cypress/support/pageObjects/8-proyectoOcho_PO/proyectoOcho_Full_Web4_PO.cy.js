@@ -48,7 +48,7 @@ SeccionVeinticuatro(t){
       cy.xpath("//a[contains(.,'Generar Movimiento de Fondos')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generar Asientos Contables')]").should('be.visible').contains('Generar Asientos Contables')
+      cy.xpath("//span[contains(.,'Generar Asientos Contables')]").should('be.visible', { timeout: 5000 }).contains('Generar Asientos Contables')
       cy.wait(tiempo)
     });
 
@@ -59,8 +59,8 @@ SeccionVeinticuatro(t){
       cy.xpath("//a[contains(.,'Informe Movimiento de Fondos')]").invoke('show').click({ force: true });  
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Informe Movimiento de Fondos')]").should('be.visible').contains('Informe Movimiento de Fondos')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Informe Movimiento de Fondos')]").should('be.visible', { timeout: 5000 }).contains('Informe Movimiento de Fondos')
       cy.wait(tiempo)
     });
 
@@ -76,8 +76,8 @@ SeccionVeinticinco(t){
       cy.xpath("(//a[contains(.,'Reportes General')])[1]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Reportes Generales')]").should('be.visible').contains('Reportes Generales')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Reportes Generales')]").should('be.visible', { timeout: 5000 }).contains('Reportes Generales')
       cy.wait(tiempo)
     });
 
@@ -89,8 +89,8 @@ SeccionVeinticinco(t){
       cy.xpath("//a[contains(.,'Paramétricas Excel')]").invoke('show').click({ force: true });  
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Paramétricas Salida a Excel')]").should('be.visible').contains('Paramétricas Salida a Excel')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Paramétricas Salida a Excel')]").should('be.visible', { timeout: 5000 }).contains('Paramétricas Salida a Excel')
       cy.wait(tiempo)
     });
 
@@ -114,8 +114,8 @@ SeccionVeinticinco(t){
       cy.xpath("//a[contains(.,'Padrones Comercio')]").invoke('show').click({ force: true }); 
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Reporte Gral Padrones de Comercio')]").should('be.visible').contains('Reporte Gral Padrones de Comercio')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Reporte Gral Padrones de Comercio')]").should('be.visible', { timeout: 5000 }).contains('Reporte Gral Padrones de Comercio')
       cy.wait(tiempo)
     });
       
@@ -126,8 +126,8 @@ SeccionVeinticinco(t){
       cy.xpath("//a[contains(.,'ABM Reportes General')]").invoke('show').click({ force: true });  
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'ABM Reportes Generales')]").should('be.visible').contains('ABM Reportes Generales')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'ABM Reportes Generales')]").should('be.visible', { timeout: 5000 }).contains('ABM Reportes Generales')
       cy.wait(tiempo)
     });
 
@@ -138,8 +138,8 @@ SeccionVeinticinco(t){
       cy.xpath("//a[contains(.,'ABM Datos Adicionales Reportes')]").invoke('show').click({ force: true });  
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'ABM Datos Adicionales Reportes')]").should('be.visible').contains('ABM Datos Adicionales Reportes')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'ABM Datos Adicionales Reportes')]").should('be.visible', { timeout: 5000 }).contains('ABM Datos Adicionales Reportes')
       cy.wait(tiempo)
     });
 
@@ -154,8 +154,8 @@ SeccionVeintiseis(t){
       cy.xpath("(//a[contains(.,'Informe Sellos')])[2]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Informe Sellos')]").should('be.visible').contains('Informe Sellos')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Informe Sellos')]").should('be.visible', { timeout: 5000 }).contains('Informe Sellos')
       cy.wait(tiempo)
     });
 
@@ -170,8 +170,8 @@ SeccionVeintisiete(t){
       cy.xpath("(//a[contains(.,'Envío Boleto Masiva')])[2]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Boleta Digital Masiva')]").should('be.visible').contains('Boleta Digital Masiva')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Boleta Digital Masiva')]").should('be.visible', { timeout: 5000 }).contains('Boleta Digital Masiva')
       cy.wait(tiempo)
     });
 
@@ -186,8 +186,8 @@ SeccionVeintiocho(t){
       cy.xpath("//a[contains(.,'Consulta GAM Data')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Consulta Usuarios - Roles GAM')]").should('be.visible').contains('Consulta Usuarios - Roles GAM')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Consulta Usuarios - Roles GAM')]").should('be.visible', { timeout: 5000 }).contains('Consulta Usuarios - Roles GAM')
       cy.wait(tiempo)
     });
 
@@ -198,8 +198,8 @@ SeccionVeintiocho(t){
       cy.xpath("//a[contains(.,'Consulta Roles')]").invoke('show').click({ force: true });  
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Consulta Roles GAM')]").should('be.visible').contains('Consulta Roles GAM')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Consulta Roles GAM')]").should('be.visible', { timeout: 5000 }).contains('Consulta Roles GAM')
       cy.wait(tiempo)
     });
 
@@ -210,8 +210,8 @@ SeccionVeintiocho(t){
       cy.xpath("(//a[contains(.,'Consulta Comercios')])[1]").invoke('show').click({ force: true });  
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Consulta Comercios')]").should('be.visible').contains('Consulta Comercios')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Consulta Comercios')]").should('be.visible', { timeout: 5000 }).contains('Consulta Comercios')
       cy.wait(tiempo)
     });
 
@@ -222,8 +222,8 @@ SeccionVeintiocho(t){
       cy.xpath("//a[contains(.,'Consulta Comercios Actividades')]").invoke('show').click({ force: true });  
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Consulta Comercios Actividades')]").should('be.visible').contains('Consulta Comercios Actividades')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Consulta Comercios Actividades')]").should('be.visible', { timeout: 5000 }).contains('Consulta Comercios Actividades')
       cy.wait(tiempo)
     });
 
@@ -234,8 +234,8 @@ SeccionVeintiocho(t){
       cy.xpath("//a[contains(.,'Consulta Inmuebles')]").invoke('show').click({ force: true }); 
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Consulta Inmueble')]").should('be.visible').contains('Consulta Inmueble')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Consulta Inmueble')]").should('be.visible', { timeout: 5000 }).contains('Consulta Inmueble')
       cy.wait(tiempo)
     });
       
@@ -246,8 +246,8 @@ SeccionVeintiocho(t){
       cy.xpath("//a[contains(.,'Consulta GAM Users')]").invoke('show').click({ force: true });  
       cy.wait(tiempo)
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Consulta Usuarios - Roles GAM')]").should('be.visible').contains('Consulta Usuarios - Roles GAM')
+      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.xpath("//span[contains(.,'Consulta Usuarios - Roles GAM')]").should('be.visible', { timeout: 5000 }).contains('Consulta Usuarios - Roles GAM')
       cy.wait(tiempo)
     });
 
@@ -263,7 +263,7 @@ SeccionVeintinueve(t){
       cy.xpath("//a[contains(.,'ABM Tipo Documento')]").invoke('show').click({ force: true }); 
       cy.wait(tiempo)
       cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'ABM Tipos de Documento')]").should('be.visible').contains('ABM Tipos de Documento')
+      cy.xpath("//span[contains(.,'ABM Tipos de Documento')]").should('be.visible', { timeout: 5000 }).contains('ABM Tipos de Documento')
       cy.wait(tiempo)
     });
 
@@ -275,7 +275,7 @@ SeccionVeintinueve(t){
       cy.xpath("//a[contains(.,'ABM Estado Civil')]").invoke('show').click({ force: true }); 
       cy.wait(tiempo)
       cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'ABM Estado Civil')]").should('be.visible').contains('ABM Estado Civil')
+      cy.xpath("//span[contains(.,'ABM Estado Civil')]").should('be.visible', { timeout: 5000 }).contains('ABM Estado Civil')
       cy.wait(tiempo)
     });
       
@@ -288,7 +288,7 @@ SeccionVeintinueve(t){
       cy.xpath("//a[contains(.,'ABM Naturaleza Jurídica')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'ABM Naturaleza Jurídica')]").should('be.visible').contains('ABM Naturaleza Jurídica')
+      cy.xpath("//span[contains(.,'ABM Naturaleza Jurídica')]").should('be.visible', { timeout: 5000 }).contains('ABM Naturaleza Jurídica')
       cy.wait(tiempo)
     });
 
@@ -315,7 +315,7 @@ SeccionVeintinueve(t){
       cy.xpath("//a[contains(.,'ABM Tipo Vínculos')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'ABM Tipo de Vínculos')]").should('be.visible').contains('ABM Tipo de Vínculos')
+      cy.xpath("//span[contains(.,'ABM Tipo de Vínculos')]").should('be.visible', { timeout: 5000 }).contains('ABM Tipo de Vínculos')
       cy.wait(tiempo)
     });
 
@@ -328,7 +328,7 @@ SeccionVeintinueve(t){
       cy.xpath("//a[contains(.,'ABM Tipo Adjuntos')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Tipo Adjuntos')]").should('be.visible').contains('Tipo Adjuntos')
+      cy.xpath("//span[contains(.,'Tipo Adjuntos')]").should('be.visible', { timeout: 5000 }).contains('Tipo Adjuntos')
       cy.wait(tiempo)
     });
 
