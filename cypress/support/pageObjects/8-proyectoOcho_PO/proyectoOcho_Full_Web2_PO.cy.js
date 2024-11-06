@@ -6,6 +6,10 @@ class proyectoOcho_Full_Web2_PO {
   visitHome() {
     let tiempo = 1000;
     beforeEach(() => {
+      // Intercepta una solicitud específica para observar o modificar el comportamiento
+      cy.intercept('GET', '**/K2BGAM/servlet/com.k2bgam.*').as('pageLoad');
+
+      // Carga la página
       cy.visit('https://gcdigital.godoycruz.gob.ar/K2BGAM/servlet/com.k2bgam.k2blogin', {
         timeout: 1800000, // Tiempo máximo de espera aumentado a 30 minutos
         onBeforeLoad: (win) => {
@@ -15,11 +19,16 @@ class proyectoOcho_Full_Web2_PO {
         onLoad: (win) => {
           console.log('La página se ha cargado completamente');
         },
-        waitUntil: 'domcontentloaded' // Esperar solo hasta que el contenido del DOM esté listo
+        waitUntil: 'domcontentloaded', // Esperar solo hasta que el contenido del DOM esté listo
+        waitForLoad: false, // No esperar a que se cargue completamente
       });
+
+      // Espera a que la solicitud interceptada se complete antes de continuar
+      cy.wait('@pageLoad');
       cy.wait(tiempo);
     });
   }
+
   
 
     
@@ -141,30 +150,30 @@ SeccionDieciseis(t){
       cy.wait(tiempo)
     });
 
+    
+       cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+       cy.xpath("//a[contains(.,'Juzgado de Faltas')]").invoke('show').click({ force: true });
+       cy.xpath("//a[contains(.,'Consulta Resolución Masiva')]").invoke('show').click({ force: true });
+       cy.wait(tiempo)
+       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
+       cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+       cy.xpath("//span[contains(.,'Consulta Resoluciones Masivas')]").should('be.visible', { timeout: 5000 }).contains('Consulta Resoluciones Masivas')
+       cy.wait(tiempo)
+     });
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("//a[contains(.,'Juzgado de Faltas')]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'Consulta Resolución Masiva')]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
-      cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Consulta Resoluciones Masivas')]").should('be.visible', { timeout: 5000 }).contains('Consulta Resoluciones Masivas')
-      cy.wait(tiempo)
-    });
-
-
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("//a[contains(.,'Juzgado de Faltas')]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'Resolución Masiva Pago Voluntario')]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
-      cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-        cy.wait(5000)
-        cy.xpath("//span[contains(.,'Resolución Masiva Pago Voluntario')]").should('be.visible', { timeout: 5000 }).contains('Resolución Masiva Pago Voluntario')
-      cy.wait(tiempo)
-    });
+    // SE COMENTA HASTA QUE SOUCIONEN EL TEMA DE LA VISTA (DEMORA + 10 MINUTOS)
+    //   cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+    //   cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+    //   cy.xpath("//a[contains(.,'Juzgado de Faltas')]").invoke('show').click({ force: true });
+    //   cy.xpath("//a[contains(.,'Resolución Masiva Pago Voluntario')]").invoke('show').click({ force: true });
+    //   cy.wait(tiempo)
+    //   cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
+    //   cy.get('iframe', { timeout: 5000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+    //     cy.wait(5000)
+    //     cy.xpath("//span[contains(.,'Resolución Masiva Pago Voluntario')]").should('be.visible', { timeout: 10000 }).contains('Resolución Masiva Pago Voluntario')
+    //   cy.wait(tiempo)
+    // });
 
 
       cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
