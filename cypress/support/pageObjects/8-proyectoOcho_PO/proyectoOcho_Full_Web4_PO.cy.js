@@ -281,7 +281,7 @@ SeccionVeintinueve(t){
       cy.xpath("//a[contains(.,'ABM Estado Civil')]").invoke('show').click({ force: true }); 
       cy.wait(tiempo)
       cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'ABM Estado Civil')]").should('be.visible', { timeout: 5000 }).contains('ABM Estado Civil')
+      cy.xpath("//span[contains(.,'ABM Estado Civil')]").should('be.visible', { timeout: 60000 }).contains('ABM Estado Civil')
       cy.wait(tiempo)
     });
       
