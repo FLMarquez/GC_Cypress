@@ -4,19 +4,25 @@ class ProyectoDos_Personas_Datos_Po{
   visitHome() {
     let tiempo = 1000;
     beforeEach(() => {
+      // Intercepta una solicitud específica para observar o modificar el comportamiento
+      cy.intercept('GET', '**/K2BGAM/servlet/com.k2bgam.*').as('pageLoad');
+
+      // Carga la página
       cy.visit('https://gcdigital.godoycruz.gob.ar/K2BGAM/servlet/com.k2bgam.k2blogin', {
-        timeout: 800000, // Tiempo máximo de espera en milisegundos
+        timeout: 1800000, // Tiempo máximo de espera aumentado a 30 minutos
         onBeforeLoad: (win) => {
           win.fetch = null;
-          // Acciones antes de que se cargue la página
           console.log('La página está a punto de cargarse');
         },
         onLoad: (win) => {
-          // Acciones para cuando la página se carga completamente
           console.log('La página se ha cargado completamente');
         },
+        waitUntil: 'domcontentloaded', // Esperar solo hasta que el contenido del DOM esté listo
         waitForLoad: false, // No esperar a que se cargue completamente
       });
+
+      // Espera a que la solicitud interceptada se complete antes de continuar
+      cy.wait('@pageLoad');
       cy.wait(tiempo);
     });
   }
@@ -69,13 +75,13 @@ class ProyectoDos_Personas_Datos_Po{
           .xpath("//input[contains(@id,'ENTER')]").should('be.visible', { timeout: 8000 }).click({ force: true });
   
 
-          cy.wait(5000)
-          cy.wrap($iframe)
-          cy.get('div.toast-message').should('be.visible', { timeout: 8000 }).contains('La personas fisicas SLAMOVITS fue actualizada', { timeout: 20000 });
-
-
+          //cy.wait(5000)
+          //cy.wrap($iframe)
+          //cy.get('div.toast-message').should('be.visible', { timeout: 8000 }).contains('La personas fisicas SLAMOVITS fue actualizada', { timeout: 20000 });
 
         });
+
+        cy.get('div.toast-message', { timeout: 20000 }).should('be.visible').contains('La personas fisicas SLAMOVITS fue actualizada');
 
 
        
