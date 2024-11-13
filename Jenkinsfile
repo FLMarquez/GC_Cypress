@@ -94,6 +94,9 @@ def runCypressTests(allureStashName) {
         } catch (e) {
             echo "Error durante la ejecución de Cypress: ${e.message}"
             currentBuild.result = 'UNSTABLE'
-         }
+         } finally {
+            // Mover los archivos de resultados de Allure a la ruta especificada
+            bat "move /Y allure-results\\*.xml C:\\home\\workspace\\GC_Cypress_Pipeline\\allure-results\\"
+        }
     }
 }
