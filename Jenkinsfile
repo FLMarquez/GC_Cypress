@@ -6,11 +6,48 @@ pipeline {
     }
 
     stages {
-       
+        // Etapa para actualizar la KB de GeneXus
+        stage('Update Knowledge Base') {
+            steps {
+                script {
+                    echo "Actualizando KB de GeneXus..."
+                    bat 'gxupdate /kb="C:\\Models\\SGTFARO17U5" /user="admin" /password="Desa.cba45"'
+                }
+            }
+        }
 
-        
-//Se detallan los stage con cada uno de los Slave y los Agentes
+        // Etapa para construir la KB de GeneXus
+        stage('Build Knowledge Base') {
+            steps {
+                script {
+                    echo "Realizando build de la KB de GeneXus..."
+                    bat 'gxbuild /kb="C:\\Models\\SGTFARO17U5" /user="admin" /password="Desa.cba45"'
+                }
+            }
+        }
+
+        // Verificación de cambios en la KB
+        stage('Check for Changes') {
+            steps {
+                script {
+                    // Ejecutar un comando git diff para ver si existen cambios en la KB
+                    def changesExist = bat(script: 'git diff --quiet || echo "changes detected"', returnStatus: true) == 0 ? false : true
+                    if (changesExist) {
+                        echo "Cambios detectados en la KB, ejecutando pruebas..."
+                    } else {
+                        echo "No hay cambios en la KB. Las pruebas no se ejecutarán."
+                        currentBuild.result = 'NOT_BUILT'
+                        error("No se ejecutarán pruebas porque no hay cambios en la KB.")
+                    }
+                }
+            }
+        }
+
+        // Ejecución en paralelo de las pruebas de Cypress en diferentes agentes solo si hay cambios
         stage('Cypress Parallel Test Suite') {
+            when {
+                expression { currentBuild.result != 'NOT_BUILT' }
+            }
             parallel {
                 stage('Slave 1') {
                     agent { label "Agent2_1" }
@@ -78,10 +115,48 @@ pipeline {
                 }
             }
         }
-
-        
     }
 }
+
+// CONFIGURACIÓN PARA QUE JENKINS ENVÍE CORREO INFORMANDO EL ESTADO DE LAS PRUEBAS REALIZADAS
+//  post {
+//         failure {
+//             emailext(
+//                 subject: "Build Failed in ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+//                 body: """<p>Hola,</p>
+//                          <p>El build <b>#${env.BUILD_NUMBER}</b> de <b>${env.JOB_NAME}</b> ha fallado.</p>
+//                          <p>Revisa los detalles en <a href="${env.BUILD_URL}">Jenkins</a>.</p>
+//                          <p>Atentamente,<br>Jenkins</p>""",
+//                 recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
+//                 to: "tucorreo@tuempresa.com"
+//             )
+//         }
+
+//         success {
+//             emailext(
+//                 subject: "Build Success in ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+//                 body: """<p>Hola,</p>
+//                          <p>El build <b>#${env.BUILD_NUMBER}</b> de <b>${env.JOB_NAME}</b> ha completado con éxito.</p>
+//                          <p>Puedes ver los detalles en <a href="${env.BUILD_URL}">Jenkins</a>.</p>
+//                          <p>Atentamente,<br>Jenkins</p>""",
+//                 recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
+//                 to: "tucorreo@tuempresa.com"
+//             )
+//         }
+
+//         always {
+//             emailext(
+//                 subject: "Build Result for ${env.JOB_NAME} #${env.BUILD_NUMBER}: ${currentBuild.currentResult}",
+//                 body: """<p>Hola,</p>
+//                          <p>El build <b>#${env.BUILD_NUMBER}</b> de <b>${env.JOB_NAME}</b> ha finalizado con el estado: <b>${currentBuild.currentResult}</b>.</p>
+//                          <p>Revisa los detalles en <a href="${env.BUILD_URL}">Jenkins</a>.</p>
+//                          <p>Atentamente,<br>Jenkins</p>""",
+//                 recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']],
+//                 to: "tucorreo@tuempresa.com"
+//             )
+//         }
+//     }
+
 
 // Función para correr las pruebas de Cypress y stashear los resultados de Allure
 def runCypressTests(allureStashName) {
@@ -106,3 +181,4 @@ def runCypressTests(allureStashName) {
         }
     }
 }
+
