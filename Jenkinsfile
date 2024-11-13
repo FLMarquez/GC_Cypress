@@ -6,10 +6,7 @@ pipeline {
     }
 
     stages {
-       
-
-        
-//Se detallan los stage con cada uno de los Slave y los Agentes
+        // Ejecución en paralelo de los tests en diferentes agentes
         stage('Cypress Parallel Test Suite') {
             parallel {
                 stage('Slave 1') {
@@ -79,18 +76,25 @@ pipeline {
             }
         }
 
-        
+        // Nuevo stage para copiar archivos después de finalizar las pruebas
+        stage('Copy Allure Results') {
+            steps {
+                script {
+                    bat "xcopy /Y /S allure-results\\*.xml C:\\home\\workspace\\GC_Cypress_Pipeline\\allure-results\\"
+                }
+            }
+        }
     }
 }
 
-// Función para correr las pruebas de Cypress y stashear los resultados de Allure
+// Función para correr las pruebas de Cypress y almacenar los resultados de Allure
 def runCypressTests(allureStashName) {
     script {
         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
         bat 'npm install'
         bat 'npm ci' 
         try {
-           def exitCode = bat(script: 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true --config-file cypress.config.js --headless', returnStatus: true)
+            def exitCode = bat(script: 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true --config-file cypress.config.js --headless', returnStatus: true)
             if (exitCode != 0) {
                 currentBuild.result = 'UNSTABLE'
                 echo "Cypress test falló con código de salida: ${exitCode}"
@@ -100,9 +104,10 @@ def runCypressTests(allureStashName) {
         } catch (e) {
             echo "Error durante la ejecución de Cypress: ${e.message}"
             currentBuild.result = 'UNSTABLE'
-         } finally {
-            // Copiar los archivos de Allure al directorio centralizado
-            bat "xcopy /Y /S allure-results\\*.xml C:\\home\\workspace\\GC_Cypress_Pipeline\\allure-results\\"
+        } finally {
+            // Guardar resultados de Allure en el directorio local del agente
+            bat "mkdir allure-results"
+            bat "move *.xml allure-results"
         }
     }
 }
