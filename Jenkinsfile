@@ -6,10 +6,6 @@ pipeline {
     }
 
     stages {
-       
-
-        
-//Se detallan los stage con cada uno de los Slave y los Agentes
         stage('Cypress Parallel Test Suite') {
             parallel {
                 stage('Slave 1') {
@@ -78,12 +74,10 @@ pipeline {
                 }
             }
         }
-
-        
     }
 }
 
-// Función para correr las pruebas de Cypress y stashear los resultados de Allure
+// Función para correr las pruebas de Cypress
 def runCypressTests(allureStashName) {
     script {
         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
@@ -100,9 +94,6 @@ def runCypressTests(allureStashName) {
         } catch (e) {
             echo "Error durante la ejecución de Cypress: ${e.message}"
             currentBuild.result = 'UNSTABLE'
-         } finally {
-            // Copiar los archivos de Allure al directorio centralizado
-            bat "xcopy /Y /S allure-results\\*.xml C:\\home\\workspace\\GC_Cypress_Pipeline\\allure-results\\"
-        }
+         }
     }
 }
