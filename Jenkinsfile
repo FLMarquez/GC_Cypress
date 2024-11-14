@@ -74,8 +74,42 @@ pipeline {
                 }
             }
         }
+    
+
+
+
+ // Nueva etapa específica para el archivo de prueba de descarga de PDF
+        stage('Cypress Test - Emision Deuda PDF') {
+            agent { label "Agent2_1" } // Puedes cambiar el agente si es necesario
+            steps {
+                script {
+                    try {
+                        // Ejecución de Cypress para el archivo específico sin headless
+                        def exitCode = bat(script: 'npx cypress run --spec "cypress/e2e/proyectoCuatro_Emision_Deuda_ATPrimaria_PO.cy.js" --browser chrome --env allure=true --config-file cypress.config.js', returnStatus: true)
+                        if (exitCode != 0) {
+                            currentBuild.result = 'UNSTABLE'
+                            echo "Cypress test falló con código de salida: ${exitCode}"
+                        } else {
+                            echo "Cypress test completado exitosamente."
+                        }
+                    } catch (e) {
+                        echo "Error durante la ejecución de Cypress: ${e.message}"
+                        currentBuild.result = 'UNSTABLE'
+                    } finally {
+                        bat """
+                        if exist allure-results\\*.xml (
+                            xcopy /Y /S allure-results\\*.xml C:\\home\\workspace\\GC_Cypress_Pipeline\\allure-results\\
+                        ) else (
+                            echo "No se encontraron archivos .xml en allure-results."
+                        )
+                        """
+                    }
+                }
+            }
+        }
     }
 }
+
 
 // Función para correr las pruebas de Cypress
 def runCypressTests(allureStashName) {
