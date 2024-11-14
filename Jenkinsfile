@@ -6,6 +6,13 @@ pipeline {
     }
 
     stages {
+        stage('Instalación de Cypress') {
+            steps {
+                script {
+                    bat 'npx cypress install'
+                }
+            }
+        }
         stage('Run PDF.bat') {
             steps {
                 script {
@@ -88,6 +95,10 @@ pipeline {
 def runCypressTests(allureStashName) {
     script {
         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
+        
+        // Instalación de Cypress antes de ejecutar las pruebas
+        bat 'npx cypress install'
+        
         try {
             def exitCode = bat(script: 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true --config-file cypress.config.js --headless', returnStatus: true)
             if (exitCode != 0) {
