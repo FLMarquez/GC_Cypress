@@ -8,18 +8,18 @@ pipeline {
     stages {
         stage('Instalación de Cypress') {
             steps {
-                script { 
-                    //bat 'npx cypress install'
+                script {
+                    bat 'npx cypress install'
                 }
             }
         }
         stage('Run PDF.bat') {
             steps {
-                script { 
+                script {
                     //RUTA LOCAL 
                     bat 'C:\\Users\\Lmarquez\\Desktop\\DescargaPDF-ATPRIMARIA\\PDF.bat'
                     //RUTA SERVER - ELINPAR
-                    //bat 'C:\\jenkins_agent\\workspace\\DescargaPDF-ATPRIMARIA\\PDF.bat'
+                    //bat 'C:\\Users\\Lmarquez\\Desktop\\DescargaPDF-ATPRIMARIA\\PDF.bat'
                 }
             }
         }
@@ -28,7 +28,7 @@ pipeline {
                 stage('Slave 1') {
                     agent { label "Agent2_1" }
                     steps {
-                        script { -> 
+                        script {
                             runCypressTests('allure-results-1')
                         }
                     }
@@ -36,7 +36,7 @@ pipeline {
                 stage('Slave 2') {
                     agent { label "Agent2_2" }
                     steps {
-                        script { -> 
+                        script {
                             runCypressTests('allure-results-2')
                         }
                     }
@@ -44,7 +44,7 @@ pipeline {
                 stage('Slave 3') {
                     agent { label "Agent2_3" }
                     steps {
-                        script { -> 
+                        script {
                             runCypressTests('allure-results-3')
                         }
                     }
@@ -52,7 +52,7 @@ pipeline {
                 stage('Slave 4') {
                     agent { label "Agent2_4" }
                     steps {
-                        script { -> 
+                        script {
                             runCypressTests('allure-results-4')
                         }
                     }
@@ -60,7 +60,7 @@ pipeline {
                 stage('Slave 5') {
                     agent { label "Agent2_5" }
                     steps {
-                        script { -> 
+                        script {
                             runCypressTests('allure-results-5')
                         }
                     }
@@ -68,7 +68,7 @@ pipeline {
                 stage('Slave 6') {
                     agent { label "Agent2_6" }
                     steps {
-                        script { -> 
+                        script {
                             runCypressTests('allure-results-6')
                         }
                     }
@@ -76,7 +76,7 @@ pipeline {
                 stage('Slave 7') {
                     agent { label "Agent2_7" }
                     steps {
-                        script { -> 
+                        script {
                             runCypressTests('allure-results-7')
                         }
                     }
@@ -84,45 +84,32 @@ pipeline {
                 stage('Slave 8') {
                     agent { label "Agent2_8" }
                     steps {
-                        script { -> 
+                        script {
                             runCypressTests('allure-results-8')
                         }
                     }
                 }
             }
         }
-        //RUTA LOCAL
         stage('Generar y Abrir Reporte Allure') {
             steps {
-                script { -> 
+                script {
                     bat """
                     cd C:\\home\\workspace\\GC_Cypress_Pipeline && allure generate allure-results --clean -o allure-report && allure open allure-report
                     """
                 }
             }
         }
-
-        //RUTA SERVER - ELINPAR
-        //stage('Generar y Abrir Reporte Allure') {
-        //steps {
-            //script { -> 
-                //bat """
-                //cd C:\\jenkins_agent\\workspace\\GC_Cypress_Pipeline && allure generate allure-results --clean -o allure-report && allure open allure-report
-                //"""
-            //}
-        // }
-        //}
     }
 }
 
 // Función para correr las pruebas de Cypress
 def runCypressTests(allureStashName) {
-    script { -> 
+    script {
         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
-        bat 'npm install'
-        //bat 'npm ci' 
+        
         // Instalación de Cypress antes de ejecutar las pruebas
-        //bat 'npx cypress install --force'
+        bat 'npx cypress install'
         
         try {
             def exitCode = bat(script: 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true --config-file cypress.config.js --headless', returnStatus: true)
