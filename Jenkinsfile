@@ -146,4 +146,3 @@ def runCypressTests(allureStashName) {
         }
     }
 }
-
