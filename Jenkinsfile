@@ -105,7 +105,7 @@ pipeline {
             steps {
                 script {
                     bat """
-                    cd \\172.16.114.30\\jenkins_agent\\workspace\\GC_Cypress_Pipeline && allure generate allure-results --clean -o allure-report && allure open allure-report
+                    cd C:\\jenkins_agent\\workspace\\GC_Cypress_Pipeline && allure generate allure-results --clean -o allure-report && allure open allure-report
                     """
                 }
             }
@@ -147,7 +147,7 @@ def runCypressTests(allureStashName) {
         } finally {
             bat """
             if exist allure-results\\*.xml (
-                xcopy /Y /S allure-results\\*.xml \\172.16.114.30\\jenkins_agent\\workspace\\GC_Cypress_Pipeline\\allure-results\\
+                xcopy /Y /S allure-results\\*.xml C:\\jenkins_agent\\workspace\\GC_Cypress_Pipeline\\allure-results\\
             ) else (
                 echo "No se encontraron archivos .xml en allure-results."
             )
