@@ -9,7 +9,7 @@ pipeline {
         stage('Instalación de Cypress') {
             steps {
                 script {
-                    bat 'npx cypress install'
+                    bat 'npx cypress install --force'
                 }
             }
         }
@@ -19,7 +19,7 @@ pipeline {
                     //RUTA LOCAL 
                     //bat 'C:\\Users\\Lmarquez\\Desktop\\DescargaPDF-ATPRIMARIA\\PDF.bat'
                     //RUTA SERVER - ELINPAR
-                    bat '\\172.16.114.30\\jenkins_agent\\workspace\\DescargaPDF-ATPRIMARIA\\PDF.bat'
+                    bat 'C:\\jenkins_agent\\workspace\\DescargaPDF-ATPRIMARIA\\PDF.bat'
                 }
             }
         }
