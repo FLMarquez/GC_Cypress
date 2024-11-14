@@ -23,15 +23,15 @@ module.exports = defineConfig({
   trashAssetsBeforeRuns: false,
   projectId: "e7vrap",
   //RUTA LOCAL
-  //downloadsFolder: 'C:\\home\\workspace\\GODOYCRUZ',
+  downloadsFolder: 'C:\\home\\workspace\\GODOYCRUZ',
   //RUTA SERVER - ELINPAR
-  downloadsFolder: 'C:\\jenkins_agent\\workspace\\GODOYCRUZ',
+  //downloadsFolder: 'C:\\jenkins_agent\\workspace\\GODOYCRUZ',
   e2e: {
     setupNodeEvents(on, config) {
       //RUTA LOCAL
-      //const downloadsPath = config.env.downloadsFolder || 'C:\\home\\workspace\\GODOYCRUZ';
+      const downloadsPath = config.env.downloadsFolder || 'C:\\home\\workspace\\GODOYCRUZ';
       //RUTA SERVER - ELINPAR
-      const downloadsPath = config.env.downloadsFolder || 'C:\\jenkins_agent\\workspace\\GODOYCRUZ';
+      //const downloadsPath = config.env.downloadsFolder || 'C:\\jenkins_agent\\workspace\\GODOYCRUZ';
       allureWriter(on, config);
 
       // Registrar las tareas
@@ -96,9 +96,9 @@ module.exports = defineConfig({
     baseUrl: 'https://test.elinpar.com',
     env: {
       //RUTA LOCAL
-      //downloadsFolder: 'C:\\home\\workspace\\GODOYCRUZ',
+      downloadsFolder: 'C:\\home\\workspace\\GODOYCRUZ',
       //RUTA SERVER - ELINPAR
-      downloadsFolder: 'C:\\jenkins_agent\\workspace\\GODOYCRUZ',
+      //downloadsFolder: 'C:\\jenkins_agent\\workspace\\GODOYCRUZ',
     }
   }
 });
