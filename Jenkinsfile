@@ -91,15 +91,15 @@ pipeline {
                 }
             }
         }
-        stage('Generar y Abrir Reporte Allure') {
-            steps {
-                script {
-                    bat """
-                    cd C:\\home\\workspace\\GC_Cypress_Pipeline && allure generate allure-results --clean -o allure-report && allure open allure-report
-                    """
-                }
-            }
-        }
+        //stage('Generar y Abrir Reporte Allure') {
+            //steps {
+                //script {
+                    //bat """
+                    //cd C:\\home\\workspace\\GC_Cypress_Pipeline && allure generate allure-results --clean -o allure-report && allure open allure-report
+                   // """
+               // }
+            //}
+        //}
     }
 }
 
