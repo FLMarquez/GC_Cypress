@@ -117,9 +117,10 @@ pipeline {
 def runCypressTests(allureStashName) {
     script {
         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
-        
+        bat 'npm install'
+        //bat 'npm ci' 
         // Instalación de Cypress antes de ejecutar las pruebas
-        bat 'npx cypress install'
+        bat 'npx cypress install --force'
         
         try {
             def exitCode = bat(script: 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true --config-file cypress.config.js --headless', returnStatus: true)
