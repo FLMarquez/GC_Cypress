@@ -91,6 +91,15 @@ pipeline {
                 }
             }
         }
+        stage('Generar y Abrir Reporte Allure') {
+            steps {
+                script {
+                    bat """
+                    cd C:\\home\\workspace\\GC_Cypress_Pipeline && allure generate allure-results --clean -o allure-report && allure open allure-report
+                    """
+                }
+            }
+        }
     }
 }
 
@@ -113,7 +122,6 @@ def runCypressTests(allureStashName) {
         } catch (e) {
             echo "Error durante la ejecución de Cypress: ${e.message}"
             currentBuild.result = 'UNSTABLE'
-            //RUTA LOCAL
         } finally {
             bat """
             if exist allure-results\\*.xml (
@@ -122,32 +130,8 @@ def runCypressTests(allureStashName) {
                 echo "No se encontraron archivos .xml en allure-results."
             )
             """
-             //RUTA LOCAL
-             // Generación y apertura del reporte Allure
-            bat """
-            cd C:\\home\\workspace\\GC_Cypress_Pipeline && allure generate allure-results --clean -o allure-report && allure open allure-report
-            """
-
         }
-
-        //RUTA SERVER - ELINPAR
-        //} finally {
-            //bat """
-            //if exist allure-results\\*.xml (
-                //xcopy /Y /S allure-results\\*.xml C:\\home\\workspace\\GC_Cypress_Pipeline\\allure-results\\
-            //) else (
-                //echo "No se encontraron archivos .xml en allure-results."
-            //)
-            //"""
-
-             //RUTA SERVER - ELIMPAR
-             // Generación y apertura del reporte Allure
-            //bat """
-            //cd C:\\home\\workspace\\GC_Cypress_Pipeline && allure generate allure-results --clean -o allure-report && allure open allure-report
-            //"""
-
-
-        //}
     }
 }
+
 
