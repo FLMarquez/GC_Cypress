@@ -10,9 +10,9 @@ pipeline {
             steps {
                 script {
                     // RUTA LOCAL 
-                    // bat 'C:\\Users\\Lmarquez\\Desktop\\DescargaPDF-ATPRIMARIA\\PDF.bat'
+                    bat 'C:\\Users\\Lmarquez\\Desktop\\DescargaPDF-ATPRIMARIA\\PDF.bat'
                     // RUTA SERVER - ELINPAR
-                    bat 'C:\\home\\workspace\\DescargaPDF-ATPRIMARIA\\PDF.bat'
+                    //bat 'C:\\home\\workspace\\DescargaPDF-ATPRIMARIA\\PDF.bat'
                 }
             }
         }
@@ -118,18 +118,7 @@ def runCypressTests(allureStashName) {
             echo "Error durante la ejecución de Cypress: ${e.message}"
             currentBuild.result = 'UNSTABLE'
             //RUTA LOCAL
-       // } finally {
-           // bat """
-           // if exist allure-results\\*.xml (
-                //xcopy /Y /S allure-results\\*.xml C:\\home\\workspace\\GC_Cypress_Pipeline\\allure-results\\
-           // ) else (
-                //echo "No se encontraron archivos .xml en allure-results."
-            //)
-           // """
-        //}
-
-        //RUTA SERVER - ELINPAR
-       } finally {
+        } finally {
             bat """
             if exist allure-results\\*.xml (
                 xcopy /Y /S allure-results\\*.xml C:\\home\\workspace\\GC_Cypress_Pipeline\\allure-results\\
@@ -138,5 +127,16 @@ def runCypressTests(allureStashName) {
             )
             """
         }
+
+        //RUTA SERVER - ELINPAR
+       //} finally {
+            //bat """
+            //if exist allure-results\\*.xml (
+                //xcopy /Y /S allure-results\\*.xml C:\\home\\workspace\\GC_Cypress_Pipeline\\allure-results\\
+            //) else (
+                //echo "No se encontraron archivos .xml en allure-results."
+            //)
+            //"""
+        //}
     }
 }
