@@ -5,24 +5,18 @@ pipeline {
         nodejs "node" 
     }
 
-    //stages {
-        //stage('Instalación de Cypress') {
-            //steps {
-                //script {
-                    //bat 'npx cypress install --force'
-                //}
-           // }
-       // }
+    stages {
         stage('Run PDF.bat') {
             steps {
                 script {
-                    //RUTA LOCAL 
-                    //bat 'C:\\Users\\Lmarquez\\Desktop\\DescargaPDF-ATPRIMARIA\\PDF.bat'
-                    //RUTA SERVER - ELINPAR
+                    // RUTA LOCAL 
+                    // bat 'C:\\Users\\Lmarquez\\Desktop\\DescargaPDF-ATPRIMARIA\\PDF.bat'
+                    // RUTA SERVER - ELINPAR
                     bat 'C:\\home\\workspace\\DescargaPDF-ATPRIMARIA\\PDF.bat'
                 }
             }
         }
+
         stage('Cypress Parallel Test Suite') {
             parallel {
                 stage('Slave 1') {
@@ -91,6 +85,7 @@ pipeline {
                 }
             }
         }
+    }
         //stage('Generar y Abrir Reporte Allure') {
             //steps {
                 //script {
