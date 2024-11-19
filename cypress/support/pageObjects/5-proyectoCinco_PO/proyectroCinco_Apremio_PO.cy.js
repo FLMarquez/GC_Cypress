@@ -46,8 +46,9 @@ class ProyectoCinco_Apremio_PO{
     cy.wait(6000)
 
     cy.frameLoaded({ index: 0 })
+    cy.iframe().find('#vOTPID', { timeout: 10000 }).should('exist');
     cy.iframe().find('#vOTPID').select(objeto);
-    cy.iframe().find('#BUTTON1').click();
+    cy.iframe().find('#BUTTON1').should('be.visible').click();
     
         
       }
