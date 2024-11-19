@@ -13,16 +13,16 @@ pipeline {
                 }
             }
         }
-        stage('Run PDF.bat') {
-            steps {
-                script {
+        //stage('Run PDF.bat') {
+            //steps {
+                //script {
                     //RUTA LOCAL 
                     //bat 'C:\\Users\\Lmarquez\\Desktop\\DescargaPDF-ATPRIMARIA\\PDF.bat'
                     //RUTA SERVER - ELINPAR
-                    bat 'C:\\jenkins_agent\\workspace\\DescargaPDF-ATPRIMARIA'
-                }
-            }
-        }
+                    //bat 'C:\\jenkins_agent\\workspace\\DescargaPDF-ATPRIMARIA'
+                //}
+            //}
+        //}
         stage('Cypress Parallel Test Suite') {
             parallel {
                 stage('Slave 1') {
@@ -134,14 +134,14 @@ def runCypressTests(allureStashName) {
         //}
 
         //RUTA SERVER - ELINPAR
-        } finally {
-            bat """
-            if exist allure-results\\*.xml (
-                xcopy /Y /S allure-results\\*.xml C:\\home\\workspace\\GC_Cypress_Pipeline\\allure-results\\
-            ) else (
-                echo "No se encontraron archivos .xml en allure-results."
-            )
-            """
-        }
+       // } finally {
+           // bat """
+          //  if exist allure-results\\*.xml (
+              //  xcopy /Y /S allure-results\\*.xml C:\\home\\workspace\\GC_Cypress_Pipeline\\allure-results\\
+           // ) else (
+              //  echo "No se encontraron archivos .xml en allure-results."
+            //)
+           // """
+        //}
     }
 }
