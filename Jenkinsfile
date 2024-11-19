@@ -5,14 +5,14 @@ pipeline {
         nodejs "node" 
     }
 
-    stages {
-        stage('Instalación de Cypress') {
-            steps {
-                script {
-                    bat 'npx cypress install --force'
-                }
-            }
-        }
+    //stages {
+        //stage('Instalación de Cypress') {
+            //steps {
+                //script {
+                    //bat 'npx cypress install --force'
+                //}
+           // }
+       // }
         //stage('Run PDF.bat') {
             //steps {
                 //script {
@@ -101,7 +101,7 @@ pipeline {
             //}
         //}
     }
-}
+//}
 
 // Función para correr las pruebas de Cypress
 def runCypressTests(allureStashName) {
