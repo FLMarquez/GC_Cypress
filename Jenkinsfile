@@ -9,7 +9,7 @@ pipeline {
         stage('Instalación de Cypress') {
             steps {
                 script {
-                    bat 'npx cypress install'
+                    bat 'npx cypress install --force'
                 }
             }
         }
@@ -142,6 +142,6 @@ def runCypressTests(allureStashName) {
               //  echo "No se encontraron archivos .xml en allure-results."
             //)
            // """
-        //}
+        }
     }
 }
