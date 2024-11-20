@@ -6,6 +6,16 @@ pipeline {
     }
 
     stages {
+        stage('Install Dependencies') {
+            steps {
+                script {
+                    // Instala las dependencias necesarias y Cypress
+                    bat 'npm install'
+                    bat 'npx cypress install'
+                }
+            }
+        }
+
         stage('Run PDF.bat') {
             steps {
                 script {
@@ -86,25 +96,12 @@ pipeline {
             }
         }
     }
-        //stage('Generar y Abrir Reporte Allure') {
-            //steps {
-                //script {
-                    //bat """
-                    //cd C:\\home\\workspace\\GC_Cypress_Pipeline && allure generate allure-results --clean -o allure-report && allure open allure-report
-                   // """
-               // }
-            //}
-        //}
-    }
-//}
+}
 
 // Función para correr las pruebas de Cypress
 def runCypressTests(allureStashName) {
     script {
         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
-        
-        // Instalación de Cypress antes de ejecutar las pruebas
-        bat 'npx cypress install'
         
         try {
             def exitCode = bat(script: 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true --config-file cypress.config.js --headless', returnStatus: true)
@@ -117,19 +114,7 @@ def runCypressTests(allureStashName) {
         } catch (e) {
             echo "Error durante la ejecución de Cypress: ${e.message}"
             currentBuild.result = 'UNSTABLE'
-            //RUTA LOCAL
-       // } finally {
-           // bat """
-           // if exist allure-results\\*.xml (
-              //  xcopy /Y /S allure-results\\*.xml C:\\home\\workspace\\GC_Cypress_Pipeline\\allure-results\\
-         //   ) else (
-              //  echo "No se encontraron archivos .xml en allure-results."
-            //)
-            //"""
-        //}
-
-        //RUTA SERVER - ELINPAR
-       } finally {
+        } finally {
             bat """
             if exist allure-results\\*.xml (
                 xcopy /Y /S allure-results\\*.xml C:\\home\\workspace\\GC_Cypress_Pipeline\\allure-results\\
@@ -140,3 +125,4 @@ def runCypressTests(allureStashName) {
         }
     }
 }
+
