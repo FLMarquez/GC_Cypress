@@ -4,7 +4,7 @@ describe('Test de extracción de texto de PDF', () => {
     it('Extrae texto de un archivo PDF y valida', () => {
         // Usa la ruta absoluta directamente
         //RUTA LOCAL
-        /const pdfFilePath = 'C:\\home\\workspace\\GODOYCRUZ\\aadeudacontadosellados2_impl.pdf';
+        //const pdfFilePath = 'C:\\home\\workspace\\GODOYCRUZ\\aadeudacontadosellados2_impl.pdf';
         //RUTA SERVER - ELINPAR
         const pdfFilePath = 'C:\\home\\workspace\\GODOYCRUZ\\aadeudacontadosellados2_impl.pdf';
        
