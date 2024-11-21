@@ -10,8 +10,8 @@ pipeline {
             steps {
                 script {
                     // Instala las dependencias necesarias y Cypress
-                    bat 'npm install'
-                    bat 'npx cypress install --force'
+                    //bat 'npm install'
+                    //bat 'npx cypress install --force'
                 }
             }
         }
