@@ -96,7 +96,7 @@ pipeline {
             }
         }
     }
-}
+
 
 // Función para correr las pruebas de Cypress
 def runCypressTests(allureStashName) {
