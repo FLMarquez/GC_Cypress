@@ -15,7 +15,7 @@ pipeline {
                 //}
             //}
         //}
-
+    stages {
         stage('Run PDF.bat') {
             steps {
                 script {
@@ -96,7 +96,7 @@ pipeline {
             }
         }
     }
-
+}
 
 // Función para correr las pruebas de Cypress
 def runCypressTests(allureStashName) {
