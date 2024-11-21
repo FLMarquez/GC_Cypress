@@ -5,16 +5,16 @@ pipeline {
         nodejs "node" 
     }
 
-    stages {
-        stage('Install Dependencies') {
-            steps {
-                script {
+    //stages {
+        //stage('Install Dependencies') {
+            //steps {
+                //script {
                     // Instala las dependencias necesarias y Cypress
                     //bat 'npm install'
                     //bat 'npx cypress install --force'
-                }
-            }
-        }
+                //}
+            //}
+        //}
 
         stage('Run PDF.bat') {
             steps {
