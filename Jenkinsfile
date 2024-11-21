@@ -20,9 +20,9 @@ pipeline {
             steps {
                 script {
                     // RUTA LOCAL 
-                    bat 'C:\\Users\\Lmarquez\\Desktop\\DescargaPDF-ATPRIMARIA\\PDF.bat'
+                    //bat 'C:\\Users\\Lmarquez\\Desktop\\DescargaPDF-ATPRIMARIA\\PDF.bat'
                     // RUTA SERVER - ELINPAR
-                    //bat 'C:\\home\\workspace\\DescargaPDF-ATPRIMARIA\\PDF.bat'
+                    bat 'C:\\home\\workspace\\DescargaPDF-ATPRIMARIA\\PDF.bat'
                 }
             }
         }
