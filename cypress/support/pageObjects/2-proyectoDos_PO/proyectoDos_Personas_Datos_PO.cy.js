@@ -80,7 +80,8 @@ class ProyectoDos_Personas_Datos_Po{
           //cy.get('div.toast-message').should('be.visible', { timeout: 8000 }).contains('La personas fisicas SLAMOVITS fue actualizada', { timeout: 20000 });
 
         });
-
+        cy.get('div.toast-message').invoke('show')
+        cy.get('div.toast-message').should('exist');
         cy.get('div.toast-message', { timeout: 20000 }).should('be.visible').contains('La personas fisicas SLAMOVITS fue actualizada');
 
 
