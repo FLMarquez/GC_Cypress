@@ -29,9 +29,9 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       //RUTA LOCAL
-      const downloadsPath = config.env.downloadsFolder || 'C:\\home\\workspace\\GODOYCRUZ';
-      //RUTA SERVER - ELINPAR
       //const downloadsPath = config.env.downloadsFolder || 'C:\\home\\workspace\\GODOYCRUZ';
+      //RUTA SERVER - ELINPAR
+      const downloadsPath = config.env.downloadsFolder || 'C:\\home\\workspace\\GODOYCRUZ';
       allureWriter(on, config);
 
       // Registrar las tareas
@@ -96,9 +96,9 @@ module.exports = defineConfig({
     baseUrl: 'https://test.elinpar.com',
     env: {
       //RUTA LOCAL
-      downloadsFolder: 'C:\\home\\workspace\\GODOYCRUZ',
-      //RUTA SERVER - ELINPAR
       //downloadsFolder: 'C:\\home\\workspace\\GODOYCRUZ',
+      //RUTA SERVER - ELINPAR
+      downloadsFolder: 'C:\\home\\workspace\\GODOYCRUZ',
     }
   }
 });
