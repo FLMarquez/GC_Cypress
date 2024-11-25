@@ -75,19 +75,21 @@ class ProyectoDos_Personas_Datos_Po{
           .xpath("//input[contains(@id,'ENTER')]").should('be.visible', { timeout: 8000 }).click({ force: true });
   
 
-          cy.wait(5000)
+          //cy.wait(5000)
           //cy.wrap($iframe)
           //cy.get('div.toast-message').should('be.visible', { timeout: 8000 }).contains('La personas fisicas SLAMOVITS fue actualizada', { timeout: 20000 });
 
         });
-        cy.get('div.toast-message').invoke('show')
-        cy.get('div.toast-message').should('exist');
-        cy.get('div.toast-message', { timeout: 20000 }).invoke('show').contains('La personas fisicas SLAMOVITS fue actualizada');
+        //cy.get('div.toast-message').invoke('show')
+        //cy.get('div.toast-message').should('exist');
+        cy.get('div.toast-message', { timeout: 25000 })
+        .should('be.visible')
+        .invoke('show')
+        .contains('La personas fisicas SLAMOVITS fue actualizada');
 
 
-       
-      });      
-                   
+      });
+          
         
                 
     }
