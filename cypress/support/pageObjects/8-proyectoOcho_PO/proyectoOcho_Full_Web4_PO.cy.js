@@ -334,7 +334,7 @@ SeccionVeintinueve(t){
       cy.xpath("//a[contains(.,'ABM Tipo Adjuntos')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
       cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Tipo Adjuntos')]").should('be.visible', { timeout: 5000 }).contains('Tipo Adjuntos')
+        cy.xpath("//span[contains(.,'Tipo Adjuntos')]").should('exist').and('be.visible').contains('Tipo Adjuntos')
       cy.wait(tiempo)
     });
 
