@@ -27,4 +27,7 @@ rem Generar y abrir reporte de Allure
 call allure generate allure-results --clean -o allure-report
 call allure open allure-report
 
+
 pause
+
+
