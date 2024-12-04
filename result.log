@@ -1,0 +1,455 @@
+
+
+DevTools listening on ws://127.0.0.1:53437/devtools/browser/25a6b92e-524f-4f18-a5f9-9cd8e0289a6d
+Warning: We failed to remove old browser profiles from previous runs.
+
+This error will not affect or change the exit code.
+
+Error: EBUSY: resource busy or locked, unlink 'C:\Users\Lmarquez\AppData\Roaming\Cypress\cy\production\browsers\firefox-stable\run-29764\rust_mozprofileBDaPkT\favicons.sqlite'
+
+====================================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        13.16.0                                                                        │
+  │ Browser:        Chrome 128 (headless)                                                          │
+  │ Node Version:   v22.9.0 (C:\Program Files\nodejs\node.exe)                                     │
+  │ Specs:          15 found (1-Loguin/1-Login_GC_PO.cy.js, 2-Personas/1-Personas_Valida_Pantalla. │
+  │                 cy.js, 2-Personas/2-Personas_Actualizacion_Datos.cy.js, 2-Personas/3-Personas_ │
+  │                 Crear_Nuevo_Domicilio.cy.js, 3-Objetos/1-Objetos_Validar_Pantalla.cy.js, 4-Ate │
+  │                 ncion Primaria/2-Lectur...)                                                    │
+  │ Searched:       C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress\e2e\1-Loguin\1-Login_GC_PO. │
+  │                 cy.js, C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress\e2e\2-Personas\1-Per │
+  │                 sonas_Valida_Pantalla.cy.js, C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypres │
+  │                 s\e2e\2-Personas\2-Personas_Actualizacion_Datos.cy.js, C:\Users\Lmarquez\Deskt │
+  │                 op\GodoyCuz_Cypress\cypress\e2e\2-Personas\3-Personas_Crear_Nuevo_Domicilio.cy │
+  │                 .js, C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress\e2e\3-Objetos\1-Objeto │
+  │                 s_Validar_Pantalla.cy.js, C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress\e │
+  │                 2e\4-Atencion Primaria\2-Lectura-PDF.cy.js, C:\Users\Lmarquez\Desktop\GodoyCuz │
+  │                 _Cypress\cypress\e2e\5-Apremio\1-Apremio.cy.js, C:\Users\Lmarquez\Desktop\Godo │
+  │                 yCuz_Cypress\cypress\e2e\6-Juzgado_Faltas\1-Juzgado_Falta.cy.js, C:\Users\Lmar │
+  │                 quez\Desktop\GodoyCuz_Cypress\cypress\e2e\7-Emision_Tasas\1-Emision_Tasas.cy.j │
+  │                 s, C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress\e2e\8-Ingreso Full Web\1 │
+  │                 -Ingreso_Full_Web1_1.cy.js, C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress │
+  │                 \e2e\8-Ingreso Full Web\1-Ingreso_Full_Web1_2.cy.js, C:\Users\Lmarquez\Desktop │
+  │                 \GodoyCuz_Cypress\cypress\e2e\8-Ingreso Full Web\1-Ingreso_Full_Web2.cy.js, C: │
+  │                 \Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress\e2e\8-Ingreso Full Web\1-Ingr │
+  │                 eso_Full_Web3_1.cy.js, C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress\e2e\ │
+  │                 8-Ingreso Full Web\1-Ingreso_Full_Web3_2.cy.js, C:\Users\Lmarquez\Desktop\Godo │
+  │                 yCuz_Cypress\cypress\e2e\8-Ingreso Full Web\1-Ingreso_Full_Web4.cy.js          │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  1-Loguin/1-Login_GC_PO.cy.js                                                   (1 of 15)
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        6                                                                                │
+  │ Passing:      6                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     20 seconds                                                                       │
+  │ Spec Ran:     1-Loguin/1-Login_GC_PO.cy.js                                                     │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Video output: C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress\videos\1-Loguin\1-Login_GC_PO.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  2-Personas/1-Personas_Valida_Pantalla.cy.js                                    (2 of 15)
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        1                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     1 minute, 14 seconds                                                             │
+  │ Spec Ran:     2-Personas/1-Personas_Valida_Pantalla.cy.js                                      │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Video output: C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress\videos\2-Personas\1-Personas_Valida_Pantalla.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  2-Personas/2-Personas_Actualizacion_Datos.cy.js                                (3 of 15)
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        1                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     30 seconds                                                                       │
+  │ Spec Ran:     2-Personas/2-Personas_Actualizacion_Datos.cy.js                                  │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Video output: C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress\videos\2-Personas\2-Personas_Actualizacion_Datos.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  2-Personas/3-Personas_Crear_Nuevo_Domicilio.cy.js                              (4 of 15)
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        1                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     1 minute, 48 seconds                                                             │
+  │ Spec Ran:     2-Personas/3-Personas_Crear_Nuevo_Domicilio.cy.js                                │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Video output: C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress\videos\2-Personas\3-Personas_Crear_Nuevo_Domicilio.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  3-Objetos/1-Objetos_Validar_Pantalla.cy.js                                     (5 of 15)
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        1                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     15 seconds                                                                       │
+  │ Spec Ran:     3-Objetos/1-Objetos_Validar_Pantalla.cy.js                                       │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Video output: C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress\videos\3-Objetos\1-Objetos_Validar_Pantalla.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  4-Atencion Primaria/2-Lectura-PDF.cy.js                                        (6 of 15)
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        1                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     0 seconds                                                                        │
+  │ Spec Ran:     4-Atencion Primaria/2-Lectura-PDF.cy.js                                          │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Video output: C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress\videos\4-Atencion Primaria\2-Lectura-PDF.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  5-Apremio/1-Apremio.cy.js                                                      (7 of 15)
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        1                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     16 seconds                                                                       │
+  │ Spec Ran:     5-Apremio/1-Apremio.cy.js                                                        │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Video output: C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress\videos\5-Apremio\1-Apremio.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  6-Juzgado_Faltas/1-Juzgado_Falta.cy.js                                         (8 of 15)
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        1                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     19 seconds                                                                       │
+  │ Spec Ran:     6-Juzgado_Faltas/1-Juzgado_Falta.cy.js                                           │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Video output: C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress\videos\6-Juzgado_Faltas\1-Juzgado_Falta.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  7-Emision_Tasas/1-Emision_Tasas.cy.js                                          (9 of 15)
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        1                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     40 seconds                                                                       │
+  │ Spec Ran:     7-Emision_Tasas/1-Emision_Tasas.cy.js                                            │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Video output: C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress\videos\7-Emision_Tasas\1-Emision_Tasas.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  8-Ingreso Full Web/1-Ingreso_Full_Web1_1.cy.js                                (10 of 15)
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        1                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     4 minutes, 22 seconds                                                            │
+  │ Spec Ran:     8-Ingreso Full Web/1-Ingreso_Full_Web1_1.cy.js                                   │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Video output: C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress\videos\8-Ingreso Full Web\1-Ingreso_Full_Web1_1.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  8-Ingreso Full Web/1-Ingreso_Full_Web1_2.cy.js                                (11 of 15)
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        1                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     2 minutes, 7 seconds                                                             │
+  │ Spec Ran:     8-Ingreso Full Web/1-Ingreso_Full_Web1_2.cy.js                                   │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Video output: C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress\videos\8-Ingreso Full Web\1-Ingreso_Full_Web1_2.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  8-Ingreso Full Web/1-Ingreso_Full_Web2.cy.js                                  (12 of 15)
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        1                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     4 minutes, 6 seconds                                                             │
+  │ Spec Ran:     8-Ingreso Full Web/1-Ingreso_Full_Web2.cy.js                                     │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Video output: C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress\videos\8-Ingreso Full Web\1-Ingreso_Full_Web2.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  8-Ingreso Full Web/1-Ingreso_Full_Web3_1.cy.js                                (13 of 15)
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        1                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     6 minutes, 37 seconds                                                            │
+  │ Spec Ran:     8-Ingreso Full Web/1-Ingreso_Full_Web3_1.cy.js                                   │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Video output: C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress\videos\8-Ingreso Full Web\1-Ingreso_Full_Web3_1.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  8-Ingreso Full Web/1-Ingreso_Full_Web3_2.cy.js                                (14 of 15)
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        1                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     1 minute, 47 seconds                                                             │
+  │ Spec Ran:     8-Ingreso Full Web/1-Ingreso_Full_Web3_2.cy.js                                   │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Video output: C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress\videos\8-Ingreso Full Web\1-Ingreso_Full_Web3_2.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  8-Ingreso Full Web/1-Ingreso_Full_Web4.cy.js                                  (15 of 15)
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        1                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     3 minutes, 20 seconds                                                            │
+  │ Spec Ran:     8-Ingreso Full Web/1-Ingreso_Full_Web4.cy.js                                     │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Video output: C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress\videos\8-Ingreso Full Web\1-Ingreso_Full_Web4.cy.js.mp4
+
+
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ √  1-Loguin/1-Login_GC_PO.cy.js             00:20        6        6        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ √  2-Personas/1-Personas_Valida_Pantal      01:14        1        1        -        -        - │
+  │    la.cy.js                                                                                    │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ √  2-Personas/2-Personas_Actualizacion      00:30        1        1        -        -        - │
+  │    _Datos.cy.js                                                                                │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ √  2-Personas/3-Personas_Crear_Nuevo_D      01:48        1        1        -        -        - │
+  │    omicilio.cy.js                                                                              │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ √  3-Objetos/1-Objetos_Validar_Pantall      00:15        1        1        -        -        - │
+  │    a.cy.js                                                                                     │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ √  4-Atencion Primaria/2-Lectura-PDF.c      588ms        1        1        -        -        - │
+  │    y.js                                                                                        │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ √  5-Apremio/1-Apremio.cy.js                00:16        1        1        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ √  6-Juzgado_Faltas/1-Juzgado_Falta.cy      00:19        1        1        -        -        - │
+  │    .js                                                                                         │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ √  7-Emision_Tasas/1-Emision_Tasas.cy.      00:40        1        1        -        -        - │
+  │    js                                                                                          │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ √  8-Ingreso Full Web/1-Ingreso_Full_W      04:22        1        1        -        -        - │
+  │    eb1_1.cy.js                                                                                 │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ √  8-Ingreso Full Web/1-Ingreso_Full_W      02:07        1        1        -        -        - │
+  │    eb1_2.cy.js                                                                                 │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ √  8-Ingreso Full Web/1-Ingreso_Full_W      04:06        1        1        -        -        - │
+  │    eb2.cy.js                                                                                   │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ √  8-Ingreso Full Web/1-Ingreso_Full_W      06:37        1        1        -        -        - │
+  │    eb3_1.cy.js                                                                                 │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ √  8-Ingreso Full Web/1-Ingreso_Full_W      01:47        1        1        -        -        - │
+  │    eb3_2.cy.js                                                                                 │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ √  8-Ingreso Full Web/1-Ingreso_Full_W      03:20        1        1        -        -        - │
+  │    eb4.cy.js                                                                                   │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    √  All specs passed!                        27:48       20       20        -        -        -  
+

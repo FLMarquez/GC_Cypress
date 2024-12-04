@@ -1,0 +1,22 @@
+CORRER SCRIPT CYPRESS DESDE CMD
+
+1- Instalar Node.js y las siguientes dependencias:
+
+
+npm install
+npm install cypress --save-dev
+npm install cypress-downloadfile
+npm install -D cypress-xpath
+npm install pdf-parse
+npm install --save-dev cypress-downloadfile
+npm install allure-commandline --save-dev
+npm install --save-dev @shelex/cypress-allure-plugin
+npm install mocha-allure-reporter --save-dev
+npm install cypress@latest
+npx cypress install
+
+
+2- Descomprimir el archivo .rar (en el escritorio)
+3- Dentro del Archivo descomprimido, abrir CMD y colocar npm install y dar enter
+4- Abrir CMD en donde se encuentra descargado el proyecto GodoyCuz_Cypress y ejecutar run_test_godoycruz_telegram_status.bat
+5- Al finalizar se abrirá el reporte ALLURE con el resultado y se enviará por Telegram el resultado OK/NOK según corresponda
