@@ -6,12 +6,12 @@ pipeline {
     }
 
     stages {
-        //stage('Clean Workspace and Checkout') {
-            //steps {
-                //cleanWs()  // Limpia el espacio de trabajo antes de comenzar
-                //checkout scm  // Realiza un checkout del repositorio
-            //}
-        //}
+        stage('Clean Workspace and Checkout') {
+            steps {
+                cleanWs()  // Limpia el espacio de trabajo antes de comenzar
+                checkout scm  // Realiza un checkout del repositorio
+            }
+        }
 //prueba
         stage('Install Dependencies') {
             steps {
