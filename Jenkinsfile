@@ -12,7 +12,7 @@ pipeline {
                 checkout scm  // Realiza un checkout del repositorio
             }
         }
-
+//prueba
         stage('Install Dependencies') {
             steps {
                 script {
