@@ -13,15 +13,16 @@
   "license": "ISC",
   "devDependencies": {
     "@shelex/cypress-allure-plugin": "^2.40.2",
-    "allure-commandline": "^2.30.0",
+    "allure-commandline": "^2.32.0",
     "allure-cypress": "^3.0.0",
     "cross-spawn": "^7.0.6",
-    "cypress": "^13.16.0",
+    "cypress": "^13.16.1",
     "cypress-downloadfile": "^1.2.4",
     "cypress-iframe": "^1.0.1",
     "cypress-markdown-preprocessor": "^1.10.13",
     "cypress-multi-reporters": "^1.6.4",
     "cypress-xpath": "^2.0.1",
+    "ffmpeg-static": "^5.2.0",
     "mocha": "^10.7.3",
     "mocha-allure-reporter": "^1.4.0"
   },
