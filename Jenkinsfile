@@ -12,6 +12,28 @@ pipeline {
             }
         }
 
+        stage('Clean Jenkins Workspace') {
+            steps {
+                cleanWs() // Limpia el workspace de Jenkins
+            }
+        }
+
+        stage('Clean Cypress Cache') {
+            steps {
+                script {
+                    cleanDirectory('%USERPROFILE%\\AppData\\Roaming\\Cypress')
+                }
+            }
+        }
+
+        stage('Clean Firefox Profiles') {
+            steps {
+                script {
+                    cleanDirectory('%USERPROFILE%\\AppData\\Roaming\\Mozilla\\Firefox')
+                }
+            }
+        }
+
         stage('Checkout Code') {
             steps {
                 checkout scm // Realiza un checkout del repositorio
@@ -108,12 +130,15 @@ pipeline {
     }
 }
 
+// Función para limpiar directorios
+def cleanDirectory(path) {
+    bat "rmdir /S /Q ${path} || echo 'No directory found at ${path}'"
+}
+
 // Función para correr las pruebas de Cypress
 def runCypressTests(allureStashName) {
     script {
-        // Clona el repositorio
-        git url: 'https://github.com/FLMarquez/GC_Cypress.git'
-        
+        git url: 'https://github.com/FLMarquez/GC_Cypress.git' // Clona el repositorio
         try {
             // Ejecuta las pruebas de Cypress
             def exitCode = bat(script: 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true --config-file cypress.config.js --headless', returnStatus: true)
@@ -138,3 +163,4 @@ def runCypressTests(allureStashName) {
         }
     }
 }
+
