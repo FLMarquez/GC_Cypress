@@ -6,21 +6,23 @@ pipeline {
     }
 
     stages {
-        stage('Clean Workspace and Checkout') {
+        stage('Clean Workspace') {
             steps {
-                cleanWs()  // Limpia el espacio de trabajo antes de comenzar
-                checkout scm  // Realiza un checkout del repositorio
+                deleteDir() // Limpia todo el contenido del workspace
             }
         }
-//prueba
+
+        stage('Checkout Code') {
+            steps {
+                checkout scm // Realiza un checkout del repositorio
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
                 script {
                     // Instala las dependencias necesarias y Cypress
                     bat 'npm install'
-                    //bat 'npm audit fix'
-                    //bat 'npm install cross-spawn@latest --save-dev'
-                    //bat 'npm audit'
                     bat 'npx cypress install --force'
                 }
             }
@@ -29,10 +31,8 @@ pipeline {
         stage('Run PDF.bat') {
             steps {
                 script {
-                    // RUTA LOCAL 
+                    // Ejecuta el script para descargar PDFs
                     bat 'C:\\home\\workspace\\DescargaPDF-ATPRIMARIA\\PDF.bat'
-                    // RUTA SERVER - ELINPAR
-                    //bat 'C:\\home\\workspace\\DescargaPDF-ATPRIMARIA\\PDF.bat'
                 }
             }
         }
