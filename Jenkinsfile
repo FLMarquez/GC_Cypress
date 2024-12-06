@@ -6,6 +6,13 @@ pipeline {
     }
 
     stages {
+        stage('Clean Workspace and Checkout') {
+            steps {
+                cleanWs()  // Limpia el espacio de trabajo antes de comenzar
+                checkout scm  // Realiza un checkout del repositorio
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
                 script {
@@ -18,7 +25,7 @@ pipeline {
                 }
             }
         }
-   
+
         stage('Run PDF.bat') {
             steps {
                 script {
@@ -104,9 +111,11 @@ pipeline {
 // Función para correr las pruebas de Cypress
 def runCypressTests(allureStashName) {
     script {
+        // Clona el repositorio
         git url: 'https://github.com/FLMarquez/GC_Cypress.git'
         
         try {
+            // Ejecuta las pruebas de Cypress
             def exitCode = bat(script: 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true --config-file cypress.config.js --headless', returnStatus: true)
             if (exitCode != 0) {
                 currentBuild.result = 'UNSTABLE'
@@ -118,6 +127,7 @@ def runCypressTests(allureStashName) {
             echo "Error durante la ejecución de Cypress: ${e.message}"
             currentBuild.result = 'UNSTABLE'
         } finally {
+            // Mueve los resultados de las pruebas a la ubicación central
             bat """
             if exist allure-results\\*.xml (
                 xcopy /Y /S allure-results\\*.xml C:\\home\\workspace\\GC_Cypress_Pipeline\\allure-results\\
@@ -128,4 +138,3 @@ def runCypressTests(allureStashName) {
         }
     }
 }
-
