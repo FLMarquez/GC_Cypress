@@ -16,7 +16,7 @@
     "allure-commandline": "^2.32.0",
     "allure-cypress": "^3.0.0",
     "cross-spawn": "^7.0.6",
-    "cypress": "^13.16.1",
+    "cypress": "^13.16.0",
     "cypress-downloadfile": "^1.2.4",
     "cypress-iframe": "^1.0.1",
     "cypress-markdown-preprocessor": "^1.10.13",
