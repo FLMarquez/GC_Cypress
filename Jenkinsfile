@@ -6,55 +6,26 @@ pipeline {
     }
 
     stages {
-        stage('Clean Workspace') {
-            steps {
-                deleteDir() // Limpia todo el contenido del workspace
-            }
-        }
-
-        stage('Clean Jenkins Workspace') {
-            steps {
-                cleanWs() // Limpia el workspace de Jenkins
-            }
-        }
-
-        stage('Clean Cypress Cache') {
-            steps {
-                script {
-                    cleanDirectory('%USERPROFILE%\\AppData\\Roaming\\Cypress')
-                }
-            }
-        }
-
-        stage('Clean Firefox Profiles') {
-            steps {
-                script {
-                    cleanDirectory('%USERPROFILE%\\AppData\\Roaming\\Mozilla\\Firefox')
-                }
-            }
-        }
-
-        stage('Checkout Code') {
-            steps {
-                checkout scm // Realiza un checkout del repositorio
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
                 script {
                     // Instala las dependencias necesarias y Cypress
                     bat 'npm install'
+                    //bat 'npm audit fix'
+                    //bat 'npm install cross-spawn@latest --save-dev'
+                    //bat 'npm audit'
                     bat 'npx cypress install --force'
                 }
             }
         }
-
+   
         stage('Run PDF.bat') {
             steps {
                 script {
-                    // Ejecuta el script para descargar PDFs
+                    // RUTA LOCAL 
                     bat 'C:\\home\\workspace\\DescargaPDF-ATPRIMARIA\\PDF.bat'
+                    // RUTA SERVER - ELINPAR
+                    //bat 'C:\\home\\workspace\\DescargaPDF-ATPRIMARIA\\PDF.bat'
                 }
             }
         }
@@ -130,17 +101,12 @@ pipeline {
     }
 }
 
-// Función para limpiar directorios
-def cleanDirectory(path) {
-    bat "rmdir /S /Q ${path} || echo 'No directory found at ${path}'"
-}
-
 // Función para correr las pruebas de Cypress
 def runCypressTests(allureStashName) {
     script {
-        git url: 'https://github.com/FLMarquez/GC_Cypress.git' // Clona el repositorio
+        git url: 'https://github.com/FLMarquez/GC_Cypress.git'
+        
         try {
-            // Ejecuta las pruebas de Cypress
             def exitCode = bat(script: 'npx cypress run --record --key 53c9cb4d-fb97-4a4a-9dc6-9f74ea47dd16 --browser chrome --parallel --env allure=true --config-file cypress.config.js --headless', returnStatus: true)
             if (exitCode != 0) {
                 currentBuild.result = 'UNSTABLE'
@@ -152,7 +118,6 @@ def runCypressTests(allureStashName) {
             echo "Error durante la ejecución de Cypress: ${e.message}"
             currentBuild.result = 'UNSTABLE'
         } finally {
-            // Mueve los resultados de las pruebas a la ubicación central
             bat """
             if exist allure-results\\*.xml (
                 xcopy /Y /S allure-results\\*.xml C:\\home\\workspace\\GC_Cypress_Pipeline\\allure-results\\
