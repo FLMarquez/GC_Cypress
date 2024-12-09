@@ -6,49 +6,49 @@ pipeline {
     }
 
     stages {
-        stage('Clean Workspace') {
-            steps {
-                deleteDir() // Limpia todo el contenido del workspace
-            }
-        }
+        //stage('Clean Workspace') {
+           // steps {
+              //  deleteDir() // Limpia todo el contenido del workspace
+           // }
+       // }
 
-        stage('Clean Jenkins Workspace') {
-            steps {
-                cleanWs() // Limpia el workspace de Jenkins
-            }
-        }
+        //stage('Clean Jenkins Workspace') {
+            //steps {
+               // cleanWs() // Limpia el workspace de Jenkins
+          // }
+       // }
 
-        stage('Clean Cypress Cache') {
-            steps {
-                script {
-                    cleanDirectory('%USERPROFILE%\\AppData\\Roaming\\Cypress')
-                }
-            }
-        }
+       // stage('Clean Cypress Cache') {
+            //steps {
+               // script {
+              //      cleanDirectory('%USERPROFILE%\\AppData\\Roaming\\Cypress')
+              //  }
+          //  }
+       // }
 
-        stage('Clean Firefox Profiles') {
-            steps {
-                script {
-                    cleanDirectory('%USERPROFILE%\\AppData\\Roaming\\Mozilla\\Firefox')
-                }
-            }
-        }
+      //  stage('Clean Firefox Profiles') {
+           // steps {
+              //  script {
+               //     cleanDirectory('%USERPROFILE%\\AppData\\Roaming\\Mozilla\\Firefox')
+               // }
+          //  }
+      //  }
 
-        stage('Checkout Code') {
-            steps {
-                checkout scm // Realiza un checkout del repositorio
-            }
-        }
+        //stage('Checkout Code') {
+           //steps {
+                //checkout scm // Realiza un checkout del repositorio
+           // }
+      //  }
 
-        stage('Install Dependencies') {
-            steps {
-                script {
+        //stage('Install Dependencies') {
+           // steps {
+               // script {
                     // Instala las dependencias necesarias y Cypress
-                    bat 'npm install'
-                    bat 'npx cypress install --force'
-                }
-            }
-        }
+                  //  bat 'npm install'
+                  //  bat 'npx cypress install --force'
+              //  }
+           // }
+        //}
 
         stage('Run PDF.bat') {
             steps {
@@ -59,14 +59,14 @@ pipeline {
             }
         }
 
-        stage('Run test_cmd_telegram_allure.bat') {
-            steps {
-                script {
+        //stage('Run test_cmd_telegram_allure.bat') {
+           // steps {
+            //    script {
                     // Ejecuta el script para Telegram y Allure
-                    bat 'C:\\home\\workspace\\Test_Allure_Telegram\\test_cmd_telegram_allure.bat'
-                }
-            }
-        }
+             //       bat 'C:\\home\\workspace\\Test_Allure_Telegram\\test_cmd_telegram_allure.bat'
+             //   }
+           // }
+     //   }
 
         stage('Cypress Parallel Test Suite') {
             parallel {
