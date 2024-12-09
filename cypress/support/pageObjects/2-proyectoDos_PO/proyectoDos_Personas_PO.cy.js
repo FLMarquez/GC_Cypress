@@ -37,8 +37,8 @@ class ProyectoDos_Po {
     // Navegación por el menú
     cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible").click({ force: true });
     cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-    cy.xpath("(//a[contains(.,'Personas')])[1]").should("be.visible").click({ force: true });
-    cy.xpath("//a[contains(.,'Administración de Personas')]").invoke('show').click({ force: true });
+    cy.contains('a', 'Personas').should("be.visible").click({ force: true });
+    cy.contains('a', 'Administración de Personas').invoke('show').click({ force: true });
 
     // Manejo del iframe
     cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body')
@@ -54,11 +54,12 @@ class ProyectoDos_Po {
         cy.wait(1000);
 
         // Validar y hacer clic en paneles
-        cy.get('#Tab_TABS_TABSCONTROLContainerpanel1', { timeout: 60000 })
-          .should('exist')
-          .and('be.visible')
-          .invoke('show')
-          .click({ force: true });
+        cy.get('#Tab_TABS_TABSCONTROLContainerpanel1')
+        .should('exist') 
+        .and('be.visible') 
+        .invoke('show') 
+        .click({ force: true }); 
+
 
         cy.wait(1000);
         cy.get('#GRIDTITLE_GRID').should("be.visible");

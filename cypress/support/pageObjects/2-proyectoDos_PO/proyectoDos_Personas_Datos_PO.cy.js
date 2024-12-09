@@ -41,10 +41,11 @@ class ProyectoDos_Personas_Datos_Po {
       .should('be.visible')
       .click({ force: true });
 
-    cy.xpath("(//a[contains(.,'Personas')])[1]")
-      .should('be.visible')
+      cy.contains('a', 'Personas')
+      .should("be.visible")
       .click({ force: true });
-    cy.xpath("//a[contains(.,'Administración de Personas')]")
+      
+      cy.contains('a', 'Administración de Personas')
       .invoke('show')
       .click({ force: true });
 
@@ -54,34 +55,44 @@ class ProyectoDos_Personas_Datos_Po {
       .then(cy.wrap)
       .within(() => {
         cy.get('#vK2BTOOLSGENERICSEARCHFIELD').should('be.visible').type(`${cuit}{enter}`);
-        cy.wait(6500);
-        cy.get('#vUPDATE_0001', { timeout: 10000 }).should('exist').click({ force: true });
+        
+        cy.get('#vUPDATE_0001')
+        .should('exist')
+        .invoke('show')
+        .click({ force: true });
 
         cy.iframe('#gxp0_ifrm').should('exist').then(($iframe) => {
           const frame = cy.wrap($iframe);
 
-          frame.xpath("//a[@href='#'][contains(.,'Ver más')]")
-            .should('be.visible')
+          frame.contains('a','Ver más')
+            .should('exist') 
+            .and('be.visible') 
+            .invoke('show') 
             .click({ force: true });
 
           frame.xpath("//input[contains(@id,'PSNCARACTER01')]")
-            .should('be.visible')
+            .should('exist') 
+            .and('be.visible') 
+            .invoke('show') 
             .clear()
             .type(Telefono);
 
           frame.xpath("//input[contains(@id,'PSNCARACTER03')]")
-            .should('be.visible')
+            .should('exist') 
+            .and('be.visible') 
+            .invoke('show') 
             .clear()
             .type(email);
 
           frame.xpath("//input[contains(@id,'ENTER')]")
-            .should('be.visible')
+            .should('exist') 
+            .and('be.visible') 
+            .invoke('show') 
             .click({ force: true });
         });
 
-        cy.get('div.toast-message', { timeout: 25000 })
-          .should('be.visible')
-          .contains('La personas fisicas SLAMOVITS fue actualizada');
+        cy.get('div.toast-message')        
+        .contains('La personas fisicas SLAMOVITS fue actualizada');
       });
   }
 

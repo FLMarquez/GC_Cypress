@@ -46,10 +46,22 @@ class ProyectoDos_Personas_Nuevo_Domicilio_Po {
         let tiempo = t;
 
         // Navegación por el menú
-        cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible").click({ force: true });
-        cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-        cy.xpath("(//a[contains(.,'Personas')])[1]").should("be.visible").click({ force: true });
-        cy.xpath("//a[contains(.,'Administración de Personas')]").invoke('show').click({ force: true });
+        cy.get('[name="BTNTOGGLEMENU_MPAGE"]')
+        .should("be.visible")
+        .click({ force: true });
+
+        cy.get('span.sidebar-nav-item')
+        .should("be.visible")
+        .contains('Tributario Faro')
+        .click({ force: true });
+
+        cy.contains('a', 'Personas')
+        .should("be.visible")
+        .click({ force: true });
+      
+        cy.contains('a', 'Administración de Personas')
+        .invoke('show')
+        .click({ force: true });
 
         // Búsqueda de una persona
         cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
@@ -58,10 +70,17 @@ class ProyectoDos_Personas_Nuevo_Domicilio_Po {
             //cy.wait(5000)
 
             // Esperar y hacer clic en el botón de verificación (vVER_0001)
-            cy.get('#vVER_0001').should('exist').invoke('show').click({ force: true });
-            cy.wait(7000)
-            cy.get('#Tab_TABS_TABSCONTROLContainerpanel1', { timeout: 80000 }).should('be.visible', { timeout: 80000 }).invoke('show').click({ force: true });
-            cy.wait(3000)
+            cy.get('#vVER_0001')
+            .should('exist')
+            .invoke('show')
+            .click({ force: true });
+            
+            // Validar y hacer clic en paneles
+            cy.get('#Tab_TABS_TABSCONTROLContainerpanel1')
+            .should('exist') 
+            .and('be.visible') 
+            .invoke('show') 
+            .click({ force: true }); 
 
             // Verificar que la tabla con ID GRIDTITLE_GRID sea visible
             cy.wait(5000)
