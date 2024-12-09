@@ -1,0 +1,21 @@
+1- INGRESAR A SERVIDOR
+
+GxServer-01
+IP:172.16.114.30
+usr:desarrollo
+pass:D35989.AH
+
+
+2- EJECUTAR TEST
+
+Ingresar a la ruta C:\home\workspace\GC_Cypress
+Hacer clic y ejecutar test_cmd_telegram_allure
+
+
+Una vez finalizada la prueba, verificar Dashboard que se genera con Allure
+
+
+3- EJECUTAR LIMPIEZA DE DATOS
+
+Ingresar a la ruta C:\home\workspace\GC_Cypress
+Hacer clic y ejecutar delete_datos_prueba
