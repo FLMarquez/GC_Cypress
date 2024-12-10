@@ -48,18 +48,40 @@ class proyectoOcho_Full_Web1_2_PO {
 SeccionNueve(t){
   let tiempo=t
   //TASA VARIAS
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("(//a[contains(.,'Tasas Varias')])[2]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'Generar Tasas Varias')]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]')
+      .should('exist') 
+      .and('be.visible') 
+      .invoke('show') 
+      .click({ force: true });
+
+      cy.get('span.sidebar-nav-item')
+      .should("be.visible")
+      .contains('Tributario Faro')
+      .click({ force: true });
+
+      cy.xpath("(//a[contains(.,'Tasas Varias')])[2]")
+      .should('exist') 
+      .invoke('show') 
+      .click({ force: true });
+
+      cy.xpath("//a[contains(.,'Generar Tasas Varias')]")
+      .should('exist') 
+      .invoke('show') 
+      .click({ force: true });
+
+      
       cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generación de Tasas Varias')]").should('be.visible').contains('Generación de Tasas Varias')
-      cy.wait(tiempo)
+      cy.xpath("//span[contains(.,'Generación de Tasas Varias')]")
+      
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]')
+      .should('exist') 
+      .and('be.visible') 
+      .invoke('show') 
+      .click({ force: true });
+
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Tasas Varias')])[2]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Generar Orden de Compra')]").invoke('show').click({ force: true });
@@ -75,7 +97,12 @@ SeccionNueve(t){
 SeccionDiez(t){
   let tiempo=t
   //CONFIGURACIÓN TASA VARIAS
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]')
+      .should('exist') 
+      .and('be.visible') 
+      .invoke('show') 
+      .click({ force: true });
+
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Configuración Tasas Varias')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Tasas Varias')]").invoke('show').click({ force: true });
@@ -87,7 +114,12 @@ SeccionDiez(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]')
+      .should('exist') 
+      .and('be.visible') 
+      .invoke('show') 
+      .click({ force: true });
+
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Configuración Tasas Varias')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Valores Tasas Varias')]").invoke('show').click({ force: true });
@@ -98,7 +130,12 @@ SeccionDiez(t){
       cy.wait(tiempo)
     });
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]')
+      .should('exist') 
+      .and('be.visible') 
+      .invoke('show') 
+      .click({ force: true });
+
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Configuración Tasas Varias')]").invoke('show').click({ force: true });
       cy.xpath("(//a[contains(.,'ABM Función de Cálculo')])[1]").invoke('show').click({ force: true });
@@ -109,7 +146,12 @@ SeccionDiez(t){
       cy.wait(tiempo)
     });
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]')
+      .should('exist') 
+      .and('be.visible') 
+      .invoke('show') 
+      .click({ force: true });
+
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Configuración Tasas Varias')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Tasas Sector')]").invoke('show').click({ force: true });
@@ -125,7 +167,12 @@ SeccionDiez(t){
 SeccionOnce(t){
   let tiempo=t
   //PLANES DE PAGO
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]')
+      .should('exist') 
+      .and('be.visible') 
+      .invoke('show') 
+      .click({ force: true });
+
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Planes de Pago')])[1]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Consultar Planes de Pago')]").invoke('show').click({ force: true });
@@ -136,7 +183,12 @@ SeccionOnce(t){
       cy.wait(tiempo)
     });
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]')
+      .should('exist') 
+      .and('be.visible') 
+      .invoke('show') 
+      .click({ force: true });
+
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Planes de Pago')])[1]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Consultar Comprobantes Planes de Pago')]").invoke('show').click({ force: true });
@@ -148,7 +200,12 @@ SeccionOnce(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]')
+      .should('exist') 
+      .and('be.visible') 
+      .invoke('show') 
+      .click({ force: true });
+
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Planes de Pago')])[1]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Plan de Pago Especial')]").invoke('show').click({ force: true });
@@ -160,7 +217,12 @@ SeccionOnce(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]')
+      .should('exist') 
+      .and('be.visible') 
+      .invoke('show') 
+      .click({ force: true });
+
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Planes de Pago')])[1]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Reimprimir Chequera')]").invoke('show').click({ force: true });
@@ -177,7 +239,12 @@ SeccionOnce(t){
 SeccionDoce(t){
   let tiempo=t
   //AJUSTE CTA CTE
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]')
+      .should('exist') 
+      .and('be.visible') 
+      .invoke('show') 
+      .click({ force: true });
+
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Ajuste Cta. Cte.')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Ajuste Masivo Cta. Cte.')]").invoke('show').click({ force: true });
@@ -189,7 +256,12 @@ SeccionDoce(t){
     });
       
       
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]')
+      .should('exist') 
+      .and('be.visible') 
+      .invoke('show') 
+      .click({ force: true });
+
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Ajuste Cta. Cte.')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Ajuste Manual Cta. Cte.')]").invoke('show').click({ force: true });
@@ -200,7 +272,12 @@ SeccionDoce(t){
       cy.wait(tiempo)
     });
       
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]')
+      .should('exist') 
+      .and('be.visible') 
+      .invoke('show') 
+      .click({ force: true });
+
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Ajuste Cta. Cte.')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Cancelación Masiva de Obligaciones')]").invoke('show').click({ force: true });
@@ -217,7 +294,12 @@ SeccionDoce(t){
 SeccionTrece(t){
   let tiempo=t
   //EXENCIONES
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]')
+      .should('exist') 
+      .and('be.visible') 
+      .invoke('show') 
+      .click({ force: true });
+
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Exenciones')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Vínculos Situación Especial')]").invoke('show').click({ force: true });
@@ -233,7 +315,12 @@ SeccionTrece(t){
 SeccionCatorce(t){
   let tiempo=t
   //CAJAS
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]')
+      .should('exist') 
+      .and('be.visible') 
+      .invoke('show') 
+      .click({ force: true });
+
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Cajas')])[1]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Apertura de Caja')]").invoke('show').click({ force: true });
@@ -245,7 +332,12 @@ SeccionCatorce(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]')
+      .should('exist') 
+      .and('be.visible') 
+      .invoke('show') 
+      .click({ force: true });
+
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Cajas')])[1]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Registrar Cobranza')]").invoke('show').click({ force: true });
@@ -257,7 +349,12 @@ SeccionCatorce(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]')
+      .should('exist') 
+      .and('be.visible') 
+      .invoke('show') 
+      .click({ force: true });
+
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Cajas')])[1]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Cierre de Caja')]").invoke('show').click({ force: true });
@@ -270,7 +367,12 @@ SeccionCatorce(t){
 
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]')
+      .should('exist') 
+      .and('be.visible') 
+      .invoke('show') 
+      .click({ force: true });
+
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Cajas')])[1]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Anular Cupón')]").invoke('show').click({ force: true });
@@ -283,7 +385,12 @@ SeccionCatorce(t){
 
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]')
+      .should('exist') 
+      .and('be.visible') 
+      .invoke('show') 
+      .click({ force: true });
+
       cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("(//a[contains(.,'Cajas')])[1]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Reimpresión Ticket')]").invoke('show').click({ force: true });
