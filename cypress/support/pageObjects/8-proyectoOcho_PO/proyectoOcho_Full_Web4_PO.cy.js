@@ -31,18 +31,18 @@ class proyectoOcho_Full_Web4_PO {
   
 
     
-      SeccionUno(usuario, contrasena, t) {
-        let tiempo = t;
-        if (usuario !== "") {
-          cy.xpath("//input[contains(@id,'vUSERNAME')]").should("be.visible", { timeout: 5000 }).type(usuario);
-        }
-        if (contrasena !== "") {
-          cy.xpath("//input[contains(@id,'vUSERPASSWORD')]").should("be.visible", { timeout: 5000 }).type(contrasena);
-        }
-        cy.wait(tiempo);
-        cy.xpath("//input[contains(@id,'LOGIN')]").should("be.visible", { timeout: 5000 }).click();
-        cy.wait(tiempo);
-      }
+  SeccionUno(usuario, contrasena, t) {
+    let tiempo = t;
+    if (usuario !== "") {
+      cy.xpath("//input[contains(@id,'vUSERNAME')]", { timeout: 10000 }).should("be.visible").type(usuario);
+    }
+    if (contrasena !== "") {
+      cy.xpath("//input[contains(@id,'vUSERPASSWORD')]", { timeout: 10000 }).should("be.visible").type(contrasena);
+    }
+    
+    cy.xpath("//input[contains(@id,'LOGIN')]", { timeout: 10000 }).should("be.visible").click();
+    
+  }
     
 
 SeccionVeinticuatro(t){
@@ -269,7 +269,7 @@ SeccionVeintinueve(t){
       cy.xpath("//a[contains(.,'ABM Tipo Documento')]").invoke('show').click({ force: true }); 
       cy.wait(tiempo)
       cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'ABM Tipos de Documento')]").should('be.visible', { timeout: 5000 }).contains('ABM Tipos de Documento')
+      cy.xpath("//span[contains(.,'ABM Tipos de Documento')]", { timeout: 30000 }).should('be.visible').contains('ABM Tipos de Documento')
       cy.wait(tiempo)
     });
 
@@ -557,9 +557,9 @@ SeccionVeintinueve(t){
 
   SeccionTreinta(t){
     let tiempo=t
-      cy.wait(1000)
-      cy.get('#USERNAMEINITIALS_MPAGE').should('be.visible').click({force: true})
-      cy.get('#SIGNOUT_MPAGE').should('be.visible').click({force: true})
+    
+    cy.get('#USERNAMEINITIALS_MPAGE', { timeout: 10000 }).should('be.visible').click({force: true})
+    cy.get('#SIGNOUT_MPAGE', { timeout: 10000 }).should('be.visible').click({force: true})
 
     }
         

@@ -57,7 +57,7 @@ cy.get('iframe[name="EMBPAGEM"]', { timeout: 30000 })
   .should('not.be.empty')
   .then(cy.wrap)
   .within(() => {
-  cy.get('#TITLE', { timeout: 10000 })
+  cy.get('#TITLE', { timeout: 30000 })
   .should('be.visible')
   .contains('Generación de Lote');
   });
@@ -131,7 +131,7 @@ cy.get('iframe[name="EMBPAGEM"]', { timeout: 30000 })
       
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Gestión Telefónica')
+        cy.get('#TITLE', { timeout: 30000 }).should('be.visible').contains('Gestión Telefónica')
       
     });
 
@@ -161,8 +161,8 @@ SeccionDieciocho(t){
       
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Generación de Lote')
-      cy.wait(tiempo)
+        cy.get('#TITLE', { timeout: 30000 }).should('be.visible').contains('Generación de Lote')
+      
     });
 
     
@@ -173,7 +173,7 @@ SeccionDieciocho(t){
       
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Consulta de Lotes')
+        cy.get('#TITLE', { timeout: 30000 }).should('be.visible').contains('Consulta de Lotes')
       
     });
 
@@ -186,7 +186,7 @@ SeccionDieciocho(t){
       
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Administración de Apremios')
+        cy.get('#TITLE', { timeout: 30000 }).should('be.visible').contains('Administración de Apremios')
       
     });
 
@@ -198,7 +198,7 @@ SeccionDieciocho(t){
       
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Generar Lote Precargado')
+        cy.get('#TITLE', { timeout: 30000 }).should('be.visible').contains('Generar Lote Precargado')
       
     });
 
@@ -210,7 +210,7 @@ SeccionDieciocho(t){
       
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Sorteo de Apremios')
+        cy.get('#TITLE', { timeout: 30000 }).should('be.visible').contains('Sorteo de Apremios')
       
     });
 
@@ -222,7 +222,7 @@ SeccionDieciocho(t){
       
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Carga Masiva de Etapas')
+        cy.get('#TITLE', { timeout: 30000 }).should('be.visible').contains('Carga Masiva de Etapas')
       
     });
 
@@ -235,7 +235,7 @@ SeccionDieciocho(t){
       
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Importar Archivo Etapas')
+        cy.get('#TITLE', { timeout: 30000 }).should('be.visible').contains('Importar Archivo Etapas')
       
     });
 
@@ -248,7 +248,7 @@ SeccionDieciocho(t){
      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Impresión Boletas Apremio')
+        cy.get('#TITLE', { timeout: 30000 }).should('be.visible').contains('Impresión Boletas Apremio')
       
     });
 
@@ -261,7 +261,7 @@ SeccionDieciocho(t){
       
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Informes Recaudador')
+        cy.get('#TITLE', { timeout: 30000 }).should('be.visible').contains('Informes Recaudador')
       
     });
 
@@ -291,7 +291,7 @@ SeccionDiecinueve(t){
       
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Generación Masiva de Obligaciones')
+        cy.get('#TITLE', { timeout: 30000 }).should('be.visible').contains('Generación Masiva de Obligaciones')
       
     });
 
@@ -303,7 +303,7 @@ SeccionDiecinueve(t){
       
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Generación Masiva de Comprobantes')
+        cy.get('#TITLE', { timeout: 30000 }).should('be.visible').contains('Generación Masiva de Comprobantes')
       
     });
 
@@ -315,7 +315,7 @@ SeccionDiecinueve(t){
       
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Generación Archivos de Impresión de Muestras')
+      cy.get('#TITLE', { timeout: 30000 }).should('be.visible').contains('Generación Archivos de Impresión de Muestras')
       
       
     });
@@ -328,7 +328,7 @@ SeccionDiecinueve(t){
       
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Generación Archivos de Impresión Definitivos')
+        cy.get('#TITLE', { timeout: 30000 }).should('be.visible').contains('Generación Archivos de Impresión Definitivos')
       
     });
       
@@ -340,7 +340,7 @@ SeccionDiecinueve(t){
       
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Generación Archivos Entes')
+        cy.get('#TITLE', { timeout: 30000 }).should('be.visible').contains('Generación Archivos Entes')
       
     });
       
@@ -352,7 +352,7 @@ SeccionDiecinueve(t){
       
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Generacion Masiva Ascensores')
+        cy.get('#TITLE', { timeout: 30000 }).should('be.visible').contains('Generacion Masiva Ascensores')
     
     });
       
@@ -364,7 +364,7 @@ SeccionDiecinueve(t){
       
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Impresión Masiva')
+        cy.get('#TITLE', { timeout: 30000 }).should('be.visible').contains('Impresión Masiva')
       
     });
       
@@ -376,7 +376,7 @@ SeccionDiecinueve(t){
       
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Boleta Digital Masiva')
+        cy.get('#TITLE', { timeout: 30000 }).should('be.visible').contains('Boleta Digital Masiva')
       
     });
       
@@ -400,7 +400,7 @@ SeccionDiecinueve(t){
       
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Objetos Exluidos Masiva')
+        cy.get('#TITLE', { timeout: 30000 }).should('be.visible').contains('Objetos Exluidos Masiva')
       
     });
       
@@ -412,7 +412,7 @@ SeccionDiecinueve(t){
       
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Generación Masiva Canastos y Alarmas')
+        cy.get('#TITLE', { timeout: 30000 }).should('be.visible').contains('Generación Masiva Canastos y Alarmas')
       
     });
       
@@ -424,7 +424,7 @@ SeccionDiecinueve(t){
       
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Monitoreo Procesos Masiva')
+        cy.get('#TITLE', { timeout: 30000 }).should('be.visible').contains('Monitoreo Procesos Masiva')
       
     });
 

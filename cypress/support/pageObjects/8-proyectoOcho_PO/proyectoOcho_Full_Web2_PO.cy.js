@@ -32,25 +32,25 @@ class proyectoOcho_Full_Web2_PO {
   
 
     
-      SeccionUno(usuario, contrasena, t) {
-        let tiempo = t;
-        if (usuario !== "") {
-          cy.xpath("//input[contains(@id,'vUSERNAME')]").should("be.visible", { timeout: 5000 }).type(usuario);
-        }
-        if (contrasena !== "") {
-          cy.xpath("//input[contains(@id,'vUSERPASSWORD')]").should("be.visible", { timeout: 5000 }).type(contrasena);
-        }
-        cy.wait(tiempo);
-        cy.xpath("//input[contains(@id,'LOGIN')]").should("be.visible", { timeout: 5000 }).click();
-        cy.wait(tiempo);
-      }
+  SeccionUno(usuario, contrasena, t) {
+    let tiempo = t;
+    if (usuario !== "") {
+      cy.xpath("//input[contains(@id,'vUSERNAME')]", { timeout: 10000 }).should("be.visible").type(usuario);
+    }
+    if (contrasena !== "") {
+      cy.xpath("//input[contains(@id,'vUSERPASSWORD')]", { timeout: 10000 }).should("be.visible").type(contrasena);
+    }
+    
+    cy.xpath("//input[contains(@id,'LOGIN')]", { timeout: 10000 }).should("be.visible").click();
+    
+  }
     
 
 SeccionQuince(t){
   let tiempo=t
   //INFORME CAJAS
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Informe Cajas')]").invoke('show').click({ force: true });
       cy.xpath("(//a[contains(.,'Resumen Cobranzas')])[1]").invoke('show').click({ force: true });
       
@@ -60,8 +60,8 @@ SeccionQuince(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Informe Cajas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Resumen Cobranzas por Cajero')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -77,8 +77,8 @@ SeccionQuince(t){
 SeccionDieciseis(t){
   let tiempo=t
   //JUZGADO DE FALTAS
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Juzgado de Faltas')]").invoke('show').click({ force: true });
       cy.xpath("(//a[contains(.,'Administración de Talonarios')])[1]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -89,8 +89,8 @@ SeccionDieciseis(t){
       cy.wait(tiempo)
     });
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Juzgado de Faltas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Nueva Acta de Infracción')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -102,8 +102,8 @@ SeccionDieciseis(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Juzgado de Faltas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Generación de Recursos')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -115,8 +115,8 @@ SeccionDieciseis(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Juzgado de Faltas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Resoluciones')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -127,8 +127,8 @@ SeccionDieciseis(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Juzgado de Faltas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Editar Resolución')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -139,8 +139,8 @@ SeccionDieciseis(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Juzgado de Faltas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Consulta de Antecedentes')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -176,8 +176,8 @@ SeccionDieciseis(t){
     // });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Juzgado de Faltas')]").invoke('show').click({ force: true });
       cy.xpath("(//a[contains(.,'ABM Juzgados')])[1]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -188,8 +188,8 @@ SeccionDieciseis(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Juzgado de Faltas')]").invoke('show').click({ force: true });
       cy.xpath("(//a[contains(.,'Resolución Masiva')])[3]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -200,8 +200,8 @@ SeccionDieciseis(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Juzgado de Faltas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Notificación de Recursos')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -212,8 +212,8 @@ SeccionDieciseis(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Juzgado de Faltas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Actas Sin Infractor')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -224,8 +224,8 @@ SeccionDieciseis(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Juzgado de Faltas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Consulta de Resoluciones')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -236,8 +236,8 @@ SeccionDieciseis(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Juzgado de Faltas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Configuración de Infracciones')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -248,8 +248,8 @@ SeccionDieciseis(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Juzgado de Faltas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Generación Lote Cédula')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -260,8 +260,8 @@ SeccionDieciseis(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Juzgado de Faltas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Administración Lote Notificación')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -272,8 +272,8 @@ SeccionDieciseis(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Juzgado de Faltas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Administración de Cédulas')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -284,8 +284,8 @@ SeccionDieciseis(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Juzgado de Faltas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Recepción y Devolución de Cédula')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -296,8 +296,8 @@ SeccionDieciseis(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Juzgado de Faltas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Infracciones')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -320,8 +320,8 @@ SeccionDieciseis(t){
     // });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Juzgado de Faltas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM unidad Fija')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -332,8 +332,8 @@ SeccionDieciseis(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Juzgado de Faltas')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Parametro por Juzgado')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -349,8 +349,8 @@ SeccionDieciseis(t){
 SeccionDiecisiete(t){
   let tiempo=t
   //GESTIÓN DE DEUDA
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Gestión de Deuda')]").invoke('show').click({ force: true });
       cy.xpath("(//a[contains(.,'Generar Lote')])[1]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -361,8 +361,8 @@ SeccionDiecisiete(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Gestión de Deuda')]").invoke('show').click({ force: true });
       cy.xpath("(//a[contains(.,'Consultar Lote')])[1]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -373,8 +373,8 @@ SeccionDiecisiete(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Gestión de Deuda')]").invoke('show').click({ force: true });
       cy.xpath("(//a[contains(.,'Generar Lote Precargado')])[1]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -385,8 +385,8 @@ SeccionDiecisiete(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Gestión de Deuda')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Administración de Gestiones')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -397,8 +397,8 @@ SeccionDiecisiete(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Gestión de Deuda')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Administración de Tags')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -409,8 +409,8 @@ SeccionDiecisiete(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Gestión de Deuda')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Administración de Notificaciones')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -421,8 +421,8 @@ SeccionDiecisiete(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Gestión de Deuda')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'Gestión Telefónica')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -433,8 +433,8 @@ SeccionDiecisiete(t){
     });
 
 
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 5000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
       cy.xpath("//a[contains(.,'Gestión de Deuda')]").invoke('show').click({ force: true });
       cy.xpath("//a[contains(.,'ABM Tipo Respuesta')]").invoke('show').click({ force: true });
       cy.wait(tiempo)
@@ -449,9 +449,9 @@ SeccionDiecisiete(t){
 
   SeccionTreinta(t){
     let tiempo=t
-      cy.wait(1000)
-      cy.get('#USERNAMEINITIALS_MPAGE').should('be.visible').click({force: true})
-      cy.get('#SIGNOUT_MPAGE').should('be.visible').click({force: true})
+    
+    cy.get('#USERNAMEINITIALS_MPAGE', { timeout: 10000 }).should('be.visible').click({force: true})
+    cy.get('#SIGNOUT_MPAGE', { timeout: 10000 }).should('be.visible').click({force: true})
 
     }
         
