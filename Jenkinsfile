@@ -6,18 +6,18 @@ pipeline {
     }
 
     stages {
-        stage('Install Dependencies') {
-            steps {
-                script {
+        //stage('Install Dependencies') {
+            //steps {
+                //script {
                     // Instala las dependencias necesarias y Cypress
-                    bat 'npm install'
+                    //bat 'npm install'
                     //bat 'npm audit fix'
                     //bat 'npm install cross-spawn@latest --save-dev'
                     //bat 'npm audit'
-                    bat 'npx cypress install --force'
-                }
-            }
-        }
+                    //bat 'npx cypress install --force'
+                //}
+            //}
+        //}
    
         stage('Run PDF.bat') {
             steps {
