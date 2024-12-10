@@ -34,112 +34,117 @@ class proyectoOcho_Full_Web3_1_PO {
       SeccionUno(usuario, contrasena, t) {
         let tiempo = t;
         if (usuario !== "") {
-          cy.xpath("//input[contains(@id,'vUSERNAME')]").should("be.visible", { timeout: 5000 }).type(usuario);
+          cy.xpath("//input[contains(@id,'vUSERNAME')]", { timeout: 10000 }).should("be.visible").type(usuario);
         }
         if (contrasena !== "") {
-          cy.xpath("//input[contains(@id,'vUSERPASSWORD')]").should("be.visible", { timeout: 5000 }).type(contrasena);
+          cy.xpath("//input[contains(@id,'vUSERPASSWORD')]", { timeout: 10000 }).should("be.visible").type(contrasena);
         }
-        cy.wait(tiempo);
-        cy.xpath("//input[contains(@id,'LOGIN')]").should("be.visible", { timeout: 5000 }).click();
-        cy.wait(tiempo);
+        
+        cy.xpath("//input[contains(@id,'LOGIN')]", { timeout: 10000 }).should("be.visible").click();
+        
       }
 
 SeccionDiecisiete(t){
   let tiempo=t
-  //GESTIÓN DE DEUDA
-  cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("//a[contains(.,'Gestión de Deuda')]").invoke('show').click({ force: true });
-      cy.xpath("(//a[contains(.,'Generar Lote')])[1]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
-      cy.get('iframe[name="EMBPAGEM"]', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generación de Lote')]").should('be.visible', { timeout: 30000 }).contains('Generación de Lote')
-      cy.wait(tiempo)
-    });
+  // GESTIÓN DE DEUDA
+cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+cy.xpath("//a[contains(.,'Gestión de Deuda')]", { timeout: 10000 }).invoke('show').click({ force: true });
+cy.xpath("(//a[contains(.,'Generar Lote')])[1]", { timeout: 10000 }).invoke('show').click({ force: true });
 
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("//a[contains(.,'Gestión de Deuda')]").invoke('show').click({ force: true });
-      cy.xpath("(//a[contains(.,'Consultar Lote')])[1]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+cy.get('iframe[name="EMBPAGEM"]', { timeout: 30000 })
+  .its('0.contentDocument.body')
+  .should('not.be.empty')
+  .then(cy.wrap)
+  .within(() => {
+  cy.get('#TITLE', { timeout: 10000 })
+  .should('be.visible')
+  .contains('Generación de Lote');
+  });
+
+
+    
+  cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+  cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("//a[contains(.,'Gestión de Deuda')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("(//a[contains(.,'Consultar Lote')])[1]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Consulta de Lotes')]").should('be.visible', { timeout: 30000 }).contains('Consulta de Lotes')
-      cy.wait(tiempo)
+      cy.get('#TITLE',{ timeout: 30000 }).should('be.visible').contains('Consulta de Lotes')
+      
     });
 
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("//a[contains(.,'Gestión de Deuda')]").invoke('show').click({ force: true });
-      cy.xpath("(//a[contains(.,'Generar Lote Precargado')])[1]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+    
+    cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("//a[contains(.,'Gestión de Deuda')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("(//a[contains(.,'Generar Lote Precargado')])[1]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generar Lote Precargado')]").should('be.visible', { timeout: 30000 }).contains('Generar Lote Precargado')
-      cy.wait(tiempo)
+      cy.get('#TITLE',{ timeout: 30000 }).should('be.visible').contains('Generar Lote Precargado')
+      
     });
 
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("//a[contains(.,'Gestión de Deuda')]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'Administración de Gestiones')]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+    
+    cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("//a[contains(.,'Gestión de Deuda')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'Administración de Gestiones')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Administración de Gestiones')]").should('be.visible', { timeout: 30000 }).contains('Administración de Gestiones')
-      cy.wait(tiempo)
+        cy.get('#TITLE', { timeout: 30000 }).should('be.visible').contains('Administración de Gestiones')
+      
     });
 
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("//a[contains(.,'Gestión de Deuda')]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'Administración de Tags')]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+    
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("//a[contains(.,'Gestión de Deuda')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'Administración de Tags')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Administración de Tags')]").should('be.visible', { timeout: 30000 }).contains('Administración de Tags')
-      cy.wait(tiempo)
+        cy.get('#PGMDESCRIPTORTEXTBLOCK', { timeout: 30000 }).should('be.visible').contains('Administración de Tags')
+      
     });
 
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("//a[contains(.,'Gestión de Deuda')]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'Administración de Notificaciones')]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+    
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("//a[contains(.,'Gestión de Deuda')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'Administración de Notificaciones')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }, { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Administración de Notificaciones')]").should('be.visible', { timeout: 30000 }).contains('Administración de Notificaciones')
-      cy.wait(tiempo)
+        cy.get('#PGMDESCRIPTORTEXTBLOCK', { timeout: 10000 }).should('be.visible').contains('Administración de Notificaciones')
+      
     });
 
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("//a[contains(.,'Gestión de Deuda')]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'Gestión Telefónica')]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+    
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("//a[contains(.,'Gestión de Deuda')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'Gestión Telefónica')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Gestión Telefónica')]").should('be.visible', { timeout: 30000 }).contains('Gestión Telefónica')
-      cy.wait(tiempo)
+        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Gestión Telefónica')
+      
     });
 
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("//a[contains(.,'Gestión de Deuda')]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'ABM Tipo Respuesta')]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+    
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("//a[contains(.,'Gestión de Deuda')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'ABM Tipo Respuesta')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'ABM Respuestas')]").should('be.visible', { timeout: 30000 }).contains('ABM Respuestas')
-      cy.wait(tiempo)
+        cy.get('#PGMDESCRIPTORTEXTBLOCK', { timeout: 10000 }).should('be.visible').contains('ABM Respuestas')
+    
     });
 
 }
@@ -148,116 +153,116 @@ SeccionDiecisiete(t){
 SeccionDieciocho(t){
   let tiempo=t
   //APREMIO
-  cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("(//a[contains(.,'Apremio')])[2]").invoke('show').click({ force: true });
-      cy.xpath("(//a[contains(.,'Generar Lote')])[3]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+ 
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("(//a[contains(.,'Apremio')])[2]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("(//a[contains(.,'Generar Lote')])[3]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generación de Lote')]").should('be.visible', { timeout: 30000 }).contains('Generación de Lote')
+        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Generación de Lote')
       cy.wait(tiempo)
     });
 
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("(//a[contains(.,'Apremio')])[2]").invoke('show').click({ force: true });
-      cy.xpath("(//a[contains(.,'Consultar Lote')])[2]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+    
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("(//a[contains(.,'Apremio')])[2]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("(//a[contains(.,'Consultar Lote')])[2]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Consulta de Lotes')]").should('be.visible', { timeout: 30000 }).contains('Consulta de Lotes')
-      cy.wait(tiempo)
+        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Consulta de Lotes')
+      
     });
 
 
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("(//a[contains(.,'Apremio')])[2]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'Administración Apremios')]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+    
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("(//a[contains(.,'Apremio')])[2]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'Administración Apremios')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Administración de Apremios')]").should('be.visible', { timeout: 30000 }).contains('Administración de Apremios')
-      cy.wait(tiempo)
+        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Administración de Apremios')
+      
     });
 
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("(//a[contains(.,'Apremio')])[2]").invoke('show').click({ force: true });
-      cy.xpath("(//a[contains(.,'Generar Lote Precargado')])[2]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+    
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("(//a[contains(.,'Apremio')])[2]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("(//a[contains(.,'Generar Lote Precargado')])[2]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generar Lote Precargado')]").should('be.visible', { timeout: 30000 }).contains('Generar Lote Precargado')
-      cy.wait(tiempo)
+        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Generar Lote Precargado')
+      
     });
 
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("(//a[contains(.,'Apremio')])[2]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'Sorteo de Apremio')]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+    
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("(//a[contains(.,'Apremio')])[2]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'Sorteo de Apremio')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Sorteo de Apremios')]").should('be.visible', { timeout: 30000 }).contains('Sorteo de Apremios')
-      cy.wait(tiempo)
+        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Sorteo de Apremios')
+      
     });
 
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("(//a[contains(.,'Apremio')])[2]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'Cargar Etapa Masiva')]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+    
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("(//a[contains(.,'Apremio')])[2]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'Cargar Etapa Masiva')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Carga Masiva de Etapas')]").should('be.visible', { timeout: 30000 }).contains('Carga Masiva de Etapas')
-      cy.wait(tiempo)
-    });
-
-
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("(//a[contains(.,'Apremio')])[2]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'Importar Archivo Etapa')]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
-      cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
-      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Importar Archivo Etapas')]").should('be.visible', { timeout: 30000 }).contains('Importar Archivo Etapas')
-      cy.wait(tiempo)
+        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Carga Masiva de Etapas')
+      
     });
 
 
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("(//a[contains(.,'Apremio')])[2]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'Imprimir Apremio')]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+    
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("(//a[contains(.,'Apremio')])[2]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'Importar Archivo Etapa')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Impresión Boletas Apremio')]").should('be.visible', { timeout: 30000 }).contains('Impresión Boletas Apremio')
-      cy.wait(tiempo)
+        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Importar Archivo Etapas')
+      
     });
 
 
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("(//a[contains(.,'Apremio')])[2]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'Informe Recaudadores')]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+    
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("(//a[contains(.,'Apremio')])[2]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'Imprimir Apremio')]", { timeout: 10000 }).invoke('show').click({ force: true });
+     
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Informes Recaudador')]").should('be.visible', { timeout: 30000 }).contains('Informes Recaudador')
-      cy.wait(tiempo)
+        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Impresión Boletas Apremio')
+      
+    });
+
+
+    
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("(//a[contains(.,'Apremio')])[2]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'Informe Recaudadores')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
+      cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
+      cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Informes Recaudador')
+      
     });
 
 }
@@ -266,160 +271,161 @@ SeccionDieciocho(t){
 SeccionDiecinueve(t){
   let tiempo=t
   //MASIVA
-  cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("(//a[contains(.,'Masiva')])[6]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'ABM Universos Masiva')]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+  
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("(//a[contains(.,'Masiva')])[6]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'ABM Universos Masiva')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'ABM Universos Masivas')]").should('be.visible', { timeout: 30000 }).contains('ABM Universos Masivas')
-      cy.wait(tiempo)
+        cy.get('#PGMDESCRIPTORTEXTBLOCK', { timeout: 10000 }).should('be.visible').contains('ABM Universos Masivas')
+      
     });
 
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("(//a[contains(.,'Masiva')])[6]").invoke('show').click({ force: true });
-      cy.xpath("(//a[contains(.,'Generación Masiva')])[1]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+    
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("(//a[contains(.,'Masiva')])[6]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("(//a[contains(.,'Generación Masiva')])[1]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generación Masiva de Obligaciones')]").should('be.visible', { timeout: 30000 }).contains('Generación Masiva de Obligaciones')
-      cy.wait(tiempo)
+        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Generación Masiva de Obligaciones')
+      
     });
 
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("(//a[contains(.,'Masiva')])[6]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'Generación de Comprobantes')]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+    
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("(//a[contains(.,'Masiva')])[6]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'Generación de Comprobantes')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generación Masiva de Comprobantes')]").should('be.visible', { timeout: 30000 }).contains('Generación Masiva de Comprobantes')
-      cy.wait(tiempo)
+        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Generación Masiva de Comprobantes')
+      
     });
 
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("(//a[contains(.,'Masiva')])[6]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'Generación de Muestras de Impresión')]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+    
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("(//a[contains(.,'Masiva')])[6]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'Generación de Muestras de Impresión')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generación Archivos de Impresión de Muestras')]").should('be.visible', { timeout: 30000 }).contains('Generación Archivos de Impresión de Muestras')
-      cy.wait(tiempo)
+      cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Generación Archivos de Impresión de Muestras')
+      
+      
     });
 
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("(//a[contains(.,'Masiva')])[6]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'Generación de Impresión Definitiva')]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+    
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("(//a[contains(.,'Masiva')])[6]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'Generación de Impresión Definitiva')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generación Archivos de Impresión Definitivos')]").should('be.visible', { timeout: 30000 }).contains('Generación Archivos de Impresión Definitivos')
-      cy.wait(tiempo)
+        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Generación Archivos de Impresión Definitivos')
+      
     });
       
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("(//a[contains(.,'Masiva')])[6]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'Generación de Archivos para Entes')]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+    
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("(//a[contains(.,'Masiva')])[6]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'Generación de Archivos para Entes')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generación Archivos Entes')]").should('be.visible', { timeout: 30000 }).contains('Generación Archivos Entes')
-      cy.wait(tiempo)
+        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Generación Archivos Entes')
+      
     });
       
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("(//a[contains(.,'Masiva')])[6]").invoke('show').click({ force: true });
-      cy.xpath("(//a[contains(.,'Generación Masiva de Ascensores')])[1]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+    
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("(//a[contains(.,'Masiva')])[6]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("(//a[contains(.,'Generación Masiva de Ascensores')])[1]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generacion Masiva Ascensores')]").should('be.visible', { timeout: 30000 }).contains('Generacion Masiva Ascensores')
-      cy.wait(tiempo)
+        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Generacion Masiva Ascensores')
+    
     });
       
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("(//a[contains(.,'Masiva')])[6]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'Impresión de PDF de Masiva en Servidor')]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+    
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("(//a[contains(.,'Masiva')])[6]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'Impresión de PDF de Masiva en Servidor')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Impresión Masiva')]").should('be.visible', { timeout: 30000 }).contains('Impresión Masiva')
-      cy.wait(tiempo)
+        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Impresión Masiva')
+      
     });
       
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("(//a[contains(.,'Masiva')])[6]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'Generación Boleto Digital Masiva')]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+    
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("(//a[contains(.,'Masiva')])[6]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'Generación Boleto Digital Masiva')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Boleta Digital Masiva')]").should('be.visible', { timeout: 30000 }).contains('Boleta Digital Masiva')
-      cy.wait(tiempo)
+        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Boleta Digital Masiva')
+      
     });
       
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("(//a[contains(.,'Masiva')])[6]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'ABM Imágen Publicidad Boleto')]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+    
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("(//a[contains(.,'Masiva')])[6]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'ABM Imágen Publicidad Boleto')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Imagen Publicidad Boleto Masiva')]").should('be.visible', { timeout: 30000 }).contains('Imagen Publicidad Boleto Masiva')
-      cy.wait(tiempo)
+        cy.get('#PGMDESCRIPTORTEXTBLOCK', { timeout: 10000 }).should('be.visible').contains('Imagen Publicidad Boleto Masiva')
+      
     });
       
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("(//a[contains(.,'Masiva')])[6]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'Objetos Excluidos Masiva')]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+   
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("(//a[contains(.,'Masiva')])[6]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'Objetos Excluidos Masiva')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Objetos Exluidos Masiva')]").should('be.visible', { timeout: 30000 }).contains('Objetos Exluidos Masiva')
-      cy.wait(tiempo)
+        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Objetos Exluidos Masiva')
+      
     });
       
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("(//a[contains(.,'Masiva')])[6]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'Generación de Canastos y Alarmas')]").invoke('show').click({ force: true });
-      cy.wait(tiempo)
+   
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("(//a[contains(.,'Masiva')])[6]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'Generación de Canastos y Alarmas')]", { timeout: 10000 }).invoke('show').click({ force: true });
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Generación Masiva Canastos y Alarmas')]").should('be.visible', { timeout: 30000 }).contains('Generación Masiva Canastos y Alarmas')
-      cy.wait(tiempo)
+        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Generación Masiva Canastos y Alarmas')
+      
     });
       
-    cy.wait(5000);
-      cy.get('[name="BTNTOGGLEMENU_MPAGE"]').should("be.visible", { timeout: 10000 }).click();
-      cy.get('span.sidebar-nav-item').should("be.visible").contains('Tributario Faro').click({ force: true });
-      cy.xpath("(//a[contains(.,'Masiva')])[6]").invoke('show').click({ force: true });
-      cy.xpath("//a[contains(.,'Monitor Masiva')]").invoke('show').click({ force: true });   
-      cy.wait(tiempo)
+    
+      cy.get('[name="BTNTOGGLEMENU_MPAGE"]', { timeout: 10000 }).should("be.visible").click();
+    cy.get('span.sidebar-nav-item', { timeout: 10000 }).should("be.visible").contains('Tributario Faro').click({ force: true });
+      cy.xpath("(//a[contains(.,'Masiva')])[6]", { timeout: 10000 }).invoke('show').click({ force: true });
+      cy.xpath("//a[contains(.,'Monitor Masiva')]", { timeout: 10000 }).invoke('show').click({ force: true });   
+      
       cy.get('iframe').its('length').should('eq', 1); // Asegúrate de que solo haya un iframe
       cy.get('iframe', { timeout: 30000 }).its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
-      cy.xpath("//span[contains(.,'Monitoreo Procesos Masiva')]").should('be.visible', { timeout: 30000 }).contains('Monitoreo Procesos Masiva')
-      cy.wait(tiempo)
+        cy.get('#TITLE', { timeout: 10000 }).should('be.visible').contains('Monitoreo Procesos Masiva')
+      
     });
 
 }
@@ -427,9 +433,9 @@ SeccionDiecinueve(t){
 
   SeccionTreinta(t){
     let tiempo=t
-      cy.wait(1000)
-      cy.get('#USERNAMEINITIALS_MPAGE').should('be.visible').click({force: true})
-      cy.get('#SIGNOUT_MPAGE').should('be.visible').click({force: true})
+      
+      cy.get('#USERNAMEINITIALS_MPAGE', { timeout: 10000 }).should('be.visible').click({force: true})
+      cy.get('#SIGNOUT_MPAGE', { timeout: 10000 }).should('be.visible').click({force: true})
 
     }
         
