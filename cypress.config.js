@@ -54,6 +54,9 @@ module.exports = defineConfig({
           launchOptions.args.push('--no-sandbox');
           launchOptions.args.push('--disable-pdf-viewer');  // Desactiva completamente el visor de PDF
 
+          launchOptions.args.push('--disable-print-preview'); // Deshabilitar la vista previa de impresión de PDF
+          launchOptions.args.push('--kiosk-printing'); // Evitar diálogos de impresión automáticos
+
           if (config.isHeadless) {
             launchOptions.args.push('--headless'); // Asegúrate de estar en modo headless
           }
@@ -71,7 +74,8 @@ module.exports = defineConfig({
             'savefile.default_directory': downloadsPath, 
             'download.extensions_to_open': 'false', // No abrir archivos automáticamente
             'pdfjs.disabled': true, // Desactiva el visor de PDF por defecto
-            'profile.default_content_settings.popups': 0
+            'profile.default_content_settings.popups': 0,
+            'profile.content_settings.exceptions.automatic_downloads.*.setting': 1 // Permitir descargas múltiples automáticas
           };
 
         } else if (browser.name === 'firefox') {
