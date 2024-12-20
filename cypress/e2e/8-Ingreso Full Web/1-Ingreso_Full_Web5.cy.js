@@ -1,4 +1,3 @@
-//NumeroObjeto: Dato Prueba ----- 46860
 
 import proyectoOcho_Full_Web5_PO from '../../support/pageObjects/8-proyectoOcho_PO/proyectoOcho_Full_Web5_PO.cy'
 
@@ -6,7 +5,7 @@ import proyectoOcho_Full_Web5_PO from '../../support/pageObjects/8-proyectoOcho_
 require('cypress-xpath')
 
 
-describe('Ingreso Full Web4', () => {
+describe('Ingreso Full Web5', () => {
 
     const master=new proyectoOcho_Full_Web5_PO()
     
