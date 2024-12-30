@@ -1,4 +1,4 @@
-import PoyectoNueve_Apertura_Caja_HOMO_Po from '../../support/pageObjects/2-Caja_HOMO/proyectoDos_Apertura_Caja_HOMO_PO.cy'
+import PoyectoDiez_Apertura_Caja_HOMO_Po from '../../support/pageObjects/10-Caja - HOMO_PO/proyectoDiez_Apertura_Caja_HOMO_PO.cy'
 
 /// <reference types='cypress' />
 require('cypress-xpath')
@@ -6,7 +6,7 @@ require('cypress-xpath')
 
 describe('Caja_Apertura_Caja', () => {
 
-    const master=new PoyectoNueve_Apertura_Caja_HOMO_Po()
+    const master=new PoyectoDiez_Apertura_Caja_HOMO_Po()
     
     master.visitHome()
 
@@ -45,7 +45,7 @@ it('Caja_Apertura_Caja', () => {
 
 
 function extraerDato(text) {
-    const regex = /\b\d{56}\b/; // Cambiar el regex si el código de barras tiene un formato diferente
+    const regex = /\b\d{54}\b/; // Cambiar el regex si el código de barras tiene un formato diferente
     const match = text.match(regex);
     return match ? match[0] : null;
 }

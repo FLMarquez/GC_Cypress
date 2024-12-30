@@ -1,5 +1,5 @@
 
-import ProyectoNueve_Cierre_Caja_HOMO_Po from '../../support/pageObjects/9-proyectoNueve_PO_Caja_HOMO/proyectoNueve_Cierre_Caja_HOMO_PO.cy'
+import ProyectoDiez_Cierre_Caja_HOMO_Po from '../../support/pageObjects/10-Caja - HOMO_PO/proyectoDiez_Cierre_Caja_HOMO_PO.cy'
 
 /// <reference types='cypress' />
 require('cypress-xpath')
@@ -7,7 +7,7 @@ require('cypress-xpath')
 
 describe('Caja_Cierre_Caja', () => {
 
-    const master=new ProyectoNueve_Cierre_Caja_HOMO_Po()
+    const master=new ProyectoDiez_Cierre_Caja_HOMO_Po()
     
     master.visitHome()
 

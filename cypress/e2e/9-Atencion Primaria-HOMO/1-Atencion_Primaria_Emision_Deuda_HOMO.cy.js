@@ -1,14 +1,14 @@
 //NumeroObjeto: Dato Prueba ----- 46860
 
-import ProyectoUno_Emision_Deuda_ATPrimaria_HOMO_Po from '../../support/pageObjects/1-Emision_Deuda_HOMO_PO/proyectoUno_Emision_Deuda_ATPrimaria_HOMO_PO.cy.js'
+import ProyectoNueve_Emision_Deuda_ATPrimaria_HOMO_Po from '../../support/pageObjects/9-Atencion Primaria_HOMO_PO/proyectoNueve_Emision_Deuda_ATPrimaria_HOMO_PO.cy'
 
 /// <reference types='cypress' />
 require('cypress-xpath')
 
 
-describe('Atencion_Primaria_Emision_Deuda', () => {
+describe('Atencion_Primaria_Emision_Deuda_HOMO', () => {
 
-    const master=new ProyectoUno_Emision_Deuda_ATPrimaria_HOMO_Po()
+    const master=new ProyectoNueve_Emision_Deuda_ATPrimaria_HOMO_Po()
     
     master.visitHome()
 

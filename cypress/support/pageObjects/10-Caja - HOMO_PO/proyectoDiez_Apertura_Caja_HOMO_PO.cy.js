@@ -1,6 +1,6 @@
 import 'cypress-iframe';
 require('cypress-downloadfile/lib/downloadFileCommand');
-class PoyectoNueve_Apertura_Caja_HOMO_Po{
+class PoyectoDiez_Apertura_Caja_HOMO_Po{
 
   visitHome() {
     let tiempo = 1000;
@@ -169,6 +169,7 @@ class PoyectoNueve_Apertura_Caja_HOMO_Po{
 
     SeccionTres(medioPago,moneda,t) {
       let tiempo = t;
+      cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
       cy.xpath("//select[contains(@id,'vMPGID')]").select(medioPago, { force: true})
       cy.wait(tiempo)
       cy.xpath("//select[contains(@id,'vMNDID')]").select(moneda, { force: true})
@@ -176,15 +177,21 @@ class PoyectoNueve_Apertura_Caja_HOMO_Po{
       cy.xpath("//input[contains(@id,'BUTTON6')]").should('be.visible', { timeout: 10000 }).click({force: true})
       cy.wait(tiempo)
       cy.xpath("//input[contains(@id,'BTNGRABARPAGO')]").should('be.visible', { timeout: 10000 }).click({force: true})
-      cy.wait(tiempo)
+      cy.wait(tiempo)    
 
-      cy.on('window:confirm', (str) => {
-        expect(str).to.equal('Desea confirmar el pago?');
-        return true; // Esto simula hacer clic en "Aceptar"
-           
+      cy.get('iframe[name="EMBPAGEM"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+      cy.get('iframe[id="gxp0_ifrm"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
+    cy.on('window:confirm', (str) => {
+      expect(str).to.equal('Desea confirmar el pago?');
+      return true; // Esto simula hacer clic en "Aceptar"
     });
+  });
 
-  }
+  });
+
+});
+
+}
     SeccionCuatro(t) {
       let tiempo = t;
     cy.get('iframe[id="gxp0_ifrm"]').its('0.contentDocument.body').should('not.be.empty').then(cy.wrap).within(() => {
@@ -217,4 +224,4 @@ class PoyectoNueve_Apertura_Caja_HOMO_Po{
         
     }//final
 
-export default PoyectoNueve_Apertura_Caja_HOMO_Po
+export default PoyectoDiez_Apertura_Caja_HOMO_Po

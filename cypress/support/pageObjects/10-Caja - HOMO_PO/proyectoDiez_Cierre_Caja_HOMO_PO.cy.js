@@ -1,6 +1,6 @@
 import 'cypress-iframe';
 require('cypress-downloadfile/lib/downloadFileCommand');
-class ProyectoNueve_Cierre_Caja_HOMO_PO{
+class ProyectoDiez_Cierre_Caja_HOMO_PO{
 
     visitHome() {
         let tiempo = 1000;
@@ -92,7 +92,7 @@ class ProyectoNueve_Cierre_Caja_HOMO_PO{
         
     }//final
 
-export default ProyectoNueve_Cierre_Caja_HOMO_PO
+export default ProyectoDiez_Cierre_Caja_HOMO_PO
 
 
 

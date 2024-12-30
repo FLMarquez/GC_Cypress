@@ -1,6 +1,6 @@
 import 'cypress-iframe';
 require('cypress-downloadfile/lib/downloadFileCommand');
-class ProyectoUno_Emision_Deuda_ATPrimaria_HOMO_Po{
+class ProyectoNueve_Emision_Deuda_ATPrimaria_HOMO_Po{
 
   visitHome() {
     let tiempo = 1000;
@@ -58,7 +58,7 @@ class ProyectoUno_Emision_Deuda_ATPrimaria_HOMO_Po{
     cy.iframe().find('#Tab_TABS_TABSCONTROLContainerpanel1').invoke('show').click({ force: true });
     cy.wait(5000);
 
-    cy.iframe().xpath("(//label[contains(@for,'GRIDOBLIGACIONES')])[1]").should('be.visible').click({ force: true });
+    cy.iframe().xpath("(//label[contains(@for,'GRIDOBLIGACIONES')])[2]").should('be.visible').click({ force: true });
     cy.wait(2500);
 
     cy.iframe().xpath("//input[@id='IMPRIMIRCONTADO']").invoke('click');
@@ -74,4 +74,4 @@ class ProyectoUno_Emision_Deuda_ATPrimaria_HOMO_Po{
   }
 }
 
-export default ProyectoUno_Emision_Deuda_ATPrimaria_HOMO_Po;
+export default ProyectoNueve_Emision_Deuda_ATPrimaria_HOMO_Po;
