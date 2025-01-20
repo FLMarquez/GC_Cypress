@@ -103,15 +103,16 @@ pipeline {
 }
 
  stage('Generate Allure Report') {
-            steps {
-                script {
-                    bat '''
-                    call allure generate allure-results --clean -o allure-report
-                    call allure open allure-report
-                    '''
-                }
-            }
+    steps {
+        script {
+            bat '''
+            call allure generate allure-results --clean -o allure-report
+            start /B allure open allure-report
+            '''
         }
+    }
+}
+
 
     }
 }
