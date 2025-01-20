@@ -96,21 +96,22 @@ pipeline {
 }
 
         stage('Send Telegram Notification') {
-            steps {
-                script {
-                    def message = "Todas las pruebas pasaron exitosamente."
-                    if (currentBuild.result == 'UNSTABLE' || currentBuild.result == 'FAILURE') {
-                        message = "Una o más pruebas fallaron. Revisa los detalles."
-                    }
-                    bat """
-                    set BOT_TOKEN=7564088844:AAFexajTht_1DT6PW3rU2bcU7KJLWAmnt3o
-                    set CHAT_ID=2021931547
-                    set MESSAGE=%message%
-                    curl -s -X POST "https://api.telegram.org/bot%BOT_TOKEN%/sendMessage" -d chat_id=%CHAT_ID% -d text="%MESSAGE%"
-                    """
-                }
+    steps {
+        script {
+            def message = "Todas las pruebas pasaron exitosamente."
+            if (currentBuild.result == 'UNSTABLE' || currentBuild.result == 'FAILURE') {
+                message = "Una o más pruebas fallaron. Revisa los detalles."
             }
+            bat """
+            set BOT_TOKEN=7564088844:AAFexajTht_1DT6PW3rU2bcU7KJLWAmnt3o
+            set CHAT_ID=2021931547
+            set MESSAGE=${message}
+            curl -s -X POST "https://api.telegram.org/bot%BOT_TOKEN%/sendMessage" -d chat_id=%CHAT_ID% -d text="%MESSAGE%"
+            """
         }
+    }
+}
+
     }
 }
 
