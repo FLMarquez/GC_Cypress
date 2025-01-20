@@ -15,8 +15,15 @@ module.exports = defineConfig({
   viewportWidth: 1500,
   viewportHeight: 864,
   chromeWebSecurity: false,
-  defaultCommandTimeout: 1200000,  
-  pageLoadTimeout: 1200000, 
+  defaultCommandTimeout: 1200000, // Tiempo máximo para comandos
+  pageLoadTimeout: 1200000, // Tiempo máximo para carga de páginas
+  requestTimeout: 800000, // Tiempo para solicitudes AJAX
+  responseTimeout: 800000, // Tiempo para respuestas AJAX
+  retries: {
+    runMode: 2, // Reintentos en ejecución desde CLI
+    openMode: 1, // Reintentos en ejecución desde UI de Cypress 
+  },
+
   videoCompression: false,
   disableCypressDashboard: true,
  //videoUploadOnPasses: true,
