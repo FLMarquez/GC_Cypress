@@ -84,16 +84,6 @@ pipeline {
             }
         }
 
-        stage('Generate Allure Report') {
-    steps {
-        script {
-            bat '''
-            allure generate allure-results --clean -o allure-report
-            start allure open allure-report
-            '''
-        }
-    }
-}
 
         stage('Send Telegram Notification') {
     steps {
@@ -111,6 +101,17 @@ pipeline {
         }
     }
 }
+
+ stage('Generate Allure Report') {
+            steps {
+                script {
+                    bat '''
+                    call allure generate allure-results --clean -o allure-report
+                    call allure open allure-report
+                    '''
+                }
+            }
+        }
 
     }
 }
