@@ -15,6 +15,8 @@ module.exports = defineConfig({
   viewportWidth: 1500,
   viewportHeight: 864,
   chromeWebSecurity: false,
+  experimentalMemoryManagement: true,//Agrega la opción de administración de memoria experimental
+  numTestsKeptInMemory: 0,//Disminuye el número de pruebas en memoria
   defaultCommandTimeout: 1200000, // Tiempo máximo para comandos
   pageLoadTimeout: 1200000, // Tiempo máximo para carga de páginas
   requestTimeout: 800000, // Tiempo para solicitudes AJAX
