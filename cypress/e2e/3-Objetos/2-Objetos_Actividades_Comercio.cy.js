@@ -6,7 +6,7 @@ import ProyectoTres_Actividades_Comercio_Po from '../../support/pageObjects/3-pr
 require('cypress-xpath')
 
 
-describe('Objetos_Valida_Pantalla', () => {
+describe('Objetos_Actividades_Comercio', () => {
 
     const master=new ProyectoTres_Actividades_Comercio_Po()
     
@@ -22,7 +22,7 @@ describe('Objetos_Valida_Pantalla', () => {
     
 })
 
-it('Validar pantalla Objetos', () => {        
+it('Actividades Comercio', () => {        
     master.SeccionUno("dsimoncini","dsimoncini",100) 
     master.SeccionDos("20263428340","50350",100)  
     master.SeccionTres(100) 

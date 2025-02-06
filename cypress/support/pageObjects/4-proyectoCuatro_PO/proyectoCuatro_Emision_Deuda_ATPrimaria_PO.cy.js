@@ -49,7 +49,7 @@ class ProyectoCuatro_Emision_Deuda_ATPrimaria_Po {
     cy.iframe().find('#vFILTROGENERAL').type(objeto);
     cy.iframe().find('#BUSCAR').should("be.visible").click({ force: true });
 
-    cy.iframe().xpath("(//a[contains(.,'Consultar')])[1]").invoke('show').click({ force: true });
+    cy.iframe().xpath("(//a[contains(.,'Consultar')])[2]").invoke('show').click({ force: true });
     cy.wait(5000);
 
     cy.iframe().find('#Tab_TABS_TABSCONTROLContainerpanel1').invoke('show').click({ force: true });

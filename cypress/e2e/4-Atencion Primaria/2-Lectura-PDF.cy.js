@@ -29,11 +29,11 @@ describe('Test de extracción de texto de PDF', () => {
             // Validaciones con texto normalizado
             expect(normalizedText).to.include('Usuario: dsimoncini');
             //expect(normalizedText).to.include(`${formattedDate}`);
-            expect(normalizedText).to.include('CARRION MICAELA DANIELA');
+            expect(normalizedText).to.include('VARELA ERICA CECILIA');
             expect(normalizedText).to.include('MUNICIPALIDAD DE GODOY CRUZ');
             //expect(normalizedText).to.include(`${formattedDate}`);
             expect(normalizedText).to.include('Comprobante');
-            expect(normalizedText).to.include('COMERCIO');
+            expect(normalizedText).to.include('INMUEBLE');
             expect(normalizedText).to.include('TOTAL');
             expect(normalizedText).to.include('CIUDAD');
             expect(normalizedText).to.include('Rentas');
