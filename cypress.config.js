@@ -6,6 +6,7 @@ const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 const extract = require('extract-zip');
 const unzipper = require('unzipper');
 const path = require('path'); // Se agrega para manejar rutas absolutas
+const { convertPdfToJpg } = require('./cypress/support/pdfToJpg');
 
 module.exports = defineConfig({
   reporter: 'mocha-allure-reporter',
@@ -47,6 +48,11 @@ module.exports = defineConfig({
         fileExists(filePath) {
           return fs.existsSync(filePath);
         },
+
+        convertPdfToJpg({ pdfPath, outputDir }) {
+          return convertPdfToJpg(pdfPath, outputDir);
+        },
+        
         parsePdf({ filePath }) {
           const dataBuffer = fs.readFileSync(filePath);
           return pdfParse(dataBuffer).then(data => {

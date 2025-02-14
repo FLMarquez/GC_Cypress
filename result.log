@@ -1,0 +1,65 @@
+
+
+DevTools listening on ws://127.0.0.1:56931/devtools/browser/ee8e4bb5-d16a-4c70-8c12-9a89bffd6e98
+Warning: We failed to remove old browser profiles from previous runs.
+
+This error will not affect or change the exit code.
+
+Error: EBUSY: resource busy or locked, unlink 'C:\Users\Lmarquez\AppData\Roaming\Cypress\cy\production\browsers\firefox-stable\run-28232\rust_mozprofileRhZY4E\cert9.db'
+
+====================================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        13.17.0                                                                        │
+  │ Browser:        Chrome 128                                                                     │
+  │ Node Version:   v22.9.0 (C:\Program Files\nodejs\node.exe)                                     │
+  │ Specs:          1 found (4-Verificar_Imagen.cy.js)                                             │
+  │ Searched:       C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress\e2e\4-Atencion Primaria\4-V │
+  │                 erificar_Imagen.cy.js                                                          │
+  │ Experiments:    experimentalMemoryManagement=true                                              │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  4-Verificar_Imagen.cy.js                                                        (1 of 1)
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        1                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  1                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     1 second                                                                         │
+  │ Spec Ran:     4-Verificar_Imagen.cy.js                                                         │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress\snapshots\4-Verificar_Imagen.    (1063x1816)
+     cy.js\Imagen_Original1.jpg.snap.png                                                            
+
+
+  (Video)
+
+  -  Video output: C:\Users\Lmarquez\Desktop\GodoyCuz_Cypress\cypress\videos\4-Verificar_Imagen.cy.js.mp4
+
+
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ √  4-Verificar_Imagen.cy.js                 00:01        1        1        -        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    √  All specs passed!                        00:01        1        1        -        -        -  
+
