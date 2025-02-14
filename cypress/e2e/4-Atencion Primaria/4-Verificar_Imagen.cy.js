@@ -9,7 +9,7 @@ describe('Comparación de Imágenes Descargadas', () => {
     cy.viewport(1824, 1019);
 
     const downloadedImages = [
-      { downloaded: 'aadeudacontadosellados2_impl_page-0001.jpg', original: 'Imagen_Original1.jpg' },
+      { downloaded: 'aadeudacontadosellados2_impl-1.jpg', original: 'Imagen_Original1.jpg' },
     ];
 
     downloadedImages.forEach(({ downloaded, original }) => {
