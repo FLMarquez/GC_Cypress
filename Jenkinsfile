@@ -6,6 +6,12 @@ pipeline {
     }
 
     stages {
+         stage('Instalar Dependencias') {
+            steps {
+                sh 'npm install'
+            }
+        }
+
         stage('Run PDF.bat') {
             steps {
                 script {
