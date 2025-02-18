@@ -21,7 +21,7 @@
     "cypress-downloadfile": "^1.2.4",
     "cypress-file-upload": "^5.0.8",
     "cypress-iframe": "^1.0.1",
-    "cypress-image-snapshot": "^4.0.1",
+    "cypress-image-snapshot": "^3.1.2",
     "cypress-markdown-preprocessor": "^1.10.13",
     "cypress-multi-reporters": "^1.6.4",
     "cypress-wait-until": "^3.0.2",

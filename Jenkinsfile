@@ -8,7 +8,7 @@ pipeline {
     stages {
          stage('Instalar Dependencias') {
             steps {
-                 bat 'npm install --save-dev cypress-image-snapshot'
+                 bat 'npm install --legacy-peer-deps'
             }
         }
 
