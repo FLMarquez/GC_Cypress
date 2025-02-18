@@ -18,7 +18,7 @@ pipeline {
         stage('Cypress Parallel Test Suite') {
             parallel {
                 stage('Slave 1') {
-                    agent { label "Agent2_1" }
+                    agent { label "Agent3_1" }
                     steps {
                         script {
                             runCypressTests('allure-results-1')
@@ -26,7 +26,7 @@ pipeline {
                     }
                 }
                 stage('Slave 2') {
-                    agent { label "Agent2_2" }
+                    agent { label "Agent3_2" }
                     steps {
                         script {
                             runCypressTests('allure-results-2')
@@ -34,7 +34,7 @@ pipeline {
                     }
                 }
                 stage('Slave 3') {
-                    agent { label "Agent2_3" }
+                    agent { label "Agent3_3" }
                     steps {
                         script {
                             runCypressTests('allure-results-3')
@@ -42,7 +42,7 @@ pipeline {
                     }
                 }
                 stage('Slave 4') {
-                    agent { label "Agent2_4" }
+                    agent { label "Agent3_4" }
                     steps {
                         script {
                             runCypressTests('allure-results-4')
@@ -50,7 +50,7 @@ pipeline {
                     }
                 }
                 stage('Slave 5') {
-                    agent { label "Agent2_5" }
+                    agent { label "Agent3_5" }
                     steps {
                         script {
                             runCypressTests('allure-results-5')
@@ -58,7 +58,7 @@ pipeline {
                     }
                 }
                 stage('Slave 6') {
-                    agent { label "Agent2_6" }
+                    agent { label "Agent3_6" }
                     steps {
                         script {
                             runCypressTests('allure-results-6')
@@ -66,7 +66,7 @@ pipeline {
                     }
                 }
                 stage('Slave 7') {
-                    agent { label "Agent2_7" }
+                    agent { label "Agent3_7" }
                     steps {
                         script {
                             runCypressTests('allure-results-7')
@@ -74,7 +74,7 @@ pipeline {
                     }
                 }
                 stage('Slave 8') {
-                    agent { label "Agent2_8" }
+                    agent { label "Agent3_8" }
                     steps {
                         script {
                             runCypressTests('allure-results-8')
