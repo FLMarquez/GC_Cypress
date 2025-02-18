@@ -6,11 +6,11 @@ pipeline {
     }
 
     stages {
-         stage('Instalar Dependencias') {
-            steps {
-                 bat 'npm install --legacy-peer-deps'
-            }
-        }
+        //  stage('Instalar Dependencias') {
+        //     steps {
+        //          bat 'npm install --legacy-peer-deps'
+        //     }
+        // }
 
         stage('Run PDF.bat') {
             steps {
