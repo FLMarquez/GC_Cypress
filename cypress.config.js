@@ -44,6 +44,19 @@ module.exports = defineConfig({
 
       // Registrar las tareas
       on('task', {
+
+        renameFile({ from, to }) {
+          return new Promise((resolve, reject) => {
+            if (fs.existsSync(from)) {
+              fs.rename(from, to, (err) => {
+                if (err) reject(err);
+                else resolve(true);
+              });
+            } else {
+              resolve(false);
+        }
+      });
+    },
         downloadFile,
         fileExists(filePath) {
           return fs.existsSync(filePath);
