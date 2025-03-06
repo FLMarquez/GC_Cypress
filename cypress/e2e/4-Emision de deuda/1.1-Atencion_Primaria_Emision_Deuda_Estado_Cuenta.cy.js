@@ -24,7 +24,7 @@ describe('Atencion_Primaria_Emision_Deuda_ Estado_Cuenta', () => {
 
 it('Atencion Primaria Emision de Deuda Estado Cuenta', () => {        
     master.SeccionUno("dsimoncini","dsimoncini",100) 
-    master.SeccionDos("50350",100) 
+    master.SeccionDos("20263428340",100) 
     master.SeccionTres(100)  
        
 });

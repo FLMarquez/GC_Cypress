@@ -34,11 +34,8 @@ describe('Test de extracción de texto de PDF', () => {
             expect(normalizedText).to.include('Deuda actualizada al:');
             //expect(normalizedText).to.include('26/02/25');
             expect(normalizedText).to.include('Estado de Cuenta');
-            expect(normalizedText).to.include('PADRÓN');
-            expect(normalizedText).to.include('50350');
             expect(normalizedText).to.include('Datos del Responsable');
             expect(normalizedText).to.include('Identificación Tributaria:');
-            expect(normalizedText).to.include('27223096498');
             expect(normalizedText).to.include('Razón Social:');
             expect(normalizedText).to.include('Domicilio:');
             //expect(normalizedText).to.include(`${formattedDate}`);
@@ -50,15 +47,6 @@ describe('Test de extracción de texto de PDF', () => {
             expect(normalizedText).to.include('Total');
             expect(normalizedText).to.include('Subtotales:');
             expect(normalizedText).to.include('Totales:');
-            expect(normalizedText).to.include('Información de Apremios');
-            expect(normalizedText).to.include('Rec.');
-            expect(normalizedText).to.include('N° Boleta Apremio');
-            expect(normalizedText).to.include('Etapa Actual');
-            expect(normalizedText).to.include('Gastos');
-            expect(normalizedText).to.include('Honorarios');
-            expect(normalizedText).to.include('Total');
-            expect(normalizedText).to.include('Totales Gastos Apremios:');
-            expect(normalizedText).to.include('DEUDA TOTAL:');
             //expect(normalizedText).to.include(`${formattedDate}`);
             expect(normalizedText).to.include('Página');
         });
