@@ -24,7 +24,7 @@ describe('Atencion_Primaria_Emision_Deuda_ACTA', () => {
 
 it('Atencion Primaria Emision de Deuda ACTA', () => {        
     master.SeccionUno("dsimoncini","dsimoncini",100) 
-    master.SeccionDos("A110865/2",100) 
+    master.SeccionDos("A100770/1",100) 
     master.SeccionTres(100)  
        
 });
