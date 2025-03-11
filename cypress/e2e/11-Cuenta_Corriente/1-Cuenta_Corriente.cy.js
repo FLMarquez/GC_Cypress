@@ -1,7 +1,7 @@
 //Ientificacion Tirbutaria: 20263428340
 //Objeto: 50350
 
-import ProyectoNueve_Cuenta_Corriente_Po from '../../support/pageObjects/11-proyectoNueve_PO/proyectoNueve_Cuenta_Corriente_PO.cy'
+import ProyectoOnce_Cuenta_Corriente_Po from '../../support/pageObjects/11-proyectoOnce_PO/proyectoOnce_Cuenta_Corriente_PO.cy'
 
 /// <reference types='cypress' />
 require('cypress-xpath')
@@ -9,7 +9,7 @@ require('cypress-xpath')
 
 describe('Cuenta_Corriente', () => {
 
-    const master=new ProyectoNueve_Cuenta_Corriente_Po()
+    const master=new ProyectoOnce_Cuenta_Corriente_Po()
     
     master.visitHome()
 

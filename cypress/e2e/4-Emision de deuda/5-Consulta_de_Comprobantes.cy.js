@@ -24,7 +24,7 @@ describe('Consulta de Comprobantes', () => {
 
 it('Consulta de Comprobantes', () => {        
     master.SeccionUno("dsimoncini","dsimoncini",100) 
-    master.SeccionDos("01022025","21022025","2515079046","20109896366","INMUEBLES","12714","81.883,04","2025","1","10032025","19032025",100) 
+    master.SeccionDos("12714",100) 
     master.SeccionTres(100)  
     master.SeccionCuatro(100)
        
